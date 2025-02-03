@@ -25,72 +25,54 @@ Para obtener datos similares a búsquedas anteriores en función de etiquetas co
 
 Este enfoque garantiza que los resultados estén directamente relacionados con las búsquedas previas, mejorando la precisión y utilidad de la información recuperada.
 
-# Tipos de usuarios 
-La aplicación web deberá considerar tres tipos de usuarios:
-   - **1. Usuario Anónimo**
-Descripción: Es un usuario que accede a la plataforma sin registrarse ni iniciar sesión.
+## **Permisos de los Usuarios**
 
-Permisos:
+En una plataforma tipo **TripAdvisor**, los permisos de los usuarios se dividen en tres categorías principales: **Usuario Anónimo**, **Usuario Registrado** y **Usuario Administrador**. A continuación, se describen los permisos de cada uno:
 
--Puede buscar y visualizar alojamientos, restaurantes y actividades.
+---
 
--Puede leer reseñas y opiniones de otros usuarios.
+### **1. Usuario Anónimo**  
+- **Descripción:** Es un usuario que accede a la plataforma sin registrarse ni iniciar sesión.  
+- **Permisos:**  
+  - Puede buscar y visualizar alojamientos, restaurantes y actividades.  
+  - Puede leer reseñas y opiniones de otros usuarios.  
+  - No puede realizar reservas ni escribir reseñas.  
+  - No tiene acceso a funciones personalizadas, como guardar favoritos o recibir confirmaciones por correo.  
+- **Entidades que posee:** Ninguna. No tiene datos asociados en la base de datos, salvo cookies de sesión temporal.  
 
--No puede realizar reservas ni escribir reseñas.
+---
 
--No tiene acceso a funciones personalizadas, como guardar favoritos o recibir confirmaciones por correo.
+### **2. Usuario Registrado**  
+- **Descripción:** Es un usuario que se ha registrado en la plataforma e inicia sesión con sus credenciales.  
+- **Permisos:**  
+  - Puede buscar y visualizar alojamientos, restaurantes y actividades.  
+  - Puede realizar reservas y recibir confirmaciones por correo electrónico.  
+  - Puede escribir y publicar reseñas sobre sus experiencias.  
+  - Puede guardar alojamientos o actividades en una lista de favoritos.  
+  - Puede recibir recomendaciones personalizadas basadas en sus búsquedas y reservas anteriores.  
+  - Puede modificar o cancelar reservas (dentro de los plazos permitidos).  
+- **Entidades que posee:**  
+  - Datos personales (nombre, correo electrónico, contraseña, etc.).  
+  - Historial de reservas.  
+  - Lista de favoritos.  
+  - Reseñas publicadas.  
 
--Entidades que posee: Ninguna. No tiene datos asociados en la base de datos, salvo cookies de sesión temporal.
+---
 
+### **3. Usuario Administrador**  
+- **Descripción:** Es un usuario con privilegios elevados, encargado de gestionar y mantener la plataforma.  
+- **Permisos:**  
+  - Puede habilitar o deshabilitar alojamientos, restaurantes y actividades en la plataforma.  
+  - Puede moderar reseñas y eliminar contenido inapropiado.  
+  - Puede acceder a estadísticas y reportes de uso de la plataforma.  
+  - Puede gestionar usuarios (bloquear, eliminar o cambiar roles).  
+  - Puede configurar y actualizar las categorías, etiquetas y filtros de búsqueda.  
+  - Puede enviar notificaciones masivas a los usuarios registrados.  
+- **Entidades que posee:**  
+  - Acceso completo a la base de datos.  
+  - Control sobre todas las entidades de la plataforma (alojamientos, reseñas, usuarios, etc.).  
 
-   - **2. Usuario Registrado**
-Descripción: Es un usuario que se ha registrado en la plataforma e inicia sesión con sus credenciales.
-
-Permisos:
-
--Puede buscar y visualizar alojamientos, restaurantes y actividades.
-
--Puede realizar reservas y recibir confirmaciones por correo electrónico.
-
--Puede escribir y publicar reseñas sobre sus experiencias.
-
--Puede guardar alojamientos o actividades en una lista de favoritos.
-
--Puede recibir recomendaciones personalizadas basadas en sus búsquedas y reservas anteriores.
-
--Puede modificar o cancelar reservas (dentro de los plazos permitidos).
-
-Entidades que posee:
-
--Datos personales (nombre, correo electrónico, contraseña, etc.).
-
--Historial de reservas.
-
--Lista de favoritos.
-
--Reseñas publicadas.
-   - **3. Usuario administrador:**
-Descripción: Es un usuario con privilegios elevados, encargado de gestionar y mantener la plataforma.
-
-Permisos:
-
--Puede habilitar o deshabilitar alojamientos, restaurantes y actividades en la plataforma.
-
--Puede moderar reseñas y eliminar contenido inapropiado.
-
--Puede acceder a estadísticas y reportes de uso de la plataforma.
-
--Puede gestionar usuarios (bloquear, eliminar o cambiar roles).
-
--Puede configurar y actualizar las categorías, etiquetas y filtros de búsqueda.
-
--Puede enviar notificaciones masivas a los usuarios registrados.
-
-Entidades que posee:
-
--Acceso completo a la base de datos.
-
--Control sobre todas las entidades de la plataforma (alojamientos, reseñas, usuarios, etc.).
+---
 
 # Tecnologías Complementarias
 
