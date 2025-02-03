@@ -1,11 +1,11 @@
 # TriPPins
 
 # Miembros del grupo
-- Sergio Villagarcía Sánchez. mailto:s.villagarcia.2019@alumnos.urjc.es .Sergio-1502
-- Guillermo Blázquez Barbacid. mailto:g.blazquez.2019@alumnos.urjc.es  .Blazk0o
-- Juan Antonio Alcalde Yuste. mailto:ja.alcalde.2021@alumnos.urjc.es .Jantoniio3
-- Steven Adrados Khunliang. mailto:s.adrados.2020@alumnos.urjc.es  .Jadrados
-- Rubén Alcojor Patilla. mailto:r.alcojor.2022@alumnos.urjc.es  .rualpa2004
+- Sergio Villagarcía Sánchez |  mailto:s.villagarcia.2019@alumnos.urjc.es | Sergio-1502
+- Guillermo Blázquez Barbacid |  mailto:g.blazquez.2019@alumnos.urjc.es  | Blazk0o
+- Juan Antonio Alcalde Yuste |  mailto:ja.alcalde.2021@alumnos.urjc.es | Jantoniio3
+- Steven Adrados Khunliang |  mailto:s.adrados.2020@alumnos.urjc.es  | Jadrados
+- Rubén Alcojor Patilla |  mailto:r.alcojor.2022@alumnos.urjc.es  | rualpa2004
 
 # Algoritmo
 
