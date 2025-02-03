@@ -95,3 +95,14 @@ Para mejorar la experiencia del cliente, implementaremos un **sistema automatiza
 
 Este sistema complementario no solo mejorará la comunicación con los clientes, sino que también aumentará la satisfacción y confianza en los servicios ofrecidos a través de la página.
 
+# Imágenes
+
+Las imágenes son un componente esencial en nuestra plataforma, ya que permiten a los usuarios visualizar y comprender mejor los servicios ofrecidos. A continuación, se detallan las entidades que pueden incluir imágenes, junto con su propósito específico:
+
+1. **Perfil**:  
+   - **Requerimiento**: Cada perfil de usuario debe incluir una imagen.  
+   - **Propósito**: La imagen de perfil ayuda a personalizar la experiencia del usuario, facilitando la identificación y generando confianza en las interacciones dentro de la plataforma.
+
+2. **Alojamiento (Post)**:  
+   - **Requerimiento**: Cada publicación de alojamiento debe incluir imágenes.  
+   - **Propósito**: Las imágenes muestran los interiores, exteriores y detalles generales del alojamiento, permitiendo a los usuarios evaluar visualmente la estancia antes de realizar una reserva. Esto mejora la transparencia y la toma de decisiones.
