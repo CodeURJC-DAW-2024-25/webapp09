@@ -24,3 +24,10 @@ Para obtener datos similares a búsquedas anteriores en función de etiquetas co
    Finalmente, se devolverán los datos similares a las búsquedas anteriores, priorizando aquellos con mayor coincidencia de etiquetas.
 
 Este enfoque garantiza que los resultados estén directamente relacionados con las búsquedas previas, mejorando la precisión y utilidad de la información recuperada.
+
+**• Tipos de usuarios**: La aplicación web deberá considerar tres tipos de usuarios:
+   ◦ Usuario anónimo: Dicho del usuario que inicia la pagina web sin realizar el registro, por lo tanto no podria reservar ningun alojamiento.
+   ◦ Usuario registrado: Tipo de usuario que al iniciar sesion con sus credenciales podria buscar alojamientos, reservar en los mismos y recibir confirmaciones por correo.
+   ◦ Usuario administrador: Tipo de usuario que inicia sesion con credenciales de administrador, encargado del funcionamiento de la web, este debe habilitar alojamientos.
+
+
