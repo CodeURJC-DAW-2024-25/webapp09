@@ -25,11 +25,11 @@ Para obtener datos similares a búsquedas anteriores en función de etiquetas co
 
 Este enfoque garantiza que los resultados estén directamente relacionados con las búsquedas previas, mejorando la precisión y utilidad de la información recuperada.
 
-## **Permisos de los Usuarios**
+# Permisos de los Usuarios
 
 En una plataforma tipo **TripAdvisor**, los permisos de los usuarios se dividen en tres categorías principales: **Usuario Anónimo**, **Usuario Registrado** y **Usuario Administrador**. A continuación, se describen los permisos de cada uno:
 
----
+
 
 ### **1. Usuario Anónimo**  
 - **Descripción:** Es un usuario que accede a la plataforma sin registrarse ni iniciar sesión.  
@@ -40,7 +40,7 @@ En una plataforma tipo **TripAdvisor**, los permisos de los usuarios se dividen 
   - No tiene acceso a funciones personalizadas, como guardar favoritos o recibir confirmaciones por correo.  
 - **Entidades que posee:** Ninguna. No tiene datos asociados en la base de datos, salvo cookies de sesión temporal.  
 
----
+
 
 ### **2. Usuario Registrado**  
 - **Descripción:** Es un usuario que se ha registrado en la plataforma e inicia sesión con sus credenciales.  
@@ -57,7 +57,7 @@ En una plataforma tipo **TripAdvisor**, los permisos de los usuarios se dividen 
   - Lista de favoritos.  
   - Reseñas publicadas.  
 
----
+
 
 ### **3. Usuario Administrador**  
 - **Descripción:** Es un usuario con privilegios elevados, encargado de gestionar y mantener la plataforma.  
@@ -72,7 +72,7 @@ En una plataforma tipo **TripAdvisor**, los permisos de los usuarios se dividen 
   - Acceso completo a la base de datos.  
   - Control sobre todas las entidades de la plataforma (alojamientos, reseñas, usuarios, etc.).  
 
----
+
 
 # Tecnologías Complementarias
 
