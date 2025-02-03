@@ -28,7 +28,7 @@ Este enfoque garantiza que los resultados estén directamente relacionados con l
 # Tipos de usuarios 
 La aplicación web deberá considerar tres tipos de usuarios:
    - **1. Usuario Anónimo**
--Descripción: Es un usuario que accede a la plataforma sin registrarse ni iniciar sesión.
+Descripción: Es un usuario que accede a la plataforma sin registrarse ni iniciar sesión.
 
 Permisos:
 
@@ -43,10 +43,10 @@ Permisos:
 -Entidades que posee: Ninguna. No tiene datos asociados en la base de datos, salvo cookies de sesión temporal.
 
 
-   -** 2. Usuario Registrado**
--Descripción: Es un usuario que se ha registrado en la plataforma e inicia sesión con sus credenciales.
+   - **2. Usuario Registrado**
+Descripción: Es un usuario que se ha registrado en la plataforma e inicia sesión con sus credenciales.
 
--Permisos:
+Permisos:
 
 -Puede buscar y visualizar alojamientos, restaurantes y actividades.
 
@@ -70,7 +70,7 @@ Entidades que posee:
 
 -Reseñas publicadas.
    - **3. Usuario administrador:**
-   - Descripción: Es un usuario con privilegios elevados, encargado de gestionar y mantener la plataforma.
+Descripción: Es un usuario con privilegios elevados, encargado de gestionar y mantener la plataforma.
 
 Permisos:
 
