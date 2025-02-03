@@ -1,4 +1,4 @@
-# tRIpPiNs
+# TriPPins
 
 # Miembros del grupo
 - Sergio Villagarcía Sánchez
