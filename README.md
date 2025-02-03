@@ -6,6 +6,8 @@
 - Juan Antonio Alcalde Yuste |  mailto:ja.alcalde.2021@alumnos.urjc.es | Jantoniio3
 - Steven Adrados Khunliang |  mailto:s.adrados.2020@alumnos.urjc.es  | Jadrados
 - Rubén Alcojor Patilla |  mailto:r.alcojor.2022@alumnos.urjc.es  | rualpa2004
+#Modelo ER
+![image](https://github.com/user-attachments/assets/ca00a60e-88c0-4de9-9e96-51ff54eaa894)
 
 # Algoritmo
 
