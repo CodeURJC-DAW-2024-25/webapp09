@@ -7,7 +7,8 @@
 - Steven Adrados Khunliang |  mailto:s.adrados.2020@alumnos.urjc.es  | Jadrados
 - Rubén Alcojor Patilla |  mailto:r.alcojor.2022@alumnos.urjc.es  | rualpa2004
 # Modelo ER
-![image](https://github.com/user-attachments/assets/ca00a60e-88c0-4de9-9e96-51ff54eaa894)
+![Imagen de WhatsApp 2025-02-04 a las 10 42 51_18d7be67](https://github.com/user-attachments/assets/43e81d6f-18ae-4db7-b5e0-c60fcb67fd40)
+
 
 # Algoritmo
 
