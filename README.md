@@ -56,7 +56,8 @@ En una plataforma tipo reservas de alojamientos, los permisos de los usuarios se
   - Puede modificar o cancelar reservas (dentro de los plazos permitidos).  
 - **Entidades que posee:**  
   - Datos personales (nombre, correo electrónico, contraseña, etc.). 
-  - Reseñas publicadas.  
+  - Reseñas publicadas.
+  - Historial de reservas.
 
 
 
@@ -68,7 +69,8 @@ En una plataforma tipo reservas de alojamientos, los permisos de los usuarios se
   - Puede acceder a estadísticas y reportes de uso de la plataforma.  
   - Puede gestionar usuarios (bloquear, eliminar o cambiar roles).  
   - Puede configurar y actualizar las categorías, etiquetas y filtros de búsqueda.  
-  - Puede enviar notificaciones masivas a los usuarios registrados.  
+  - Puede enviar notificaciones masivas a los usuarios registrados.
+  - Puede gestionar las peticiones de reserva de los usuarios registrados.
 - **Entidades que posee:**  
   - Control sobre todas las entidades de la plataforma (alojamientos, reseñas, usuarios, etc.).  
 
