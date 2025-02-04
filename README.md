@@ -29,18 +29,19 @@ Este enfoque garantiza que los resultados estén directamente relacionados con l
 
 # Permisos de los Usuarios
 
-En una plataforma tipo **TripAdvisor**, los permisos de los usuarios se dividen en tres categorías principales: **Usuario Anónimo**, **Usuario Registrado** y **Usuario Administrador**. A continuación, se describen los permisos de cada uno:
+En una plataforma tipo reservas de alojamientos, los permisos de los usuarios se dividen en tres categorías principales: **Usuario Anónimo**, **Usuario Registrado** y **Usuario Administrador**. A continuación, se describen los permisos de cada uno:
 
 
 
 ### **1. Usuario Anónimo**  
 - **Descripción:** Es un usuario que accede a la plataforma sin registrarse ni iniciar sesión.  
 - **Permisos:**  
-  - Puede buscar y visualizar alojamientos, restaurantes y actividades.  
+  - Puede buscar y visualizar alojamientos.  
   - Puede leer reseñas y opiniones de otros usuarios.  
   - No puede realizar reservas ni escribir reseñas.  
   - No tiene acceso a funciones personalizadas, como guardar favoritos o recibir confirmaciones por correo.  
-- **Entidades que posee:** Ninguna. No tiene datos asociados en la base de datos, salvo cookies de sesión temporal.  
+- **Entidades que posee:** Ninguna. 
+
 
 
 
@@ -54,9 +55,7 @@ En una plataforma tipo **TripAdvisor**, los permisos de los usuarios se dividen 
   - Puede recibir recomendaciones personalizadas basadas en sus búsquedas y reservas anteriores.  
   - Puede modificar o cancelar reservas (dentro de los plazos permitidos).  
 - **Entidades que posee:**  
-  - Datos personales (nombre, correo electrónico, contraseña, etc.).  
-  - Historial de reservas.  
-  - Lista de favoritos.  
+  - Datos personales (nombre, correo electrónico, contraseña, etc.). 
   - Reseñas publicadas.  
 
 
@@ -71,7 +70,6 @@ En una plataforma tipo **TripAdvisor**, los permisos de los usuarios se dividen 
   - Puede configurar y actualizar las categorías, etiquetas y filtros de búsqueda.  
   - Puede enviar notificaciones masivas a los usuarios registrados.  
 - **Entidades que posee:**  
-  - Acceso completo a la base de datos.  
   - Control sobre todas las entidades de la plataforma (alojamientos, reseñas, usuarios, etc.).  
 
 
