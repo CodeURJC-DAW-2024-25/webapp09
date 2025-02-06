@@ -107,3 +107,26 @@
     
 })(jQuery);
 
+function checkMatch() {
+    let password = document.getElementById("Password").value;
+    let confirmPassword = document.getElementById("Password2").value;
+    let errorMessage = document.getElementById("error-message");
+
+    if (password !== confirmPassword) {
+        errorMessage.textContent = "Las contraseñas no coinciden.";
+    } else {
+        errorMessage.textContent = ""; // Borra el mensaje si coinciden
+    }
+}
+
+function validatePasswords() {
+    let password = document.getElementById("Password").value;
+    let confirmPassword = document.getElementById("Password2").value;
+
+    if (password !== confirmPassword) {
+        alert("Las contraseñas no coinciden.");
+        return false; // Evita que el formulario se envíe
+    }
+    return true; // Permite el envío si coinciden
+}
+
