@@ -119,14 +119,46 @@ function checkMatch() {
     }
 }
 
-function validatePasswords() {
-    let password = document.getElementById("Password").value;
-    let confirmPassword = document.getElementById("Password2").value;
 
-    if (password !== confirmPassword) {
+function validateForm() {
+    let password = document.getElementById("Password").value.trim();
+    let confirmPassword = document.getElementById("Password2").value.trim();
+    let phone = document.getElementById("Phone_Number").value;
+    let user= document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let id=document.getElementById("USER_ID").value;
+
+    if (password !== confirmPassword ) {
         alert("Las contraseñas no coinciden.");
         return false; // Evita que el formulario se envíe
     }
+
+
+    if (user.length<=0){
+        alert("El nombre es obligatorio.");
+        return false;
+    }
+
+    
+    if (email.length<=0){
+        alert("Debes incluir una direccion de correo electronico.");
+        return false;
+    }
+    
+    
+    if (id.length<=0){
+        alert("Debes incluir tu DNI.");
+        return false;
+    }
+
+    if ((phone.length)!==9){
+        alert("El número de teléfono debe tener 9 dígitos."); 
+        return false;}
+    
+    if (password.length<=0){
+        alert("La contraseña no puede estar vacía.");
+    }
+    
     return true; // Permite el envío si coinciden
 }
 
