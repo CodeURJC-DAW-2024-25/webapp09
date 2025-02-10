@@ -123,3 +123,6 @@ Los gráficos son una herramienta visual clave para mejorar la experiencia del u
    - **Descripción**: Este gráfico actuará como un selector de precios, mostrando los precios medios de las estancias disponibles en función de los criterios de búsqueda.  
    - **Uso**: Los usuarios podrán ajustar su búsqueda seleccionando un rango de precios, lo que facilitará la identificación de opciones que se ajusten a su presupuesto.  
    - **Formato**: Gráfico de rango (slider) o histograma para visualizar la distribución de precios.
+
+# Diagrama de flujo
+![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Diagrama%20de%20flujo.png?raw=true)
