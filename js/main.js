@@ -151,7 +151,7 @@ function validateForm() {
         return false;
     }
 
-    if ((phone.length)!==9){
+    if (phone.length!==9){
         alert("El número de teléfono debe tener 9 dígitos."); 
         return false;}
     
