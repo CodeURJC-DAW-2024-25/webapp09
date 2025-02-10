@@ -1,3 +1,7 @@
+
+
+//esto es de la plantilla
+
 (function ($) {
     "use strict";
 
@@ -107,17 +111,7 @@
     
 })(jQuery);
 
-function checkMatch() {
-    let password = document.getElementById("Password").value;
-    let confirmPassword = document.getElementById("Password2").value;
-    let errorMessage = document.getElementById("error-message");
-
-    if (password !== confirmPassword) {
-        errorMessage.textContent = "Las contraseñas no coinciden.";
-    } else {
-        errorMessage.textContent = ""; // Borra el mensaje si coinciden
-    }
-}
+//plantilla hasta aqui
 
 
 function validateForm() {
@@ -161,4 +155,3 @@ function validateForm() {
     
     return true; // Permite el envío si coinciden
 }
-
