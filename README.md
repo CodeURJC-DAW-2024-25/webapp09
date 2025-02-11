@@ -124,5 +124,63 @@ Los gráficos son una herramienta visual clave para mejorar la experiencia del u
    - **Uso**: Los usuarios podrán ajustar su búsqueda seleccionando un rango de precios, lo que facilitará la identificación de opciones que se ajusten a su presupuesto.  
    - **Formato**: Gráfico de rango (slider) o histograma para visualizar la distribución de precios.
 
+# Pantallas
+
+1. **Pantalla inicial**
+   
+   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Principal.png?raw=true)
+
+   Es la pantalla inicial de nuestra aplicación. Desde ella se inicia la navegación.
+   
+2. **Inicio de sesión**
+
+   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Inicio%20Sesi%C3%B3n.png?raw=true)
+
+   Esta pantalla sirve para iniciar sesión mediante tu nombre de usuario y tu contraseña en la cuenta que tengas creada.
+   
+3. **Crear cuenta**
+
+   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Crear%20cuenta.png?raw=true)
+
+   Esta pantalla corresponde a la creación de una cuenta, donde tienes que introducir datos como usuario, contraseña, correo, DNI, etc.
+   
+4. **Equipo**
+
+   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Equipo.png?raw=true)
+
+   En esta pantalla aparecen los nombres del equipo de desarrollo de la web.
+   
+5. **Contacto**
+
+   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Contacto.png?raw=true)
+
+   Pantalla que sirve para poder ponerse en contacto con los miembros del equipo de desarrollo para cualquier tipo de gestión.
+   
+6. **Habitaciones**
+
+   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Habitaciones.png?raw=true)
+   
+   Pantalla donde se pueden ver las habitaciones disponibles en la página para reservar.
+   
+7. **Reservas**
+   
+   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Reservas.png?raw=true)
+   
+   En esta pantalla se realizan las reservas de la habitación que se desee.
+   Hay que introducir datos como el número y tipo de personas que van a ir (Adultos o niños) y las fechas de entrada y salida.
+   
+8. **Reseñas**
+   
+   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Rese%C3%B1as.png?raw=true)
+   
+   En esta pantalla se muestran reseñas acerca de las habitaciones realizadas por antiguos clientes.
+   
+9. **Administración**
+   
+   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Admin.png?raw=true)
+   
+   Esta pantalla está únicamente disponible para los usuarios que administren la página.
+   En ella estarán mensajes con la información de las solicitudes de reserva y serán los administradores los que acepten o rechacen las mismas.
+
 # Diagrama de flujo
 ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Diagrama%20de%20flujo.png?raw=true)
