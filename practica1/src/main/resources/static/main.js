@@ -162,26 +162,28 @@ function toggleEditMode() {
     const form = document.getElementById("profileForm");
     const editButton = document.getElementById("editButton");
     const saveButton = document.getElementById("saveButton");
-    const profileSection = document.querySelector(".profile-section"); // Asegúrate de que la sección de perfil tenga esta clase
+   
 
     // Obtener todos los inputs dentro del formulario
     const inputs = form.querySelectorAll("input");
 
     if (editButton.classList.contains("d-none")) {
-        // Modo de guardar: Deshabilitar inputs
+        // Entrando en guardar: Deshabilitar inputs
         inputs.forEach(input => input.setAttribute("disabled", true));
+
         editButton.classList.remove("d-none");
         saveButton.classList.add("d-none");
-        profileSection.classList.remove("hidden");
-
+        
+        
         alert("Cambios guardados correctamente");
     } else {
-        // Modo de edición: Habilitar inputs
+        // Entrando en  edición: Habilitar inputs
         inputs.forEach(input => input.removeAttribute("disabled"));
         editButton.classList.add("d-none");
         saveButton.classList.remove("d-none");
-        profileSection.classList.add("hidden");
+        
     }
+
 }
 
 // Esperar a que el DOM cargue
