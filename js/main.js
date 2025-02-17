@@ -168,15 +168,16 @@ function toggleEditMode() {
     const inputs = form.querySelectorAll("input");
 
     if (editButton.classList.contains("d-none")) {
-        // Modo de guardar: Deshabilitar inputs
+        // Entrando en guardar: Deshabilitar inputs
         inputs.forEach(input => input.setAttribute("disabled", true));
+
         editButton.classList.remove("d-none");
         saveButton.classList.add("d-none");
         
-        console.log(inputs);
+        
         alert("Cambios guardados correctamente");
     } else {
-        // Modo de edición: Habilitar inputs
+        // Entrando en  edición: Habilitar inputs
         inputs.forEach(input => input.removeAttribute("disabled"));
         editButton.classList.add("d-none");
         saveButton.classList.remove("d-none");
