@@ -159,10 +159,11 @@ function validateForm() {
 
 
 function toggleEditMode() {
+    console.log("cosas")
     const form = document.getElementById("profileForm");
     const editButton = document.getElementById("editButton");
     const saveButton = document.getElementById("saveButton");
-   
+
 
     // Obtener todos los inputs dentro del formulario
     const inputs = form.querySelectorAll("input");
