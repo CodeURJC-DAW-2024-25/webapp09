@@ -9,12 +9,19 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int dni;
 
+    @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
+
+    @Column(name = "numero", nullable = false, unique = true, length = 9)
     private int numero;
+
+    @Column(name = "contrasenia", nullable = false, length = 20)
     private String constraseña;
+
+    @Column(name = "correo", nullable = false, unique = true, length = 40)
     private String correo;
 
-    protected int AID;
+    protected boolean admin;
 
     public Usuario(int dni, String nombre, int numero, String constraseña, String correo) {
         this.dni = dni;
