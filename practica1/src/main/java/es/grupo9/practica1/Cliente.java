@@ -1,7 +1,8 @@
 package es.grupo9.practica1;
 
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 @Entity
 public class Cliente extends Usuario {
 
