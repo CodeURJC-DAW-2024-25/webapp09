@@ -1,3 +1,4 @@
+package es.grupo9.practica1;
 
 
 import jakarta.persistence.*;
@@ -6,22 +7,22 @@ import java.util.List;
 @Entity
 public class Alojamiento {
     @Id
-    private String codigo;
+    private int codigo;
     private String ubicacion;
     private String nombre;
     private String imagen;
 
-    public alojamiento(String codigo, String ubicacion, String nombre, String URL) {
+    public Alojamiento(int codigo, String ubicacion, String nombre, String imagen) {
         this.codigo = codigo;
         this.ubicacion = ubicacion;
         this.nombre = nombre;
         this.imagen = imagen;
     }
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
