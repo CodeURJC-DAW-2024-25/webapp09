@@ -1,6 +1,7 @@
 package es.grupo9.practica1;
 
-import javax.persistence.*;
+import java.sql.Blob;
+import jakarta.persistence.*;;
 
 @Entity
 public class Usuario {
@@ -61,5 +62,13 @@ public class Usuario {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public int getAID() {
+        return AID;
+    }
+
+    public void setAID(int AID) {
+        this.AID = AID;
     }
 }
