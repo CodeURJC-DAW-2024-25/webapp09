@@ -69,6 +69,7 @@ public class Reseña {
         }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_reservas")
     private Long idReservas;
 
