@@ -10,68 +10,67 @@ import java.util.List;
 
 
 public class Reseña {
-
-    public Reseña(int estrellas, String comentarios, String idReserva, String idHotel, String idUsuario) {
+    public Reseña(int idResenia, int estrellas, String comentarios, Reserva reserva, Alojamiento hotel, Usuario usuario) {
+        this.idResenia = idResenia;
         this.estrellas = estrellas;
         this.comentarios = comentarios;
-        this.idReserva = idReserva;
-        this.idHotel = idHotel;
-        this.idUsuario = idUsuario;
+        this.reserva = reserva;
+        this.hotel = hotel;
+        this.usuario = usuario;
     }
 
-        // Getters y Setters
-        public Long getIdReservas() {
-            return idReservas;
-        }
-    
-        public void setIdReservas(Long idReservas) {
-            this.idReservas = idReservas;
-        }
-    
-        public int getEstrellas() {
-            return estrellas;
-        }
-    
-        public void setEstrellas(int estrellas) {
-            this.estrellas = estrellas;
-        }
-    
-        public String getComentarios() {
-            return comentarios;
-        }
-    
-        public void setComentarios(String comentarios) {
-            this.comentarios = comentarios;
-        }
-    
-        public String getIdReserva() {
-            return idReserva;
-        }
-    
-        public void setIdReserva(String idReserva) {
-            this.idReserva = idReserva;
-        }
-    
-        public String getIdHotel() {
-            return idHotel;
-        }
-    
-        public void setIdHotel(String idHotel) {
-            this.idHotel = idHotel;
-        }
-    
-        public String getIdUsuario() {
-            return idUsuario;
-        }
-    
-        public void setIdUsuario(String idUsuario) {
-            this.idUsuario = idUsuario;
-        }
+    public int getIdResenia() {
+        return idResenia;
+    }
+
+    public void setIdResenia(int idResenia) {
+        this.idResenia = idResenia;
+    }
+
+    public int getEstrellas() {
+        return estrellas;
+    }
+
+    public void setEstrellas(int estrellas) {
+        this.estrellas = estrellas;
+    }
+
+    public String getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(String comentarios) {
+        this.comentarios = comentarios;
+    }
+
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
+    }
+
+    public Alojamiento getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Alojamiento hotel) {
+        this.hotel = hotel;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_reservas")
-    private Long idReservas;
+    @Column(name = "ID_resenia")
+    private int idResenia;
 
     @Column(name = "estrellas", nullable = false)
     private int estrellas;
@@ -79,12 +78,15 @@ public class Reseña {
     @Column(name = "comentarios")
     private String comentarios;
 
-    @Column(name = "ID_reserva", nullable = false)
-    private String idReserva;
+    @OneToOne
+    @JoinColumn(name = "ID_reserva", referencedColumnName = "ID_Reserva", nullable = false)
+    private Reserva reserva;
 
-    @Column(name = "ID_hotel", nullable = false)
-    private String idHotel;
+    @ManyToOne
+    @JoinColumn(name = "COD_hotel", referencedColumnName = "codigo",nullable = false)
+    private Alojamiento hotel;
 
-    @Column(name = "ID_usuario", nullable = false)
-    private String idUsuario;
+    @ManyToMany
+    @JoinColumn(name = "ID_usuario", referencedColumnName = "dni", nullable = false)
+    private Usuario usuario;
 }

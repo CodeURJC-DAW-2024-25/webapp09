@@ -8,18 +8,17 @@ public class Reserva {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID_Reserva;
 
-    private int ID_cliente;
+    @ManyToOne
+    @JoinColumn(name = "ID_Cliente", referencedColumnName = "dni", nullable = false)
+    private Cliente cliente;
 
     @ManyToOne
     @JoinColumn(name = "Cod_Hotel", referencedColumnName = "codigo", nullable = false)
     private Alojamiento alojamiento;
 
-    public Reserva() {
-    }
-
-    public Reserva(int ID_Reserva, int ID_cliente, Alojamiento alojamiento) {
+    public Reserva(int ID_Reserva, Cliente cliente, Alojamiento alojamiento) {
         this.ID_Reserva = ID_Reserva;
-        this.ID_cliente = ID_cliente;
+        this.cliente = cliente;
         this.alojamiento = alojamiento;
     }
 
@@ -31,12 +30,12 @@ public class Reserva {
         this.ID_Reserva = ID_Reserva;
     }
 
-    public int getID_cliente() {
-        return ID_cliente;
+    public Cliente getID_cliente() {
+        return this.cliente;
     }
 
-    public void setID_cliente(int ID_cliente) {
-        this.ID_cliente = ID_cliente;
+    public void setID_cliente(Cliente ID_cliente) {
+        this.cliente = ID_cliente;
     }
 
     public Alojamiento getAlojamiento() {
