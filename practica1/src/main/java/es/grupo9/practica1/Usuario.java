@@ -1,6 +1,6 @@
 package es.grupo9.practica1;
 
-import java.sql.Blob;
+//import java.sql.Blob;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,7 +16,7 @@ public class Usuario {
     private int numero;
 
     @Column(name = "contrasenia", nullable = false, length = 20)
-    private String constraseña;
+    private String contrasenia;
 
     @Column(name = "correo", nullable = false, unique = true, length = 40)
     private String correo;
@@ -24,11 +24,11 @@ public class Usuario {
     @Column(name = "admin", nullable = false)
     protected boolean admin;
 
-    public Usuario(int dni, String nombre, int numero, String constraseña, String correo) {
+    public Usuario(int dni, String nombre, int numero, String contrasenia, String correo) {
         this.dni = dni;
         this.nombre = nombre;
         this.numero = numero;
-        this.constraseña = constraseña;
+        this.contrasenia = contrasenia;
         this.correo = correo;
     }
 
@@ -56,12 +56,12 @@ public class Usuario {
         this.numero = numero;
     }
 
-    public String getConstraseña() {
-        return constraseña;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setConstraseña(String constraseña) {
-        this.constraseña = constraseña;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
     public String getCorreo() {

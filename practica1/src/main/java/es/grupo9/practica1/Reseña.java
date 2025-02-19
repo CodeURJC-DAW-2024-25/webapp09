@@ -2,7 +2,7 @@ package es.grupo9.practica1;
 
 
 import jakarta.persistence.*;
-import java.util.List;
+//import java.util.List;
 
 
 
