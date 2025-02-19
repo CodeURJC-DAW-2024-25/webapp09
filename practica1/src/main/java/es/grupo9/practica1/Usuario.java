@@ -21,6 +21,7 @@ public class Usuario {
     @Column(name = "correo", nullable = false, unique = true, length = 40)
     private String correo;
 
+    @Column(name = "admin", nullable = false)
     protected boolean admin;
 
     public Usuario(int dni, String nombre, int numero, String constraseña, String correo) {
