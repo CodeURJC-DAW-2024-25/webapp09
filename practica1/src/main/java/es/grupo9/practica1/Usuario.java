@@ -4,6 +4,7 @@ package es.grupo9.practica1;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "usuarios")
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -71,4 +72,8 @@ public class Usuario {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+    @Override
+	public String toString() {
+		return "Comment [dni=" + dni+ ", nombre=" + nombre + ", numero=" + numero + ", contrasenia=" + contrasenia + ", correo=" + correo + "]";
+	}
 }
