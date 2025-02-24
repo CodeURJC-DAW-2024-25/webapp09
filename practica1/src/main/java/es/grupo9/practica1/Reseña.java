@@ -1,22 +1,17 @@
 package es.grupo9.practica1;
 
-
 import jakarta.persistence.*;
-//import java.util.List;
-
-
+import java.util.List;
 
 @Entity
-
-
 public class Reseña {
-    public Reseña(int idResenia, int estrellas, String comentarios, Reserva reserva, Alojamiento hotel, Usuario usuario) {
+    public Reseña(int idResenia, int estrellas, String comentarios, Reserva reserva, Alojamiento hotel, List<Usuario> usuarios) {
         this.idResenia = idResenia;
         this.estrellas = estrellas;
         this.comentarios = comentarios;
         this.reserva = reserva;
         this.hotel = hotel;
-        this.usuario = usuario;
+        this.usuarios = usuarios;
     }
 
     public int getIdResenia() {
@@ -59,12 +54,12 @@ public class Reseña {
         this.hotel = hotel;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public List<Usuario> getUsuarios() {
+        return usuarios;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
     }
 
     @Id
@@ -86,7 +81,8 @@ public class Reseña {
     @JoinColumn(name = "COD_hotel", referencedColumnName = "codigo",nullable = false)
     private Alojamiento hotel;
 
-    @ManyToMany
-    @JoinColumn(name = "ID_usuario", referencedColumnName = "dni", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "ID_usuario", referencedColumnName = "dni", nullable = false))
     private Usuario usuario;
+
 }
