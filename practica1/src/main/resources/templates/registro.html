@@ -57,7 +57,7 @@
                 <div class="row justify-content-center"> <!-- Centra horizontalmente -->
                     <div class="col-lg-6"> <!-- Define el ancho del formulario -->
                         <div class="wow fadeInUp" data-wow-delay="0.2s">
-                            <form onsubmit="validateForm()">
+                            <form onsubmit="validateForm()" action="/addUser">
                                 <div class="row g-3">
                                     <div class="col-md-12">
                                         <div class="form-floating">
@@ -93,7 +93,7 @@
                                         <input type="text" class="form-control" id="Password2" placeholder="Contraseña" oninput="checkMatch()">
                                         <label for="Password2"> Repetir Contraseña</label>
                                     </div>
-                                    <p>¿Ya tienes cuenta? <a href='log in.html'>Iniciar Sesion.</a></p>
+                                    <p>¿Ya tienes cuenta? <a href='/login'>Iniciar Sesion.</a></p>
                                     <div class="col-12">
                                         <button class="btn btn-primary w-100 py-3" type="submit">Crear Cuenta</button>
                                     </div>
