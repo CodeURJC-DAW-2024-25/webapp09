@@ -8,13 +8,13 @@ import jakarta.persistence.*;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int dni;
+    private Integer dni;
 
     @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
 
     @Column(name = "numero", nullable = false, unique = true, length = 9)
-    private int numero;
+    private Integer numero;
 
     @Column(name = "contrasenia", nullable = false, length = 20)
     private String contrasenia;
@@ -25,7 +25,10 @@ public class Usuario {
     @Column(name = "admin", nullable = false)
     protected boolean admin;
 
-    public Usuario(int dni, String nombre, int numero, String contrasenia, String correo) {
+    public Usuario() {
+    }
+
+    public Usuario(Integer dni, String nombre, Integer numero, String contrasenia, String correo) {
         this.dni = dni;
         this.nombre = nombre;
         this.numero = numero;
@@ -33,11 +36,16 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public int getDni() {
+    public void setAdmin(boolean admin){
+
+        this.admin = admin;
+    }
+
+    public Integer getDni() {
         return dni;
     }
 
-    public void setDni(int dni) {
+    public void setDni(Integer dni) {
         this.dni = dni;
     }
 
@@ -49,11 +57,11 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public int getNumero() {
+    public Integer getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(Integer numero) {
         this.numero = numero;
     }
 
