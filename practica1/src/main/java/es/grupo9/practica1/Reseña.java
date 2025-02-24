@@ -82,7 +82,8 @@ public class Reseña {
     private Alojamiento hotel;
 
     @ManyToOne
-    @JoinColumn(name = "ID_usuario", referencedColumnName = "dni", nullable = false))
+    @JoinColumn(name = "ID_usuario", referencedColumnName = "dni", nullable = false)
+
     private Usuario usuario;
 
 }
