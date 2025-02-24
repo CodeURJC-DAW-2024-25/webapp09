@@ -5,13 +5,13 @@ import java.util.List;
 
 @Entity
 public class Reseña {
-    public Reseña(int idResenia, int estrellas, String comentarios, Reserva reserva, Alojamiento hotel, List<Usuario> usuarios) {
+    public Reseña(int idResenia, int estrellas, String comentarios, Reserva reserva, Alojamiento hotel, Usuario usuario) {
         this.idResenia = idResenia;
         this.estrellas = estrellas;
         this.comentarios = comentarios;
         this.reserva = reserva;
         this.hotel = hotel;
-        this.usuarios = usuarios;
+        this.usuario = usuario;
     }
 
     public int getIdResenia() {
@@ -54,12 +54,12 @@ public class Reseña {
         this.hotel = hotel;
     }
 
-    public List<Usuario> getUsuarios() {
-        return usuarios;
+    public Usuario getUsuarios() {
+        return usuario;
     }
 
-    public void setUsuarios(List<Usuario> usuarios) {
-        this.usuarios = usuarios;
+    public void setUsuarios(Usuario usuarios) {
+        this.usuario = usuario;
     }
 
     @Id
