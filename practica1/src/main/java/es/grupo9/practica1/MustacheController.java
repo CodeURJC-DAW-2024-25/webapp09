@@ -1,8 +1,11 @@
 package es.grupo9.practica1;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -69,8 +72,18 @@ public class MustacheController {
 
         return "testimonial";
     }
+
+    @Autowired
+    private UserService userService;
+
+
     @PostMapping("/addUser")
-    public User
+    public String addUser(@ModelAttribute Usuario user, Model model){
+        userService.addUser(user.getDni(), user.getNombre(), user.getNumero(), user.getContrasenia(), user.getCorreo());
+
+        return "log in";
+
+    }
 
 
 }
