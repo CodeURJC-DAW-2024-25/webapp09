@@ -86,7 +86,7 @@ public class Reseña {
     @JoinColumn(name = "COD_hotel", referencedColumnName = "codigo",nullable = false)
     private Alojamiento hotel;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "ID_usuario", referencedColumnName = "dni", nullable = false)
     private Usuario usuario;
 }
