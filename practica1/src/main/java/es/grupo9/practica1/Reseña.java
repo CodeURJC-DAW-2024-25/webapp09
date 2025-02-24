@@ -1,10 +1,19 @@
 package es.grupo9.practica1;
 
-import jakarta.persistence.*;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import java.util.List;
 
 @Entity
 public class Reseña {
+    public Reseña(){}
+
     public Reseña(int idResenia, int estrellas, String comentarios, Reserva reserva, Alojamiento hotel, Usuario usuario) {
         this.idResenia = idResenia;
         this.estrellas = estrellas;

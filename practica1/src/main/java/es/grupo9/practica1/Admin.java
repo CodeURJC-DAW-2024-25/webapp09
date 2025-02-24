@@ -5,10 +5,13 @@ import jakarta.persistence.*;
 @Entity
 public class Admin extends Usuario{
 
+    public Admin(){}
+
     public Admin(int dni, String nombre, int numero, String constraseña, String correo) {
         super(dni, nombre, numero, constraseña, correo);
         this.admin = true;
     }
-
+    
+    
 
 }

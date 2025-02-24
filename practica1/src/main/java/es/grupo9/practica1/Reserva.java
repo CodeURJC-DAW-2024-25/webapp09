@@ -1,6 +1,11 @@
 package es.grupo9.practica1;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Reserva {
@@ -15,6 +20,8 @@ public class Reserva {
     @ManyToOne
     @JoinColumn(name = "Cod_Hotel", referencedColumnName = "codigo", nullable = false)
     private Alojamiento alojamiento;
+
+    public Reserva(){}
 
     public Reserva(int ID_Reserva, Cliente cliente, Alojamiento alojamiento) {
         this.ID_Reserva = ID_Reserva;
