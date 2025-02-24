@@ -38,7 +38,7 @@ public class MustacheController {
     @GetMapping("/login")
     public String login(Model model) {
 
-        return "login";
+        return "log in";
     }
 
     // Profile page
