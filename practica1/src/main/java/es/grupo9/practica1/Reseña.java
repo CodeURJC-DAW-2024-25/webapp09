@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
-import java.util.List;
+
 
 @Entity
 public class Reseña {
@@ -67,7 +67,7 @@ public class Reseña {
         return usuario;
     }
 
-    public void setUsuarios(Usuario usuarios) {
+    public void setUsuarios(Usuario usuario) {
         this.usuario = usuario;
     }
 

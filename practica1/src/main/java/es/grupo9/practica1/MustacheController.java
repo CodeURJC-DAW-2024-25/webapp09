@@ -6,7 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
 
 @Controller
 public class MustacheController {
@@ -73,8 +75,13 @@ public class MustacheController {
         return "testimonial";
     }
 
+    
+
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private AlojamientoService alogAlojamientoService;
 
 
     @PostMapping("/addUser")
@@ -84,6 +91,16 @@ public class MustacheController {
         return "log in";
 
     }
+    
+    @PostMapping("/addHotel")
+    public String addHotel(@ModelAttribute Alojamiento alojamiento, Model model){
+        alogAlojamientoService.addHotel(alojamiento.getUbicacion(), alojamiento.getNombre(), alojamiento.getImagen());
 
+        return "index";
+    }
+    
+
+    
+    
 
 }
