@@ -52,7 +52,7 @@ public class User {
         return name;
     }
 
-    public void setNombre(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -60,7 +60,7 @@ public class User {
         return number;
     }
 
-    public void setNumero(Integer number) {
+    public void setNumber(Integer number) {
         this.number = number;
     }
 

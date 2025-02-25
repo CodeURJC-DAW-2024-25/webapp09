@@ -8,7 +8,7 @@ public class Client extends User {
 
     public Client(){}
     
-    public Client(String dni, String name, int number, String password, String email) {
+    public Client(String dni, String name, Integer number, String password, String email) {
         super(dni, name, number, password, email);
         this.admin = false;
     }

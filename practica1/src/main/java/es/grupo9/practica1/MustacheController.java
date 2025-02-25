@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 
@@ -58,7 +58,7 @@ public class MustacheController {
     @GetMapping("/register")
     public String register(Model model) {
 
-        return "register";
+        return "registro";
     }
 
     // Room page
@@ -101,7 +101,7 @@ public class MustacheController {
 
         return "log in";
 
-    }
+    }   
     
     @PostMapping("/addHotel")
     public String addHotel(@ModelAttribute Housing housing, Model model){
