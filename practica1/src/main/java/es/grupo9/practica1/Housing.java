@@ -1,5 +1,7 @@
 package es.grupo9.practica1;
 
+import java.util.Base64;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -94,5 +96,13 @@ public class Housing {
 
     public void setStars(Integer stars) {
         this.stars = stars;
+    }
+
+
+    public String getImageBase64() {
+        if (image == null || image.length == 0) {
+            return ""; // Return an empty string if the image is null or empty
+        }
+        return Base64.getEncoder().encodeToString(image); // Convert byte[] to Base64
     }
 }
