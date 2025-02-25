@@ -10,12 +10,10 @@ public class UserService {
     private UserRepository userRepository;
 
 
-    public Usuario addUser(Integer dni, String nombre, Integer numero, String contrasenia, String correo){
-        Usuario nuevoUsuario = new Usuario(dni, nombre, numero, contrasenia, correo);
-        nuevoUsuario.setAdmin(false);
-        System.out.println(nuevoUsuario.toString());
-        return userRepository.save(nuevoUsuario);
+    public Usuario addUser(String dni, String nombre, Integer numero, String contrasenia, String correo){
+        Usuario nuevoUsuario = new Cliente(dni, nombre, numero, contrasenia, correo);
 
+        return userRepository.save(nuevoUsuario);
 
     }
 

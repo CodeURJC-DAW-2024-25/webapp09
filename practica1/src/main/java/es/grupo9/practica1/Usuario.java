@@ -1,14 +1,13 @@
 package es.grupo9.practica1;
 
-//import java.sql.Blob;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "usuarios")
 public class Usuario {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer dni;
+    @Column(name = "dni", nullable = false, unique = true, length = 9)
+    private String dni;
 
     @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
@@ -28,7 +27,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(Integer dni, String nombre, Integer numero, String contrasenia, String correo) {
+    public Usuario(String dni, String nombre, Integer numero, String contrasenia, String correo) {
         this.dni = dni;
         this.nombre = nombre;
         this.numero = numero;
@@ -41,11 +40,11 @@ public class Usuario {
         this.admin = admin;
     }
 
-    public Integer getDni() {
+    public String getDni() {
         return dni;
     }
 
-    public void setDni(Integer dni) {
+    public void setDni(String dni) {
         this.dni = dni;
     }
 
