@@ -11,11 +11,11 @@ public class DatabaseInitializer implements CommandLineRunner{
 
 
     @Autowired
-    private AlojamientoService alojamientoService;
+    private HousingService housingService;
 
     @Override
     public void run(String... args) throws Exception {
-        alojamientoService.initializeHotels();
+        housingService.initializeHotels();
     }
 
 

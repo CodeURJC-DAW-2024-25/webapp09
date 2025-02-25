@@ -12,8 +12,11 @@ public class HousingService {
     @Autowired
     private HousingRepository housingRepository;
 
-    public Housing addHotel(int code, String location, String name, String image) {
-        Housing newHotel = new Housing(code, location, name, image);
+    private int hotelCode = 4;
+
+    public Housing addHotel(String location, String name, String image) {
+        Housing newHotel = new Housing(hotelCode, location, name, image);
+        hotelCode += 1;
         return housingRepository.save(newHotel);
     }
 

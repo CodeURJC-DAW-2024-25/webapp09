@@ -87,7 +87,7 @@ public class MustacheController {
     private UserService userService;
 
     @Autowired
-    private AlojamientoService alogAlojamientoService;
+    private HousingService housingService;
 
 
     @PostMapping("/addUser")
@@ -99,8 +99,8 @@ public class MustacheController {
     }
     
     @PostMapping("/addHotel")
-    public String addHotel(@ModelAttribute Alojamiento alojamiento, Model model){
-        alogAlojamientoService.addHotel(alojamiento.getUbicacion(), alojamiento.getNombre(), alojamiento.getImagen());
+    public String addHotel(@ModelAttribute Housing housing, Model model){
+        housingService.addHotel(housing.getLocation(), housing.getName(), housing.getImage());
 
         return "index";
     }
