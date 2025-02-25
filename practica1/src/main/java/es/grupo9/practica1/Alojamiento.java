@@ -17,6 +17,9 @@ public class Alojamiento {
     @Column(name = "imagen", length = 100)
     private String imagen;
 
+    public Alojamiento() {
+    }
+
     public Alojamiento(int codigo, String ubicacion, String nombre, String imagen) {
         this.codigo = codigo;
         this.ubicacion = ubicacion;
