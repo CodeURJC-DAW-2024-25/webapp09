@@ -30,11 +30,14 @@ public class Housing {
     public Housing() {
     }
 
-    public Housing(int code, String location, String name, byte[] image) {
+    public Housing(int code, String location, String name, byte[] image, Integer stars, Integer price, String description) {
         this.code = code;
         this.location = location;
         this.name = name;
         this.image = image;
+        this.stars = stars;
+        this.price = price;
+        this.description = description;
     }
 
     public int getCode() {
@@ -67,5 +70,29 @@ public class Housing {
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getStars() {
+        return stars;
+    }
+
+    public void setStars(Integer stars) {
+        this.stars = stars;
     }
 }
