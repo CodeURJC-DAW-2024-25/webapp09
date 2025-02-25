@@ -1,8 +1,6 @@
 package es.grupo9.practica1;
 
-
 import jakarta.persistence.*;
-//import java.util.List;
 
 @Entity
 public class Housing {
@@ -12,20 +10,24 @@ public class Housing {
 
     @Column(name = "location", nullable = false)
     private String location;
+
     @Column(name = "name", nullable = false, unique = true, length = 100)
     private String name;
-    @Column(name = "image", length = 100)
-    private String image;
+
+    @Lob
+    @Column(name = "image", columnDefinition = "LONGBLOB")
+    private byte[] image; // Ahora la imagen se almacena como un array de bytes (BLOB)
 
     public Housing() {
     }
 
-    public Housing(int code, String location, String name, String image) {
+    public Housing(int code, String location, String name, byte[] image) {
         this.code = code;
         this.location = location;
         this.name = name;
         this.image = image;
     }
+
     public int getCode() {
         return code;
     }
@@ -50,12 +52,11 @@ public class Housing {
         this.name = name;
     }
 
-    public String getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
-
 }
