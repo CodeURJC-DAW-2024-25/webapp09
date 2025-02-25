@@ -12,7 +12,7 @@ public class UserService {
 
     public User addUser(String dni, String name, Integer number, String password, String email){
         User newUser = new Client(dni, name, number, password, email);
-        newUser.setAdmin(false);
+        
         return userRepository.save(newUser);
 
     }

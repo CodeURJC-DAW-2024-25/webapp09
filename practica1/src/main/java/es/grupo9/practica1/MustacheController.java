@@ -58,7 +58,7 @@ public class MustacheController {
     @GetMapping("/register")
     public String register(Model model) {
 
-        return "register";
+        return "registro";
     }
 
     // Room page
@@ -96,7 +96,7 @@ public class MustacheController {
 
         return "log in";
 
-    }
+    }   
     
     @PostMapping("/addHotel")
     public String addHotel(@ModelAttribute Housing housing, Model model){
