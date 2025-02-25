@@ -1,5 +1,7 @@
 package es.grupo9.practica1;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -64,6 +66,8 @@ public class MustacheController {
     // Room page
     @GetMapping("/room")
     public String room(Model model) {
+        List<Housing> houseList = housingService.getAllHousings();
+        model.addAttribute("houses", houseList);
 
         return "room";
     }

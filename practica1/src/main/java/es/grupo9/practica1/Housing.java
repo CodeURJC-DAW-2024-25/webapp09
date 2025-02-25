@@ -18,6 +18,15 @@ public class Housing {
     @Column(name = "image", columnDefinition = "LONGBLOB")
     private byte[] image; // Ahora la imagen se almacena como un array de bytes (BLOB)
 
+    @Column(name = "price", nullable = false)
+    private Integer price;
+
+    @Column(name = "description", nullable = false, length = 200)
+    private String description;
+
+    @Column(name = "stars", nullable = false)
+    private Integer stars;
+
     public Housing() {
     }
 

@@ -67,4 +67,11 @@ public class HousingService {
 
         housingRepository.saveAll(hoteles);
     }
+
+
+    public List<Housing> getAllHousings(){
+
+
+        return housingRepository.findAll();
+    }
 }
