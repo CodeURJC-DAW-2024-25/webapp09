@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MustacheController {
@@ -71,6 +70,13 @@ public class MustacheController {
     public String testimonial(Model model) {
 
         return "testimonial";
+    }
+
+
+    @GetMapping("/admin")
+    public String admin(Model model) {
+
+        return "admin";
     }
 
     @Autowired
