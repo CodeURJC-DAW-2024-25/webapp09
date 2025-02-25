@@ -55,10 +55,10 @@ public class MustacheController {
     }
 
     // Registration page
-    @GetMapping("/registro")
-    public String registro(Model model) {
+    @GetMapping("/register")
+    public String register(Model model) {
 
-        return "registro";
+        return "register";
     }
 
     // Room page
@@ -77,6 +77,12 @@ public class MustacheController {
 
     
 
+    @GetMapping("/admin")
+    public String admin(Model model) {
+
+        return "admin";
+    }
+
     @Autowired
     private UserService userService;
 
@@ -85,8 +91,8 @@ public class MustacheController {
 
 
     @PostMapping("/addUser")
-    public String addUser(@ModelAttribute Usuario user, Model model){
-        userService.addUser(user.getDni(), user.getNombre(), user.getNumero(), user.getContrasenia(), user.getCorreo());
+    public String addUser(@ModelAttribute User user, Model model){
+        userService.addUser(user.getDni(), user.getName(), user.getNumber(), user.getPassword(), user.getEmail());
 
         return "log in";
 
