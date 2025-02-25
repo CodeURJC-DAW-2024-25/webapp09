@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 
@@ -84,6 +86,7 @@ public class MustacheController {
 
         return "newhotel";
     }
+
     
 
     @GetMapping("/admin")
@@ -115,6 +118,11 @@ public class MustacheController {
     }
     
 
+    @PostMapping("/userlogin")
+    public String userlogin(String email, String Password, Model model) {
+        userService.userlogin(email, Password);
+        return "index"; 
+    }
     
     
 

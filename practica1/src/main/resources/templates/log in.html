@@ -59,7 +59,7 @@
                 <div class="row justify-content-center"> <!-- Centra horizontalmente -->
                     <div class="col-lg-6"> <!-- Define el ancho del formulario -->
                         <div class="wow fadeInUp" data-wow-delay="0.2s">
-                            <form>
+                            <form action="/userlogin" method="post">
                                 <div class="row g-3">
                                     <div class="col-md-12">
                                         <div class="form-floating">
@@ -70,12 +70,12 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="Password" name="Password"
+                                            <input type="password" class="form-control" id="Password" name="Password"
                                                 placeholder="Contraseña">
                                             <label for="Password">Contraseña</label>
                                         </div>
                                     </div>
-                                    <p>¿Aun no te has registrado? <a href='/registro'>Crear Cuenta.</a></p>
+                                    <p>¿Aun no te has registrado? <a href='/register'>Crear Cuenta.</a></p>
                                     <div class="col-12">
                                         <button class="btn btn-primary w-100 py-3" type="submit">Iniciar Sesion</button>
                                     </div>
