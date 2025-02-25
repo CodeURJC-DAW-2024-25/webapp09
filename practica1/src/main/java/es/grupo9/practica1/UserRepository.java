@@ -1,9 +1,10 @@
 package es.grupo9.practica1;
-import org.springframework.data.jpa.repository.*;;
 
+import org.springframework.data.jpa.repository.*;
+import org.springframework.stereotype.Repository;
 
-
-public interface UserRepository extends JpaRepository<Usuario, Integer>{
+@Repository
+public interface UserRepository extends JpaRepository<User, String>{
     
 
 
