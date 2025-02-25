@@ -17,9 +17,22 @@ public class HousingService {
 
     private int hotelCode = 4;
 
-    public Housing addHotel(String location, String name, String imageName) {
-        byte[] imageData = loadImage(imageName);
-        Housing newHotel = new Housing(hotelCode, location, name, imageData);
+        private byte[] loadImage(String imageName) {
+        try (InputStream inputStream = getClass().getClassLoader()
+                .getResourceAsStream("static/img/" + imageName)) {
+            if (inputStream == null) {
+                System.err.println("No se encontró la imagen: " + imageName);
+                return new byte[0]; // Retorna un array vacío si la imagen no se encuentra
+            }
+            return inputStream.readAllBytes();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new byte[0];
+        }
+    }
+
+    public Housing addHotel(String location, String name, byte[] image) {
+        Housing newHotel = new Housing(hotelCode, location, name, image);
         hotelCode += 1;
         return housingRepository.save(newHotel);
     }
@@ -46,17 +59,5 @@ public class HousingService {
         housingRepository.saveAll(hoteles);
     }
 
-    private byte[] loadImage(String imageName) {
-        try (InputStream inputStream = getClass().getClassLoader()
-                .getResourceAsStream("static/images/hotels/" + imageName)) {
-            if (inputStream == null) {
-                System.err.println("No se encontró la imagen: " + imageName);
-                return new byte[0]; // Retorna un array vacío si la imagen no se encuentra
-            }
-            return inputStream.readAllBytes();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new byte[0];
-        }
-    }
+
 }
