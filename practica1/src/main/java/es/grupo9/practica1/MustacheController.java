@@ -75,6 +75,11 @@ public class MustacheController {
         return "testimonial";
     }
 
+    @GetMapping("/newhotel")
+    public String newhotel(Model model) {
+
+        return "newhotel";
+    }
     
 
     @GetMapping("/admin")
