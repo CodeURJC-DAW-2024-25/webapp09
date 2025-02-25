@@ -22,7 +22,7 @@ public class User {
     private String email;
 
     @Column(name = "is_admin", nullable = false)
-    protected boolean admin;
+    protected Boolean admin;
 
     public User() {
     }
@@ -33,6 +33,7 @@ public class User {
         this.number = number;
         this.password = password;
         this.email = email;
+        this.admin = false;
     }
 
     public void setAdmin(boolean admin){
