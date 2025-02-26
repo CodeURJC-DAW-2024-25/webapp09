@@ -1,9 +1,14 @@
 package es.grupo9.practica1;
 
+import java.util.List;
+
+
+
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "User")
+
 public class User {
     @Id
     @Column(name = "dni", nullable = false, unique = true, length = 9)
@@ -24,8 +29,17 @@ public class User {
     @Column(name = "is_admin", nullable = false)
     protected Boolean admin;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> roles;
+
+    @Column(name = "encoded_password", nullable = true)
+    private String encodedPassword;
+
     public User() {
     }
+
+
+
 
     public User(String dni, String name, Integer number, String password, String email) {
         this.dni = dni;
@@ -36,7 +50,7 @@ public class User {
         this.admin = false;
     }
 
-    public void setAdmin(boolean admin){
+    public void setAdmin(boolean admin) {
 
         this.admin = admin;
     }
@@ -80,8 +94,31 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public Boolean getAdmin() {
+        return admin;
+    }
+    
+
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
+    }
+
+    public String getEncodedPassword() {
+        return encodedPassword;
+    }
+
+    public void setEncodedPassword(String encodedPassword) {
+        this.encodedPassword = encodedPassword;
+    }
+
     @Override
-	public String toString() {
-		return "Comment [dni=" + dni+ ", nombre=" + name + ", numero=" + number + ", contrasenia=" + password + ", correo=" + email + "]";
-	}
+    public String toString() {
+        return "Comment [dni=" + dni + ", nombre=" + name + ", numero=" + number + ", contrasenia=" + password
+                + ", correo=" + email + "]";
+    }
 }

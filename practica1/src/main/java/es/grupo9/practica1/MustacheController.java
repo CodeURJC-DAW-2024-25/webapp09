@@ -23,6 +23,12 @@ public class MustacheController {
         return "index";
     }
 
+    @GetMapping("/")
+    public String def(Model model){
+
+        return "index";
+    }
+
     // About page
     @GetMapping("/about")
     public String about(Model model) {
@@ -106,7 +112,7 @@ public class MustacheController {
     public String addUser(@ModelAttribute User user, Model model){
         userService.addUser(user.getDni(), user.getName(), user.getNumber(), user.getPassword(), user.getEmail());
 
-        return "log in";
+        return "index";
 
     }   
     
