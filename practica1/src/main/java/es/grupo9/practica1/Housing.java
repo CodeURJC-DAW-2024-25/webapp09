@@ -27,10 +27,13 @@ public class Housing {
     @Column(name = "stars", nullable = false)
     private Integer stars;
 
+    @Column(name = "acepted", nullable = false)
+    protected Boolean acepted;
+
     public Housing() {
     }
 
-    public Housing(int code, String location, String name, byte[] image, Integer stars, Integer price, String description) {
+    public Housing(int code, String location, String name, byte[] image, Integer stars, Integer price, String description, Boolean acepted) {
         this.code = code;
         this.location = location;
         this.name = name;
@@ -38,6 +41,15 @@ public class Housing {
         this.stars = stars;
         this.price = price;
         this.description = description;
+        this.acepted = false;
+    }
+
+    public Boolean getAcepted() {
+        return acepted;
+    }
+
+    public void setAcepted(Boolean acepted) {
+        this.acepted = acepted;
     }
 
     public int getCode() {
@@ -95,4 +107,5 @@ public class Housing {
     public void setStars(Integer stars) {
         this.stars = stars;
     }
+
 }

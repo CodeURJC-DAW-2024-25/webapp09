@@ -3,7 +3,7 @@ package es.grupo9.practica1;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "User")
 public class User {
     @Id
     @Column(name = "dni", nullable = false, unique = true, length = 9)
