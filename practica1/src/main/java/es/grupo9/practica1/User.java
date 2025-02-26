@@ -3,7 +3,7 @@ package es.grupo9.practica1;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "User")
 public class User {
     @Id
     @Column(name = "dni", nullable = false, unique = true, length = 9)
@@ -22,7 +22,7 @@ public class User {
     private String email;
 
     @Column(name = "is_admin", nullable = false)
-    protected boolean admin;
+    protected Boolean admin;
 
     public User() {
     }
@@ -33,6 +33,7 @@ public class User {
         this.number = number;
         this.password = password;
         this.email = email;
+        this.admin = false;
     }
 
     public void setAdmin(boolean admin){

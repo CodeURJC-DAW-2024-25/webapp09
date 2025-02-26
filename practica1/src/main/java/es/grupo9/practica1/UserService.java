@@ -3,6 +3,8 @@ package es.grupo9.practica1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jakarta.annotation.PostConstruct;
+
 @Service
 public class UserService {
 
@@ -27,8 +29,11 @@ public class UserService {
         return userRepository.save(newUser);
 
     }
-
-
-
-    
+    @PostConstruct
+    public void initializeUsers() {
+        // Inicialización de los usuarios en la base de datos si no existen
+        User adminUser = new User("12345678A", "Admin", 123456789, "admin", "trippins.urjc@gmail.com");
+        adminUser.setAdmin(true);  // Establecer manualmente el valor de admin
+        userRepository.save(adminUser);
+    }
 }

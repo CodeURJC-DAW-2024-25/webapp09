@@ -112,7 +112,7 @@ public class MustacheController {
     
     @PostMapping("/addHotel")
     public String addHotel(@ModelAttribute Housing housing, Model model){
-        housingService.addHotel(housing.getLocation(), housing.getName(), housing.getImage(), housing.getStars(), housing.getPrice(), housing.getDescription());
+        housingService.addHotel(housing.getLocation(), housing.getName(), housing.getImage(), housing.getStars(), housing.getPrice(), housing.getDescription(), housing.getAcepted());
 
         return "index";
     }
