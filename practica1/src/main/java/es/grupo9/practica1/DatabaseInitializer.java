@@ -13,9 +13,13 @@ public class DatabaseInitializer implements CommandLineRunner{
     @Autowired
     private HousingService housingService;
 
+    @Autowired
+    private UserService userService;
+
     @Override
     public void run(String... args) throws Exception {
         housingService.initializeHotels();
+        userService.initializeUsers();
     }
 
 }

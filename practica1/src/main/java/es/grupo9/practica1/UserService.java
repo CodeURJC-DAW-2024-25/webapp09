@@ -32,8 +32,8 @@ public class UserService {
     @PostConstruct
     public void initializeUsers() {
         // Inicialización de los usuarios en la base de datos si no existen
-        User adminUser = new User("12345678A", "Admin", 123456789, "admin", "trippins.urjc@gmail.com");
-        adminUser.setAdmin(true);  // Establecer manualmente el valor de admin
+        User adminUser = new Admin("12345678A", "Admin1", 123456789, "admin", "trippins.urjc@gmail.com");
+        
         userRepository.save(adminUser);
     }
 }
