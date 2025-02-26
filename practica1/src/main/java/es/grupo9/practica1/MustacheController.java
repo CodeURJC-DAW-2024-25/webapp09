@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 
@@ -19,6 +19,12 @@ public class MustacheController {
 
     @GetMapping("/index")
     public String index(Model model) {
+
+        return "index";
+    }
+
+    @GetMapping("/")
+    public String def(Model model){
 
         return "index";
     }
@@ -106,7 +112,7 @@ public class MustacheController {
     public String addUser(@ModelAttribute User user, Model model){
         userService.addUser(user.getDni(), user.getName(), user.getNumber(), user.getPassword(), user.getEmail());
 
-        return "log in";
+        return "index";
 
     }   
     

@@ -1,6 +1,7 @@
 package es.grupo9.practica1;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import jakarta.annotation.PostConstruct;
@@ -10,6 +11,9 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     
     public void userlogin(String email, String password) {
         // Obtener la contraseña desde el repositorio por el email
@@ -23,17 +27,21 @@ public class UserService {
         }
     }
 
+
+
+
+
     public User addUser(String dni, String name, Integer number, String password, String email){
         User newUser = new Client(dni, name, number, password, email);
-        
+        newUser.setEncodedPassword(passwordEncoder.encode(password));
         return userRepository.save(newUser);
 
     }
     @PostConstruct
     public void initializeUsers() {
         // Inicialización de los usuarios en la base de datos si no existen
-        User adminUser = new User("12345678A", "Admin", 123456789, "admin", "trippins.urjc@gmail.com");
-        adminUser.setAdmin(true);  // Establecer manualmente el valor de admin
+        User adminUser = new Admin("12345678A", "Admin1", 123456789, "admin", "trippins.urjc@gmail.com");
+        
         userRepository.save(adminUser);
     }
 }

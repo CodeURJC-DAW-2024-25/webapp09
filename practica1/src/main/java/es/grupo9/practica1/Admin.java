@@ -3,6 +3,7 @@ package es.grupo9.practica1;
 import jakarta.persistence.*;
 
 @Entity
+
 public class Admin extends User{
 
     public Admin(){}
