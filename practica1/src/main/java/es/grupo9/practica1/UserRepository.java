@@ -5,6 +5,8 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import java.util.List;
+
 
 @Repository
 public interface UserRepository extends JpaRepository<User, String>{
@@ -12,4 +14,8 @@ public interface UserRepository extends JpaRepository<User, String>{
     public String getPasswordByEmail(@Param("user") String email);
 
     Optional<User> findByName(String name);
+
+    Optional<User> findByEmail(String email);
+
+    
 }

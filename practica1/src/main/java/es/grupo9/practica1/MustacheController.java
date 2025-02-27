@@ -3,11 +3,14 @@ package es.grupo9.practica1;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import org.springframework.security.core.Authentication;
 
 
 
@@ -66,6 +69,7 @@ public class MustacheController {
     // Profile page
     @GetMapping("/profile")
     public String profile(Model model) {
+    
 
         return "profile";
     }
@@ -113,6 +117,8 @@ public class MustacheController {
     @Autowired
     private HousingService housingService;
 
+    @Autowired
+    private UserRepository userRepository;
 
     @PostMapping("/addUser")
     public String addUser(@ModelAttribute User user, Model model){
@@ -124,15 +130,15 @@ public class MustacheController {
     
     @PostMapping("/addHotel")
     public String addHotel(@ModelAttribute Housing housing, Model model){
-        housingService.addHotel(housing.getLocation(), housing.getName(), housing.getImage(), housing.getStars(), housing.getPrice(), housing.getDescription(), housing.getAcepted());
+        housingService.addHotel(housing.getLocation(), housing.getName(), housing.getImage(), housing.getStars(), housing.getPrice(), housing.getDescription());
 
         return "index";
     }
     
 
-    @PostMapping("/userlogin")
-    public String userlogin(String email, String Password, Model model) {
-        userService.userlogin(email, Password);
+    @PostMapping("/login")
+    public String userlogin(String email, String password, Model model) {
+        
         return "index"; 
     }
     

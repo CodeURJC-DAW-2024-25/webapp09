@@ -14,7 +14,7 @@ public class User {
     @Column(name = "dni", nullable = false, unique = true, length = 9)
     private String dni;
 
-    @Column(name = "name", nullable = false, length = 100)
+    @Column(name = "name", nullable = false, unique = true ,length = 100)
     private String name;
 
     @Column(name = "number", nullable = false, unique = true, length = 9)
