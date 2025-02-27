@@ -60,6 +60,12 @@ public class MustacheController {
         return "log in";
     }
 
+    @GetMapping("/logout")
+    public String logout(Model model) {
+
+        return "index";
+    }
+
     // Profile page
     @GetMapping("/profile")
     public String profile(Model model) {

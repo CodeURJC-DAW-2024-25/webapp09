@@ -10,7 +10,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
-
 @Entity
 public class Reservation {
     @Id
@@ -23,6 +22,9 @@ public class Reservation {
     @Column(name = "check_out", nullable = false, unique = false, length = 9)
     private Date check_out;
 
+    @Column(name="valorated", nullable = false, unique = false, length = 1)
+    private boolean valorated;
+
     @ManyToOne
     @JoinColumn(name = "Client_ID", referencedColumnName = "dni", nullable = false)
     private Client client;
@@ -31,12 +33,20 @@ public class Reservation {
     @JoinColumn(name = "Hotel_Code", referencedColumnName = "code", nullable = false)
     private Housing housing;
 
+    @ManyToOne
+    @JoinColumn(name = "Hotel_Name", referencedColumnName = "name", nullable = false)
+    private Housing housing_name;
+
+    
     public Reservation(){}
 
-    public Reservation(int reservation_ID, Client client, Housing housing) {
+    public Reservation(int reservation_ID, Client client, Housing housing, Date check_in, Date check_out) {
         this.reservation_ID = reservation_ID;
         this.client = client;
         this.housing = housing;
+        this.check_in = check_in;
+        this.check_out = check_out;
+        this.valorated = false;
     }
 
     public int getReservation_ID() {
@@ -45,6 +55,14 @@ public class Reservation {
 
     public void setReservation_ID(int reservation_ID) {
         this.reservation_ID = reservation_ID;
+    }
+
+    public boolean isValorated() {
+        return valorated;
+    }
+
+    public void setValorated(boolean valorated) {
+        this.valorated = valorated;
     }
 
     public Date getCheck_in() {
