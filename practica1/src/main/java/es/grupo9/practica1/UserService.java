@@ -1,5 +1,8 @@
 package es.grupo9.practica1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -34,6 +37,10 @@ public class UserService {
     public User addUser(String dni, String name, Integer number, String password, String email){
         User newUser = new Client(dni, name, number, password, email);
         newUser.setEncodedPassword(passwordEncoder.encode(password));
+        List<String> newRoles = new ArrayList<String>();
+        newRoles.add("USER");
+
+        newUser.setRoles(newRoles);
         return userRepository.save(newUser);
 
     }
