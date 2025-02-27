@@ -1,5 +1,6 @@
 package es.grupo9.practica1;
 
+import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.List;
@@ -11,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class MustacheController {
@@ -94,25 +97,32 @@ public class MustacheController {
     @PostMapping("/addUser")
     public String addUser(@ModelAttribute User user, Model model){
         userService.addUser(user.getDni(), user.getName(), user.getNumber(), user.getPassword(), user.getEmail());
-        return "index";
+        return "login";
     }   
     
     @PostMapping("/addHotel")
-    public String addHotel(@ModelAttribute Housing housing, Model model){
-        // Convertir la imagen a byte[] si es de tipo Blob
-        byte[] imageBytes = null;
+    public String addHotel(
+        @RequestParam("location") String location,
+        @RequestParam("name") String name,
+        @RequestParam("image") MultipartFile imageFile,
+        @RequestParam("stars") Integer stars,
+        @RequestParam("price") Integer price,
+        @RequestParam("description") String description,
+        Model model) {
+    
         try {
-            if (housing.getImage() != null) {
-                imageBytes = housing.getImage().getBytes(1, (int) housing.getImage().length());
-            }
-        } catch (SQLException e) {
+            // Convertir la imagen a byte[]
+            byte[] imageBytes = imageFile.getBytes();
+    
+            // Llamar al servicio para agregar el hotel
+            housingService.addHotel(location, name, imageBytes, stars, price, description);
+    
+            return "redirect:/room"; // Redirigir a la página de habitaciones
+        } catch (IOException e) {
+            model.addAttribute("error", "Error al cargar la imagen.");
             e.printStackTrace();
+            return "newhotel"; // Volver al formulario en caso de error
         }
-
-        // Llamar al servicio para agregar el hotel
-        housingService.addHotel(housing.getLocation(), housing.getName(), imageBytes, housing.getStars(), housing.getPrice(), housing.getDescription());
-
-        return "index";
     }
 
     @PostMapping("/login")

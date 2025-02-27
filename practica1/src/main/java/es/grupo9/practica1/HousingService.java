@@ -42,24 +42,23 @@ public class HousingService {
             return null;
         }
     }
-
     // Método para agregar un nuevo hotel
-    public Housing addHotel(String location, String name, byte[] image, Integer stars, Integer price, String description) {
+    public Housing addHotel(String location, String name, byte[] imageBytes, Integer stars, Integer price, String description) {
+        // Convertir el array de bytes a Blob
+        Blob imageBlob = convertToBlob(imageBytes);
+    
         // Obtener el código más alto actual
         Integer hotelCode = housingRepository.maxhotelCode();
         if (hotelCode == null) {
-            hotelCode = 0; // Si no hay hoteles en la base de datos, iniciar desde 1
+            hotelCode = 0; // Si no hay hoteles, iniciar desde 1
         }
-        hotelCode += 1; // Incrementamos el código para el nuevo hotel
-
-        // Convertir la imagen a Blob
-        Blob imageBlob = convertToBlob(image);
-
+        hotelCode += 1;
+    
         // Crear el nuevo hotel y guardarlo
         Housing newHotel = new Housing(hotelCode, location, name, imageBlob, stars, price, description, false);
-
         return housingRepository.save(newHotel);
     }
+    
 
     @PostConstruct
     public void initializeHotels() {

@@ -114,14 +114,14 @@ public class Housing {
 
     public String getImageBase64() {
         if (image == null) {
-            return ""; // Return an empty string if the image is null
+            return ""; // Retorna una cadena vacía si no hay imagen
         }
         try {
             byte[] imageBytes = image.getBytes(1, (int) image.length());
-            return Base64.getEncoder().encodeToString(imageBytes); // Convert byte[] to Base64
+            return Base64.getEncoder().encodeToString(imageBytes); // Convertir a Base64
         } catch (SQLException e) {
             e.printStackTrace();
-            return ""; // Return an empty string in case of an error
+            return ""; // Retorna una cadena vacía en caso de error
         }
     }
 }
