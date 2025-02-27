@@ -31,7 +31,7 @@ public class HousingService {
     }
 
     // Método para agregar un nuevo hotel
-    public Housing addHotel(String location, String name, byte[] image, Integer stars, Integer price, String description, Boolean acepted) {
+    public Housing addHotel(String location, String name, byte[] image, Integer stars, Integer price, String description) {
         // Obtener el código más alto actual
         Integer hotelCode = housingRepository.maxhotelCode();
         if (hotelCode == null) {
@@ -40,8 +40,8 @@ public class HousingService {
         hotelCode += 1; // Incrementamos el código para el nuevo hotel
         
         // Crear el nuevo hotel y guardarlo
-        Housing newHotel = new Housing(hotelCode, location, name, image, stars, price, description,acepted);
-        newHotel.setAcepted(false); 
+        Housing newHotel = new Housing(hotelCode, location, name, image, stars, price, description, false);
+        
         return housingRepository.save(newHotel);
     }
 

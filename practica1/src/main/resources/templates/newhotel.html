@@ -90,6 +90,14 @@
                                             <label for="dni">Imagen del Hotel</label>
                                         </div>
                                     </div>
+                                    <div class="col-md-12">
+                                        <div class="form-floating">
+                                            <label for="stars">Estrellas (0-5):</label>
+                                            <input type="range" class="form-range" name="stars" id="stars" min="0" max="5" step="1" value="0">
+                                            <br><br>
+                                            <output for="stars" id="stars-output" style="color: rgb(255, 179, 0);">0</output><small class="fa fa-star text-primary"></small>
+                                        </div>
+                                    </div>
                                     <div class="col-12">
                                         <button class="btn btn-primary w-100 py-3" type="submit">Crear Nuevo Hotel</button>
                                     </div>
@@ -124,6 +132,15 @@
 
     <!-- Template Javascript -->
     <script src="main.js"></script>
+
+    <script>
+        const starsSlider = document.getElementById("stars");
+        const starsOutput = document.getElementById("stars-output");
+    
+        starsSlider.addEventListener("input", () => {
+            starsOutput.value = starsSlider.value; // Update the displayed value
+        });
+    </script>
 </body>
 
 </html>
