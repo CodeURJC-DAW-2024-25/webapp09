@@ -59,17 +59,21 @@ public class UserService {
     }
     @PostConstruct
     public void initializeUsers() {
+
     // Lista de usuarios administradores
     List<User> adminUsers = Arrays.asList(
         new Admin("12345678A", "Admin", 123456789, "admin", "trippins.urjc@gmail.com"),
-        new Admin("11223344C", "Admin3", 112233445, "admin3", "admin3@trippins.com")
+        new Admin("11223344C", "Admin3", 112233445, "admin", "admin3@trippins.com")
     );
+
+
 
     // Asignar roles y guardar los usuarios
     for (User user : adminUsers) {
         List<String> roles = new ArrayList<>();
         roles.add("ADMIN"); // Asignar el rol de administrador
         user.setRoles(roles);
+        user.setEncodedPassword(passwordEncoder.encode("admin"));
         userRepository.save(user);
     }
 }
