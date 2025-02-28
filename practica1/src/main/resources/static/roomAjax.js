@@ -22,7 +22,7 @@ document.getElementById('load-more').addEventListener('click', async function ()
 async function fetchHouses(page, size) {
     try {
         const response = await fetch('/roomHouses', {
-            method: 'POST', // Use POST instead of GET
+            method: 'POST', // Use POST 
             headers: {
                 'Content-Type': 'application/json', // Specify the content type as JSON
             },
