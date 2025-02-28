@@ -1,5 +1,7 @@
 package es.grupo9.practica1;
 
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.Base64;
 
 import jakarta.persistence.*;
@@ -18,7 +20,7 @@ public class Housing {
 
     @Lob
     @Column(name = "image", columnDefinition = "LONGBLOB")
-    private byte[] image; // Ahora la imagen se almacena como un array de bytes (BLOB)
+    private Blob image; // Ahora la imagen se almacena como un array de bytes (LONGBLOB)
 
     @Column(name = "price", nullable = false)
     private Integer price;
@@ -35,7 +37,7 @@ public class Housing {
     public Housing() {
     }
 
-    public Housing(int code, String location, String name, byte[] image, Integer stars, Integer price, String description, Boolean acepted) {
+    public Housing(int code, String location, String name, Blob image, Integer stars, Integer price, String description, Boolean acepted) {
         this.code = code;
         this.location = location;
         this.name = name;
@@ -78,11 +80,11 @@ public class Housing {
         this.name = name;
     }
 
-    public byte[] getImage() {
+    public Blob getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(Blob image) {
         this.image = image;
     }
 
@@ -110,13 +112,16 @@ public class Housing {
         this.stars = stars;
     }
 
-
-
     public String getImageBase64() {
-        if (image == null || image.length == 0) {
-            return ""; // Return an empty string if the image is null or empty
+        if (image == null) {
+            return ""; // Retorna una cadena vacía si no hay imagen
         }
-        return Base64.getEncoder().encodeToString(image); // Convert byte[] to Base64
+        try {
+            byte[] imageBytes = image.getBytes(1, (int) image.length());
+            return Base64.getEncoder().encodeToString(imageBytes); // Convertir a Base64
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return ""; // Retorna una cadena vacía en caso de error
+        }
     }
-
 }
