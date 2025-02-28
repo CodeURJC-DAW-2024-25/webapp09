@@ -44,6 +44,7 @@ public class UserService {
 
         newUser.setRoles(newRoles);
 
+
         /*String subject = "Registro exitoso en Trippins";
         String body = "Bienvenid@ a Trippins " + name + ",\n\n" +
         "Tu aventura comienza aquí.\n\n" +
@@ -53,6 +54,7 @@ public class UserService {
         "Si tienes alguna pregunta, estamos aquí para ayudarte.\n\n" +
         "El equipo de desarrollo de Trippins";
         //emailService.sendEmail(email, subject, body);*/
+
 
         return userRepository.save(newUser);
 
