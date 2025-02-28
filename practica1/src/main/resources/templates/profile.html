@@ -43,7 +43,7 @@
         <div class="container-fluid page-header mb-5 p-0" style="background-image: url(/img/carousel-1.jpg);">
             <div class="container-fluid page-header-inner py-5">
                 <div class="container text-center pb-5">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">Iniciar Sesion</h1>
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Perfil de Usuario</h1>
                 </div>
             </div>
         </div>
@@ -95,8 +95,40 @@
                                     </div>
                                 </div>
                             </form>
+                            <br>
+                            <form action="/logout">
+                                <div class="col-12">
+                                    <button class="btn btn-danger text-white w-100 py-3" type="submit" name="logout">Cerrar Sesión</button>
+                                </div>
+                            </form>
+                            <br>
+                            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                                <h6 class="section-title text-center text-primary text-uppercase">Reservas</h6>
+                                <h1 class="mb-5">Historial de Reservas</h1>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="bg-primary text-white">
+                                        <tr>
+                                            <th>Hotel</th>
+                                            <th>Check-in</th>
+                                            <th>Check-out</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#reservations}}
+                                        <tr>
+                                            <td>{{Hotel_Name}}</td>
+                                            <td>{{Check_in}}</td>
+                                            <td>{{Check_out}}</td>
+                                        </tr>
+                                        {{/reservations}}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -132,6 +164,18 @@
 
     <script src="main.js"></script>
     <script src="profile.js"></script>
+
+    <!-- Script para habilitar la edición del formulario -->
+    <script>
+        document.getElementById('editButton').addEventListener('click', function() {
+            document.getElementById('name').disabled = false;
+            document.getElementById('email').disabled = false;
+            document.getElementById('USER_ID').disabled = false;
+            document.getElementById('Phone_Number').disabled = false;
+            document.getElementById('Password').disabled = false;
+            document.getElementById('saveButton').classList.remove('d-none');
+        });
+    </script>
 </body>
 
 </html>
