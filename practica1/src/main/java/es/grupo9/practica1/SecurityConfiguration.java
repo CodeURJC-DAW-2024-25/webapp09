@@ -58,6 +58,10 @@ public class SecurityConfiguration {
             )
             .logout(logout -> logout
                 .logoutSuccessUrl("/") // Redirect to home page after logout
+                .logoutSuccessUrl("/") // Redirect to home page after logout
+                .invalidateHttpSession(true) // Invalidate the session
+                .deleteCookies("JSESSIONID") // Delete cookies (if any)
+
                 .permitAll()
             )
             .userDetailsService(userDetailService); // Use custom UserDetailsService

@@ -54,10 +54,7 @@ public class MustacheController {
         return "log in";
     }
 
-    @GetMapping("/logout")
-    public String logout(Model model) {
-        return "index";
-    }
+
 
     @GetMapping("/profile")
     public String profile(Model model) {
@@ -81,7 +78,7 @@ public class MustacheController {
         return "testimonial";
     }
 
-    @GetMapping("/newhotel")
+    @GetMapping("/newHotel")
     public String newhotel(Model model) {
         return "newhotel";
     }
