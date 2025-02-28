@@ -1,3 +1,4 @@
+package es.grupo9.practica1;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
