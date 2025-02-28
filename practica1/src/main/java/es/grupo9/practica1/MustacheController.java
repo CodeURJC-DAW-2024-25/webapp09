@@ -89,7 +89,11 @@ public class MustacheController {
     }
 
     @GetMapping("/register")
-    public String register(Model model) {
+    public String register(Model model, HttpServletRequest request) {
+
+        CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
+        model.addAttribute("token", token.getToken());
+
         return "registro";
     }
 
@@ -106,7 +110,11 @@ public class MustacheController {
     }
 
     @GetMapping("/newhotel")
-    public String newhotel(Model model) {
+    public String newhotel(Model model, HttpServletRequest request) {
+
+        CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
+        model.addAttribute("token", token.getToken());
+
         return "newhotel";
     }
 
