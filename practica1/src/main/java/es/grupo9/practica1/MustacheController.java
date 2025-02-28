@@ -95,7 +95,12 @@ public class MustacheController {
     }   
     
     @PostMapping("/addHotel")
-    public String addHotel(@ModelAttribute Housing house,@RequestParam("image") MultipartFile imageFile,
+    public String addHotel(@RequestParam("location") String location,
+    @RequestParam("name") String name,
+    @RequestParam("image") MultipartFile imageFile,
+    @RequestParam("stars") Integer stars,
+    @RequestParam("price") Integer price,
+    @RequestParam("description") String description,
         
         Model model) {
     
@@ -104,7 +109,7 @@ public class MustacheController {
             byte[] imageBytes = imageFile.getBytes();
     
             // Llamar al servicio para agregar el hotel
-            housingService.addHotel(house.getLocation(), house.getName(), imageBytes, house.getStars(), house.getPrice(), house.getDescription());
+            housingService.addHotel(location, name, imageBytes, stars, price, description);
     
             return "redirect:/room"; // Redirigir a la página de habitaciones
         } catch (IOException e) {
