@@ -50,6 +50,7 @@ public class UserService {
         User adminUser = new Admin("12345678A", "Admin1", 123456789, "admin", "trippins.urjc@gmail.com");
         List<String> newRoles = new ArrayList<String>();
         newRoles.add("ADMIN");
+        adminUser.setEncodedPassword(passwordEncoder.encode("admin"));
 
         adminUser.setRoles(newRoles);
         userRepository.save(adminUser);
