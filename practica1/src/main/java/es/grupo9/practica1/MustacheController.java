@@ -1,10 +1,7 @@
 package es.grupo9.practica1;
 
 import java.io.IOException;
-import java.sql.Blob;
-import java.sql.SQLException;
 import java.util.List;
-import javax.sql.rowset.serial.SerialBlob;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -57,10 +54,7 @@ public class MustacheController {
         return "log in";
     }
 
-    @GetMapping("/logout")
-    public String logout(Model model) {
-        return "index";
-    }
+
 
     @GetMapping("/profile")
     public String profile(Model model) {
@@ -84,7 +78,7 @@ public class MustacheController {
         return "testimonial";
     }
 
-    @GetMapping("/newhotel")
+    @GetMapping("/newHotel")
     public String newhotel(Model model) {
         return "newhotel";
     }
@@ -101,13 +95,13 @@ public class MustacheController {
     }   
     
     @PostMapping("/addHotel")
-    public String addHotel(
-        @RequestParam("location") String location,
-        @RequestParam("name") String name,
-        @RequestParam("image") MultipartFile imageFile,
-        @RequestParam("stars") Integer stars,
-        @RequestParam("price") Integer price,
-        @RequestParam("description") String description,
+    public String addHotel(@RequestParam("location") String location,
+    @RequestParam("name") String name,
+    @RequestParam("image") MultipartFile imageFile,
+    @RequestParam("stars") Integer stars,
+    @RequestParam("price") Integer price,
+    @RequestParam("description") String description,
+        
         Model model) {
     
         try {
