@@ -2,12 +2,14 @@ package es.grupo9.practica1;
 
 import java.util.List;
 import java.util.Map;
-
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 
 import org.springframework.data.domain.PageRequest;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -66,6 +68,31 @@ public class CustomAjaxController {
             // Log the error
             System.err.println("Error fetching houses: " + e.getMessage());
             throw e; // Re-throw the exception to return a 500 error
+        }
+    }
+
+        // Accept House: Sets the "acepted" field to true
+    @PostMapping("/acceptHouse/{houseId}")
+    public void acceptHouse(@PathVariable Integer houseId) {
+        Optional<Housing> optionalHouse = housingRepository.findById(houseId);
+        if (optionalHouse.isPresent()) {
+            Housing house = optionalHouse.get();
+            house.setAcepted(true);
+            housingRepository.save(house);
+            System.out.println("House with ID " + houseId + " has been accepted.");
+        } else {
+            System.err.println("House with ID " + houseId + " not found.");
+        }
+    }
+
+    // Deny House: Deletes the house from the database
+    @DeleteMapping("/denyHouse/{houseId}")
+    public void denyHouse(@PathVariable Integer houseId) {
+        if (housingRepository.existsById(houseId)) {
+            housingRepository.deleteById(houseId);
+            System.out.println("House with ID " + houseId + " has been denied and removed.");
+        } else {
+            System.err.println("House with ID " + houseId + " not found.");
         }
     }
 

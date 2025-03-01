@@ -52,8 +52,8 @@ function appendHouses(houses) {
     const housesContainer = document.getElementById('houses-container');
     houses.forEach(house => {
         const houseHtml = `
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="room-item shadow rounded overflow-hidden">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" data-house-id="${house.code}">
+                <div class="room-item shadow rounded overflow-hidden" >
                     <div class="position-relative">
                         <img style="width: 450px; height: 275px" class="img-fluid" src="data:image/jpeg;base64,${house.imageBase64}" alt="${house.name}">
                         <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$${house.price}/Night</small>
@@ -76,4 +76,9 @@ function appendHouses(houses) {
         `;
         housesContainer.insertAdjacentHTML('beforeend', houseHtml);
     });
+
+
+
+
+
 }
