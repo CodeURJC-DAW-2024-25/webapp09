@@ -1,16 +1,20 @@
 
 let currentPage = 0; // Track the current page
-const pageSize = 6; // Number of houses to load per request
+const pageSize = 3; // Number of houses to load per request
 
 // Add event listener to the "Load More" button
 document.getElementById('load-more').addEventListener('click', async function () {
     try {
         currentPage++; // Increment the page number
         const houses = await fetchHouses(currentPage, pageSize); // Fetch houses
-        appendHouses(houses); // Append houses to the container
+        const unacceptedHouses = houses.filter(house => !house.acepted);
+
+        console.log(unacceptedHouses);
+
+        appendHouses(unacceptedHouses); // Append only unaccepted houses
 
         // Disable the "Load More" button if there are no more houses
-        if (houses.length < pageSize) {
+        if (unacceptedHouses.length < pageSize) {
             document.getElementById('load-more').disabled = true;
         }
     } catch (error) {
@@ -62,6 +66,10 @@ function appendHouses(houses) {
                             </div>
                         </div>
                         <p class="text-body mb-3">${house.description}</p>
+                    </div>
+                    <div class="p-4 mt-2 align-items-center">
+                        <button class="btn btn-success rounded-0  px-md-5"> Aceptar </button>
+                        <button class="btn btn-danger rounded-0 px-md-5"> Denegar</button>
                     </div>
                 </div>
             </div>

@@ -102,7 +102,7 @@ public class MustacheController {
     @GetMapping("/admin")
     public String admin(Model model) {
 
-        Pageable pageable = PageRequest.of(0, 6);
+        Pageable pageable = PageRequest.of(0, 3);
         var reservations = reservationRepository.findAll(pageable).getContent();
         var allHouses = housingRepository.findAll();
 
