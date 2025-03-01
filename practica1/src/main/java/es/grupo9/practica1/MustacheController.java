@@ -1,8 +1,10 @@
 package es.grupo9.practica1;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -30,6 +32,9 @@ public class MustacheController {
     private UserRepository userRepository;
 
     @Autowired
+    private ReservationRepository reservationRepository;
+
+    @Autowired
     private HousingRepository housingRepository;
 
     @GetMapping("/index")
@@ -38,7 +43,7 @@ public class MustacheController {
     }
 
     @GetMapping("/")
-    public String def(Model model){
+    public String def(Model model) {
         return "index";
     }
 
@@ -62,8 +67,6 @@ public class MustacheController {
         return "log in";
     }
 
-
-
     @GetMapping("/profile")
     public String profile(Model model) {
         return "profile";
@@ -73,18 +76,18 @@ public class MustacheController {
     public String register(Model model) {
         return "registro";
     }
-    
+
     @GetMapping("/room")
     public String room(Model model) {
-        //List<Housing> houseList = housingService.getAllHousings();
+        // Working code previous to ajax
+        // List<Housing> houseList = housingService.getAllHousings();
+        // model.addAttribute("houses", houseList);
         Pageable pageable = PageRequest.of(0, 6);
         var houses = housingRepository.findAll(pageable).getContent();
-        //model.addAttribute("houses", houseList);
+
         model.addAttribute("houses", houses);
         return "room";
     }
-
-
 
     @GetMapping("/testimonial")
     public String testimonial(Model model) {
@@ -98,42 +101,56 @@ public class MustacheController {
 
     @GetMapping("/admin")
     public String admin(Model model) {
+
+        Pageable pageable = PageRequest.of(0, 3);
+        var reservations = reservationRepository.findAll(pageable).getContent();
+        var allHouses = housingRepository.findAll();
+
+        
+        var filteredHouses = allHouses.stream()
+        .filter(house -> !house.getAcepted()) // Filters only unaccepted houses
+        .limit(3) // Limit the result to 6 houses
+        .collect(Collectors.toList());
+
+        model.addAttribute("reservations", reservations);
+        model.addAttribute("houses", filteredHouses);
+
         return "admin";
     }
 
     @PostMapping("/addUser")
-    public String addUser(@ModelAttribute User user, Model model){
+    public String addUser(@ModelAttribute User user, Model model) {
         userService.addUser(user.getDni(), user.getName(), user.getNumber(), user.getPassword(), user.getEmail());
         return "login";
-    }   
-    
+    }
+
     @PostMapping("/addHotel")
     public String addHotel(@RequestParam("location") String location,
-    @RequestParam("name") String name,
-    @RequestParam("image") MultipartFile imageFile,
-    @RequestParam("stars") Integer stars,
-    @RequestParam("price") Integer price,
-    @RequestParam("description") String description,
-        
-        Model model) {
-    
+            @RequestParam("name") String name,
+            @RequestParam("image") MultipartFile imageFile,
+            @RequestParam("stars") Integer stars,
+            @RequestParam("price") Integer price,
+            @RequestParam("description") String description,
+
+            Model model) {
+
         try {
-            // Convertir la imagen a byte[]
+            // Transform the image to byte
             byte[] imageBytes = imageFile.getBytes();
-    
-            // Llamar al servicio para agregar el hotel
+
+            // Add the hotel via service
             housingService.addHotel(location, name, imageBytes, stars, price, description);
-    
-            return "redirect:/room"; // Redirigir a la página de habitaciones
+
+            return "redirect:/room"; // Redirect to rooms
         } catch (IOException e) {
             model.addAttribute("error", "Error al cargar la imagen.");
             e.printStackTrace();
-            return "newhotel"; // Volver al formulario en caso de error
+            return "newhotel"; // Return to the form page in case of error
         }
     }
 
     @PostMapping("/login")
     public String userlogin(String email, String password, Model model) {
-        return "index"; 
+        return "index";
     }
 }

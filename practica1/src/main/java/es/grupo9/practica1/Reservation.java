@@ -22,7 +22,7 @@ public class Reservation {
     @Column(name = "check_out", nullable = false, unique = false, length = 9)
     private Date check_out;
 
-    @Column(name="valorated", nullable = false, unique = false, length = 1)
+    @Column(name="valorated", unique = false, length = 1)
     private boolean valorated;
 
     @ManyToOne
@@ -47,6 +47,7 @@ public class Reservation {
         this.check_in = check_in;
         this.check_out = check_out;
         this.valorated = false;
+        this.housing_name = housing; //esto hay que cambiarlo
     }
 
     public int getReservation_ID() {
