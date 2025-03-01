@@ -60,14 +60,19 @@
                         </thead>
                         <tbody>
                             <!-- Example Row for a Reservation -->
+                             {{#reservations}}
                             <tr>
-                                <td>Reserva en Hotel </td>
-                                <td>Check-in: 10/03/2025 - Check-out: 15/03/2025</td>
+                                <td>Reserva en {{housing_name.name}} (id de hotel {{housing.code}}) con id de reserva: {{reservation_ID}} 
+                                    <br>
+                                    Esta peticion de reserva la solicita {{client.name}} con dni: {{client.dni}}
+                                </td>
+                                <td>Check-in: {{check_in}} - Check-out: {{check_out}}</td>
                                 <td>
                                     <button class="btn btn-success"><i class="bi bi-check"></i></button>
                                     <button class="btn btn-danger"><i class="bi bi-x"></i></button>
                                 </td>
                             </tr>
+                            {{/reservations}}
                             <!-- Add more reservations dynamically here -->
                         </tbody>
                     </table>

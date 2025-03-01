@@ -30,6 +30,9 @@ public class MustacheController {
     private UserRepository userRepository;
 
     @Autowired
+    private ReservationRepository reservationRepository;
+
+    @Autowired
     private HousingRepository housingRepository;
 
     @GetMapping("/index")
@@ -100,6 +103,14 @@ public class MustacheController {
 
     @GetMapping("/admin")
     public String admin(Model model) {
+
+        Pageable pageable = PageRequest.of(0, 6);
+        var reservations = reservationRepository.findAll(pageable).getContent();
+        
+        model.addAttribute("reservations", reservations);
+
+
+
         return "admin";
     }
 
