@@ -58,9 +58,6 @@
                     <div class="col-lg-6"> <!-- Define el ancho del formulario -->
                         <div class="wow fadeInUp" data-wow-delay="0.2s">
                             <form  action="/addUser" method="post">
-                                
-                                <input type="hidden" name="_csrf" value="{{_csrf.token}}">  <!--Necessary input for csrf-->
-
                                 <div class="row g-3">
                                     <div class="col-md-12">
                                         <div class="form-floating">
@@ -101,6 +98,9 @@
                                         <button class="btn btn-primary w-100 py-3" type="submit">Crear Cuenta</button>
                                     </div>
                                 </div>
+                                
+                                <input type="hidden" name="_csrf" value="{{token}}"/>  <!--Necessary input for csrf-->
+
                             </form>
                         </div>
                     </div>
