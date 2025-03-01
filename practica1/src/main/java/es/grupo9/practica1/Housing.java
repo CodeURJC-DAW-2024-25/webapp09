@@ -48,7 +48,7 @@ public class Housing {
         this.stars = stars;
         this.price = price;
         this.description = description;
-        this.acepted = false;
+        this.acepted = acepted;
     }
 
     public Boolean getAcepted() {
