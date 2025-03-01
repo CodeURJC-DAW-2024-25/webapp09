@@ -76,10 +76,12 @@ public class MustacheController {
     
     @GetMapping("/room")
     public String room(Model model) {
+        //Working code previous to ajax
         //List<Housing> houseList = housingService.getAllHousings();
+        //model.addAttribute("houses", houseList);
         Pageable pageable = PageRequest.of(0, 6);
         var houses = housingRepository.findAll(pageable).getContent();
-        //model.addAttribute("houses", houseList);
+        
         model.addAttribute("houses", houses);
         return "room";
     }
@@ -118,17 +120,17 @@ public class MustacheController {
         Model model) {
     
         try {
-            // Convertir la imagen a byte[]
+            // Transform the image to byte
             byte[] imageBytes = imageFile.getBytes();
     
-            // Llamar al servicio para agregar el hotel
+            // Add the hotel via service
             housingService.addHotel(location, name, imageBytes, stars, price, description);
     
-            return "redirect:/room"; // Redirigir a la página de habitaciones
+            return "redirect:/room"; // Redirect to rooms
         } catch (IOException e) {
             model.addAttribute("error", "Error al cargar la imagen.");
             e.printStackTrace();
-            return "newhotel"; // Volver al formulario en caso de error
+            return "newhotel"; // Return to the form page in case of error
         }
     }
 

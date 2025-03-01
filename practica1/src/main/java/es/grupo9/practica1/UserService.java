@@ -23,6 +23,8 @@ public class UserService {
         // Obtener la contraseña desde el repositorio por el email
         String pass = userRepository.getPasswordByEmail(email);
         
+        //We need to make it so the compared and stored thing here is the encoded password
+
         // Comparar la contraseña obtenida con la proporcionada
         if (pass.equals(password)) {
             System.out.println("Login correcto");

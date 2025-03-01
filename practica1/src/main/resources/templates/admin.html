@@ -40,35 +40,41 @@
         {{>header}}
         <!-- Header End -->
 
-        <!-- Peticiones Pendientes Section -->
+        <!-- Reservations and Petitions Table -->
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6">
-                        <h6 class="section-title text-start text-primary text-uppercase">Peticiones pendientes</h6>
+                        <h6 class="section-title text-start text-primary text-uppercase">Peticiones Pendientes</h6>
                         <h1 class="mb-4">Aceptar <span class="text-primary text-uppercase">Reservas</span></h1>
                     </div>
                 </div>
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="room-item shadow rounded overflow-hidden">
-                            <div class="position-relative">
-                                <img class="img-fluid" src="/img/room-1.jpg" alt="">
-                            </div>
-                            <div class="p-4 mt-2 text-black">
-                                <a>
-                                    Texto de informacion de la peticion de reserva
-                                </a>
-                                <br><br><br>
-                                <button class="btn btn-primary rounded-0 py-4 px-md-5"> Aceptar </button>
-                                <button class="btn btn-primary rounded-0 py-4 px-md-5"> Denegar</button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th scope="col">Título</th>
+                                <th scope="col">Descripción</th>
+                                <th scope="col">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example Row for a Reservation -->
+                            <tr>
+                                <td>Reserva en Hotel </td>
+                                <td>Check-in: 10/03/2025 - Check-out: 15/03/2025</td>
+                                <td>
+                                    <button class="btn btn-success"><i class="bi bi-check"></i></button>
+                                    <button class="btn btn-danger"><i class="bi bi-x"></i></button>
+                                </td>
+                            </tr>
+                            <!-- Add more reservations dynamically here -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-    
+
 
         <!-- Alojamientos Section -->
         <div class="container-xxl py-5">
