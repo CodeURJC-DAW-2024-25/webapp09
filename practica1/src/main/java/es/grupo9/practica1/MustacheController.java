@@ -79,12 +79,20 @@ public class MustacheController {
     }
 
     @GetMapping("/logout")
-    public String logout(Model model) {
+    public String logout(Model model, HttpServletRequest request) {
+
+        CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
+        model.addAttribute("token", token.getToken());
+        
         return "index";
     }
 
     @GetMapping("/profile")
-    public String profile(Model model) {
+    public String profile(Model model, HttpServletRequest request) {
+        
+        CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
+        model.addAttribute("token", token.getToken());
+
         return "profile";
     }
 

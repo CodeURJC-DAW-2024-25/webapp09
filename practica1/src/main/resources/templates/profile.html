@@ -96,7 +96,10 @@
                                 </div>
                             </form>
                             <br>
-                            <form action="/logout">
+                            <form action="/logout" method="post">
+                                
+                                <input type="hidden" name="_csrf" value="{{token}}"/>  <!--Necessary input for csrf-->
+                                
                                 <div class="col-12">
                                     <button class="btn btn-danger text-white w-100 py-3" type="submit" name="logout">Cerrar Sesión</button>
                                 </div>
