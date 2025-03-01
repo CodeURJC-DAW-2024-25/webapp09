@@ -67,9 +67,15 @@ public class UserService {
     List<User> adminUsers = Arrays.asList(
         new Admin("12345678A", "Admin", 123456789, "admin", "trippins.urjc@gmail.com"),
         new Admin("11223344C", "Admin3", 112233445, "admin", "admin3@trippins.com")
+        
     );
-
-
+    //Un user cliente de prueba
+    List<String> rolespepe = new ArrayList<>();
+    rolespepe.add("USER");
+    Client pepe = new Client("11223348C", "Pepe", 333333333, "pepe", "pepe@trippins.com");
+    pepe.setRoles(rolespepe);
+    pepe.setEncodedPassword(passwordEncoder.encode("pepe"));
+    userRepository.save(pepe);
 
     // Asignar roles y guardar los usuarios
     for (User user : adminUsers) {
