@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import java.util.List;
+import java.util.Optional;
 
 
 @Repository
@@ -17,4 +18,5 @@ public interface HousingRepository extends JpaRepository<Housing, Integer> {
 
     Page<Housing> findByAceptedFalse(Pageable pageable);
     Page<Housing> findByAceptedTrue(Pageable pageable);
+    Optional<Housing> findByCode(Integer code);
 }

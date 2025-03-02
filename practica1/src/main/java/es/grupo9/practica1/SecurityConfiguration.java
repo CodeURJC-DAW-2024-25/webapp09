@@ -40,6 +40,9 @@ public class SecurityConfiguration {
                 // Public endpoints (accessible to everyone, registered or not)
                 .requestMatchers("/", "/index", "/about", "/contact", "/register", "/login", "/css/**", "/js/**", "/images/**").permitAll()
 
+                .requestMatchers("/room").permitAll() // ✅ Anyone can see the rooms page
+                .requestMatchers("/room/{code}", "/roomDetails").authenticated()
+
                 // Allow POST requests to /addUser for unauthenticated users
                 .requestMatchers(HttpMethod.POST, "/addUser").permitAll()
                 .requestMatchers(HttpMethod.POST, "/login").permitAll()

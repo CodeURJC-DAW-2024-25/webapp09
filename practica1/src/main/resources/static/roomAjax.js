@@ -49,21 +49,23 @@ function appendHouses(houses) {
     houses.forEach(house => {
         const houseHtml = `
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="room-item shadow rounded overflow-hidden">
-                    <div class="position-relative">
-                        <img style="width: 450px; height: 275px" class="img-fluid" src="data:image/jpeg;base64,${house.imageBase64}" alt="${house.name}">
-                        <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$${house.price}/Night</small>
-                    </div>
-                    <div class="p-4 mt-2">
-                        <div class="d-flex justify-content-between mb-3">
-                            <h5 class="mb-0">${house.name}</h5>
-                            <div class="ps-2">
-                                ${house.stars}<small class="fa fa-star text-primary"></small>
-                            </div>
+                <a href="/room/${house.code}" class="room-link">
+                    <div class="room-item shadow rounded overflow-hidden">
+                        <div class="position-relative">
+                            <img style="width: 450px; height: 275px" class="img-fluid" src="data:image/jpeg;base64,${house.imageBase64}" alt="${house.name}">
+                            <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$${house.price}/Night</small>
                         </div>
-                        <p class="text-body mb-3">${house.description}</p>
+                        <div class="p-4 mt-2">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5 class="mb-0">${house.name}</h5>
+                                <div class="ps-2">
+                                    ${house.stars}<small class="fa fa-star text-primary"></small>
+                                </div>
+                            </div>
+                            <p class="text-body mb-3">${house.description}</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         `;
         housesContainer.insertAdjacentHTML('beforeend', houseHtml);
