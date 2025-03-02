@@ -149,6 +149,11 @@ public class MustacheController {
         return "login";
     }
 
+
+
+    
+    
+
     @PostMapping("/addHotel")
     public String addHotel(@RequestParam("location") String location,
             @RequestParam("name") String name,

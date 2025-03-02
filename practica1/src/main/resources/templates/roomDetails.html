@@ -45,30 +45,91 @@
         <div class="container-fluid page-header mb-5 p-0" style="background-image: url(/img/carousel-1.jpg);">
             <div class="container-fluid page-header-inner py-5">
                 <div class="container text-center pb-5">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">Alojamientos</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center text-uppercase">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Alojamientos</li>
-                        </ol>
-                    </nav>
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">{{house.name}}</h1>
                 </div>
             </div>
         </div>
         <!-- Page Header End -->
 
         <!-- Room Start -->
-        <!-- Room End -->
+        <div class="container-xxl py-5">
+            <div class="container text-center">
+                <h6 class="section-title text-primary text-uppercase">Sobre {{house.name}}</h6>
+                <h1 class="mb-4">Bienvenido a <span class="text-primary text-uppercase">{{house.name}}</span></h1>
+
+                <img src="data:image/jpeg;base64,{{house.imageBase64}}" alt="{{house.name}}"
+                    class="img-fluid rounded mb-4" style="max-width: 80%;">
+
+                <p class="mb-4" style="font-size: 1.2rem;">{{house.description}}</p>
+
+                <div class="row justify-content-center g-3 pb-4">
+                    <div class="col-sm-4 wow fadeIn" data-wow-delay="0.3s">
+                        <div class="border rounded p-1">
+                            <div class="border rounded text-center p-4">
+                                <i class="bi-star-fill fa-2x text-primary mb-2"></i>
+                                <h2 class="mb-1">{{house.stars}}</h2>
+                                <p class="mb-0">Estrellas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="border rounded p-1">
+                            <div class="border rounded text-center p-4">
+                                <i class="bi bi-currency-euro"></i>
+                                <h2 class="mb-1">{{house.price}}€/ la noche</h2>
+                                <p class="mb-0">Precio económico</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 wow fadeIn" data-wow-delay="0.7s">
+                        <div class="border rounded p-1">
+                            <div class="border rounded text-center p-4">
+                                <i class="fas fa-globe fa-2x text-primary mb-2"></i>
+                                <h2 class="mb-1">{{house.location}}</h2>
+                                <p class="mb-0">Ubicación</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br><br>
 
 
-        <!-- Testimonial End -->
 
-        <!-- Footer Start -->  
-        {{>footer}}
-        <!-- Footer End -->
+                <!-- Comment Form -->
+                <div class="mt-5">
+                    <h3>Deja un comentario</h3>
+                    <form action="/addComment" method="POST">
+                        <div class="mb-3">
+                            <label for="comment" class="form-label">Comentario</label>
+                            <textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+                <!-- Comment Section -->
+                <div class="mt-5">
+                    <h3>Comentarios</h3>
+                    <!--
+                    <ul class="list-group">
+                        
+                    </ul>
+                -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Room End -->
+
+
+    <!-- Testimonial End -->
+    <br><br><br>
+    <!-- Footer Start -->
+    {{>footer}}
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <!-- JavaScript Libraries -->
@@ -85,7 +146,7 @@
 
     <!-- Template Javascript -->
     <script src="/main.js"></script>
-    
+
 </body>
 
 </html>
