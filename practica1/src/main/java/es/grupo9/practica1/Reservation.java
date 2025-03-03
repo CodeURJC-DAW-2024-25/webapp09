@@ -27,7 +27,7 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "Client_ID", referencedColumnName = "dni", nullable = false)
-    private Client client;
+    private User client;
 
     @ManyToOne
     @JoinColumn(name = "Hotel_Code", referencedColumnName = "code", nullable = false)
@@ -40,21 +40,21 @@ public class Reservation {
     
     public Reservation(){}
 
-    public Reservation(int reservation_ID, Client client, Housing housing, Date check_in, Date check_out) {
+    public Reservation(Integer reservation_ID, User client, Housing housing, Date check_in, Date check_out) {
         this.reservation_ID = reservation_ID;
         this.client = client;
         this.housing = housing;
         this.check_in = check_in;
         this.check_out = check_out;
         this.valorated = false;
-        this.housing_name = housing; //esto hay que cambiarlo
+        this.housing_name = housing; 
     }
 
-    public int getReservation_ID() {
+    public Integer getReservation_ID() {
         return reservation_ID;
     }
 
-    public void setReservation_ID(int reservation_ID) {
+    public void setReservation_ID(Integer reservation_ID) {
         this.reservation_ID = reservation_ID;
     }
 
@@ -82,11 +82,11 @@ public class Reservation {
         this.check_out = check_out;
     }
 
-    public Client getID_cliente() {
+    public User getID_cliente() {
         return this.client;
     }
 
-    public void setID_cliente(Client Client_ID) {
+    public void setID_cliente(User Client_ID) {
         this.client = Client_ID;
     }
 

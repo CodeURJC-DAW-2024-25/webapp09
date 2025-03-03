@@ -6,6 +6,7 @@ import jakarta.annotation.PostConstruct;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,17 +16,18 @@ import java.util.Calendar;
 
 @Service
 public class ReservationService {
-    
+
     @Autowired
     private ReservationRepository reservationRepository;
 
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired 
+    @Autowired
     private HousingRepository housingRepository;
 
     private int reservationCounter = 1;
+
     @PostConstruct
     public void initializeReservations() {
         Optional<User> defUser = userRepository.findByName("Pepe");
@@ -35,20 +37,29 @@ public class ReservationService {
         calendar.add(Calendar.DAY_OF_MONTH, 10); // Check-in in 10 days
         Date checkIn1 = new Date(calendar.getTimeInMillis());
 
-        calendar.add(Calendar.DAY_OF_MONTH, 5);  // Check-out 5 days after check-in
+        calendar.add(Calendar.DAY_OF_MONTH, 5); // Check-out 5 days after check-in
         Date checkOut1 = new Date(calendar.getTimeInMillis());
 
         // Lista de usuarios administradores
         List<Reservation> prechargedReservations = Arrays.asList(
 
-        new Reservation(reservationCounter++,(Client) defUser.get(), defHousing.get(), checkIn1, checkOut1),
-        new Reservation(reservationCounter++,(Client) defUser.get(), defHousing.get(), checkIn1, checkOut1)
+                new Reservation(reservationCounter++, (Client) defUser.get(), defHousing.get(), checkIn1, checkOut1),
+                new Reservation(reservationCounter++, (Client) defUser.get(), defHousing.get(), checkIn1, checkOut1)
 
         );
 
         reservationRepository.saveAll(prechargedReservations);
-    
+
     }
 
+    public Reservation addReservation(  User client, Housing housing, Date check_in, Date check_out) {
+        
+
+        
+
+        // Crear el nuevo hotel y guardarlo
+        Reservation newReservation = new Reservation( reservationCounter, client, housing, check_in, check_out);
+        return reservationRepository.save(newReservation);
+    }
 
 }

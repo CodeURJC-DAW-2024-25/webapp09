@@ -1,6 +1,9 @@
 package es.grupo9.practica1;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -38,6 +41,9 @@ public class MustacheController {
 
     @Autowired
     private ReservationRepository reservationRepository;
+
+    @Autowired
+    private ReservationService reservationService;
 
     @Autowired
     private HousingRepository housingRepository;
@@ -94,20 +100,16 @@ public class MustacheController {
         return "room";
     }
 
-
     @GetMapping("/room/{code}")
     public String roomDetails(@PathVariable Integer code, Model model) {
         Optional<Housing> optionalHousing = housingRepository.findByCode(code);
         if (optionalHousing.isPresent()) {
             Housing house = optionalHousing.get();
             model.addAttribute("house", house);
-            
-            
-            // Load comments
-            //List<Comment> comments = commentRepository.findByHousingId(id);
-            //model.addAttribute("comments", comments);
 
-            
+            // Load comments
+            // List<Review> comments = ReviewRepository.findByHotel(id);
+            // model.addAttribute("comments", comments);
 
             return "roomDetails"; // The HTML page for room details
         }
@@ -131,11 +133,10 @@ public class MustacheController {
         var reservations = reservationRepository.findAll(pageable).getContent();
         var allHouses = housingRepository.findAll();
 
-        
         var filteredHouses = allHouses.stream()
-        .filter(house -> !house.getAcepted()) // Filters only unaccepted houses
-        .limit(3) // Limit the result to 6 houses
-        .collect(Collectors.toList());
+                .filter(house -> !house.getAcepted()) // Filters only unaccepted houses
+                .limit(3) // Limit the result to 6 houses
+                .collect(Collectors.toList());
 
         model.addAttribute("reservations", reservations);
         model.addAttribute("houses", filteredHouses);
@@ -149,10 +150,28 @@ public class MustacheController {
         return "login";
     }
 
+    @PostMapping("/addReservation")
+    public String addReservation(Model model, @RequestParam("houseId") Integer houseId,
+            @RequestParam("checkIn") String checkInStr, @RequestParam("checkOut") String checkOutStr) {
+
+        User user = (User) model.getAttribute("user");
+        Date checkIn = Date.valueOf(LocalDate.parse(checkInStr));
+        Date checkOut = Date.valueOf(LocalDate.parse(checkOutStr));
 
 
-    
-    
+        // Get the house from the repository
+        Optional<Housing> optionalHousing = housingRepository.findByCode(houseId);
+        if (optionalHousing.isEmpty()) {
+            return "redirect:/room"; // Redirect if the house doesn't exist
+        }
+        Housing house = optionalHousing.get();
+
+        // Create and save the reservation
+        
+        reservationService.addReservation( user, house, checkIn, checkOut);
+
+        return "redirect:/profile"; // Redirect to profile after reservation
+    }
 
     @PostMapping("/addHotel")
     public String addHotel(@RequestParam("location") String location,

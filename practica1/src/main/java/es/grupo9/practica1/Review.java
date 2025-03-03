@@ -13,29 +13,29 @@ import jakarta.persistence.OneToOne;
 public class Review {
     public Review(){}
 
-    public Review(int review_ID, int stars, String comment, Reservation reservation, Housing hotel, User user) {
+    public Review(Integer review_ID, int rating, String comment, Reservation reservation, Housing hotel, User user) {
         this.review_ID = review_ID;
-        this.stars = stars;
+        this.rating = rating;
         this.comment = comment;
         this.reservation = reservation;
         this.hotel = hotel;
         this.user = user;
     }
 
-    public int getReview_ID() {
+    public Integer getReview_ID() {
         return review_ID;
     }
 
-    public void setReview_ID(int review_ID) {
+    public void setReview_ID(Integer review_ID) {
         this.review_ID = review_ID;
     }
 
-    public int getStars() {
-        return stars;
+    public int getRating() {
+        return rating;
     }
 
-    public void setStars(int stars) {
-        this.stars = stars;
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     public String getComment() {
@@ -73,10 +73,10 @@ public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "review_ID")
-    private int review_ID;
+    private Integer review_ID;
 
-    @Column(name = "stars", nullable = false)
-    private int stars;
+    @Column(name = "rating", nullable = false)
+    private int rating;
 
     @Column(name = "comment", nullable = false)
     private String comment;
