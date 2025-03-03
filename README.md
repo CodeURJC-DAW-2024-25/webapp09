@@ -6,6 +6,162 @@
 - Juan Antonio Alcalde Yuste |  mailto:ja.alcalde.2021@alumnos.urjc.es | Jantoniio3
 - Steven Adrados Khunliang |  mailto:s.adrados.2020@alumnos.urjc.es  | Jadrados
 - Rubén Alcojor Patilla |  mailto:r.alcojor.2022@alumnos.urjc.es  | rualpa2004
+
+# Instrucciones de ejecución:
+   Necesario:JAVA versión JDK 21, MYSQL versión 8.0.33 , "http://maven.apache.org/POM/4.0.0" , y de springboot la extensión de visualStudio org.springframework.boot versión 3.4.3.  
+   Necesitas descargarte el codigo del github, tener docker abierto y loggeado, e introducir el comando; docker run --rm -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=Trippins -p 3307:3306 -d mysql:8.0.33 y abrirlo en el puerto seguro 8443.
+
+# Participación de los miembros
+
+A continuación, se detalla la participación de cada miembro del equipo, incluyendo sus commits más importantes y las clases en las que han trabajado.
+
+---
+
+## **Sergio Villagarcía Sánchez**
+- **Correo**: [s.villagarcia.2019@alumnos.urjc.es](mailto:s.villagarcia.2019@alumnos.urjc.es)
+- **Usuario GitHub**: [Sergio-1502](https://github.com/Sergio-1502)
+
+### **Commits más importantes**
+1. **I**:
+   - Commit: ``
+   - Descripción: .
+2. **I**:
+   - Commit: ``
+   - Descripción: .
+3. **I**:
+   - Commit: ``
+   - Descripción: .
+4. **I**:
+   - Commit: ``
+   - Descripción: .
+5. **I**:
+   - Commit: ``
+   - Descripción: .
+
+
+### **Clases más trabajadas**
+- `User.java`
+- `Housing.java`
+- `SecurityConfig.java`
+
+---
+
+## **Guillermo Blázquez Barbacid**
+- **Correo**: [g.blazquez.2019@alumnos.urjc.es](mailto:g.blazquez.2019@alumnos.urjc.es)
+- **Usuario GitHub**: [Blazk0o](https://github.com/Blazk0o)
+
+### **Commits más importantes**
+1. **Implementacion del repositorio de Review**:
+   - Commit: [699406a](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/699406ab069b62fdd4a4a840c5c327e8a19a65fb)
+   - Descripción: Creadas las clases ReviewService y ReviewRepository aunque todavia no he inicializado la clase, tiene que unirse a housin, user y reservation
+.
+2. **I**:
+   - Commit: ``
+   - Descripción: .
+3. **I**:
+   - Commit: ``
+   - Descripción: .
+4. **I**:
+   - Commit: ``
+   - Descripción: .
+5. **I**:
+   - Commit: ``
+   - Descripción: .
+
+### **Clases más trabajadas**
+- `ReservationController.java`
+- `ReservationService.java`
+- `ReservationRepository.java`
+
+---
+
+## **Juan Antonio Alcalde Yuste**
+- **Correo**: [ja.alcalde.2021@alumnos.urjc.es](mailto:ja.alcalde.2021@alumnos.urjc.es)
+- **Usuario GitHub**: [Jantoniio3](https://github.com/Jantoniio3)
+
+### **Commits más importantes**
+1. **I**:
+   - Commit: ``
+   - Descripción: .
+2. **I**:
+   - Commit: ``
+   - Descripción: .
+3. **I**:
+   - Commit: ``
+   - Descripción: .
+4. **I**:
+   - Commit: ``
+   - Descripción: .
+5. **I**:
+   - Commit: ``
+   - Descripción: .
+
+### **Clases más trabajadas**
+- `Review.java`
+- `ReviewController.java`
+- `ReviewService.java`
+
+---
+
+## **Steven Adrados Khunliang**
+- **Correo**: [s.adrados.2020@alumnos.urjc.es](mailto:s.adrados.2020@alumnos.urjc.es)
+- **Usuario GitHub**: [Jadrados](https://github.com/Jadrados)
+
+### **Commits más importantes**
+1. **Implementando Ajax**:
+   - Commit: [014a566](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/014a56650afec257ed4d501a63d753764be8aee6)
+   - Descripción: Clases de Ajax.
+2. **Implementado Los correos automaticos**:
+   - Commit: [
+09750be](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/09750bea537d7d3767915fdf9bd2fdb3aba17f9e#diff-6d62feebe3adfa742594ab46b714b3cbd4b53da4a745b1d7364e6764d193cc05)  
+   - Descripción: se ha modificado la clase roomsAjax para que funcionen los correos.
+3. **Implementados cambios en pagina admin**:
+   - Commit: [7ba43dc](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/7ba43dc8e6105896214dd28be1be1d174bf3615b)
+   - Descripción: Metido que el admin pueda aceptar en la pagina web las reservas.
+4. **I**:
+   - Commit: ``
+   - Descripción: .
+5. **I**:
+   - Commit: ``
+   - Descripción: .
+
+### **Clases más trabajadas**
+- `index.html`
+- `styles.css`
+- `script.js`
+
+---
+
+## **Rubén Alcojor Patilla**
+- **Correo**: [r.alcojor.2022@alumnos.urjc.es](mailto:r.alcojor.2022@alumnos.urjc.es)
+- **Usuario GitHub**: [rualpa2004](https://github.com/rualpa2004)
+
+### **Commits más importantes**
+1. **I**:
+   - Commit: ``
+   - Descripción: .
+2. **I**:
+   - Commit: ``
+   - Descripción: .
+3. **I**:
+   - Commit: ``
+   - Descripción: .
+4. **I**:
+   - Commit: ``
+   - Descripción: .
+5. **I**:
+   - Commit: ``
+   - Descripción: .
+
+### **Clases más trabajadas**
+- `Application.java`
+- `HousingController.java`
+- `HousingService.java`
+
+
+
+
+
 # Modelo ER
 ![Imagen de WhatsApp 2025-02-04 a las 10 42 51_18d7be67](https://github.com/user-attachments/assets/43e81d6f-18ae-4db7-b5e0-c60fcb67fd40)
 
