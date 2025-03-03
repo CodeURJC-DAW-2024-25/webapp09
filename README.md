@@ -25,9 +25,9 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 1. **Creada ReviewAjax.js**:
    - Commit: [429d223](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/429d223815b6cb621f0c8d0384a52ba16329e246)
    - Descripción: creada la clase ReviewAjax.js.
-2. **I**:
-   - Commit: ``
-   - Descripción: .
+2. **Editado el controler de Ajax**:
+   - Commit: [f27c1c5](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/f27c1c5f338f4a79e4332ec5eb51e9165fdb0627)
+   - Descripción: Añadido en CustomAjaxController.java el @PostMapping referido a reviewAjax.js.
 3. **I**:
    - Commit: ``
    - Descripción: .
@@ -51,7 +51,7 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 - **Usuario GitHub**: [Blazk0o](https://github.com/Blazk0o)
 
 ### **Commits más importantes**
-1. **Implementacion del repositorio de Review**:
+1. **Implementación del repositorio de Review**:
    - Commit: [699406a](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/699406ab069b62fdd4a4a840c5c327e8a19a65fb)
    - Descripción: Creadas las clases ReviewService y ReviewRepository aunque todavia no he inicializado la clase, tiene que unirse a housin, user y reservation
 .
@@ -64,7 +64,7 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 4. **Cambio de las rutas**:
    - Commit: [ee99418](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/ee99418522a66f3acffaff210d0c2d546cc79435)
    - Descripción: cambiadas las rutas.
-5. **Implementacion de constructores vacios**:
+5. **Implementación de constructores vacios**:
    - Commit: [79c674a](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/79c674af51725dc6158254e614ae6c6c866a05cb)
    - Descripción: arreglados los fallos de Mysql, necesidad de constructores vacios.
 
@@ -80,21 +80,21 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 - **Usuario GitHub**: [Jantoniio3](https://github.com/Jantoniio3)
 
 ### **Commits más importantes**
-1. **I**:
-   - Commit: ``
-   - Descripción: .
-2. **I**:
-   - Commit: ``
-   - Descripción: .
-3. **I**:
-   - Commit: ``
-   - Descripción: .
-4. **I**:
-   - Commit: ``
-   - Descripción: .
-5. **I**:
-   - Commit: ``
-   - Descripción: .
+1. **Implementación de user**:
+   - Commit: [637d218](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/637d218eafca5e53c428f4b6cba27963dea210bd)
+   - Descripción: Edita el controler de mustache,usuario y registro.
+2. **Implementación de alojamientos**:
+   - Commit: [f0429d4](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/f0429d45f7245b2ce6e96c05683bd35eb5e9c9e8)
+   - Descripción: Ya funcionan los post de alojamientos.
+3. **Implementación de la barra de busqueda**:
+   - Commit: [88c08ed](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/88c08ed6ae6af1a16d380d1aacc59b034e64ef8c)
+   - Descripción: Crear barra de busqueda avanzada, añadir pagina de admin desde admin.
+4. **Solucion de problemas**:
+   - Commit: [6513d23](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/6513d238fff2b82b6bcaa36e724403297b08d18a)
+   - Descripción: eliminar algunas paginas, arreglar el problema de login que cree en el commit anterior, mostrar y esconder password de login y registro.
+5. **Implementación de email**:
+   - Commit: [354ea03](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/354ea03ea162a1790d9f6328f1fa4389dc499c79)
+   - Descripción: Trabajando en emailservice, envio de emails automaticos.
 
 ### **Clases más trabajadas**
 - `Review.java`
