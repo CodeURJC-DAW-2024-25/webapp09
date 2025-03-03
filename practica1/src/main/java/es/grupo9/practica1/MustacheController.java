@@ -64,7 +64,7 @@ public class MustacheController {
 
     @GetMapping("/login")
     public String login(Model model) {
-        return "login";
+        return "log in";
     }
 
     @GetMapping("/profile")
@@ -150,16 +150,8 @@ public class MustacheController {
     }
 
     @PostMapping("/login")
-    public String userlogin(@RequestParam("email") String email,
-                            @RequestParam("password") String password,
-                            Model model) {
-        boolean isAuthenticated = userService.userlogin(email, password);
-        if (isAuthenticated) {
-            return "redirect:/profile"; // Redirect to profile page on successful login
-        } else {
-            model.addAttribute("error", "Email o contraseña incorrectos.");
-            return "login"; // Return to login page on failure
-        }
+    public String userlogin( String email,String password, Model model){
+    return "index";
     }
 
     @PostMapping("/search")

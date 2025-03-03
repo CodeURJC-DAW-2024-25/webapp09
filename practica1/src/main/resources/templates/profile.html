@@ -84,9 +84,11 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="form-floating">
+                                        <div class="input-group">
                                             <input type="password" class="form-control" id="password" value="{{user.password}}" disabled>
-                                            <label for="password">Contraseña</label>
+                                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                                <i id="toggleIcon" class="bi bi-eye"></i>
+                                            </button>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -163,7 +165,8 @@
     <!-- Template Javascript -->
 
     <script src="main.js"></script>
-    <script src="profile.js"></script>
+    <script src="/profile.js"></script>
+    
 
 
 
