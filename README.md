@@ -9,7 +9,7 @@
 
 # Instrucciones de ejecución:
    Necesario:JAVA versión JDK 21, MYSQL versión 8.0.33 , "http://maven.apache.org/POM/4.0.0" , y de springboot la extensión de visualStudio org.springframework.boot versión 3.4.3.  
-   Necesitas descargarte el codigo del github, tener docker abierto y loggeado, e introducir el comando; docker run --rm -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=Trippins -p 3307:3306 -d mysql:8.0.33. y abrirlo en el puerto seguro 8443.
+   Necesitas descargarte el codigo del github, tener docker abierto y loggeado, e introducir el comando; docker run --rm -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=Trippins -p 3307:3306 -d mysql:8.0.33 y abrirlo en el puerto seguro 8443.
 
 # Participación de los miembros
 
@@ -51,9 +51,10 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 - **Usuario GitHub**: [Blazk0o](https://github.com/Blazk0o)
 
 ### **Commits más importantes**
-1. **I**:
-   - Commit: ``
-   - Descripción: .
+1. **Implementacion del repositorio de Review**:
+   - Commit: [699406a](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/699406ab069b62fdd4a4a840c5c327e8a19a65fb)
+   - Descripción: Creadas las clases ReviewService y ReviewRepository aunque todavia no he inicializado la clase, tiene que unirse a housin, user y reservation
+.
 2. **I**:
    - Commit: ``
    - Descripción: .
@@ -108,14 +109,15 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 
 ### **Commits más importantes**
 1. **Implementando Ajax**:
-   - Commit: `014a56650afec257ed4d501a63d753764be8aee6`
+   - Commit: [014a566](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/014a56650afec257ed4d501a63d753764be8aee6)
    - Descripción: Clases de Ajax.
 2. **Implementado Los correos automaticos**:
-   - Commit: `09750bea537d7d3767915fdf9bd2fdb3aba17f9e`
+   - Commit: [
+09750be](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/09750bea537d7d3767915fdf9bd2fdb3aba17f9e#diff-6d62feebe3adfa742594ab46b714b3cbd4b53da4a745b1d7364e6764d193cc05)  
    - Descripción: se ha modificado la clase roomsAjax para que funcionen los correos.
-3. **I**:
-   - Commit: ``
-   - Descripción: .
+3. **Implementados cambios en pagina admin**:
+   - Commit: [7ba43dc](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/7ba43dc8e6105896214dd28be1be1d174bf3615b)
+   - Descripción: Metido que el admin pueda aceptar en la pagina web las reservas.
 4. **I**:
    - Commit: ``
    - Descripción: .
