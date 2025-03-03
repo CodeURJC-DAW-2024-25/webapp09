@@ -51,7 +51,7 @@ public class SecurityConfiguration {
                 .requestMatchers(HttpMethod.POST, "/addHotel").hasAnyRole("USER", "ADMIN")
                 // Restricted endpoints
                 .requestMatchers("/admin/**").hasRole("ADMIN") // Only ADMIN can access /admin
-                .requestMatchers("/newHotel", "/booking").authenticated() // Only authenticated users (registered or admin) can access /newHotel and /booking
+                .requestMatchers("/newHotel", "/booking","/profile").authenticated() // Only authenticated users (registered or admin) can access /newHotel and /booking
                 .anyRequest().permitAll() // Allow all other endpoints by default
             )
             .formLogin(form -> form

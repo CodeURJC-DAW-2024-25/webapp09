@@ -113,6 +113,7 @@
                                             <th>Hotel</th>
                                             <th>Check-in</th>
                                             <th>Check-out</th>
+                                            <th>Estado</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -121,6 +122,12 @@
                                             <td>{{housing_name.name}}</td>
                                             <td>{{check_in}}</td>
                                             <td>{{check_out}}</td>
+                                            {{#valorated}}
+                                            <td>Aceptado</td>
+                                            {{/valorated}}
+                                            {{^valorated}}
+                                            <td>Pendiente</td>
+                                            {{/valorated}}
                                         </tr>
                                         {{/reservations}}
                                     </tbody>
