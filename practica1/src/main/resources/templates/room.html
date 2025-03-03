@@ -56,7 +56,33 @@
             </div>
         </div>
         <!-- Page Header End -->
-
+        <!-- Search Start -->
+        <form action="/search" method="post">
+            <div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
+                <div class="container">
+                    <div class="bg-white shadow" style="padding: 35px;">
+                        <div class="row g-2">
+                            <div class="col-md-10">
+                                <div class="row g-2">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control text-black-50 ps-3"
+                                            placeholder="Que estas buscando?" name="tags">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="number" value="" min="1" max="5" class="form-control text-black-50 ps-3"
+                                            placeholder="Numero de Estrellas" name="stars">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-primary w-100">Buscar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- Search End -->
         <!-- Room Start -->
         <div class="container-xxl py-5">
             <div class="container">

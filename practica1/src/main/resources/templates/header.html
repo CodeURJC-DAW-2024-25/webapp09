@@ -27,19 +27,21 @@
                         <a href="/about" class="nav-item nav-link">Nuestro Staff</a>
                         <a href="/room" class="nav-item nav-link ">Alojamientos</a>
                         <a href="/booking" class="nav-item nav-link ">Reservar</a>
-                        <a href="/contact" class="nav-item nav-link">Contacto</a>
                         <a href="/register" class="nav-item nav-link">Registrate</a>
                         {{#user}}
                         <a href="/newHotel" class="nav-item nav-link">Nuevo Hotel</a>
                         {{/user}}
+                        {{#admin}}
+                        <a href="/admin" class="nav-item nav-link">Admin</a>
+                        {{/admin}}
                     </div>
                     {{#username}}
-                    <a href="/profile" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Bienvenido, {{username}}<i
-                            class="fas fa-lock"></i></a>
+                    <a href="/profile" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Bienvenido, {{username}}</a>
 
                     {{/username}}
                     {{^username}}
-                    <a href="/login" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Iniciar Sesion</a>
+                    <a href="/login" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Iniciar Sesion<i
+                            class="fas fa-lock"></i></a>
                     {{/username}}
                 </div>
             </nav>

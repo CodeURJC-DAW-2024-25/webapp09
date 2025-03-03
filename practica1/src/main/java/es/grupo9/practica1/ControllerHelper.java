@@ -26,9 +26,16 @@ public class ControllerHelper {
             User user = userRepository.findByEmail(email)
             .orElseThrow(() -> new RuntimeException("User not found"));
 
-            
-            model.addAttribute("username", user.getName());
-            model.addAttribute("user", user);
+            model.addAttribute("rol", user.getAdmin());
+            if (user.getAdmin() == true) {
+                model.addAttribute("username", user.getName());
+                model.addAttribute("user", user);
+                model.addAttribute("admini", user.getName());
+                model.addAttribute("admin", user);
+            } else {
+                model.addAttribute("username", user.getName());
+                model.addAttribute("user", user);
+            }
         }
     }
 

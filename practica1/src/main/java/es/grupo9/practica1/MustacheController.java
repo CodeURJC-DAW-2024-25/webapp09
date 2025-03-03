@@ -64,7 +64,7 @@ public class MustacheController {
 
     @GetMapping("/login")
     public String login(Model model) {
-        return "log in";
+        return "login";
     }
 
     @GetMapping("/profile")
@@ -131,7 +131,7 @@ public class MustacheController {
             @RequestParam("stars") Integer stars,
             @RequestParam("price") Integer price,
             @RequestParam("description") String description,
-
+            @RequestParam("tags") String tags,
             Model model) {
 
         try {
@@ -139,7 +139,7 @@ public class MustacheController {
             byte[] imageBytes = imageFile.getBytes();
 
             // Add the hotel via service
-            housingService.addHotel(location, name, imageBytes, stars, price, description);
+            housingService.addHotel(location, name, imageBytes, stars, price, description, tags);
 
             return "redirect:/room"; // Redirect to rooms
         } catch (IOException e) {
@@ -150,7 +150,24 @@ public class MustacheController {
     }
 
     @PostMapping("/login")
-    public String userlogin(String email, String password, Model model) {
-        return "index";
+    public String userlogin(@RequestParam("email") String email,
+                            @RequestParam("password") String password,
+                            Model model) {
+        boolean isAuthenticated = userService.userlogin(email, password);
+        if (isAuthenticated) {
+            return "redirect:/profile"; // Redirect to profile page on successful login
+        } else {
+            model.addAttribute("error", "Email o contraseña incorrectos.");
+            return "login"; // Return to login page on failure
+        }
+    }
+
+    @PostMapping("/search")
+    public String searchHousing(@RequestParam("tags") String tags,
+                                @RequestParam("stars") Integer stars,
+                                Model model) {
+        List<Housing> housings = housingService.searchHousing(tags, stars);
+        model.addAttribute("houses", housings);
+        return "room";
     }
 }

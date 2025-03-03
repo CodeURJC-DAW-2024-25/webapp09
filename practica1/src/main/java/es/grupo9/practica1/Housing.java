@@ -37,10 +37,14 @@ public class Housing {
     @Column(name = "acepted", nullable = false)
     protected Boolean acepted;
 
+    @Column(name = "tags", nullable = false, length = 100)
+    private String tags;
+
+
     public Housing() {
     }
 
-    public Housing(int code, String location, String name, Blob image, Integer stars, Integer price, String description, Boolean acepted) {
+    public Housing(int code, String location, String name, Blob image, Integer stars, Integer price, String description, Boolean acepted, String tags) {
         this.code = code;
         this.location = location;
         this.name = name;
@@ -49,6 +53,15 @@ public class Housing {
         this.price = price;
         this.description = description;
         this.acepted = acepted;
+        this.tags = tags;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
     }
 
     public Boolean getAcepted() {
