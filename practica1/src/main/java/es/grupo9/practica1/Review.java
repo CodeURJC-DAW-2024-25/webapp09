@@ -76,7 +76,7 @@ public class Review {
     @Column(name = "review_ID")
     private int review_ID;
 
-    @Column(name = "stars", nullable = false)
+    @Column(name = "rating", nullable = false)
     private int rating;
 
     @Column(name = "comment", nullable = false)
