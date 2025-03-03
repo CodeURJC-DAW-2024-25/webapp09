@@ -14,9 +14,9 @@ import jakarta.persistence.OneToOne;
 public class Review {
     public Review(){}
 
-    public Review(int review_ID, int stars, String comment, Reservation reservation, Housing hotel, User user) {
+    public Review(int review_ID, int rating, String comment, Reservation reservation, Housing hotel, User user) {
         this.review_ID = review_ID;
-        this.stars = stars;
+        this.rating = rating;
         this.comment = comment;
         this.reservation = reservation;
         this.hotel = hotel;
@@ -31,12 +31,12 @@ public class Review {
         this.review_ID = review_ID;
     }
 
-    public int getStars() {
-        return stars;
+    public int getRating() {
+        return rating;
     }
 
     public void setStars(int stars) {
-        this.stars = stars;
+        this.rating = stars;
     }
 
     public String getComment() {
@@ -51,7 +51,7 @@ public class Review {
         return reservation;
     }
 
-    public void setReserva(Reservation reservation) {
+    public void setReservation(Reservation reservation) {
         this.reservation = reservation;
     }
 
@@ -77,7 +77,7 @@ public class Review {
     private int review_ID;
 
     @Column(name = "stars", nullable = false)
-    private int stars;
+    private int rating;
 
     @Column(name = "comment", nullable = false)
     private String comment;
