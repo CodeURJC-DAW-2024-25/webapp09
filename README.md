@@ -6,6 +6,13 @@
 - Juan Antonio Alcalde Yuste |  mailto:ja.alcalde.2021@alumnos.urjc.es | Jantoniio3
 - Steven Adrados Khunliang |  mailto:s.adrados.2020@alumnos.urjc.es  | Jadrados
 - Rubén Alcojor Patilla |  mailto:r.alcojor.2022@alumnos.urjc.es  | rualpa2004
+
+# Instrucciones de ejecución
+   Necesario:JAVA versión JDK 21, MYSQL versión 8.0.33 , "http://maven.apache.org/POM/4.0.0" , y de springboot la extensión de visualStudio org.springframework.boot versión 3.4.3.
+   Necesitas descargarte el codigo del github, tener docker abierto y loggeado, e introducir el comando; docker run --rm -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=Trippins -p 3307:3306 -d mysql:8.0.33.
+   
+
+
 # Modelo ER
 ![Imagen de WhatsApp 2025-02-04 a las 10 42 51_18d7be67](https://github.com/user-attachments/assets/43e81d6f-18ae-4db7-b5e0-c60fcb67fd40)
 
