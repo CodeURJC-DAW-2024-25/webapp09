@@ -22,9 +22,9 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 - **Usuario GitHub**: [Sergio-1502](https://github.com/Sergio-1502)
 
 ### **Commits más importantes**
-1. **I**:
-   - Commit: ``
-   - Descripción: .
+1. **Creada ReviewAjax.js**:
+   - Commit: [429d223](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/429d223815b6cb621f0c8d0384a52ba16329e246)
+   - Descripción: creada la clase ReviewAjax.js.
 2. **I**:
    - Commit: ``
    - Descripción: .
@@ -55,18 +55,18 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
    - Commit: [699406a](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/699406ab069b62fdd4a4a840c5c327e8a19a65fb)
    - Descripción: Creadas las clases ReviewService y ReviewRepository aunque todavia no he inicializado la clase, tiene que unirse a housin, user y reservation
 .
-2. **I**:
-   - Commit: ``
-   - Descripción: .
-3. **I**:
-   - Commit: ``
-   - Descripción: .
-4. **I**:
-   - Commit: ``
-   - Descripción: .
-5. **I**:
-   - Commit: ``
-   - Descripción: .
+2. **Implementada la clase reseñas**:
+   - Commit: [df8fdc8](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/df8fdc87a0ebfe32d83eac7db0b211a848210695)
+   - Descripción: creada la clase reseñas.
+3. **Admin y controler**:
+   - Commit: [7ba43dc](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/7ba43dc8e6105896214dd28be1be1d174bf3615b)
+   - Descripción: añadido en admin aceptar alojamientos y linkeada la pagina.
+4. **Cambio de las rutas**:
+   - Commit: [ee99418](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/ee99418522a66f3acffaff210d0c2d546cc79435)
+   - Descripción: cambiadas las rutas.
+5. **Implementacion de constructores vacios**:
+   - Commit: [79c674a](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/79c674af51725dc6158254e614ae6c6c866a05cb)
+   - Descripción: arreglados los fallos de Mysql, necesidad de constructores vacios.
 
 ### **Clases más trabajadas**
 - `ReservationController.java`
@@ -114,16 +114,16 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 2. **Implementado Los correos automaticos**:
    - Commit: [
 09750be](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/09750bea537d7d3767915fdf9bd2fdb3aba17f9e#diff-6d62feebe3adfa742594ab46b714b3cbd4b53da4a745b1d7364e6764d193cc05)  
-   - Descripción: se ha modificado la clase roomsAjax para que funcionen los correos.
+   - Descripción: Se ha modificado la clase roomsAjax para que funcionen los correos.
 3. **Implementados cambios en pagina admin**:
    - Commit: [7ba43dc](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/7ba43dc8e6105896214dd28be1be1d174bf3615b)
    - Descripción: Metido que el admin pueda aceptar en la pagina web las reservas.
-4. **I**:
-   - Commit: ``
-   - Descripción: .
-5. **I**:
-   - Commit: ``
-   - Descripción: .
+4. **Arreglado el controler**:
+   - Commit: [cf4e60c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/cf4e60cf59ae4bf2933bf375082cc25e48a4a7ad)
+   - Descripción: BBDD operativa recibiendo datos solo falta el resto de htmls y clases.
+5. **Personalizada el template**:
+   - Commit: [c28ce6e](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/c28ce6e7ad8d4ea0f8f8a83659504e8d326a2cf1)
+   - Descripción: Cambiadas las referencias y el template.
 
 ### **Clases más trabajadas**
 - `index.html`
