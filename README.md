@@ -137,21 +137,21 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 - **Usuario GitHub**: [rualpa2004](https://github.com/rualpa2004)
 
 ### **Commits más importantes**
-1. **I**:
-   - Commit: ``
+1. **Implementado el CSRF**:
+   - Commit: [6497a3b](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/6497a3ba73aaacf704e5ef29e8055105fe449f37)
    - Descripción: .
-2. **I**:
-   - Commit: ``
-   - Descripción: .
-3. **I**:
-   - Commit: ``
-   - Descripción: .
-4. **I**:
-   - Commit: ``
-   - Descripción: .
-5. **I**:
-   - Commit: ``
-   - Descripción: .
+2. **Implementado los tokens**:
+   - Commit: [0b4979f](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/0b4979f88e78f498ab84aae651c749561588c074)
+   - Descripción: Añadiendo los tokens en los formularios.
+3. **Cambiando todo a inglés**:
+   - Commit: [45bae2b](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/45bae2b772f219867c7352dc49f1f05bd0cfc38c)
+   - Descripción: Modificado todo a inglés.
+4. **Guardando DNI**:
+   - Commit: [0e7d9e1](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/0e7d9e1100ec4886cb65076c07db7c1090c47466)
+   - Descripción: DNI guardado y validado correctamente.
+5. **Arreglo de contraseña**:
+   - Commit: [5f8e033](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/5f8e0336c961631359d18b612c61c3d0b1618590)
+   - Descripción: Arreglo de la variable contraseña.
 
 ### **Clases más trabajadas**
 - `Application.java`
