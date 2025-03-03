@@ -80,6 +80,18 @@ public class MustacheController {
 
     @GetMapping("/profile")
     public String profile(Model model) {
+        User user = (User) model.getAttribute("user");
+        var reservations = reservationRepository.findAll();
+        
+
+        var filteredReservations = reservations.stream()
+                .filter(reservation -> reservation.getID_cliente().getDni().equals(user.getDni())) // Filters houses per dni
+                .limit(3) // Limit the result to 3
+                .collect(Collectors.toList());
+
+        model.addAttribute("reservations", filteredReservations);
+
+
         return "profile";
     }
 
