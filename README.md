@@ -8,8 +8,11 @@
 - Rubén Alcojor Patilla |  mailto:r.alcojor.2022@alumnos.urjc.es  | rualpa2004
 
 # Instrucciones de ejecución:
-   Necesario:JAVA versión JDK 21, MYSQL versión 8.0.33 , "http://maven.apache.org/POM/4.0.0" , y de springboot la extensión de visualStudio org.springframework.boot versión 3.4.3.  
-   Necesitas descargarte el codigo del github, tener docker abierto y loggeado, e introducir el comando; docker run --rm -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=Trippins -p 3307:3306 -d mysql:8.0.33 y abrirlo en el puerto seguro 8443.
+- Necesario:JAVA versión JDK 21, MYSQL versión 8.0.33 , "http://maven.apache.org/POM/4.0.0" , y de springboot la extensión de visualStudio org.springframework.boot versión 3.4.3  
+- Necesario clonar el repositorio de github,  
+- Tener docker abierto y loggeado,
+- Introducir el comando en VisualStudio; docker run --rm -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=Trippins -p 3307:3306 -d mysql:8.0.33
+- Abrirlo en el puerto seguro 8443.
 
 # Participación de los miembros
 
