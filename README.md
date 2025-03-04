@@ -69,10 +69,11 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
    - Descripción: arreglados los fallos de Mysql, necesidad de constructores vacios.
 
 ### **Clases más trabajadas**
-- `ReservationController.java`
-- `ReservationService.java`
-- `ReservationRepository.java`
-
+- [Review.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/main/practica1/src/main/java/es/grupo9/practica1/Review.java)  
+- [ReviewService.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/main/practica1/src/main/java/es/grupo9/practica1/ReviewService.java)  
+- [ReviewRepository.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/main/practica1/src/main/java/es/grupo9/practica1/ReviewRepository.java)  
+- [Moustachecontroler.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/main/practica1/src/main/java/es/grupo9/practica1/MustacheController.java)  
+- [admin.html](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/main/practica1/src/main/resources/templates/admin.html)  
 ---
 
 ## **Juan Antonio Alcalde Yuste**
@@ -126,9 +127,11 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
    - Descripción: Cambiadas las referencias y el template.
 
 ### **Clases más trabajadas**
-- `index.html`
-- `styles.css`
-- `script.js`
+- [MustacheControler.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/637d218eafca5e53c428f4b6cba27963dea210bd/practica1/src/main/java/es/grupo9/practica1/MustacheController.java)
+- [adminAjax.js](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/014a56650afec257ed4d501a63d753764be8aee6/practica1/src/main/resources/static/adminAjax.js)  
+- [MustacheControler.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/014a56650afec257ed4d501a63d753764be8aee6/practica1/src/main/java/es/grupo9/practica1/MustacheController.java)  
+- [CustomAjaxControler.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/014a56650afec257ed4d501a63d753764be8aee6/practica1/src/main/java/es/grupo9/practica1/CustomAjaxController.java)  
+- [admin.html](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/014a56650afec257ed4d501a63d753764be8aee6/practica1/src/main/resources/templates/admin.html)  
 
 ---
 
