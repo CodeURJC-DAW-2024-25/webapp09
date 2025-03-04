@@ -21,6 +21,9 @@ public class CustomAjaxController {
     @Autowired
     private HousingRepository housingRepository;
 
+    @Autowired
+    private ReviewRepository reviewRepository;
+
 
     @PostMapping("/roomHouses")
     public Page<Housing> getHouses(@RequestBody Map<String, Integer> request) {
@@ -93,6 +96,22 @@ public class CustomAjaxController {
             System.out.println("House with ID " + houseId + " has been denied and removed.");
         } else {
             System.err.println("House with ID " + houseId + " not found.");
+        }
+    }
+
+    @PostMapping("/reviews/paginated")
+    public Page<Review> getReviews(@RequestBody Map<String, Integer> request) {
+        try {
+            int page = request.getOrDefault("page", 0); // Default to page 0
+            int size = 3; // Fixed page size
+
+            Pageable pageable = PageRequest.of(page, size);
+            Page<Review> reviews = reviewRepository.findAll(pageable);
+
+            return reviews;
+        } catch (Exception e) {
+            System.err.println("Error fetching reviews: " + e.getMessage());
+            throw e; // Re-throw the exception to return a 500 error
         }
     }
 
