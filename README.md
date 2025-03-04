@@ -28,9 +28,9 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 2. **Editado el controler de Ajax**:
    - Commit: [f27c1c5](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/f27c1c5f338f4a79e4332ec5eb51e9165fdb0627)
    - Descripción: Añadido en CustomAjaxController.java el @PostMapping referido a reviewAjax.js.
-3. **I**:
-   - Commit: ``
-   - Descripción: .
+3. **Implementación de pagina de error**:
+   - Commit: [f8e63fb](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/f8e63fb5555324d6eab92348dd3ae5ec641e6061#diff-6d62feebe3adfa742594ab46b714b3cbd4b53da4a745b1d7364e6764d193cc05)
+   - Descripción: Se ha añadido una pagina de error.
 4. **I**:
    - Commit: ``
    - Descripción: .
@@ -41,8 +41,8 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 
 ### **Clases más trabajadas**
 - `User.java`
-- `Housing.java`
-- `SecurityConfig.java`
+- [CustomAjaxControler.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/f8e63fb5555324d6eab92348dd3ae5ec641e6061/practica1/src/main/java/es/grupo9/practica1/CustomAjaxController.java)
+- [error.html](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/f8e63fb5555324d6eab92348dd3ae5ec641e6061/practica1/src/main/resources/templates/error.html)  
 
 ---
 
@@ -98,9 +98,11 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
    - Descripción: Trabajando en emailservice, envio de emails automaticos.
 
 ### **Clases más trabajadas**
-- `Review.java`
-- `ReviewController.java`
-- `ReviewService.java`
+- [HousingService.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/f0429d45f7245b2ce6e96c05683bd35eb5e9c9e8/practica1/src/main/java/es/grupo9/practica1/HousingService.java)
+- [passwordtoogle.js](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/6513d238fff2b82b6bcaa36e724403297b08d18a/practica1/src/main/resources/static/passwordtoogle.js)
+- [EmainService.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/354ea03ea162a1790d9f6328f1fa4389dc499c79/practica1/src/main/java/es/grupo9/practica1/EmailService.java)
+- [ControllerHelper.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/main/practica1/src/main/java/es/grupo9/practica1/ControllerHelper.java)
+- [ReservationService.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/main/practica1/src/main/java/es/grupo9/practica1/ReservationService.java)
 
 ---
 
@@ -157,11 +159,11 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
    - Descripción: Arreglo de la variable contraseña.
 
 ### **Clases más trabajadas**
-- `Application.java`
-- `HousingController.java`
-- `HousingService.java`
-
-
+- [profile.html](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/6497a3ba73aaacf704e5ef29e8055105fe449f37/practica1/src/main/resources/templates/profile.html)
+- [MustacheController.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/6497a3ba73aaacf704e5ef29e8055105fe449f37/practica1/src/main/java/es/grupo9/practica1/MustacheController.java)
+- [Housing.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/45bae2b772f219867c7352dc49f1f05bd0cfc38c/practica1/src/main/java/es/grupo9/practica1/Housing.java)
+- [Reservation.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/45bae2b772f219867c7352dc49f1f05bd0cfc38c/practica1/src/main/java/es/grupo9/practica1/Reservation.java)
+- [User.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/0e7d9e1100ec4886cb65076c07db7c1090c47466/practica1/src/main/java/es/grupo9/practica1/Usuario.java)
 
 
 
