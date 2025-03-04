@@ -61,9 +61,9 @@
                         <tbody>
                             <!-- Example Row for a Reservation -->
                             {{#reservations}}
-                            <tr>
+                            <tr data-reservation-id="{{id}}">
                                 <td>Reserva en {{housing_name.name}} (id de hotel {{housing.code}}) con id de reserva:
-                                    {{reservation_ID}}
+                                    {{id}}
                                     <br>
                                     Esta peticion de reserva la solicita {{client.name}} con dni: {{client.dni}}
                                 </td>

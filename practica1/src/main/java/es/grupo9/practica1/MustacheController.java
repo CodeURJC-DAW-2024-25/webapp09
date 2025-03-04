@@ -82,15 +82,14 @@ public class MustacheController {
     public String profile(Model model) {
         User user = (User) model.getAttribute("user");
         var reservations = reservationRepository.findAll();
-        
 
         var filteredReservations = reservations.stream()
-                .filter(reservation -> reservation.getID_cliente().getDni().equals(user.getDni())) // Filters houses per dni
+                .filter(reservation -> reservation.getID_cliente().getDni().equals(user.getDni())) // Filters houses per
+                                                                                                   // dni
                 .limit(3) // Limit the result to 3
                 .collect(Collectors.toList());
 
         model.addAttribute("reservations", filteredReservations);
-
 
         return "profile";
     }
@@ -141,16 +140,19 @@ public class MustacheController {
     @GetMapping("/admin")
     public String admin(Model model) {
 
-        Pageable pageable = PageRequest.of(0, 3);
-        var reservations = reservationRepository.findAll(pageable).getContent();
+        var reservations = reservationRepository.findAll();
         var allHouses = housingRepository.findAll();
 
         var filteredHouses = allHouses.stream()
                 .filter(house -> !house.getAcepted()) // Filters only unaccepted houses
-                .limit(3) // Limit the result to 6 houses
+                .limit(3) // Limit the result to 3 houses
+                .collect(Collectors.toList());
+        var filteredReservations = reservations.stream()
+                .filter(reservation -> !reservation.isValorated()) 
+                .limit(3) 
                 .collect(Collectors.toList());
 
-        model.addAttribute("reservations", reservations);
+        model.addAttribute("reservations", filteredReservations);
         model.addAttribute("houses", filteredHouses);
 
         return "admin";
@@ -170,7 +172,6 @@ public class MustacheController {
         Date checkIn = Date.valueOf(LocalDate.parse(checkInStr));
         Date checkOut = Date.valueOf(LocalDate.parse(checkOutStr));
 
-
         // Get the house from the repository
         Optional<Housing> optionalHousing = housingRepository.findByCode(houseId);
         if (optionalHousing.isEmpty()) {
@@ -179,8 +180,8 @@ public class MustacheController {
         Housing house = optionalHousing.get();
 
         // Create and save the reservation
-        
-        reservationService.addReservation( user, house, checkIn, checkOut);
+
+        reservationService.addReservation(user, house, checkIn, checkOut);
 
         return "redirect:/profile"; // Redirect to profile after reservation
     }

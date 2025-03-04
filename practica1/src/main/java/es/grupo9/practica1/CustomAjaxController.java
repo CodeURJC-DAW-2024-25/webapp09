@@ -21,6 +21,9 @@ public class CustomAjaxController {
     @Autowired
     private HousingRepository housingRepository;
 
+    @Autowired
+    private ReservationRepository reservationRepository;
+
 
     @PostMapping("/roomHouses")
     public Page<Housing> getHouses(@RequestBody Map<String, Integer> request) {
@@ -93,6 +96,22 @@ public class CustomAjaxController {
             System.out.println("House with ID " + houseId + " has been denied and removed.");
         } else {
             System.err.println("House with ID " + houseId + " not found.");
+        }
+    }
+    @PostMapping("/acceptReservation/{reservationId}")
+    public void acceptReservation(@PathVariable Integer reservationId) {
+        Optional<Reservation> optionalReservation = reservationRepository.findById(reservationId);
+        if (optionalReservation.isPresent()) {
+            Reservation reservation = optionalReservation.get();
+            reservation.setValorated(true);
+            reservationRepository.save(reservation);
+            
+        } 
+    }
+    @DeleteMapping("/denyReservation/{reservationId}")
+    public void denyReservation(@PathVariable Integer reservationId) {
+        if (reservationRepository.existsById(reservationId)) {
+            reservationRepository.deleteById(reservationId);
         }
     }
 

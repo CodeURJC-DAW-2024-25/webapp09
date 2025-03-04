@@ -14,7 +14,7 @@ import jakarta.persistence.ManyToOne;
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int reservation_ID;
+    private Integer id;
 
     @Column(name = "check_in", nullable = false, unique = false, length = 9)
     private Date check_in;
@@ -40,8 +40,8 @@ public class Reservation {
     
     public Reservation(){}
 
-    public Reservation(Integer reservation_ID, User client, Housing housing, Date check_in, Date check_out) {
-        this.reservation_ID = reservation_ID;
+    public Reservation(Integer id, User client, Housing housing, Date check_in, Date check_out) {
+        this.id = id;
         this.client = client;
         this.housing = housing;
         this.check_in = check_in;
@@ -50,12 +50,12 @@ public class Reservation {
         this.housing_name = housing; 
     }
 
-    public Integer getReservation_ID() {
-        return reservation_ID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setReservation_ID(Integer reservation_ID) {
-        this.reservation_ID = reservation_ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public boolean isValorated() {

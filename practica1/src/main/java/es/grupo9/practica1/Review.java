@@ -82,7 +82,7 @@ public class Review {
     private String comment;
 
     @OneToOne
-    @JoinColumn(name = "reservation_ID", referencedColumnName = "reservation_ID", nullable = false)
+    @JoinColumn(name = "reservation_ID", referencedColumnName = "id", nullable = false)
     private Reservation reservation;
 
     @ManyToOne
