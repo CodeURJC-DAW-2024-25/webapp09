@@ -13,28 +13,27 @@ import jakarta.persistence.OneToOne;
 public class Review {
     public Review(){}
 
-    public Review(Integer review_ID, int rating, String comment, Reservation reservation, Housing hotel, User user) {
-        this.review_ID = review_ID;
+    public Review(Integer reviewId, Integer rating, String comment, Housing hotel, User user) {
+        this.reviewId = reviewId;
         this.rating = rating;
         this.comment = comment;
-        this.reservation = reservation;
         this.hotel = hotel;
         this.user = user;
     }
 
-    public Integer getReview_ID() {
-        return review_ID;
+    public Integer getReviewId() {
+        return reviewId;
     }
 
-    public void setReview_ID(Integer review_ID) {
-        this.review_ID = review_ID;
+    public void setReviewId(Integer reviewId) {
+        this.reviewId = reviewId;
     }
 
-    public int getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(Integer rating) {
         this.rating = rating;
     }
 
@@ -46,13 +45,7 @@ public class Review {
         this.comment = comment;
     }
 
-    public Reservation getReservation() {
-        return reservation;
-    }
 
-    public void setReserva(Reservation reservation) {
-        this.reservation = reservation;
-    }
 
     public Housing getHotel() {
         return hotel;
@@ -72,18 +65,15 @@ public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "review_ID")
-    private Integer review_ID;
+    @Column(name = "reviewId")
+    private Integer reviewId;
 
     @Column(name = "rating", nullable = false)
-    private int rating;
+    private Integer rating;
 
     @Column(name = "comment", nullable = false)
     private String comment;
 
-    @OneToOne
-    @JoinColumn(name = "reservation_ID", referencedColumnName = "id", nullable = false)
-    private Reservation reservation;
 
     @ManyToOne
     @JoinColumn(name = "Hotel_code", referencedColumnName = "code",nullable = false)

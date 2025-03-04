@@ -48,6 +48,9 @@ public class MustacheController {
     @Autowired
     private HousingRepository housingRepository;
 
+    @Autowired
+    private ReviewService reviewService;
+
     @GetMapping("/index")
     public String index(Model model) {
         return "index";
@@ -84,8 +87,7 @@ public class MustacheController {
         var reservations = reservationRepository.findAll();
 
         var filteredReservations = reservations.stream()
-                .filter(reservation -> reservation.getID_cliente().getDni().equals(user.getDni())) // Filters houses per
-                                                                                                   // dni
+                .filter(reservation -> reservation.getID_cliente().getDni().equals(user.getDni())) // Filters houses per dni
                 .limit(3) // Limit the result to 3
                 .collect(Collectors.toList());
 
@@ -145,9 +147,9 @@ public class MustacheController {
 
         var filteredHouses = allHouses.stream()
                 .filter(house -> !house.getAcepted()) // Filters only unaccepted houses
-                .limit(3) // Limit the result to 3 houses
+                .limit(3)                      // Limit the result to 3 houses
                 .collect(Collectors.toList());
-        var filteredReservations = reservations.stream()
+        var filteredReservations = reservations.stream() //Literally the same but for reservations
                 .filter(reservation -> !reservation.isValorated()) 
                 .limit(3) 
                 .collect(Collectors.toList());
@@ -210,6 +212,26 @@ public class MustacheController {
             return "newhotel"; // Return to the form page in case of error
         }
     }
+
+    @PostMapping("/addComment")
+    public String addComment(@RequestParam("comment") String comment, @RequestParam("rating") Integer rating,@RequestParam("houseId") Integer houseId ,Model model) {
+        User user = (User) model.getAttribute("user");
+        
+        Optional<Housing> optionalHousing = housingRepository.findByCode(houseId);
+
+        Housing house = optionalHousing.get();
+
+
+
+        reviewService.addReview(rating, comment,house ,user );
+        
+        return "index";
+    }
+    
+
+
+
+
 
     @PostMapping("/login")
     public String userlogin(String email, String password, Model model) {

@@ -12,7 +12,7 @@ public class EmailService {
     private JavaMailSender mailSender;
 
     public void sendEmail(String to, String subject, String body) {
-        System.out.println("He llegado aqui");
+        
         try {
             SimpleMailMessage message = new SimpleMailMessage();
             message.setTo(to);

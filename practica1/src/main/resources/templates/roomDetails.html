@@ -118,6 +118,17 @@
                             <label for="comment" class="form-label">Comentario</label>
                             <textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>
                         </div>
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <label for="rating">Rating (0-100):</label>
+                                <input type="range" class="form-range" name="rating" id="rating" min="0" max="100" step="1" value="0">
+                                <br><br>
+                                <output for="rating" id="rating-output" class="fs-4">0</output></small>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="houseId" value="{{house.code}}">
+                        <br><br><br>
                         <button type="submit" class="btn btn-primary">Enviar</button>
                     </form>
                 </div>
@@ -161,6 +172,14 @@
 
     <!-- Template Javascript -->
     <script src="/main.js"></script>
+    <script>
+        const ratingSlider = document.getElementById("rating");
+        const ratingOutput = document.getElementById("rating-output");
+    
+        ratingSlider.addEventListener("input", () => {
+            ratingOutput.value = ratingSlider.value; // Update the displayed value
+        });
+    </script>
 
 </body>
 
