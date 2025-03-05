@@ -120,7 +120,7 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 2. **Implementado Los correos automaticos**:
    - Commit: [
 09750be](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/09750bea537d7d3767915fdf9bd2fdb3aba17f9e#diff-6d62feebe3adfa742594ab46b714b3cbd4b53da4a745b1d7364e6764d193cc05)  
-   - Descripción: Se ha modificado la clase roomsAjax para que funcionen los correos.
+   - Descripción: Correos y ajax ya funcionan solo hay que repetir el proceso para el resto ajax.
 3. **Implementados cambios en pagina admin**:
    - Commit: [7ba43dc](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/7ba43dc8e6105896214dd28be1be1d174bf3615b)
    - Descripción: Metido que el admin pueda aceptar en la pagina web las reservas.
