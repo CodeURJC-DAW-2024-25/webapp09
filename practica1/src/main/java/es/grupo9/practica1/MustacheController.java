@@ -51,6 +51,9 @@ public class MustacheController {
     @Autowired
     private ReviewService reviewService;
 
+    @Autowired
+    private ReviewRepository reviewRepository;
+
     @GetMapping("/index")
     public String index(Model model) {
         return "index";
@@ -119,10 +122,13 @@ public class MustacheController {
         if (optionalHousing.isPresent()) {
             Housing house = optionalHousing.get();
             model.addAttribute("house", house);
+            var allReviews = reviewRepository.findAll();
 
-            // Load comments
-            // List<Review> comments = ReviewRepository.findByHotel(id);
-            // model.addAttribute("comments", comments);
+            var filteredReviews = allReviews.stream()
+                    .filter(review -> review.getHotel().getCode() == code)// igual da error que cod ees int no Integer
+                    .limit(3)
+                    .collect(Collectors.toList());
+            model.addAttribute("comments", filteredReviews);
 
             return "roomDetails"; // The HTML page for room details
         }

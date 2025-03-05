@@ -12,7 +12,7 @@ public class ReviewService {
     @Autowired
     private ReviewRepository reviewRepository;
 
-    private Integer reviewCounter = 0;
+    private Integer reviewCounter = 1;
     
     public Review addReview(Integer rating, String comment, Housing hotel, User user){
         Review newReview = new Review(reviewCounter++, rating , comment,hotel,user);

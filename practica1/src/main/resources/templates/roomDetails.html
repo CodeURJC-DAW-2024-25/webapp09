@@ -98,13 +98,14 @@
                     <form action="/addReservation" method="POST">
                         <label for="checkIn">Fecha de entrada:</label>
                         <input type="date" id="checkIn" name="checkIn" required>
-                        
+
                         <label for="checkOut">Fecha de salida:</label>
                         <input type="date" id="checkOut" name="checkOut" required>
-                        
+
                         <input type="hidden" name="houseId" value="{{house.code}}">
                         <input type="hidden" name="userId" value="{{user.dni}}">
-                        <button type="submit" class="btn btn-primary" id="reservation-button">Hacer reserva como {{user.name}}
+                        <button type="submit" class="btn btn-primary" id="reservation-button">Hacer reserva como
+                            {{user.name}}
                         </button>
                     </form>
                 </div>
@@ -121,7 +122,8 @@
                         <div class="col-md-12">
                             <div class="form-floating">
                                 <label for="rating">Rating (0-100):</label>
-                                <input type="range" class="form-range" name="rating" id="rating" min="0" max="100" step="1" value="0">
+                                <input type="range" class="form-range" name="rating" id="rating" min="0" max="100"
+                                    step="1" value="0">
                                 <br><br>
                                 <output for="rating" id="rating-output" class="fs-4">0</output></small>
                             </div>
@@ -134,13 +136,28 @@
                 </div>
 
                 <!-- Comment Section -->
-                <div class="mt-5 section-title">
-                    <h3>Comentarios</h3>
-                    <!--
-                    <ul class="list-group">
+                <h3 class="section-title">Comentarios</h3>
+                <div class="mt-5">
+                    
+                    <br><br>
+                    {{#comments}}
+                    <div class="comment-box border rounded p-4 mb-3 shadow-sm position-relative">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="fa fa-quote-right fa-2x text-primary position-absolute top-0 end-0 me-3 mt-3"></i>
+
+                            <!-- Profile Icon -->
+                            <i class="bi bi-person-circle me-2" style="font-size: 2rem;"></i>
+                            <h5 class="m-0">{{user.name}}</h5>
+                        </div>
+                        <!-- Comment Content -->
+                        <p class="mb-2 text-break">{{comment}}</p>
+                        <!-- Rating -->
+                        <br><br>
+                        <strong class="text-dark">Rating: {{rating}}/100</strong>
                         
-                    </ul>
-                -->
+                    </div>
+                    {{/comments}}
+
                 </div>
             </div>
         </div>
@@ -175,7 +192,7 @@
     <script>
         const ratingSlider = document.getElementById("rating");
         const ratingOutput = document.getElementById("rating-output");
-    
+
         ratingSlider.addEventListener("input", () => {
             ratingOutput.value = ratingSlider.value; // Update the displayed value
         });
