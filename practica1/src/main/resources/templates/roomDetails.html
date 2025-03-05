@@ -129,7 +129,7 @@
                             </div>
                         </div>
 
-                        <input type="hidden" name="houseId" value="{{house.code}}">
+                        <input id="houseIdHidden" type="hidden" name="houseId" value="{{house.code}}">
                         <br><br><br>
                         <button type="submit" class="btn btn-primary">Enviar</button>
                     </form>
@@ -137,7 +137,7 @@
 
                 <!-- Comment Section -->
                 <h3 class="section-title">Comentarios</h3>
-                <div class="mt-5">
+                <div class="mt-5" id="comment-container">
                     
                     <br><br>
                     {{#comments}}
@@ -157,8 +157,12 @@
                         
                     </div>
                     {{/comments}}
-
+                    
+                    
                 </div>
+            </div>
+            <div class="text-center mt-4">
+                <button id="load-more" class="btn btn-primary">Cargar más</button>
             </div>
         </div>
     </div>
@@ -189,6 +193,7 @@
 
     <!-- Template Javascript -->
     <script src="/main.js"></script>
+    <script src="/commentsAjax.js"></script>
     <script>
         const ratingSlider = document.getElementById("rating");
         const ratingOutput = document.getElementById("rating-output");

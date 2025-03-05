@@ -24,6 +24,8 @@ public class CustomAjaxController {
     @Autowired
     private ReservationRepository reservationRepository;
 
+    @Autowired
+    private ReviewRepository reviewRepository;
 
     @PostMapping("/roomHouses")
     public Page<Housing> getHouses(@RequestBody Map<String, Integer> request) {
@@ -50,6 +52,35 @@ public class CustomAjaxController {
         }
     }
 
+    @PostMapping("/loadComments")
+    public Page<Review> getComments(@RequestBody Map<String, Integer> request) {
+        try {
+            // Extract hotel ID, page, and size from the request body
+            Integer hotelId = request.getOrDefault("hotelId", 1); // Default to 0 if not provided
+            int page = request.getOrDefault("page", 0); // Default to page 0 if not provided
+            int size = request.getOrDefault("size", 3); // Default to size 3 if not provided
+
+            
+            // Log the received parameters
+            System.out.println("Received request - hotelId: " + hotelId + ", page: " + page + ", size: " + size);
+
+            // Fetch comments using pagination
+            Optional<Housing> house = housingRepository.findByCode(hotelId);
+
+            Pageable pageable = PageRequest.of(page, size);
+            Page<Review> comments = reviewRepository.findByHotel(house.get(), pageable);
+
+            // Log the number of comments fetched
+            System.out.println("Fetched " + comments.getNumberOfElements() + " comments");
+
+            return comments;
+        } catch (Exception e) {
+            // Log the error
+            System.err.println("Error fetching comments: " + e.getMessage());
+            throw e; // Re-throw the exception to return a 500 error
+        }
+    }
+
     @PostMapping("/adminHouses")
     public Page<Housing> getAdminHouses(@RequestBody Map<String, Integer> request) {
         try {
@@ -63,9 +94,7 @@ public class CustomAjaxController {
             // Fetch the houses using pagination
             Pageable pageable = PageRequest.of(page, size);
             Page<Housing> houses = housingRepository.findByAceptedFalse(pageable);
-            
-            
-            
+
             return houses;
         } catch (Exception e) {
             // Log the error
@@ -74,7 +103,7 @@ public class CustomAjaxController {
         }
     }
 
-        // Accept House: Sets the "acepted" field to true
+    // Accept House: Sets the "acepted" field to true
     @PostMapping("/acceptHouse/{houseId}")
     public void acceptHouse(@PathVariable Integer houseId) {
         Optional<Housing> optionalHouse = housingRepository.findById(houseId);
@@ -98,6 +127,7 @@ public class CustomAjaxController {
             System.err.println("House with ID " + houseId + " not found.");
         }
     }
+
     @PostMapping("/acceptReservation/{reservationId}")
     public void acceptReservation(@PathVariable Integer reservationId) {
         Optional<Reservation> optionalReservation = reservationRepository.findById(reservationId);
@@ -105,9 +135,10 @@ public class CustomAjaxController {
             Reservation reservation = optionalReservation.get();
             reservation.setValorated(true);
             reservationRepository.save(reservation);
-            
-        } 
+
+        }
     }
+
     @DeleteMapping("/denyReservation/{reservationId}")
     public void denyReservation(@PathVariable Integer reservationId) {
         if (reservationRepository.existsById(reservationId)) {
