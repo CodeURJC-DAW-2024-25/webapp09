@@ -105,7 +105,7 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 ### **Clases más trabajadas**
 - [HousingService.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/f0429d45f7245b2ce6e96c05683bd35eb5e9c9e8/practica1/src/main/java/es/grupo9/practica1/HousingService.java)
 - [passwordtoogle.js](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/6513d238fff2b82b6bcaa36e724403297b08d18a/practica1/src/main/resources/static/passwordtoogle.js)
-- [EmainService.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/354ea03ea162a1790d9f6328f1fa4389dc499c79/practica1/src/main/java/es/grupo9/practica1/EmailService.java)
+- [EmailService.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/354ea03ea162a1790d9f6328f1fa4389dc499c79/practica1/src/main/java/es/grupo9/practica1/EmailService.java)
 - [ControllerHelper.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/main/practica1/src/main/java/es/grupo9/practica1/ControllerHelper.java)
 - [ReservationService.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/main/practica1/src/main/java/es/grupo9/practica1/ReservationService.java)
 
