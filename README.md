@@ -34,11 +34,11 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 3. **Implementación de pagina de error**:
    - Commit: [f8e63fb](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/f8e63fb5555324d6eab92348dd3ae5ec641e6061#diff-6d62feebe3adfa742594ab46b714b3cbd4b53da4a745b1d7364e6764d193cc05)
    - Descripción: Se ha añadido una pagina de error.
-4. **I**:
-   - Commit: ``
-   - Descripción: .
-5. **I**:
-   - Commit: ``
+4. **Implementación de los graficos de rating**:
+   - Commit: [3bcb0b1](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/3bcb0b1e8525898ea2df1b8a7df629291b8ed5dc)
+   - Descripción: Se ha implemtado una barra en los comentarios, puntuación.
+5. **Arreglos en rating**:
+   - Commit: []()
    - Descripción: .
 
 
