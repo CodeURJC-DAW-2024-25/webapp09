@@ -149,7 +149,7 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 ### **Commits más importantes**
 1. **Implementado el CSRF**:
    - Commit: [6497a3b](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/6497a3ba73aaacf704e5ef29e8055105fe449f37)
-   - Descripción: .
+   - Descripción: Se ha implementado la seguridad.
 2. **Implementado los tokens**:
    - Commit: [0b4979f](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/0b4979f88e78f498ab84aae651c749561588c074)
    - Descripción: Añadiendo los tokens en los formularios.
