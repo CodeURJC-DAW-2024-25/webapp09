@@ -38,14 +38,16 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
    - Commit: [3bcb0b1](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/3bcb0b1e8525898ea2df1b8a7df629291b8ed5dc)
    - Descripción: Se ha implemtado una barra en los comentarios, puntuación.
 5. **Arreglos en rating**:
-   - Commit: []()
-   - Descripción: .
+   - Commit: [836019b](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/836019bf834fe3950e29c4e1cfe8a6836c94233d)
+   - Descripción: Se implementan arreglos en la la barra de valoración de los comentarios para tener 3 colores y una apariencia más idónea.  
 
 
 ### **Clases más trabajadas**
-- `User.java`
+- [reviewAjax.js](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/429d223815b6cb621f0c8d0384a52ba16329e246/practica1/src/main/resources/static/reviewAjax.js)
 - [CustomAjaxControler.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/f8e63fb5555324d6eab92348dd3ae5ec641e6061/practica1/src/main/java/es/grupo9/practica1/CustomAjaxController.java)
-- [error.html](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/f8e63fb5555324d6eab92348dd3ae5ec641e6061/practica1/src/main/resources/templates/error.html)  
+- [error.html](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/f8e63fb5555324d6eab92348dd3ae5ec641e6061/practica1/src/main/resources/templates/error.html)
+- [style.css](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/TestSinCSRF/practica1/src/main/resources/static/style.css)
+- [roomDetails.html](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/TestSinCSRF/practica1/src/main/resources/templates/roomDetails.html)
 
 ---
 
