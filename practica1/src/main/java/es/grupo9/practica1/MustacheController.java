@@ -1,18 +1,28 @@
 package es.grupo9.practica1;
 
 import java.io.IOException;
+
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+
+import java.security.Principal;
+import java.sql.Blob;
+import java.sql.SQLException;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+
+import org.springframework.security.web.csrf.CsrfToken;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,9 +33,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+
 import jakarta.servlet.http.HttpSession;
 
 import org.springframework.data.domain.Pageable;
+
+import jakarta.servlet.http.HttpServletRequest;
+
 
 @Controller
 public class MustacheController {
@@ -38,6 +52,7 @@ public class MustacheController {
 
     @Autowired
     private UserRepository userRepository;
+
 
     @Autowired
     private ReservationRepository reservationRepository;
@@ -53,6 +68,20 @@ public class MustacheController {
 
     @Autowired
     private ReviewRepository reviewRepository;
+
+    @ModelAttribute
+    public void addAttributes(Model model, HttpServletRequest request) {
+        Principal principal = request.getUserPrincipal();
+
+        if (principal != null) {
+            model.addAttribute("logged", true);
+            model.addAttribute("userName", principal.getName());
+            model.addAttribute("admin", request.isUserInRole("ADMIN"));
+        } else {
+            model.addAttribute("logged", false);
+        }
+    }
+
 
     @GetMapping("/index")
     public String index(Model model) {
@@ -80,9 +109,14 @@ public class MustacheController {
     }
 
     @GetMapping("/login")
-    public String login(Model model) {
+    public String login(Model model, HttpServletRequest request) {
+
+        CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
+        model.addAttribute("token", token.getToken());
+
         return "log in";
     }
+
 
     @GetMapping("/profile")
     public String profile(Model model) {
@@ -96,11 +130,31 @@ public class MustacheController {
 
         model.addAttribute("reservations", filteredReservations);
 
+    @GetMapping("/logout")
+    public String logout(Model model, HttpServletRequest request) {
+
+        CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
+        model.addAttribute("token", token.getToken());
+        
+        return "index";
+    }
+
+    @GetMapping("/profile")
+    public String profile(Model model, HttpServletRequest request) {
+        
+        CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
+        model.addAttribute("token", token.getToken());
+
+
         return "profile";
     }
 
     @GetMapping("/register")
-    public String register(Model model) {
+    public String register(Model model, HttpServletRequest request) {
+
+        CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
+        model.addAttribute("token", token.getToken());
+
         return "registro";
     }
 
@@ -140,8 +194,17 @@ public class MustacheController {
         return "testimonial";
     }
 
+
     @GetMapping("/newHotel")
     public String newhotel(Model model) {
+
+    @GetMapping("/newhotel")
+    public String newhotel(Model model, HttpServletRequest request) {
+
+        CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
+        model.addAttribute("token", token.getToken());
+
+
         return "newhotel";
     }
 

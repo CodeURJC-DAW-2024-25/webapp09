@@ -35,6 +35,8 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http.authenticationProvider(authenticationProvider());
+
         http
             .authorizeHttpRequests(auth -> auth
                 // Public endpoints (accessible to everyone, registered or not)
@@ -69,7 +71,7 @@ public class SecurityConfiguration {
             )
             .userDetailsService(userDetailService); // Use custom UserDetailsService
             // Disable CSRF at the moment
-            http.csrf(csrf -> csrf.disable());
+            //http.csrf(csrf -> csrf.disable());
         return http.build();
     }
 
