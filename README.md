@@ -136,7 +136,7 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 ### **Clases más trabajadas**
 - [MustacheControler.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/637d218eafca5e53c428f4b6cba27963dea210bd/practica1/src/main/java/es/grupo9/practica1/MustacheController.java)
 - [adminAjax.js](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/014a56650afec257ed4d501a63d753764be8aee6/practica1/src/main/resources/static/adminAjax.js)  
-- [MustacheControler.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/014a56650afec257ed4d501a63d753764be8aee6/practica1/src/main/java/es/grupo9/practica1/MustacheController.java)  
+- [AdminDecisionAjax.js](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/014a56650afec257ed4d501a63d753764be8aee6/practica1/src/main/resources/static/adminDecisionAjax.js)  
 - [CustomAjaxControler.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/014a56650afec257ed4d501a63d753764be8aee6/practica1/src/main/java/es/grupo9/practica1/CustomAjaxController.java)  
 - [admin.html](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/014a56650afec257ed4d501a63d753764be8aee6/practica1/src/main/resources/templates/admin.html)  
 
