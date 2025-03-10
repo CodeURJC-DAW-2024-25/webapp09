@@ -285,10 +285,7 @@ Los gráficos son una herramienta visual clave para mejorar la experiencia del u
    - **Uso**: Los usuarios podrán ver de un vistazo la distribución de las valoraciones de un alojamiento o servicio, lo que les ayudará a tomar decisiones informadas basadas en la opinión de otros clientes.  
    - **Formato**: Gráfico de barras o circular para representar el porcentaje de cada nivel de estrellas con respecto a las reseñas.
 
-2. **Precio**:  
-   - **Descripción**: Este gráfico actuará como un selector de precios, mostrando los precios medios de las estancias disponibles en función de los criterios de búsqueda.  
-   - **Uso**: Los usuarios podrán ajustar su búsqueda seleccionando un rango de precios, lo que facilitará la identificación de opciones que se ajusten a su presupuesto.  
-   - **Formato**: Gráfico de rango (slider) o histograma para visualizar la distribución de precios.
+
 
 # Pantallas
 
