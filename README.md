@@ -281,9 +281,9 @@ Las imágenes son un componente esencial en nuestra plataforma, ya que permiten 
 Los gráficos son una herramienta visual clave para mejorar la experiencia del usuario, permitiéndole comprender y analizar información de manera rápida y efectiva. A continuación, se presentan dos posibles candidatos para implementar en la plataforma:
 
 1. **Valoración**:  
-   - **Descripción**: Este gráfico mostrará las valoraciones de los usuarios en forma de estrellas (por ejemplo, de 1 a 5 estrellas).  
+   - **Descripción**: Este gráfico mostrará las valoraciones de los usuarios en forma de una barra de 0 a 100.  
    - **Uso**: Los usuarios podrán ver de un vistazo la distribución de las valoraciones de un alojamiento o servicio, lo que les ayudará a tomar decisiones informadas basadas en la opinión de otros clientes.  
-   - **Formato**: Gráfico de barras o circular para representar el porcentaje de cada nivel de estrellas con respecto a las reseñas.
+   - **Formato**: Gráfico de barras o circular para representar el porcentaje de cada color con respecto a las reseñas.
 
 
 
