@@ -40,74 +40,103 @@
         {{>header}}
         <!-- Header End -->
 
-        <!-- Peticiones Pendientes Section -->
+        <!-- Reservations and Petitions Table -->
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6">
-                        <h6 class="section-title text-start text-primary text-uppercase">Peticiones pendientes</h6>
+                        <h6 class="section-title text-start text-primary text-uppercase">Peticiones Pendientes</h6>
                         <h1 class="mb-4">Aceptar <span class="text-primary text-uppercase">Reservas</span></h1>
                     </div>
                 </div>
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="room-item shadow rounded overflow-hidden">
-                            <div class="position-relative">
-                                <img class="img-fluid" src="/img/room-1.jpg" alt="">
-                            </div>
-                            <div class="p-4 mt-2 text-black">
-                                <a>
-                                    Texto de informacion de la peticion de reserva
-                                </a>
-                                <br><br><br>
-                                <button class="btn btn-primary rounded-0 py-4 px-md-5"> Aceptar </button>
-                                <button class="btn btn-primary rounded-0 py-4 px-md-5"> Denegar</button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th scope="col">Título</th>
+                                <th scope="col">Descripción</th>
+                                <th scope="col">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example Row for a Reservation -->
+                            {{#reservations}}
+                            <tr data-reservation-id="{{id}}">
+                                <td>Reserva en {{housing_name.name}} (id de hotel {{housing.code}}) con id de reserva:
+                                    {{id}}
+                                    <br>
+                                    Esta peticion de reserva la solicita {{client.name}} con dni: {{client.dni}}
+                                </td>
+                                <td>Check-in: {{check_in}} - Check-out: {{check_out}}</td>
+                                <td>
+                                    <button class="btn btn-success"><i class="bi bi-check"></i></button>
+                                    <button class="btn btn-danger"><i class="bi bi-x"></i></button>
+                                </td>
+                            </tr>
+                            {{/reservations}}
+                            <!-- Add more reservations dynamically here -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-    
+
 
         <!-- Alojamientos Section -->
         <div class="container-xxl py-5">
             <div class="container">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6">
-                        <h6 class="section-title text-start text-primary text-uppercase">Alojamientos</h6>
-                        <h1 class="mb-4">Aceptar <span class="text-primary text-uppercase">Alojamientos</span></h1>
-                    </div>
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="section-title text-center text-primary text-uppercase">Peticiones de creación</h6>
+                    <h1 class="mb-5">Aceptar <span class="text-primary text-uppercase">Peticiones</span></h1>
                 </div>
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="room-item shadow rounded overflow-hidden">
-                            <div class="position-relative">
-                                <img class="img-fluid" src="/img/room-2.jpg" alt="">
+                <div class="row g-4" id="houses-container">
+                    {{#houses}}
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" data-house-id="{{code}}">
+                            <div class="room-item shadow rounded overflow-hidden" >
+                                <div class="position-relative">
+                                    <img style="width: 450px; height: 275px" class="img-fluid" src="data:image/jpeg;base64,{{imageBase64}}" alt="{{name}}">
+                                    <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">${{price}}/Night</small>
+                                </div>
+                                <div class="p-4 mt-2">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <h5 class="mb-0">{{name}}</h5>
+                                        <div class="ps-2">
+                                            {{stars}}<small class="fa fa-star text-primary"></small>
+                                        </div>
+                                    </div>
+                                    <p class="text-body mb-3">{{description}}</p>
+                                </div>
+                                <div class="p-4 mt-2 align-items-center">
+                                    <button class="btn btn-success rounded-0  px-md-5"> Aceptar </button>
+                                    <button class="btn btn-danger rounded-0 px-md-5"> Denegar</button>
+                                </div>
+                            
                             </div>
-                            <div class="p-4 mt-2 text-black">
-                                <a>
-                                    Texto de informacion del alojamiento
-                                </a>
-                                <br><br><br>
-                                <button class="btn btn-primary rounded-0 py-4 px-md-5"> Aceptar </button>
-                                <button class="btn btn-primary rounded-0 py-4 px-md-5"> Denegar</button>
-                            </div>
+                            
                         </div>
-                    </div>
-                    <!-- Puedes agregar más alojamientos aquí -->
+                    {{/houses}}
+
+                    
+                </div>
+                <div class="text-center mt-4">
+                    <button id="load-more" class="btn btn-primary">Cargar más</button>
                 </div>
             </div>
         </div>
+        
+        <!-- Puedes agregar más alojamientos aquí -->
+    </div>
+    </div>
+    </div>
 
 
-        <br><br><br><br><br><br>
-        <!-- Footer Start -->
-        {{>footer}}
-        <!-- Footer End -->
+    <br><br><br><br><br><br>
+    <!-- Footer Start -->
+    {{>footer}}
+    <!-- Footer End -->
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <!-- JavaScript Libraries -->
@@ -124,6 +153,8 @@
 
     <!-- Template Javascript -->
     <script src="main.js"></script>
+    <script src="adminAjax.js"></script>
+    <script src="adminDecisionAjax.js"></script>
 </body>
 
 </html>

@@ -4,6 +4,8 @@ import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.Base64;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -20,6 +22,7 @@ public class Housing {
 
     @Lob
     @Column(name = "image", columnDefinition = "LONGBLOB")
+    @JsonIgnore
     private Blob image; // Ahora la imagen se almacena como un array de bytes (LONGBLOB)
 
     @Column(name = "price", nullable = false)
@@ -45,7 +48,7 @@ public class Housing {
         this.stars = stars;
         this.price = price;
         this.description = description;
-        this.acepted = false;
+        this.acepted = acepted;
     }
 
     public Boolean getAcepted() {

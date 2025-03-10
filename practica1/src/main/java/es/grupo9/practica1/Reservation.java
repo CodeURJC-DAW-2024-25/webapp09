@@ -14,7 +14,7 @@ import jakarta.persistence.ManyToOne;
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int reservation_ID;
+    private Integer id;
 
     @Column(name = "check_in", nullable = false, unique = false, length = 9)
     private Date check_in;
@@ -22,12 +22,12 @@ public class Reservation {
     @Column(name = "check_out", nullable = false, unique = false, length = 9)
     private Date check_out;
 
-    @Column(name="valorated", nullable = false, unique = false, length = 1)
+    @Column(name="valorated", unique = false, length = 1)
     private boolean valorated;
 
     @ManyToOne
     @JoinColumn(name = "Client_ID", referencedColumnName = "dni", nullable = false)
-    private Client client;
+    private User client;
 
     @ManyToOne
     @JoinColumn(name = "Hotel_Code", referencedColumnName = "code", nullable = false)
@@ -40,21 +40,22 @@ public class Reservation {
     
     public Reservation(){}
 
-    public Reservation(int reservation_ID, Client client, Housing housing, Date check_in, Date check_out) {
-        this.reservation_ID = reservation_ID;
+    public Reservation(Integer id, User client, Housing housing, Date check_in, Date check_out) {
+        this.id = id;
         this.client = client;
         this.housing = housing;
         this.check_in = check_in;
         this.check_out = check_out;
         this.valorated = false;
+        this.housing_name = housing; 
     }
 
-    public int getReservation_ID() {
-        return reservation_ID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setReservation_ID(int reservation_ID) {
-        this.reservation_ID = reservation_ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public boolean isValorated() {
@@ -81,11 +82,11 @@ public class Reservation {
         this.check_out = check_out;
     }
 
-    public Client getID_cliente() {
+    public User getID_cliente() {
         return this.client;
     }
 
-    public void setID_cliente(Client Client_ID) {
+    public void setID_cliente(User Client_ID) {
         this.client = Client_ID;
     }
 

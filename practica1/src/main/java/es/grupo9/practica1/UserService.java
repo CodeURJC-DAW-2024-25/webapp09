@@ -23,6 +23,8 @@ public class UserService {
         // Obtener la contraseña desde el repositorio por el email
         String pass = userRepository.getPasswordByEmail(email);
         
+        //We need to make it so the compared and stored thing here is the encoded password
+
         // Comparar la contraseña obtenida con la proporcionada
         if (pass.equals(password)) {
             System.out.println("Login correcto");
@@ -44,6 +46,7 @@ public class UserService {
 
         newUser.setRoles(newRoles);
 
+
         String subject = "Registro exitoso en Trippins";
         String body = "Bienvenid@ a Trippins " + name + ",\n\n" +
         "Tu aventura comienza aquí.\n\n" +
@@ -52,7 +55,7 @@ public class UserService {
         "Prepárate para descubrir, explorar y vivir aventuras increíbles.\n\n" +
         "Si tienes alguna pregunta, estamos aquí para ayudarte.\n\n" +
         "El equipo de desarrollo de Trippins";
-        //emailService.sendEmail(email, subject, body);
+        emailService.sendEmail(email, subject, body);
 
         return userRepository.save(newUser);
 
@@ -64,9 +67,15 @@ public class UserService {
     List<User> adminUsers = Arrays.asList(
         new Admin("12345678A", "Admin", 123456789, "admin", "trippins.urjc@gmail.com"),
         new Admin("11223344C", "Admin3", 112233445, "admin", "admin3@trippins.com")
+        
     );
-
-
+    //Un user cliente de prueba
+    List<String> rolespepe = new ArrayList<>();
+    rolespepe.add("USER");
+    Client pepe = new Client("11223348C", "Pepe", 333333333, "pepe", "pepe@trippins.com");
+    pepe.setRoles(rolespepe);
+    pepe.setEncodedPassword(passwordEncoder.encode("pepe"));
+    userRepository.save(pepe);
 
     // Asignar roles y guardar los usuarios
     for (User user : adminUsers) {

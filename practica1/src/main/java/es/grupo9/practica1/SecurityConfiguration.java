@@ -42,6 +42,9 @@ public class SecurityConfiguration {
                 // Public endpoints (accessible to everyone, registered or not)
                 .requestMatchers("/", "/index", "/about", "/contact", "/register", "/login", "/css/**", "/js/**", "/images/**").permitAll()
 
+                .requestMatchers("/room").permitAll() // ✅ Anyone can see the rooms page
+                .requestMatchers("/room/{code}", "/roomDetails").authenticated()
+
                 // Allow POST requests to /addUser for unauthenticated users
                 .requestMatchers(HttpMethod.POST, "/addUser").permitAll()
                 .requestMatchers(HttpMethod.POST, "/login").permitAll()
@@ -50,7 +53,7 @@ public class SecurityConfiguration {
                 .requestMatchers(HttpMethod.POST, "/addHotel").hasAnyRole("USER", "ADMIN")
                 // Restricted endpoints
                 .requestMatchers("/admin/**").hasRole("ADMIN") // Only ADMIN can access /admin
-                .requestMatchers("/newHotel", "/booking").authenticated() // Only authenticated users (registered or admin) can access /newHotel and /booking
+                .requestMatchers("/newHotel", "/booking","/profile").authenticated() // Only authenticated users (registered or admin) can access /newHotel and /booking
                 .anyRequest().permitAll() // Allow all other endpoints by default
             )
             .formLogin(form -> form
@@ -60,6 +63,10 @@ public class SecurityConfiguration {
             )
             .logout(logout -> logout
                 .logoutSuccessUrl("/") // Redirect to home page after logout
+                .logoutSuccessUrl("/") // Redirect to home page after logout
+                .invalidateHttpSession(true) // Invalidate the session
+                .deleteCookies("JSESSIONID") // Delete cookies (if any)
+
                 .permitAll()
             )
             .userDetailsService(userDetailService); // Use custom UserDetailsService

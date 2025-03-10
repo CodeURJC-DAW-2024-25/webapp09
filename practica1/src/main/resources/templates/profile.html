@@ -96,14 +96,17 @@
                                 </div>
                             </form>
                             <br>
+
+                            
+
                             <form action="/logout" method="post">
                                 
                                 <input type="hidden" name="_csrf" value="{{token}}"/>  <!--Necessary input for csrf-->
                                 
                                 <div class="col-12">
-                                    <button class="btn btn-danger text-white w-100 py-3" type="submit" name="logout">Cerrar Sesión</button>
+                                    <a class="btn btn-danger text-white w-100 py-3" href="/logout" >Cerrar Sesión</a>
                                 </div>
-                            </form>
+                            
                             <br>
                             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                                 <h6 class="section-title text-center text-primary text-uppercase">Reservas</h6>
@@ -116,14 +119,21 @@
                                             <th>Hotel</th>
                                             <th>Check-in</th>
                                             <th>Check-out</th>
+                                            <th>Estado</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {{#reservations}}
                                         <tr>
-                                            <td>{{Hotel_Name}}</td>
-                                            <td>{{Check_in}}</td>
-                                            <td>{{Check_out}}</td>
+                                            <td>{{housing_name.name}}</td>
+                                            <td>{{check_in}}</td>
+                                            <td>{{check_out}}</td>
+                                            {{#valorated}}
+                                            <td>Aceptado</td>
+                                            {{/valorated}}
+                                            {{^valorated}}
+                                            <td>Pendiente</td>
+                                            {{/valorated}}
                                         </tr>
                                         {{/reservations}}
                                     </tbody>
@@ -168,17 +178,8 @@
     <script src="main.js"></script>
     <script src="profile.js"></script>
 
-    <!-- Script para habilitar la edición del formulario -->
-    <script>
-        document.getElementById('editButton').addEventListener('click', function() {
-            document.getElementById('name').disabled = false;
-            document.getElementById('email').disabled = false;
-            document.getElementById('USER_ID').disabled = false;
-            document.getElementById('Phone_Number').disabled = false;
-            document.getElementById('Password').disabled = false;
-            document.getElementById('saveButton').classList.remove('d-none');
-        });
-    </script>
+
+
 </body>
 
 </html>

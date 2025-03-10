@@ -78,7 +78,12 @@ public class HousingService {
             new Housing(12, "Sídney", "Hotel Sydney", convertToBlob(loadImage("room-4.jpg")), 4, 190, "Impresionante hotel con vistas a la bahía de Sídney.", true),
             new Housing(13, "Buenos Aires", "Hotel Buenos Aires", convertToBlob(loadImage("room-3.jpg")), 4, 100, "Hotel económico y cómodo en el centro de Buenos Aires.", true),
             new Housing(14, "Ciudad de México", "Hotel CDMX", convertToBlob(loadImage("room-1.jpg")), 4, 130, "Moderno hotel cerca de los principales puntos turísticos de la ciudad.", true),
-            new Housing(15, "Toronto", "Hotel Toronto", convertToBlob(loadImage("room-6.jpg")), 5, 210, "Hotel de lujo con vistas panorámicas de la ciudad y el lago Ontario.", true)
+            new Housing(15, "Toronto", "Hotel Toronto", convertToBlob(loadImage("room-6.jpg")), 5, 210, "Hotel de lujo con vistas panorámicas de la ciudad y el lago Ontario.", true),
+            new Housing(16, "Ciudad de prueba", "Hotel prueba", convertToBlob(loadImage("room-6.jpg")), 5, 210, "Hotel de lujo con vistas panorámicas de la ciudad y el lago Ontario.", false),
+            new Housing(17, "Miami", "Hotel Miami", convertToBlob(loadImage("room-1.jpg")), 4, 160, "Hotel frente al mar con acceso a la playa y excelentes instalaciones.", false),
+            new Housing(18, "Los Ángeles", "Hotel Los Ángeles", convertToBlob(loadImage("room-2.jpg")), 5, 230, "Exclusivo hotel de lujo en el centro de Los Ángeles con piscina.", false),
+            new Housing(19, "Madrid", "Hotel Sol", convertToBlob(loadImage("room-3.jpg")), 3, 100, "Hotel sencillo con buena ubicación y precios accesibles.", false),
+            new Housing(20, "Buenos Aires", "Hotel Del Centro", convertToBlob(loadImage("room-4.jpg")), 4, 140, "Hotel acogedor con excelentes conexiones de transporte.", false)
         );
 
         housingRepository.saveAll(hoteles);
