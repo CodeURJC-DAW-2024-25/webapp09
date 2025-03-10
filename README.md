@@ -173,7 +173,7 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 
 
 # Modelo ER
-![Imagen de WhatsApp 2025-02-04 a las 10 42 51_18d7be67](https://github.com/user-attachments/assets/43e81d6f-18ae-4db7-b5e0-c60fcb67fd40)
+![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Modelo_ER_terminado.png?raw=true)
 
 
 # Algoritmo
