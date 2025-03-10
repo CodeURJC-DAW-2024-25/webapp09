@@ -38,14 +38,16 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
    - Commit: [3bcb0b1](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/3bcb0b1e8525898ea2df1b8a7df629291b8ed5dc)
    - Descripción: Se ha implemtado una barra en los comentarios, puntuación.
 5. **Arreglos en rating**:
-   - Commit: []()
-   - Descripción: .
+   - Commit: [836019b](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/836019bf834fe3950e29c4e1cfe8a6836c94233d)
+   - Descripción: Se implementan arreglos en la la barra de valoración de los comentarios para tener 3 colores y una apariencia más idónea.  
 
 
 ### **Clases más trabajadas**
-- `User.java`
+- [reviewAjax.js](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/429d223815b6cb621f0c8d0384a52ba16329e246/practica1/src/main/resources/static/reviewAjax.js)
 - [CustomAjaxControler.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/f8e63fb5555324d6eab92348dd3ae5ec641e6061/practica1/src/main/java/es/grupo9/practica1/CustomAjaxController.java)
-- [error.html](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/f8e63fb5555324d6eab92348dd3ae5ec641e6061/practica1/src/main/resources/templates/error.html)  
+- [error.html](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/f8e63fb5555324d6eab92348dd3ae5ec641e6061/practica1/src/main/resources/templates/error.html)
+- [style.css](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/TestSinCSRF/practica1/src/main/resources/static/style.css)
+- [roomDetails.html](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/TestSinCSRF/practica1/src/main/resources/templates/roomDetails.html)
 
 ---
 
@@ -103,7 +105,7 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 ### **Clases más trabajadas**
 - [HousingService.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/f0429d45f7245b2ce6e96c05683bd35eb5e9c9e8/practica1/src/main/java/es/grupo9/practica1/HousingService.java)
 - [passwordtoogle.js](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/6513d238fff2b82b6bcaa36e724403297b08d18a/practica1/src/main/resources/static/passwordtoogle.js)
-- [EmainService.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/354ea03ea162a1790d9f6328f1fa4389dc499c79/practica1/src/main/java/es/grupo9/practica1/EmailService.java)
+- [EmailService.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/354ea03ea162a1790d9f6328f1fa4389dc499c79/practica1/src/main/java/es/grupo9/practica1/EmailService.java)
 - [ControllerHelper.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/main/practica1/src/main/java/es/grupo9/practica1/ControllerHelper.java)
 - [ReservationService.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/main/practica1/src/main/java/es/grupo9/practica1/ReservationService.java)
 
@@ -134,7 +136,7 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 ### **Clases más trabajadas**
 - [MustacheControler.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/637d218eafca5e53c428f4b6cba27963dea210bd/practica1/src/main/java/es/grupo9/practica1/MustacheController.java)
 - [adminAjax.js](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/014a56650afec257ed4d501a63d753764be8aee6/practica1/src/main/resources/static/adminAjax.js)  
-- [MustacheControler.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/014a56650afec257ed4d501a63d753764be8aee6/practica1/src/main/java/es/grupo9/practica1/MustacheController.java)  
+- [AdminDecisionAjax.js](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/014a56650afec257ed4d501a63d753764be8aee6/practica1/src/main/resources/static/adminDecisionAjax.js)  
 - [CustomAjaxControler.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/014a56650afec257ed4d501a63d753764be8aee6/practica1/src/main/java/es/grupo9/practica1/CustomAjaxController.java)  
 - [admin.html](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/014a56650afec257ed4d501a63d753764be8aee6/practica1/src/main/resources/templates/admin.html)  
 
@@ -147,7 +149,7 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 ### **Commits más importantes**
 1. **Implementado el CSRF**:
    - Commit: [6497a3b](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/6497a3ba73aaacf704e5ef29e8055105fe449f37)
-   - Descripción: .
+   - Descripción: Se ha implementado la seguridad.
 2. **Implementado los tokens**:
    - Commit: [0b4979f](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/0b4979f88e78f498ab84aae651c749561588c074)
    - Descripción: Añadiendo los tokens en los formularios.
@@ -171,7 +173,7 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 
 
 # Modelo ER
-![Imagen de WhatsApp 2025-02-04 a las 10 42 51_18d7be67](https://github.com/user-attachments/assets/43e81d6f-18ae-4db7-b5e0-c60fcb67fd40)
+![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Modelo_ER_terminado.png?raw=true)
 
 
 # Algoritmo
@@ -279,14 +281,11 @@ Las imágenes son un componente esencial en nuestra plataforma, ya que permiten 
 Los gráficos son una herramienta visual clave para mejorar la experiencia del usuario, permitiéndole comprender y analizar información de manera rápida y efectiva. A continuación, se presentan dos posibles candidatos para implementar en la plataforma:
 
 1. **Valoración**:  
-   - **Descripción**: Este gráfico mostrará las valoraciones de los usuarios en forma de estrellas (por ejemplo, de 1 a 5 estrellas).  
+   - **Descripción**: Este gráfico mostrará las valoraciones de los usuarios en forma de una barra de 0 a 100.  
    - **Uso**: Los usuarios podrán ver de un vistazo la distribución de las valoraciones de un alojamiento o servicio, lo que les ayudará a tomar decisiones informadas basadas en la opinión de otros clientes.  
-   - **Formato**: Gráfico de barras o circular para representar el porcentaje de cada nivel de estrellas con respecto a las reseñas.
+   - **Formato**: Gráfico de barras o circular para representar el porcentaje de cada color con respecto a las reseñas.
 
-2. **Precio**:  
-   - **Descripción**: Este gráfico actuará como un selector de precios, mostrando los precios medios de las estancias disponibles en función de los criterios de búsqueda.  
-   - **Uso**: Los usuarios podrán ajustar su búsqueda seleccionando un rango de precios, lo que facilitará la identificación de opciones que se ajusten a su presupuesto.  
-   - **Formato**: Gráfico de rango (slider) o histograma para visualizar la distribución de precios.
+
 
 # Pantallas
 
@@ -347,4 +346,7 @@ Los gráficos son una herramienta visual clave para mejorar la experiencia del u
    En ella estarán mensajes con la información de las solicitudes de reserva y serán los administradores los que acepten o rechacen las mismas.
 
 # Diagrama de flujo
-![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Diagrama%20de%20flujo.png?raw=true)
+![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Diagrama%20de%20flujo%20arreglado.png?raw=true)
+
+# Diagrama de clases
+![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Diagrama%20de%20clases.png?raw=true)
