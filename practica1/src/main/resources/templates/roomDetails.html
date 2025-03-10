@@ -40,7 +40,6 @@
         {{>header}}
         <!-- Header End -->
 
-
         <!-- Page Header Start -->
         <div class="container-fluid page-header mb-5 p-0" style="background-image: url(/img/carousel-1.jpg);">
             <div class="container-fluid page-header-inner py-5">
@@ -110,7 +109,6 @@
                     </form>
                 </div>
 
-
                 <!-- Comment Form -->
                 <div class="mt-5">
                     <h3>Deja un comentario</h3>
@@ -138,7 +136,6 @@
                 <!-- Comment Section -->
                 <h3 class="section-title">Comentarios</h3>
                 <div class="mt-5" id="comment-container">
-                    
                     <br><br>
                     {{#comments}}
                     <div class="comment-box border rounded p-4 mb-3 shadow-sm position-relative " style="background-color: rgba(39, 58, 77, 0.1);">
@@ -154,11 +151,12 @@
                         <!-- Rating -->
                         <br><br>
                         <strong class="text-dark">Rating: {{rating}}/100</strong>
-                        
+                        <!-- Barra de rating -->
+                        <div class="rating-bar">
+                            <div class="rating-fill" style="width: {{rating}}%;"></div>
+                        </div>
                     </div>
                     {{/comments}}
-                    
-                    
                 </div>
             </div>
             <div class="text-center mt-4">
@@ -167,7 +165,6 @@
         </div>
     </div>
     <!-- Room End -->
-
 
     <!-- Testimonial End -->
     <br><br><br>
@@ -201,8 +198,23 @@
         ratingSlider.addEventListener("input", () => {
             ratingOutput.value = ratingSlider.value; // Update the displayed value
         });
-    </script>
 
+        // Script para la barra de rating
+        document.addEventListener("DOMContentLoaded", function() {
+            const ratingFills = document.querySelectorAll('.rating-fill');
+
+            ratingFills.forEach(ratingFill => {
+                const rating = parseInt(ratingFill.style.width, 10);
+
+                // Calcular el color basado en el rating
+                const red = 255 - (rating * 255 / 100);
+                const green = rating * 255 / 100;
+                const blue = 0;
+
+                ratingFill.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+            });
+        });
+    </script>
 </body>
 
 </html>
