@@ -3,25 +3,29 @@ package es.grupo9.practica1.service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
+import es.grupo9.practica1.controller.UserRestController;
 import es.grupo9.practica1.entities.Admin;
 import es.grupo9.practica1.entities.Client;
 import es.grupo9.practica1.entities.User;
+import es.grupo9.practica1.DTOs.*;
 import es.grupo9.practica1.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
 
 @Service
 public class UserService {
 
+
     @Autowired
     private UserRepository userRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
     
     public void userlogin(String email, String password) {
         // Obtener la contraseña desde el repositorio por el email
@@ -89,5 +93,64 @@ public class UserService {
         user.setEncodedPassword(passwordEncoder.encode("admin"));
         userRepository.save(user);
     }
-}
+
+
+
+
+    }
+
+    public UserDTO getUserById(String dni){
+        
+        Optional<User> user = userRepository.findById(dni);
+        return new UserDTO(user.get());
+
+    }
+
+    public UserDTO createUser(RegisteredUserDTO user){
+        User newUser = new User(user.getDni(), user.getName(), user.getNumber(), user.getPassword(), user.getEmail());
+        newUser.setEncodedPassword(passwordEncoder.encode(user.getPassword()));
+        List<String> newRoles = user.getRoles();
+
+        newUser.setRoles(newRoles);
+
+        userRepository.save(newUser);
+        return new UserDTO(newUser);
+
+
+    }
+
+    public UserDTO updateUser(String dni, RegisteredUserDTO user){
+        Optional<User> originalUser = userRepository.findById(dni);
+        User finalOriginalUser = originalUser.get();
+
+        finalOriginalUser.setDni(user.getDni());
+        finalOriginalUser.setName(user.getName());
+        finalOriginalUser.setEmail(user.getEmail());
+        finalOriginalUser.setNumber(user.getNumber());
+        finalOriginalUser.setPassword(user.getPassword()); 
+        finalOriginalUser.setEncodedPassword(passwordEncoder.encode(user.getPassword()));
+        finalOriginalUser.setAdmin(user.getAdmin());
+        finalOriginalUser.setRoles(user.getRoles());
+
+        userRepository.save(finalOriginalUser);
+
+        return new UserDTO(finalOriginalUser);
+
+
+    }
+
+    public void deleteUser(String dni){ //needs verification
+        userRepository.deleteById(dni);
+
+    }
+
+    public List<UserDTO> getAllUsers(){
+        List<User> userList= userRepository.findAll();
+        List<UserDTO> userDTOs = new ArrayList<>();
+        for (User user : userList) {
+            UserDTO nuevoUser =new UserDTO(user);
+            userDTOs.add(nuevoUser);
+        }
+        return userDTOs;
+    }
 }
