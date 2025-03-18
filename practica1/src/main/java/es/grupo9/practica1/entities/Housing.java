@@ -60,6 +60,7 @@ public class Housing {
         this.acepted = acepted;
         this.tags = tags;
     }
+    
 
     public Boolean getAcepted() {
         return acepted;

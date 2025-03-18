@@ -1,20 +1,28 @@
 package es.grupo9.practica1.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.stereotype.Service;
 
+import es.grupo9.practica1.DTOs.HousingDTO;
+import es.grupo9.practica1.DTOs.UserDTO;
+import es.grupo9.practica1.controller.HousingRestController;
 import es.grupo9.practica1.entities.Housing;
 import es.grupo9.practica1.entities.Tag;
+import es.grupo9.practica1.entities.User;
 import es.grupo9.practica1.repository.HousingRepository;
 import es.grupo9.practica1.repository.TagRepository;
 import jakarta.annotation.PostConstruct;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.foreign.Linker.Option;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.sql.rowset.serial.SerialBlob;
@@ -22,11 +30,17 @@ import javax.sql.rowset.serial.SerialBlob;
 @Service
 public class HousingService {
 
+
+
     @Autowired
     private HousingRepository housingRepository;
 
     @Autowired
     private TagRepository tagRepository;
+
+
+
+
 
     // Método para cargar las imágenes desde recursos
     private byte[] loadImage(String imageName) {
@@ -119,4 +133,56 @@ public class HousingService {
             return housingRepository.findByTagsAndStars(tagNames, stars, (long) tagNames.size());
         }
     }
+
+
+    public List<HousingDTO> getAllHouses(){
+        List<Housing> houses = housingRepository.findAll();
+        List<HousingDTO> housesDTOs = new ArrayList<>();
+        for (Housing house : houses) {
+            HousingDTO nuevoHouse =new HousingDTO(house);
+            housesDTOs.add(nuevoHouse);
+        }
+        return housesDTOs;
+
+    }
+    public HousingDTO getHouseById(Integer id){
+
+        Optional<Housing> house = housingRepository.findById(id);
+        
+        return new HousingDTO(house.get());
+
+    }
+
+    public HousingDTO createHouse(HousingDTO house){
+        Housing newHouse = new Housing(house.getCode(),house.getLocation(),house.getName(),house.obtainImage(house.getImageBase64()),house.getStars()
+        ,house.getPrice(),house.getDescription(), house.getAcepted(),house.getTags());
+        
+        housingRepository.save(newHouse);
+        return new HousingDTO(newHouse);
+    }
+
+    public HousingDTO updateHouse(int code,HousingDTO house){
+        Optional<Housing> originalHouse = housingRepository.findByCode(code);
+        Housing finalOriginalHouse = originalHouse.get();
+
+        finalOriginalHouse.setCode(house.getCode());
+        finalOriginalHouse.setLocation(house.getLocation());
+        finalOriginalHouse.setName(house.getName());
+        finalOriginalHouse.setImage(house.obtainImage(house.getImageBase64()));
+        finalOriginalHouse.setStars(house.getStars());
+        finalOriginalHouse.setPrice(house.getPrice());
+        finalOriginalHouse.setDescription(house.getDescription());
+        finalOriginalHouse.setAcepted(house.getAcepted());
+        finalOriginalHouse.setTags(house.getTags());
+
+        housingRepository.save(finalOriginalHouse);
+        return new HousingDTO(finalOriginalHouse);
+    }
+
+    public void deleteHouse(int code){
+        housingRepository.deleteById(code); //needs verification
+
+
+    }
+
 }
