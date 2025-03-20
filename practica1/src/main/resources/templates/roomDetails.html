@@ -154,10 +154,9 @@
                 <!-- Comment Section -->
                 <h3 class="section-title">Comentarios</h3>
                 <div class="mt-5" id="comment-container">
-
                     <br><br>
                     {{#comments}}
-                    <div class="comment-box border rounded p-4 mb-3 shadow-sm position-relative "
+                    <div class="comment-box border rounded p-4 mb-3 shadow-sm position-relative"
                         style="background-color: rgba(39, 58, 77, 0.1);">
                         <div class="d-flex align-items-center mb-2">
                             <i class="fa fa-quote-right fa-2x text-primary position-absolute top-0 end-0 me-3 mt-3"></i>
@@ -165,17 +164,47 @@
                             <!-- Profile Icon -->
                             <i class="bi bi-person-circle me-2" style="font-size: 2rem;"></i>
                             <h5 class="m-0">{{user.name}}</h5>
+
+                            <!-- Botón de editar (solo visible para el usuario o admin) -->
+                            {{#isCurrentUserOrAdmin}}
+                            <button class="btn btn-sm btn-outline-primary ms-auto edit-comment-btn" data-comment-id="{{reviewId}}">
+                                <i class="bi bi-pencil"></i> Editar
+                            </button>
+                            {{/isCurrentUserOrAdmin}}
                         </div>
+
                         <!-- Comment Content -->
                         <p class="mb-2 text-break">{{comment}}</p>
+
                         <!-- Rating -->
                         <br><br>
                         <strong class="text-dark">Rating: {{rating}}/100</strong>
-                        <!-- Barra de rating -->
                         <div class="rating-bar">
-                            <!-- eslint-disable-next-line -->
                             <div class="rating-fill" style="width: {{rating}}%;"></div>
                         </div>
+                    </div>
+
+                    <!-- Formulario de edición (oculto por defecto) -->
+                    <div id="edit-comment-form-{{reviewId}}" class="edit-comment-form mt-3" style="display: none;">
+                        <form action="/updateComment/{{reviewId}}" method="POST">
+                            <div class="mb-3">
+                                <label for="edit-comment-{{reviewId}}" class="form-label">Editar comentario</label>
+                                <textarea class="form-control" id="edit-comment-{{reviewId}}" name="comment" rows="3" required>{{comment}}</textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <label for="edit-rating-{{reviewId}}">Rating (0-100):</label>
+                                    <input type="range" class="form-range" name="rating" id="edit-rating-{{reviewId}}" min="0" max="100"
+                                        step="1" value="{{rating}}">
+                                    <br><br>
+                                    <output for="edit-rating-{{reviewId}}" id="edit-rating-output-{{reviewId}}" class="fs-4">{{rating}}</output>
+                                </div>
+                            </div>
+                            <input type="hidden" name="houseId" value="{{house.code}}">
+                            <br><br>
+                            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                            <button type="button" class="btn btn-secondary cancel-edit-btn">Cancelar</button>
+                        </form>
                     </div>
                     {{/comments}}
 
