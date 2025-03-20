@@ -2,6 +2,10 @@ package es.grupo9.practica1.entities;
 
 import java.sql.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import es.grupo9.practica1.repository.HousingRepository;
+import es.grupo9.practica1.repository.UserRepository;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -38,6 +42,14 @@ public class Reservation {
     private Housing housing_name;
 
     
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private HousingRepository housingRepository;
+
+
     public Reservation(){}
 
     public Reservation(Integer id, User client, Housing housing, Date check_in, Date check_out) {
@@ -49,6 +61,17 @@ public class Reservation {
         this.valorated = false;
         this.housing_name = housing; 
     }
+    public Reservation(Integer id, String client, int housing, Date check_in, Date check_out, boolean valorated) {
+        this.id = id;
+        this.client = userRepository.findById(client).get();
+        this.housing = housingRepository.findByCode(housing).get();
+        this.check_in = check_in;
+        this.check_out = check_out;
+        this.valorated = valorated;
+        this.housing_name = housingRepository.findByCode(housing).get(); 
+    }
+
+
 
     public Integer getId() {
         return id;
