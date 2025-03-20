@@ -1,0 +1,38 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql:8.0.33
+    container_name: trippins-db
+    restart: always
+    environment:
+      - MYSQL_DATABASE=Trippins
+      - MYSQL_ROOT_PASSWORD=password
+    ports:
+      - "3307:3306"  # Mapea el puerto 3307 de tu máquina al 3306 dentro del contenedor
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - trippins-network
+
+  web:
+    image: jantoniio3/trippins:1.0
+    container_name: trippins-app
+    ports:
+      - "443:8443"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/Trippins  # El contenedor de DB expone el puerto 3306
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=password
+      - JWT_SECRET=password
+    restart: on-failure
+    networks:
+      - trippins-network
+
+volumes:
+  db_data:
+
+networks:
+  trippins-network:
