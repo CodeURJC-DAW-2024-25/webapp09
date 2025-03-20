@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.grupo9.practica1.DTOs.HousingDTO;
-import es.grupo9.practica1.DTOs.RegisteredUserDTO;
-import es.grupo9.practica1.DTOs.UserDTO;
-import es.grupo9.practica1.repository.HousingRepository;
+
 import es.grupo9.practica1.service.HousingService;
 
 @RestController

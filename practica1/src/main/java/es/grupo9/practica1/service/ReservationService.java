@@ -3,6 +3,7 @@ package es.grupo9.practica1.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import es.grupo9.practica1.DTOs.ReservationDTO;
 import es.grupo9.practica1.entities.Client;
 import es.grupo9.practica1.entities.Housing;
 import es.grupo9.practica1.entities.Reservation;
@@ -12,6 +13,7 @@ import es.grupo9.practica1.repository.ReservationRepository;
 import es.grupo9.practica1.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +21,8 @@ import java.util.Calendar;
 
 @Service
 public class ReservationService {
+
+
 
     @Autowired
     private ReservationRepository reservationRepository;
@@ -30,6 +34,7 @@ public class ReservationService {
     private HousingRepository housingRepository;
 
     private int reservationCounter = 1;
+
 
     @PostConstruct
     public void initializeReservations() {
@@ -65,4 +70,50 @@ public class ReservationService {
         return reservationRepository.save(newReservation);
     }
 
+
+
+    public List<ReservationDTO> getAllReservations(){
+        List<Reservation> reservationList = reservationRepository.findAll();
+        List<ReservationDTO> reservationDTOList = new ArrayList<>();
+        for (Reservation reservation : reservationList) {
+            reservationDTOList.add(new ReservationDTO(reservation));
+        }
+        return reservationDTOList;
+
+    }
+
+    public ReservationDTO getReservationById(Integer id){
+        Optional<Reservation> reservation = reservationRepository.findById(id);
+        ReservationDTO reservationDTO = new ReservationDTO(reservation.get());
+        return reservationDTO;
+
+    }
+
+    public ReservationDTO createReservation(ReservationDTO reservation){
+        Reservation newReservation = new Reservation(reservation.getId(), reservation.getClientDni(),reservation.getHousingCode(),reservation.getCheckIn(),
+        reservation.getCheckOut(),reservation.isValorated());
+        reservationRepository.save(newReservation);
+        return new ReservationDTO(newReservation);
+
+    }
+    public ReservationDTO updateReservation(Integer id, ReservationDTO reservation){
+        Optional<Reservation> originalReservation = reservationRepository.findById(id);
+        Reservation finalOriginalReservation = originalReservation.get();
+
+        finalOriginalReservation.setCheck_in(reservation.getCheckIn());
+        finalOriginalReservation.setCheck_out(reservation.getCheckOut());
+        finalOriginalReservation.setHousing(housingRepository.findByCode(reservation.getId()).get());
+        finalOriginalReservation.setID_cliente(userRepository.findById(reservation.getClientDni()).get());
+        finalOriginalReservation.setId(id);
+        finalOriginalReservation.setValorated(reservation.isValorated());
+
+        reservationRepository.save(finalOriginalReservation);
+        return new ReservationDTO(finalOriginalReservation);
+    }
+
+    public void deleteReservation(Integer id){
+        reservationRepository.deleteById(id);
+
+        
+    }
 }
