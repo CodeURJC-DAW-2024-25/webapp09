@@ -6,33 +6,33 @@ services:
     container_name: trippins-db
     restart: always
     environment:
-      - MYSQL_DATABASE=Trippins
-      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=Trippins  # Name of the database to be created
+      - MYSQL_ROOT_PASSWORD=password  # Root password for MySQL
     ports:
-      - "3307:3306"  # Mapea el puerto 3307 de tu máquina al 3306 dentro del contenedor
+      - "3307:3306"  # Map port 3307 on the host to port 3306 in the container
     volumes:
-      - db_data:/var/lib/mysql
+      - db_data:/var/lib/mysql  # Persist database data in a Docker volume
     networks:
-      - trippins-network
+      - trippins-network  # Connect to the custom network
 
   web:
     image: jantoniio3/trippins:1.0
     container_name: trippins-app
     ports:
-      - "443:8443"
+      - "443:8443"  # Map port 443 on the host to port 8443 in the container
     depends_on:
-      - db
+      - db  # Ensure the database service is started before the web service
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/Trippins  # El contenedor de DB expone el puerto 3306
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=password
-      - JWT_SECRET=password
-    restart: on-failure
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/Trippins  # Database connection URL
+      - SPRING_DATASOURCE_USERNAME=root  # Database username
+      - SPRING_DATASOURCE_PASSWORD=password  # Database password
+      - JWT_SECRET=password  # Secret key for JWT
+    restart: on-failure  # Restart the container on failure
     networks:
-      - trippins-network
+      - trippins-network  # Connect to the custom network
 
 volumes:
-  db_data:
+  db_data:  # Define the volume for database data
 
 networks:
-  trippins-network:
+  trippins-network:  # Define the custom network

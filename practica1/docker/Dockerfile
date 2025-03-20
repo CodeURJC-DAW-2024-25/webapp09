@@ -3,13 +3,13 @@ WORKDIR /daw
 COPY pom.xml .
 COPY src ./src
 
-# Ejecutar el comando de Maven para construir el proyecto
+# Run Maven command to build the project
 RUN mvn clean package -DskipTests
 
 # Execution
 FROM openjdk:17-jdk-slim
 WORKDIR /usr/src/app
-# Copiar el archivo JAR generado desde la fase de construcción
+# Copy the generated JAR file from the build stage
 COPY --from=builder /daw/target/*.jar app.jar
 EXPOSE 443
 CMD ["java", "-jar", "app.jar"]
