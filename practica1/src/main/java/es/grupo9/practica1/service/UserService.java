@@ -8,7 +8,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import es.grupo9.practica1.controller.UserRestController;
+
 import es.grupo9.practica1.entities.Admin;
 import es.grupo9.practica1.entities.Client;
 import es.grupo9.practica1.entities.User;

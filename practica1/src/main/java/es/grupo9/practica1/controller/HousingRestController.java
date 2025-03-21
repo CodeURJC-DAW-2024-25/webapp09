@@ -1,6 +1,7 @@
 package es.grupo9.practica1.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.grupo9.practica1.DTOs.HousingDTO;
-
+import es.grupo9.practica1.DTOs.TagDTO;
 import es.grupo9.practica1.service.HousingService;
 
 @RestController
@@ -60,7 +61,12 @@ public class HousingRestController {
         housingService.deleteHouse(id);
         return ResponseEntity.noContent().build();
     }
-
+    
+    @GetMapping("/{id}/tags")
+    public ResponseEntity<Set<TagDTO>> getTagsById(@PathVariable int id) {
+        Set<TagDTO> tags = housingService.getTagsById(id);
+        return ResponseEntity.ok(tags);
+    }
 
     
 }

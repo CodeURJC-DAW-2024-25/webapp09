@@ -2,10 +2,7 @@ package es.grupo9.practica1.entities;
 
 import java.sql.Date;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
-import es.grupo9.practica1.repository.HousingRepository;
-import es.grupo9.practica1.repository.UserRepository;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
