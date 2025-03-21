@@ -320,7 +320,7 @@ public class MustacheController {
 
 
 
-    @PostMapping("/login")
+    @PostMapping("/form/login")
     public String userlogin(String email, String password, Model model) {
         return "index";
     }
