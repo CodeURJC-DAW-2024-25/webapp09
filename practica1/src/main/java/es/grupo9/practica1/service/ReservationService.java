@@ -90,7 +90,7 @@ public class ReservationService {
     }
 
     public ReservationDTO createReservation(ReservationDTO reservation){
-        Reservation newReservation = new Reservation(reservation.getId(), reservation.getClientDni(),reservation.getHousingCode(),reservation.getCheckIn(),
+        Reservation newReservation = new Reservation(reservation.getId(), userRepository.findById(reservation.getClientDni()).get(),housingRepository.findByCode(reservation.getHousingCode()).get(),reservation.getCheckIn(),
         reservation.getCheckOut(),reservation.isValorated());
         reservationRepository.save(newReservation);
         return new ReservationDTO(newReservation);
@@ -102,7 +102,7 @@ public class ReservationService {
 
         finalOriginalReservation.setCheck_in(reservation.getCheckIn());
         finalOriginalReservation.setCheck_out(reservation.getCheckOut());
-        finalOriginalReservation.setHousing(housingRepository.findByCode(reservation.getId()).get());
+        finalOriginalReservation.setHousing(housingRepository.findByCode(reservation.getHousingCode()).get());
         finalOriginalReservation.setID_cliente(userRepository.findById(reservation.getClientDni()).get());
         finalOriginalReservation.setId(id);
         finalOriginalReservation.setValorated(reservation.isValorated());

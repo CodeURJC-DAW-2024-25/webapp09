@@ -43,11 +43,6 @@ public class Reservation {
 
     
 
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private HousingRepository housingRepository;
 
 
     public Reservation(){}
@@ -61,14 +56,14 @@ public class Reservation {
         this.valorated = false;
         this.housing_name = housing; 
     }
-    public Reservation(Integer id, String client, int housing, Date check_in, Date check_out, boolean valorated) {
+    public Reservation(Integer id, User client, Housing housing, Date check_in, Date check_out, boolean valorated) {
         this.id = id;
-        this.client = userRepository.findById(client).get();
-        this.housing = housingRepository.findByCode(housing).get();
+        this.client = client;
+        this.housing = housing;
         this.check_in = check_in;
         this.check_out = check_out;
         this.valorated = valorated;
-        this.housing_name = housingRepository.findByCode(housing).get(); 
+        this.housing_name = housing;
     }
 
 

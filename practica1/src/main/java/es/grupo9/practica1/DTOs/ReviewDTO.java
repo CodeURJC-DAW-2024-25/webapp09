@@ -1,10 +1,7 @@
 package es.grupo9.practica1.DTOs;
 
 import es.grupo9.practica1.entities.Review;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@JsonInclude(Include.NON_NULL)
 public class ReviewDTO {
 
     private Integer reviewId;
