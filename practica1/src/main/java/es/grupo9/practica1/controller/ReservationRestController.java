@@ -33,7 +33,7 @@ public class ReservationRestController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ReservationDTO> getUserById(@PathVariable Integer id) {
+    public ResponseEntity<ReservationDTO> getReservationById(@PathVariable Integer id) {
         ReservationDTO reservation = reservationService.getReservationById(id);
         return ResponseEntity.ok(reservation);
     }

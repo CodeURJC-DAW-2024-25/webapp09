@@ -7,13 +7,13 @@ public class ReviewDTO {
     private Integer reviewId;
     private Integer rating;
     private String comment;
-    private Integer hotelCode;
+    private int hotelCode;
     private String userDni;
 
     public ReviewDTO() {
     }
 
-    public ReviewDTO(Integer reviewId, Integer rating, String comment, Integer hotelCode, String userDni) {
+    public ReviewDTO(Integer reviewId, Integer rating, String comment, int hotelCode, String userDni) {
         this.reviewId = reviewId;
         this.rating = rating;
         this.comment = comment;
@@ -53,11 +53,11 @@ public class ReviewDTO {
         this.comment = comment;
     }
 
-    public Integer getHotelCode() {
+    public int getHotelCode() {
         return hotelCode;
     }
 
-    public void setHotelCode(Integer hotelCode) {
+    public void setHotelCode(int hotelCode) {
         this.hotelCode = hotelCode;
     }
 
