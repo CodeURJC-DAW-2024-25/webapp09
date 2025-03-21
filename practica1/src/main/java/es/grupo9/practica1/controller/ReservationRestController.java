@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import es.grupo9.practica1.DTOs.RegisteredUserDTO;
+
 import es.grupo9.practica1.DTOs.ReservationDTO;
-import es.grupo9.practica1.DTOs.UserDTO;
+
 import es.grupo9.practica1.service.ReservationService;
 
 @RestController

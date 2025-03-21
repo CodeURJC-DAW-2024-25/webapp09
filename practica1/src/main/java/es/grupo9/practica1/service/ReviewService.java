@@ -9,10 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
-import es.grupo9.practica1.DTOs.ReservationDTO;
+
 import es.grupo9.practica1.DTOs.ReviewDTO;
 import es.grupo9.practica1.entities.Housing;
-import es.grupo9.practica1.entities.Reservation;
+
 import es.grupo9.practica1.entities.Review;
 import es.grupo9.practica1.entities.User;
 import es.grupo9.practica1.repository.HousingRepository;
