@@ -19,9 +19,16 @@ import es.grupo9.practica1.DTOs.RegisteredUserDTO;
 import es.grupo9.practica1.DTOs.UserDTO;
 
 import es.grupo9.practica1.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/api/users")
+@Tag(name = "User Management", description = "APIs for managing users")
 public class UserRestController {
 
 
@@ -29,33 +36,79 @@ public class UserRestController {
     private UserService userService;
 
 
-
+    @Operation(summary = "Get all users", description = "Returns a list of all users")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Successfully retrieved list of users"),
+        @ApiResponse(responseCode = "403", description = "Forbidden - Access denied")
+    })
+    @SecurityRequirement(name = "JWT")
     @GetMapping
     public ResponseEntity<List<UserDTO>> getAllUsers() {
         List<UserDTO> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
     }
 
+
+    @Operation(summary = "Get user by ID", description = "Returns a user by their ID")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Successfully retrieved user"),
+        @ApiResponse(responseCode = "404", description = "User not found"),
+        @ApiResponse(responseCode = "403", description = "Forbidden - Access denied")
+    })
+    @SecurityRequirement(name = "JWT")
     @GetMapping("/{id}")
-    public ResponseEntity<UserDTO> getUserById(@PathVariable String id) {
+    public ResponseEntity<UserDTO> getUserById(@Parameter(description = "Dni of the user", example = "11223344C", required = true)
+    @PathVariable String id) {
         UserDTO user = userService.getUserById(id);
         return ResponseEntity.ok(user);
     }
 
+
+    @Operation(summary = "Create a new user", description = "Creates a new user with the provided details")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "201", description = "User created successfully"),
+        @ApiResponse(responseCode = "400", description = "Invalid input"),
+        @ApiResponse(responseCode = "403", description = "Forbidden - Access denied")
+    })
+    @SecurityRequirement(name = "JWT")
     @PostMapping
-    public ResponseEntity<UserDTO> createUser(@RequestBody RegisteredUserDTO user) {
+    public ResponseEntity<UserDTO> createUser(
+        @Parameter(description = "User details for creation", required = true)
+        @RequestBody RegisteredUserDTO user) {
         UserDTO createdUser = userService.createUser(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
     }
 
+
+    @Operation(summary = "Update a user", description = "Updates an existing user with the provided details")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "User updated successfully"),
+        @ApiResponse(responseCode = "404", description = "User not found"),
+        @ApiResponse(responseCode = "400", description = "Invalid input"),
+        @ApiResponse(responseCode = "403", description = "Forbidden - Access denied")
+    })
+    @SecurityRequirement(name = "JWT")    
     @PutMapping("/{id}")
-    public ResponseEntity<UserDTO> updateUser(@PathVariable String id, @RequestBody RegisteredUserDTO user) {
+    public ResponseEntity<UserDTO> updateUser(
+        @Parameter(description = "Dni of the user to update", example = "11223344C", required = true)
+        @PathVariable String id, 
+        @Parameter(description = "Updated user details", required = true)
+        @RequestBody RegisteredUserDTO user) {
         UserDTO updatedUser = userService.updateUser(id, user);
         return ResponseEntity.ok(updatedUser);
     }
 
+    @Operation(summary = "Delete a user", description = "Deletes a user by their ID")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "204", description = "User deleted successfully"),
+        @ApiResponse(responseCode = "404", description = "User not found"),
+        @ApiResponse(responseCode = "403", description = "Forbidden - Access denied")
+    })
+    @SecurityRequirement(name = "JWT")
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable String id) {
+    public ResponseEntity<Void> deleteUser(
+        @Parameter(description = "Dni of the user to delete", example = "11223344C", required = true)
+        @PathVariable String id) {
         userService.deleteUser(id);
         return ResponseEntity.noContent().build();
     }

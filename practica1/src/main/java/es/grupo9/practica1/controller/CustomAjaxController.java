@@ -20,11 +20,23 @@ import es.grupo9.practica1.entities.Review;
 import es.grupo9.practica1.repository.HousingRepository;
 import es.grupo9.practica1.repository.ReservationRepository;
 import es.grupo9.practica1.repository.ReviewRepository;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 import org.springframework.data.domain.Pageable;
 
 @RestController
+@Tag(name = "Custom AJAX Endpoints", description = "APIs for pagination, loading elements, and managing reservations and houses via AJAX")
 public class CustomAjaxController {
+
+    //the new routes of this controller must be changed on the corresponding ajax.js files
 
     @Autowired
     private HousingRepository housingRepository;
@@ -35,8 +47,43 @@ public class CustomAjaxController {
     @Autowired
     private ReviewRepository reviewRepository;
 
-    @PostMapping("/roomHouses")
-    public Page<Housing> getHouses(@RequestBody Map<String, Integer> request) {
+
+
+    @Operation(
+        summary = "Get paginated houses", 
+        description = "Returns a paginated list of accepted houses."
+    )
+    @ApiResponses(value = {
+        @ApiResponse(
+            responseCode = "200", 
+            description = "Successfully retrieved paginated houses",
+            content = @Content(
+                schema = @Schema(implementation = Housing.class)
+            )
+        ),
+        @ApiResponse(
+            responseCode = "500", 
+            description = "Internal server error",
+            content = @Content(
+                examples = @ExampleObject(
+                    value = "{\"error\": \"Internal Server Error\", \"message\": \"Error fetching houses\"}"
+                )
+            )
+        )
+    })
+    @PostMapping("/api/rooms/extra") 
+    public Page<Housing> getHouses(
+        @io.swagger.v3.oas.annotations.parameters.RequestBody(
+                description = "Pagination parameters",
+                required = true,
+                content = @Content(
+                    schema = @Schema(implementation = Map.class),
+                    examples = @ExampleObject(
+                        value = "{\"page\": 0, \"size\": 6}"
+                    )
+                )
+            )  
+        @RequestBody Map<String, Integer> request) {
         try {
             // Extract page and size from the request body
             int page = request.getOrDefault("page", 0); // Default to page 0 if not provided
@@ -60,11 +107,48 @@ public class CustomAjaxController {
         }
     }
 
-    @PostMapping("/loadComments")
-    public Page<Review> getComments(@RequestBody Map<String, Integer> request) {
+
+    
+    @Operation(
+        summary = "Get paginated comments for a house", 
+        description = "Returns a paginated list of comments for a specific house."
+    )
+    @ApiResponses(value = {
+        @ApiResponse(
+            responseCode = "200", 
+            description = "Successfully retrieved paginated comments",
+            content = @Content(
+                schema = @Schema(implementation = Review.class)
+            )
+        ),
+        @ApiResponse(
+            responseCode = "500", 
+            description = "Internal server error",
+            content = @Content(
+                examples = @ExampleObject(
+                    value = "{\"error\": \"Internal Server Error\", \"message\": \"Error fetching comments\"}"
+                )
+            )
+        )
+    })
+    @PostMapping("/api/rooms/{id}/comments/extra")
+    public Page<Review> getComments(
+        @Parameter(description = "ID of the house", example = "1", required = true)
+        @PathVariable Integer id,
+        @io.swagger.v3.oas.annotations.parameters.RequestBody(
+                description = "Pagination parameters",
+                required = true,
+                content = @Content(
+                    schema = @Schema(implementation = Map.class),
+                    examples = @ExampleObject(
+                        value = "{\"page\": 0, \"size\": 6}"
+                    )
+                )
+            ) 
+        @RequestBody Map<String, Integer> request) {
         try {
-            // Extract hotel ID, page, and size from the request body
-            Integer hotelId = request.getOrDefault("hotelId", 1); // Default to 0 if not provided
+            // Extract  page, and size from the request body
+            Integer hotelId = id; 
             int page = request.getOrDefault("page", 0); // Default to page 0 if not provided
             int size = request.getOrDefault("size", 3); // Default to size 3 if not provided
 
@@ -89,8 +173,44 @@ public class CustomAjaxController {
         }
     }
 
-    @PostMapping("/adminHouses")
-    public Page<Housing> getAdminHouses(@RequestBody Map<String, Integer> request) {
+
+
+    @Operation(
+        summary = "Get paginated unaccepted houses for admin", 
+        description = "Returns a paginated list of unaccepted houses for admin review."
+    )
+    @ApiResponses(value = {
+        @ApiResponse(
+            responseCode = "200", 
+            description = "Successfully retrieved paginated unaccepted houses",
+            content = @Content(
+                schema = @Schema(implementation = Page.class)
+            )
+        ),
+        @ApiResponse(
+            responseCode = "500", 
+            description = "Internal server error",
+            content = @Content(
+                examples = @ExampleObject(
+                    value = "{\"error\": \"Internal Server Error\", \"message\": \"Error fetching houses\"}"
+                )
+            )
+        )
+    })
+    @SecurityRequirement(name = "JWT")
+    @PostMapping("/api/admin/houses")
+    public Page<Housing> getAdminHouses(
+        @io.swagger.v3.oas.annotations.parameters.RequestBody(
+                description = "Pagination parameters",
+                required = true,
+                content = @Content(
+                    schema = @Schema(implementation = Map.class),
+                    examples = @ExampleObject(
+                        value = "{\"page\": 0, \"size\": 3}"
+                    )
+                )
+            )
+        @RequestBody Map<String, Integer> request) {
         try {
             // Extract page and size from the request body
             int page = request.getOrDefault("page", 0); // Default to page 0 if not provided
@@ -111,9 +231,36 @@ public class CustomAjaxController {
         }
     }
 
+
     // Accept House: Sets the "acepted" field to true
-    @PostMapping("/acceptHouse/{houseId}")
-    public void acceptHouse(@PathVariable Integer houseId) {
+    
+    @Operation(
+        summary = "Accept a house", 
+        description = "Accepts a house by setting its 'acepted' field to true. "
+    )
+    @ApiResponses(value = {
+        @ApiResponse(
+            responseCode = "200", 
+            description = "House accepted successfully"
+        ),
+        @ApiResponse(
+            responseCode = "404", 
+            description = "House not found"
+        ),
+        @ApiResponse(
+            responseCode = "403", 
+            description = "Forbidden - Access denied (requires ADMIN role)"
+        ),
+        @ApiResponse(
+            responseCode = "401", 
+            description = "Unauthorized - JWT token missing or invalid"
+        )
+    })
+    @SecurityRequirement(name = "JWT")
+    @PostMapping("/api/admin/houses/decision/{houseId}")
+    public void acceptHouse(
+        @Parameter(description = "ID(code) of the house", example = "1", required = true)
+        @PathVariable Integer houseId) {
         Optional<Housing> optionalHouse = housingRepository.findById(houseId);
         if (optionalHouse.isPresent()) {
             Housing house = optionalHouse.get();
@@ -126,8 +273,34 @@ public class CustomAjaxController {
     }
 
     // Deny House: Deletes the house from the database
-    @DeleteMapping("/denyHouse/{houseId}")
-    public void denyHouse(@PathVariable Integer houseId) {
+
+    @Operation(
+        summary = "Deny a house", 
+        description = "Denies a house by deleting it from the database."
+    )
+    @ApiResponses(value = {
+        @ApiResponse(
+            responseCode = "204", 
+            description = "House denied and removed successfully"
+        ),
+        @ApiResponse(
+            responseCode = "404", 
+            description = "House not found"
+        ),
+        @ApiResponse(
+            responseCode = "403", 
+            description = "Forbidden - Access denied (requires ADMIN role)"
+        ),
+        @ApiResponse(
+            responseCode = "401", 
+            description = "Unauthorized - JWT token missing or invalid"
+        )
+    })
+    @SecurityRequirement(name = "JWT")
+    @DeleteMapping("/api/admin/houses/decision/{houseId}")
+    public void denyHouse(
+        @Parameter(description = "ID(code) of the house", example = "1", required = true)
+        @PathVariable Integer houseId) {
         if (housingRepository.existsById(houseId)) {
             housingRepository.deleteById(houseId);
             System.out.println("House with ID " + houseId + " has been denied and removed.");
@@ -136,8 +309,34 @@ public class CustomAjaxController {
         }
     }
 
-    @PostMapping("/acceptReservation/{reservationId}")
-    public void acceptReservation(@PathVariable Integer reservationId) {
+    // Accept reservation: Sets the "valorated" field to true
+    @Operation(
+        summary = "Accept a reservation", 
+        description = "Accepts a reservation by setting its 'valorated' field to true. "
+    )
+    @ApiResponses(value = {
+        @ApiResponse(
+            responseCode = "200", 
+            description = "Reservation accepted successfully"
+        ),
+        @ApiResponse(
+            responseCode = "404", 
+            description = "Reservation not found"
+        ),
+        @ApiResponse(
+            responseCode = "403", 
+            description = "Forbidden - Access denied (requires ADMIN role)"
+        ),
+        @ApiResponse(
+            responseCode = "401", 
+            description = "Unauthorized - JWT token missing or invalid"
+        )
+    })
+    @SecurityRequirement(name = "JWT")
+    @PostMapping("/api/admin/reservations/decision/{reservationId}")
+    public void acceptReservation(
+        @Parameter(description = "ID of the reservation", example = "1", required = true)
+        @PathVariable Integer reservationId) {
         Optional<Reservation> optionalReservation = reservationRepository.findById(reservationId);
         if (optionalReservation.isPresent()) {
             Reservation reservation = optionalReservation.get();
@@ -147,8 +346,34 @@ public class CustomAjaxController {
         }
     }
 
-    @DeleteMapping("/denyReservation/{reservationId}")
-    public void denyReservation(@PathVariable Integer reservationId) {
+    @Operation(
+        summary = "Deny a reservation", 
+        description = "Denies a reservation by deleting it from the database. **Requires ADMIN role.**"
+    )
+    @ApiResponses(value = {
+        @ApiResponse(
+            responseCode = "204", 
+            description = "Reservation denied and removed successfully"
+        ),
+        @ApiResponse(
+            responseCode = "404", 
+            description = "Reservation not found"
+        ),
+        @ApiResponse(
+            responseCode = "403", 
+            description = "Forbidden - Access denied (requires ADMIN role)"
+        ),
+        @ApiResponse(
+            responseCode = "401", 
+            description = "Unauthorized - JWT token missing or invalid"
+        )
+    })
+    @SecurityRequirement(name = "JWT")
+    //Deny reservation: just deletes from the database
+    @DeleteMapping("/api/admin/reservations/decision/{reservationId}")
+    public void denyReservation(
+        @Parameter(description = "ID of the reservation", example = "1", required = true)
+        @PathVariable Integer reservationId) {
         if (reservationRepository.existsById(reservationId)) {
             reservationRepository.deleteById(reservationId);
         }

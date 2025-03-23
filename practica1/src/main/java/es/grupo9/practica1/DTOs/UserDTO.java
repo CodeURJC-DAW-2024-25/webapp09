@@ -3,10 +3,12 @@ package es.grupo9.practica1.DTOs;
 import java.util.List;
 
 import es.grupo9.practica1.entities.User;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 public class UserDTO {
     private String dni;
     private String name;
+    @Schema(description = "User's phone number", example = "111322999", pattern = "^\\d{9}$")
     private Integer number;
     private String email;
     private Boolean admin;
