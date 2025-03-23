@@ -8,17 +8,28 @@
 - Rubén Alcojor Patilla |  mailto:r.alcojor.2022@alumnos.urjc.es  | rualpa2004
 
 # Instrucciones de ejecución:
+
+#Fase 1
 - Necesario:JAVA versión JDK 21, MYSQL versión 8.0.33 , "http://maven.apache.org/POM/4.0.0" , y de springboot la extensión de visualStudio org.springframework.boot versión 3.4.3  
 - Necesario clonar el repositorio de github,  
 - Tener docker abierto y loggeado,
 - Introducir el comando en VisualStudio; docker run --rm -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=Trippins -p 3307:3306 -d mysql:8.0.33
 - Abrirlo en el puerto seguro 8443.
+#Fase 2
+- En la terminal escribir Docker-compose up
+- Ir a localhost:443 para ver nuestra pagina web
+- En caso de estar en la maquina virtual:
+    - Ir a la carpeta donde esta el proyecto
+    - ssh -i ssh-keys/appWeb09.key vmuser@10.100.139.215
+    - git clone del repositorio
+    - docker-compose up
+    - docker run {nombre del contenedor}
 
 # Participación de los miembros
 
 A continuación, se detalla la participación de cada miembro del equipo, incluyendo sus commits más importantes y las clases en las que han trabajado.
 
----
+#---Fase 1---#
 
 ## **Sergio Villagarcía Sánchez**
 - **Correo**: [s.villagarcia.2019@alumnos.urjc.es](mailto:s.villagarcia.2019@alumnos.urjc.es)
@@ -170,6 +181,75 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 - [Reservation.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/45bae2b772f219867c7352dc49f1f05bd0cfc38c/practica1/src/main/java/es/grupo9/practica1/Reservation.java)
 - [User.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/0e7d9e1100ec4886cb65076c07db7c1090c47466/practica1/src/main/java/es/grupo9/practica1/Usuario.java)
 
+#---Fase 2---#
+
+## **Sergio Villagarcía Sánchez**
+- **Correo**: [s.villagarcia.2019@alumnos.urjc.es](mailto:s.villagarcia.2019@alumnos.urjc.es)
+- **Usuario GitHub**: [Sergio-1502](https://github.com/Sergio-1502)
+
+### **Commits más importantes**
+1. 
+2.
+3.
+4. 
+5.  
+
+
+---
+
+## **Guillermo Blázquez Barbacid**
+- **Correo**: [g.blazquez.2019@alumnos.urjc.es](mailto:g.blazquez.2019@alumnos.urjc.es)
+- **Usuario GitHub**: [Blazk0o](https://github.com/Blazk0o)
+
+### **Commits más importantes**
+1. 
+2.
+3. 
+4. 
+5. 
+
+
+---
+
+## **Juan Antonio Alcalde Yuste**
+- **Correo**: [ja.alcalde.2021@alumnos.urjc.es](mailto:ja.alcalde.2021@alumnos.urjc.es)
+- **Usuario GitHub**: [Jantoniio3](https://github.com/Jantoniio3)
+
+### **Commits más importantes**
+1. 
+2. 
+3. 
+4. 
+5. 
+
+
+---
+
+## **Steven Adrados Khunliang**
+- **Correo**: [s.adrados.2020@alumnos.urjc.es](mailto:s.adrados.2020@alumnos.urjc.es)
+- **Usuario GitHub**: [Jadrados](https://github.com/Jadrados)
+
+### **Commits más importantes**
+1. 
+2. 
+3. 
+4. 
+5. 
+
+### **Clases más trabajadas**
+
+---
+
+## **Rubén Alcojor Patilla**
+- **Correo**: [r.alcojor.2022@alumnos.urjc.es](mailto:r.alcojor.2022@alumnos.urjc.es)
+- **Usuario GitHub**: [rualpa2004](https://github.com/rualpa2004)
+
+### **Commits más importantes**
+1. 
+2. 
+3. 
+4. 
+5. 
 
 
 # Modelo ER
