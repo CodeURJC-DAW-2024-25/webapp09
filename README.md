@@ -29,159 +29,7 @@
 
 A continuación, se detalla la participación de cada miembro del equipo, incluyendo sus commits más importantes y las clases en las que han trabajado.
 
-**---Fase 1---**
-
-## **Sergio Villagarcía Sánchez**
-- **Correo**: [s.villagarcia.2019@alumnos.urjc.es](mailto:s.villagarcia.2019@alumnos.urjc.es)
-- **Usuario GitHub**: [Sergio-1502](https://github.com/Sergio-1502)
-
-### **Commits más importantes**
-1. **Creada ReviewAjax.js**:
-   - Commit: [429d223](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/429d223815b6cb621f0c8d0384a52ba16329e246)
-   - Descripción: creada la clase ReviewAjax.js.
-2. **Editado el controler de Ajax**:
-   - Commit: [f27c1c5](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/f27c1c5f338f4a79e4332ec5eb51e9165fdb0627)
-   - Descripción: Añadido en CustomAjaxController.java el @PostMapping referido a reviewAjax.js.
-3. **Implementación de pagina de error**:
-   - Commit: [f8e63fb](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/f8e63fb5555324d6eab92348dd3ae5ec641e6061#diff-6d62feebe3adfa742594ab46b714b3cbd4b53da4a745b1d7364e6764d193cc05)
-   - Descripción: Se ha añadido una pagina de error.
-4. **Implementación de los graficos de rating**:
-   - Commit: [3bcb0b1](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/3bcb0b1e8525898ea2df1b8a7df629291b8ed5dc)
-   - Descripción: Se ha implemtado una barra en los comentarios, puntuación.
-5. **Arreglos en rating**:
-   - Commit: [836019b](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/836019bf834fe3950e29c4e1cfe8a6836c94233d)
-   - Descripción: Se implementan arreglos en la la barra de valoración de los comentarios para tener 3 colores y una apariencia más idónea.  
-
-
-### **Clases más trabajadas**
-- [reviewAjax.js](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/429d223815b6cb621f0c8d0384a52ba16329e246/practica1/src/main/resources/static/reviewAjax.js)
-- [CustomAjaxControler.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/f8e63fb5555324d6eab92348dd3ae5ec641e6061/practica1/src/main/java/es/grupo9/practica1/CustomAjaxController.java)
-- [error.html](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/f8e63fb5555324d6eab92348dd3ae5ec641e6061/practica1/src/main/resources/templates/error.html)
-- [style.css](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/TestSinCSRF/practica1/src/main/resources/static/style.css)
-- [roomDetails.html](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/TestSinCSRF/practica1/src/main/resources/templates/roomDetails.html)
-
----
-
-## **Guillermo Blázquez Barbacid**
-- **Correo**: [g.blazquez.2019@alumnos.urjc.es](mailto:g.blazquez.2019@alumnos.urjc.es)
-- **Usuario GitHub**: [Blazk0o](https://github.com/Blazk0o)
-
-### **Commits más importantes**
-1. **Implementación del repositorio de Review**:
-   - Commit: [699406a](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/699406ab069b62fdd4a4a840c5c327e8a19a65fb)
-   - Descripción: Creadas las clases ReviewService y ReviewRepository aunque todavia no he inicializado la clase, tiene que unirse a housin, user y reservation
-.
-2. **Implementada la clase reseñas**:
-   - Commit: [df8fdc8](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/df8fdc87a0ebfe32d83eac7db0b211a848210695)
-   - Descripción: creada la clase reseñas.
-3. **Admin y controler**:
-   - Commit: [7ba43dc](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/7ba43dc8e6105896214dd28be1be1d174bf3615b)
-   - Descripción: añadido en admin aceptar alojamientos y linkeada la pagina.
-4. **Cambio de las rutas**:
-   - Commit: [ee99418](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/ee99418522a66f3acffaff210d0c2d546cc79435)
-   - Descripción: cambiadas las rutas.
-5. **Implementación de constructores vacios**:
-   - Commit: [79c674a](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/79c674af51725dc6158254e614ae6c6c866a05cb)
-   - Descripción: arreglados los fallos de Mysql, necesidad de constructores vacios.
-
-### **Clases más trabajadas**
-- [Review.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/main/practica1/src/main/java/es/grupo9/practica1/Review.java)  
-- [ReviewService.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/main/practica1/src/main/java/es/grupo9/practica1/ReviewService.java)  
-- [ReviewRepository.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/main/practica1/src/main/java/es/grupo9/practica1/ReviewRepository.java)  
-- [Moustachecontroler.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/main/practica1/src/main/java/es/grupo9/practica1/MustacheController.java)  
-- [admin.html](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/main/practica1/src/main/resources/templates/admin.html)  
----
-
-## **Juan Antonio Alcalde Yuste**
-- **Correo**: [ja.alcalde.2021@alumnos.urjc.es](mailto:ja.alcalde.2021@alumnos.urjc.es)
-- **Usuario GitHub**: [Jantoniio3](https://github.com/Jantoniio3)
-
-### **Commits más importantes**
-1. **Implementación de user**:
-   - Commit: [637d218](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/637d218eafca5e53c428f4b6cba27963dea210bd)
-   - Descripción: Edita el controler de mustache,usuario y registro.
-2. **Implementación de alojamientos**:
-   - Commit: [f0429d4](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/f0429d45f7245b2ce6e96c05683bd35eb5e9c9e8)
-   - Descripción: Ya funcionan los post de alojamientos.
-3. **Implementación de la barra de busqueda**:
-   - Commit: [88c08ed](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/88c08ed6ae6af1a16d380d1aacc59b034e64ef8c)
-   - Descripción: Crear barra de busqueda avanzada, añadir pagina de admin desde admin.
-4. **Solucion de problemas**:
-   - Commit: [6513d23](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/6513d238fff2b82b6bcaa36e724403297b08d18a)
-   - Descripción: eliminar algunas paginas, arreglar el problema de login que cree en el commit anterior, mostrar y esconder password de login y registro.
-5. **Implementación de email**:
-   - Commit: [354ea03](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/354ea03ea162a1790d9f6328f1fa4389dc499c79)
-   - Descripción: Trabajando en emailservice, envio de emails automaticos.
-
-### **Clases más trabajadas**
-- [HousingService.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/f0429d45f7245b2ce6e96c05683bd35eb5e9c9e8/practica1/src/main/java/es/grupo9/practica1/HousingService.java)
-- [passwordtoogle.js](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/6513d238fff2b82b6bcaa36e724403297b08d18a/practica1/src/main/resources/static/passwordtoogle.js)
-- [EmailService.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/354ea03ea162a1790d9f6328f1fa4389dc499c79/practica1/src/main/java/es/grupo9/practica1/EmailService.java)
-- [ControllerHelper.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/main/practica1/src/main/java/es/grupo9/practica1/ControllerHelper.java)
-- [ReservationService.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/main/practica1/src/main/java/es/grupo9/practica1/ReservationService.java)
-
----
-
-## **Steven Adrados Khunliang**
-- **Correo**: [s.adrados.2020@alumnos.urjc.es](mailto:s.adrados.2020@alumnos.urjc.es)
-- **Usuario GitHub**: [Jadrados](https://github.com/Jadrados)
-
-### **Commits más importantes**
-1. **Implementando Ajax**:
-   - Commit: [014a566](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/014a56650afec257ed4d501a63d753764be8aee6)
-   - Descripción: Clases de Ajax.
-2. **Implementado Los correos automaticos**:
-   - Commit: [
-09750be](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/09750bea537d7d3767915fdf9bd2fdb3aba17f9e#diff-6d62feebe3adfa742594ab46b714b3cbd4b53da4a745b1d7364e6764d193cc05)  
-   - Descripción: Correos y ajax ya funcionan solo hay que repetir el proceso para el resto ajax.
-3. **Implementados cambios en pagina admin**:
-   - Commit: [7ba43dc](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/7ba43dc8e6105896214dd28be1be1d174bf3615b)
-   - Descripción: Metido que el admin pueda aceptar en la pagina web las reservas.
-4. **Arreglado el controler**:
-   - Commit: [cf4e60c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/cf4e60cf59ae4bf2933bf375082cc25e48a4a7ad)
-   - Descripción: BBDD operativa recibiendo datos solo falta el resto de htmls y clases.
-5. **Personalizada el template**:
-   - Commit: [c28ce6e](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/c28ce6e7ad8d4ea0f8f8a83659504e8d326a2cf1)
-   - Descripción: Cambiadas las referencias y el template.
-
-### **Clases más trabajadas**
-- [MustacheControler.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/637d218eafca5e53c428f4b6cba27963dea210bd/practica1/src/main/java/es/grupo9/practica1/MustacheController.java)
-- [adminAjax.js](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/014a56650afec257ed4d501a63d753764be8aee6/practica1/src/main/resources/static/adminAjax.js)  
-- [AdminDecisionAjax.js](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/014a56650afec257ed4d501a63d753764be8aee6/practica1/src/main/resources/static/adminDecisionAjax.js)  
-- [CustomAjaxControler.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/014a56650afec257ed4d501a63d753764be8aee6/practica1/src/main/java/es/grupo9/practica1/CustomAjaxController.java)  
-- [admin.html](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/014a56650afec257ed4d501a63d753764be8aee6/practica1/src/main/resources/templates/admin.html)  
-
----
-
-## **Rubén Alcojor Patilla**
-- **Correo**: [r.alcojor.2022@alumnos.urjc.es](mailto:r.alcojor.2022@alumnos.urjc.es)
-- **Usuario GitHub**: [rualpa2004](https://github.com/rualpa2004)
-
-### **Commits más importantes**
-1. **Implementado el CSRF**:
-   - Commit: [6497a3b](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/6497a3ba73aaacf704e5ef29e8055105fe449f37)
-   - Descripción: Se ha implementado la seguridad.
-2. **Implementado los tokens**:
-   - Commit: [0b4979f](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/0b4979f88e78f498ab84aae651c749561588c074)
-   - Descripción: Añadiendo los tokens en los formularios.
-3. **Cambiando todo a inglés**:
-   - Commit: [45bae2b](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/45bae2b772f219867c7352dc49f1f05bd0cfc38c)
-   - Descripción: Modificado todo a inglés.
-4. **Guardando DNI**:
-   - Commit: [0e7d9e1](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/0e7d9e1100ec4886cb65076c07db7c1090c47466)
-   - Descripción: DNI guardado y validado correctamente.
-5. **Arreglo de contraseña**:
-   - Commit: [5f8e033](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/5f8e0336c961631359d18b612c61c3d0b1618590)
-   - Descripción: Arreglo de la variable contraseña.
-
-### **Clases más trabajadas**
-- [profile.html](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/6497a3ba73aaacf704e5ef29e8055105fe449f37/practica1/src/main/resources/templates/profile.html)
-- [MustacheController.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blame/6497a3ba73aaacf704e5ef29e8055105fe449f37/practica1/src/main/java/es/grupo9/practica1/MustacheController.java)
-- [Housing.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/45bae2b772f219867c7352dc49f1f05bd0cfc38c/practica1/src/main/java/es/grupo9/practica1/Housing.java)
-- [Reservation.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/45bae2b772f219867c7352dc49f1f05bd0cfc38c/practica1/src/main/java/es/grupo9/practica1/Reservation.java)
-- [User.java](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/0e7d9e1100ec4886cb65076c07db7c1090c47466/practica1/src/main/java/es/grupo9/practica1/Usuario.java)
-
-**---Fase 2---**
+#---Fase 2---
 
 ## **Sergio Villagarcía Sánchez**
 - **Correo**: [s.villagarcia.2019@alumnos.urjc.es](mailto:s.villagarcia.2019@alumnos.urjc.es)
@@ -216,11 +64,15 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 - **Usuario GitHub**: [Jantoniio3](https://github.com/Jantoniio3)
 
 ### **Commits más importantes**
-1. 
-2. 
-3. 
+1. Commit:[e5364c425dd7537b46d3ff910e15d75606df598b](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/e5364c425dd7537b46d3ff910e15d75606df598b)
+   Descripcion:Crear imagenes docker, contenedor de la aplicacion y la imagen de la aplicacion
+2. Commit:[884441ca6070a55c26618bd9f8354aa594de5999](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/884441ca6070a55c26618bd9f8354aa594de5999)
+   Descripcion:crear reviewDTO
+3. Commit:[![image](https://github.com/user-attachments/assets/2595cd77-604a-45b3-bca3-2f68217b625b)](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/340d2d90cddfcddd5df6771ed9901bf6b008044c)
+   Descripcion:creando api-docs. Crea el yaml pero no crea la documentacion
 4. 
 5. 
+
 
 
 ---
@@ -230,11 +82,16 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 - **Usuario GitHub**: [Jadrados](https://github.com/Jadrados)
 
 ### **Commits más importantes**
-1. 
-2. 
-3. 
-4. 
-5. 
+1. Commit:[![image](https://github.com/user-attachments/assets/2595cd77-604a-45b3-bca3-2f68217b625b)](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/0878b1f8107e3e773bf912c616ad496bdea6fa8c)
+   Descripcion:Incluida toda la seguridad de jwt por tokens, te devuelve el token y el rol o roles del user
+2. Commit:[![image](https://github.com/user-attachments/assets/2595cd77-604a-45b3-bca3-2f68217b625b)](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/db8105be0556165c2bb5783eb43b6d8bde72c36c)
+   Descripcion:ya estala api rest de review
+3. Commit:[![image](https://github.com/user-attachments/assets/2595cd77-604a-45b3-bca3-2f68217b625b)](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/653c5a6739c872b97935cf27ef176ec534feefe1)
+   Descripcion:ya funciona la api rest de las casas
+4. Commit:[![image](https://github.com/user-attachments/assets/2595cd77-604a-45b3-bca3-2f68217b625b)](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/97fa6c5de631a6fbb5589070c170371aa67d3574)
+   Descripcion:API de users ya funciona
+5. Commit:[![image](https://github.com/user-attachments/assets/2595cd77-604a-45b3-bca3-2f68217b625b)](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/1e20834394eb8cf5e7f6972bc364628c65760543)
+   Descripcion:tags introducidas en housing api rest
 
 ### **Clases más trabajadas**
 
