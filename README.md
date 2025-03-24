@@ -117,11 +117,13 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 - **Usuario GitHub**: [rualpa2004](https://github.com/rualpa2004)
 
 ### **Commits más importantes**
-1. He creado y escrito el archivo docker-compose.yml y el Dockerfile dentro de la máquina virtual.
-2. He instalado Docker y Docker compose dentro de la máquina virtual.
-3. 
-4. 
-5. 
+1. Creación de los archivos docker-compose.yml y Dockerfile dentro de la máquina virtual.
+2. Realización de los archivos docker-compose.yml y Dockerfile dentro de la máquina virtual.
+3. He instalado Docker y Docker compose dentro de la máquina virtual.
+4. Commit:[060e74d548df500ee92d3bd581bd82b06d86b964](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/060e74d548df500ee92d3bd581bd82b06d86b964)  
+   Descripción: Eliminación de imports no utilizados dentro del código.
+5. Commit:[ac54e20ffce5be01e14c24f004461011d3f2cf8b](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/ac54e20ffce5be01e14c24f004461011d3f2cf8b)  
+   Descripción: Haciendo más entendible el código.
 
 
 # Modelo ER
