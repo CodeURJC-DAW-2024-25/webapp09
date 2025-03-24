@@ -59,7 +59,15 @@
 
                 <img src="data:image/jpeg;base64,{{house.imageBase64}}" alt="{{house.name}}"
                     class="img-fluid rounded mb-4" style="max-width: 80%;">
+<<<<<<< HEAD
 
+=======
+                    <div class="d-flex flex-wrap justify-content-center mb-4">
+                        {{#house.tags}}
+                            <div class="badge bg-primary me-2">{{id}}</div>
+                        {{/house.tags}}
+                    </div>
+>>>>>>> main
                 <p class="mb-4" style="font-size: 1.2rem;">{{house.description}}</p>
 
                 <div class="row justify-content-center g-3 pb-4">
@@ -96,6 +104,7 @@
                     <h3 class="section-title">¡Reserva <strong class="text-primary">ya!</strong></h3>
                     <br><br><br>
                     <form action="/addReservation" method="POST">
+<<<<<<< HEAD
                         <label for="checkIn">Fecha de entrada:</label>
                         <input type="date" id="checkIn" name="checkIn" required>
 
@@ -107,6 +116,31 @@
                         <button type="submit" class="btn btn-primary" id="reservation-button">Hacer reserva como
                             {{user.name}}
                         </button>
+=======
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input type="date" id="checkIn" name="checkIn"  class="form-control" required>
+                                    <label for="checkIn">Fecha de entrada:</label>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    
+                                    <input type="date" id="checkOut" name="checkOut" class="form-control"required>
+                                    <label for="checkOut">Fecha de salida:</label>
+                                </div>
+                            </div>
+                            <input type="hidden" name="houseId" value="{{house.code}}">
+                            <input type="hidden" name="userId" value="{{user.dni}}">
+                            
+                            <button type="submit" class="btn btn-primary" id="reservation-button">Hacer reserva como
+                                {{user.name}}
+                            </button>
+                        </div>
+
+>>>>>>> main
                     </form>
                 </div>
 
@@ -138,10 +172,18 @@
                 <!-- Comment Section -->
                 <h3 class="section-title">Comentarios</h3>
                 <div class="mt-5" id="comment-container">
+<<<<<<< HEAD
                     
                     <br><br>
                     {{#comments}}
                     <div class="comment-box border rounded p-4 mb-3 shadow-sm position-relative " style="background-color: rgba(39, 58, 77, 0.1);">
+=======
+
+                    <br><br>
+                    {{#comments}}
+                    <div class="comment-box border rounded p-4 mb-3 shadow-sm position-relative "
+                        style="background-color: rgba(39, 58, 77, 0.1);">
+>>>>>>> main
                         <div class="d-flex align-items-center mb-2">
                             <i class="fa fa-quote-right fa-2x text-primary position-absolute top-0 end-0 me-3 mt-3"></i>
 
@@ -154,11 +196,23 @@
                         <!-- Rating -->
                         <br><br>
                         <strong class="text-dark">Rating: {{rating}}/100</strong>
+<<<<<<< HEAD
                         
                     </div>
                     {{/comments}}
                     
                     
+=======
+                        <!-- Barra de rating -->
+                        <div class="rating-bar">
+                            <!-- eslint-disable-next-line -->
+                            <div class="rating-fill" style="width: {{rating}}%;"></div>
+                        </div>
+                    </div>
+                    {{/comments}}
+
+
+>>>>>>> main
                 </div>
             </div>
             <div class="text-center mt-4">
@@ -202,6 +256,10 @@
             ratingOutput.value = ratingSlider.value; // Update the displayed value
         });
     </script>
+<<<<<<< HEAD
+=======
+    <script src="/rating.js"></script>
+>>>>>>> main
 
 </body>
 

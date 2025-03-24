@@ -15,8 +15,7 @@ function toggleEditMode() {
         editButton.classList.remove("d-none");
         saveButton.classList.add("d-none");
         
-        
-        alert("Cambios guardados correctamente");
+
     } else {
         // Entrando en  edición: Habilitar inputs
         inputs.forEach(input => input.removeAttribute("disabled"));

@@ -57,41 +57,41 @@
                 <div class="row justify-content-center"> <!-- Centra horizontalmente -->
                     <div class="col-lg-6"> <!-- Define el ancho del formulario -->
                         <div class="wow fadeInUp" data-wow-delay="0.2s">
-                            <form id="profileForm"> <!-- Formulario -->
+                            <form id="profileForm" method="POST" action="/profile/update"> <!-- Formulario -->
                                 <div class="row g-3">
                                     <div class="col-md-12">
                                         <div class="form-floating">
-                                            <input type="text" name= "name"class="form-control" id="name" value="{{user.name}}" disabled>
+                                            <input type="text" name= "name"class="form-control" id="name" value="{{user.name}}" >
                                             <label for="name">Nombre</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="email" name= "email"class="form-control" id="email" value="{{user.email}}" disabled>
+                                            <input type="email" name= "email"class="form-control" id="email" value="{{user.email}}" >
                                             <label for="email">Correo Electrónico</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="text" name= "dni" class="form-control" id="dni" value="{{user.dni}}" disabled>
+                                            <input type="text" name= "dni" class="form-control" id="dni" name="dni" value="{{user.dni}}" >
                                             <label for="dni">DNI</label>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-floating">
-                                            <input type="text"  class="form-control" id="number" value="{{user.number}}" disabled>
+                                            <input type="text"  class="form-control" id="number" name="number" value="{{user.number}}" >
                                             <label for="number">Número de Teléfono</label>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-floating">
-                                            <input type="password" class="form-control" id="password" value="{{user.password}}" disabled>
+                                            <input type="password" class="form-control"  name="password" id="password" value="{{user.password}}" >
                                             <label for="password">Contraseña</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3" type="button" id="editButton">Modificar</button>
-                                        <button class="btn btn-success w-100 py-3 d-none" type="submit" id="saveButton">Guardar</button>
+                                        
+                                        <button class="btn btn-success w-100 py-3" type="submit" id="saveButton">Guardar</button>
                                     </div>
                                 </div>
                             </form>
@@ -176,7 +176,7 @@
     <!-- Template Javascript -->
 
     <script src="main.js"></script>
-    <script src="profile.js"></script>
+
 
 
 

@@ -489,3 +489,19 @@
     padding-right: 0;
     border-right: none;
 }
+
+
+.rating-bar {
+    width: 50%; 
+    height: 10px; 
+    background-color: #d7d7d7; 
+    border-radius: 2px; 
+    overflow: hidden; 
+    margin: 0 auto; 
+}
+
+.rating-fill {
+    height: 100%; 
+    border-radius: 2px;
+    transition: width 0.3s ease, background-color 0.3s ease; 
+}

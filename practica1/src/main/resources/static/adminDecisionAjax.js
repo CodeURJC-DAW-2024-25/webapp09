@@ -36,21 +36,24 @@ document.body.addEventListener('click', async function (event) {
 
 
 async function acceptHouse(houseId) {
-    await fetch(`/acceptHouse/${houseId}`, { method: 'POST' });
+    await fetch(`/api/admin/houses/decision/${houseId}`, { method: 'PUT' });
 }
 
 async function denyHouse(houseId) {
     await fetch(`/denyHouse/${houseId}`, { method: 'DELETE' });
+    await fetch(`/api/admin/houses/decision/${houseId}`, { method: 'DELETE' });
 }
 
 // Function to accept a reservation
 async function acceptReservation(reservationId) {
     await fetch(`/acceptReservation/${reservationId}`, { method: 'POST' });
+    await fetch(`/api/admin/reservations/decision/${reservationId}`, { method: 'PUT' });
 
 }
 
 // Function to deny a reservation
 async function denyReservation(reservationId) {
     await fetch(`/denyReservation/${reservationId}`, { method: 'DELETE' });
+    await fetch(`/api/admin/reservations/decision/${reservationId}`, { method: 'DELETE' });
 
 }

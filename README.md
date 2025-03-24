@@ -6,8 +6,126 @@
 - Juan Antonio Alcalde Yuste |  mailto:ja.alcalde.2021@alumnos.urjc.es | Jantoniio3
 - Steven Adrados Khunliang |  mailto:s.adrados.2020@alumnos.urjc.es  | Jadrados
 - Rubén Alcojor Patilla |  mailto:r.alcojor.2022@alumnos.urjc.es  | rualpa2004
+
+# Instrucciones de ejecución:
+
+**Fase 1**
+- Necesario:JAVA versión JDK 21, MYSQL versión 8.0.33 , "http://maven.apache.org/POM/4.0.0" , y de springboot la extensión de visualStudio org.springframework.boot versión 3.4.3  
+- Necesario clonar el repositorio de github,  
+- Tener docker abierto y loggeado,
+- Introducir el comando en VisualStudio; docker run --rm -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=Trippins -p 3307:3306 -d mysql:8.0.33
+- Abrirlo en el puerto seguro 8443.
+
+**Fase 2**
+- En la terminal escribir Docker-compose up
+- Ir a localhost:443 para ver nuestra pagina web
+- En caso de estar en la maquina virtual:
+    - Ir a la carpeta donde esta el proyecto
+    - ssh -i ssh-keys/appWeb09.key vmuser@10.100.139.215
+    - git clone https://github.com/CodeURJC-DAW-2024-25/webapp09.git
+    - cd webapp09/practica1/docker
+    - docker-compose up
+    - https://10.100.139.215/
+
+# Participación de los miembros
+
+A continuación, se detalla la participación de cada miembro del equipo, incluyendo sus commits más importantes y las clases en las que han trabajado.
+
+## **--Fase 2---**
+
+## **Sergio Villagarcía Sánchez**
+- **Correo**: [s.villagarcia.2019@alumnos.urjc.es](mailto:s.villagarcia.2019@alumnos.urjc.es)
+- **Usuario GitHub**: [Sergio-1502](https://github.com/Sergio-1502)
+
+### **Commits más importantes**
+1. Commit:[260263f1e662ee3844be5fbfff51e5c4b23f8df1](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/260263f1e662ee3844be5fbfff51e5c4b23f8df1)  
+   Descripcion: Modificada para prueba personal la clase ReviewDTO.  
+2. Commit:[406013e1caa2d36bb10958437d014215af525a54](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/406013e1caa2d36bb10958437d014215af525a54)  
+   Descripcion: Modificada la clase UserDTO para probar nueva sintaxis.  
+3. Commit:[2b31e9dc8bcc41b28c2c7f57a94c7153775753e8](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/2b31e9dc8bcc41b28c2c7f57a94c7153775753e8)  
+   Descripcion: ReviewApiController para manejar las reviews y ver los diferentes "ApiResponse".  
+4. Commit:[1e257e8527f8b6fa8c486a3d03e1ccb24f7338a0](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/1e257e8527f8b6fa8c486a3d03e1ccb24f7338a0)  
+   Descripcion: UserApiController para manejar usuarios y ver como funcionan los apiResponse.  
+5. Commit:[a1e2240e1192a105a2c3d204aef2a147f0e41f2c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/a1e2240e1192a105a2c3d204aef2a147f0e41f2c)  
+   Descripcion: Borrados de los controladores que ya no se utilizan.  
+
+
+---
+
+## **Guillermo Blázquez Barbacid**
+- **Correo**: [g.blazquez.2019@alumnos.urjc.es](mailto:g.blazquez.2019@alumnos.urjc.es)
+- **Usuario GitHub**: [Blazk0o](https://github.com/Blazk0o)
+
+### **Commits más importantes** 
+1. Commit:[b4327b96f41b12f83811de6102d11d0d6d111f4c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/b4327b96f41b12f83811de6102d11d0d6d111f4c)  
+   Descripcion: Creada reviewDTO.  
+2.Commit:[e2a77cfac7a0780f48f4279651bb8c30553c0c76](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/e2a77cfac7a0780f48f4279651bb8c30553c0c76)  
+   Descripcion: Reviewrestcontroller y service cambiados para poder editar los comentarios.  
+3. Commit:[f2802061cf1143c861a72ab371a5cd77d83e94d5](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/f2802061cf1143c861a72ab371a5cd77d83e94d5)  
+   Descripcion: Boton de editar comentarios si eres admin o usuario que ha comentado.  
+4. Commit:[de6f484c53633b685ba7beaa8a64fa278013d405](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/de6f484c53633b685ba7beaa8a64fa278013d405)  
+   Descripcion: Creado ReservationDTO.  
+5.Commit:[3989225de995928adfb6a6c501846e355a25006d](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/3989225de995928adfb6a6c501846e355a25006d)  
+   Descripcion: Reserva controller, algun error.  
+
+
+---
+
+## **Juan Antonio Alcalde Yuste**
+- **Correo**: [ja.alcalde.2021@alumnos.urjc.es](mailto:ja.alcalde.2021@alumnos.urjc.es)
+- **Usuario GitHub**: [Jantoniio3](https://github.com/Jantoniio3)
+
+### **Commits más importantes**
+## **Juan Antonio Alcalde Yuste**
+- **Correo**: [ja.alcalde.2021@alumnos.urjc.es](mailto:ja.alcalde.2021@alumnos.urjc.es)
+- **Usuario GitHub**: [Jantoniio3](https://github.com/Jantoniio3)
+
+### **Commits más importantes**
+1. Commit:[e5364c425dd7537b46d3ff910e15d75606df598b](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/e5364c425dd7537b46d3ff910e15d75606df598b)    
+   Descripcion:Crear imagenes docker, contenedor de la aplicacion y la imagen de la aplicacion.  
+2. Commit:[884441ca6070a55c26618bd9f8354aa594de5999](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/884441ca6070a55c26618bd9f8354aa594de5999)    
+   Descripcion:crear reviewDTO.  
+3. Commit:[340d2d90cddfcddd5df6771ed9901bf6b008044c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/340d2d90cddfcddd5df6771ed9901bf6b008044c)    
+   Descripcion:creando api-docs. Crea el yaml pero no crea la documentacion.  
+4. Commit [852f1ac1c8518a626589c28550681607233a6eee](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/852f1ac1c8518a626589c28550681607233a6eee)  
+   Descripcion: crear fichero postman.
+5. Commit: [48596e4212609a4052356c47de55bcc33e928c06](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/48596e4212609a4052356c47de55bcc33e928c06)  
+   Descripcion: crear la entidad TagDTO.
+
+
+---
+
+## **Steven Adrados Khunliang**
+- **Correo**: [s.adrados.2020@alumnos.urjc.es](mailto:s.adrados.2020@alumnos.urjc.es)
+- **Usuario GitHub**: [Jadrados](https://github.com/Jadrados)
+
+### **Commits más importantes**
+1. Commit:[0878b1f8107e3e773bf912c616ad496bdea6fa8c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/0878b1f8107e3e773bf912c616ad496bdea6fa8c)  
+   Descripcion:Incluida toda la seguridad de jwt por tokens, te devuelve el token y el rol o roles del user.  
+2. Commit:[db8105be0556165c2bb5783eb43b6d8bde72c36c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/db8105be0556165c2bb5783eb43b6d8bde72c36c)  
+   Descripcion:ya estala api rest de review.  
+3. Commit:[653c5a6739c872b97935cf27ef176ec534feefe1](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/653c5a6739c872b97935cf27ef176ec534feefe1)  
+   Descripcion:ya funciona la api rest de las casas.  
+4. Commit:[97fa6c5de631a6fbb5589070c170371aa67d3574](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/97fa6c5de631a6fbb5589070c170371aa67d3574)  
+   Descripcion:API de users ya funciona.  
+5. Commit:[1e20834394eb8cf5e7f6972bc364628c65760543](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/1e20834394eb8cf5e7f6972bc364628c65760543)  
+   Descripcion:tags introducidas en housing api rest.  
+
+
+## **Rubén Alcojor Patilla**
+- **Correo**: [r.alcojor.2022@alumnos.urjc.es](mailto:r.alcojor.2022@alumnos.urjc.es)
+- **Usuario GitHub**: [rualpa2004](https://github.com/rualpa2004)
+
+### **Commits más importantes**
+1. He creado y escrito el archivo docker-compose.yml y el Dockerfile dentro de la máquina virtual.
+2. He instalado Docker y Docker compose dentro de la máquina virtual.
+3. 
+4. 
+5. 
+
+
 # Modelo ER
-![Imagen de WhatsApp 2025-02-04 a las 10 42 51_18d7be67](https://github.com/user-attachments/assets/43e81d6f-18ae-4db7-b5e0-c60fcb67fd40)
+![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Modelo_ER_terminado.png?raw=true)
 
 
 # Algoritmo
@@ -115,72 +233,72 @@ Las imágenes son un componente esencial en nuestra plataforma, ya que permiten 
 Los gráficos son una herramienta visual clave para mejorar la experiencia del usuario, permitiéndole comprender y analizar información de manera rápida y efectiva. A continuación, se presentan dos posibles candidatos para implementar en la plataforma:
 
 1. **Valoración**:  
-   - **Descripción**: Este gráfico mostrará las valoraciones de los usuarios en forma de estrellas (por ejemplo, de 1 a 5 estrellas).  
+   - **Descripción**: Este gráfico mostrará las valoraciones de los usuarios en forma de una barra de 0 a 100.  
    - **Uso**: Los usuarios podrán ver de un vistazo la distribución de las valoraciones de un alojamiento o servicio, lo que les ayudará a tomar decisiones informadas basadas en la opinión de otros clientes.  
-   - **Formato**: Gráfico de barras o circular para representar el porcentaje de cada nivel de estrellas con respecto a las reseñas.
+   - **Formato**: Gráfico de barras o circular para representar el porcentaje de cada color con respecto a las reseñas.
 
-2. **Precio**:  
-   - **Descripción**: Este gráfico actuará como un selector de precios, mostrando los precios medios de las estancias disponibles en función de los criterios de búsqueda.  
-   - **Uso**: Los usuarios podrán ajustar su búsqueda seleccionando un rango de precios, lo que facilitará la identificación de opciones que se ajusten a su presupuesto.  
-   - **Formato**: Gráfico de rango (slider) o histograma para visualizar la distribución de precios.
+
 
 # Pantallas
 
 1. **Pantalla inicial**
    
-   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Principal.png?raw=true)
+   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Principal.png?raw=true)
 
    Es la pantalla inicial de nuestra aplicación. Desde ella se inicia la navegación.
    
 2. **Inicio de sesión**
 
-   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Inicio%20Sesi%C3%B3n.png?raw=true)
+   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Inicio%20Sesi%C3%B3n.png?raw=true)
 
    Esta pantalla sirve para iniciar sesión mediante tu nombre de usuario y tu contraseña en la cuenta que tengas creada.
    
 3. **Crear cuenta**
 
-   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Crear%20cuenta.png?raw=true)
+   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Crear%20cuenta.png?raw=true)
 
    Esta pantalla corresponde a la creación de una cuenta, donde tienes que introducir datos como usuario, contraseña, correo, DNI, etc.
    
 4. **Equipo**
 
-   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Equipo.png?raw=true)
+   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Equipo.png?raw=true)
 
    En esta pantalla aparecen los nombres del equipo de desarrollo de la web.
    
 5. **Contacto**
 
-   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Contacto.png?raw=true)
+   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Contacto.png?raw=true)
 
    Pantalla que sirve para poder ponerse en contacto con los miembros del equipo de desarrollo para cualquier tipo de gestión.
    
 6. **Habitaciones**
 
-   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Habitaciones.png?raw=true)
+   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Habitaciones.png?raw=true)
    
    Pantalla donde se pueden ver las habitaciones disponibles en la página para reservar.
    
 7. **Reservas**
    
-   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Reservas.png?raw=true)
+   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Reservas.png?raw=true)
    
    En esta pantalla se realizan las reservas de la habitación que se desee.
    Hay que introducir datos como el número y tipo de personas que van a ir (Adultos o niños) y las fechas de entrada y salida.
    
 8. **Reseñas**
    
-   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Rese%C3%B1as.png?raw=true)
+   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Rese%C3%B1as.png?raw=true)
    
    En esta pantalla se muestran reseñas acerca de las habitaciones realizadas por antiguos clientes.
    
 9. **Administración**
    
-   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Admin.png?raw=true)
+   ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Admin.png?raw=true)
    
    Esta pantalla está únicamente disponible para los usuarios que administren la página.
    En ella estarán mensajes con la información de las solicitudes de reserva y serán los administradores los que acepten o rechacen las mismas.
 
 # Diagrama de flujo
-![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/img/Diagrama%20de%20flujo.png?raw=true)
+![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Diagrama%20de%20flujo%20arreglado.png?raw=true)
+
+# Diagrama de clases
+![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Diagrama%20de%20clases%20(Practica%202).png?raw=true)

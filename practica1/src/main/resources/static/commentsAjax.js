@@ -9,6 +9,7 @@ document.getElementById('load-more').addEventListener('click', async function ()
         const comments = await fetchComments(hotelId, currentPage, pageSize); // Fetch comments
         appendComments(comments); // Append comments to the container
 
+        colorRatingBars();
         // Disable the "Load More" button if there are no more comments
         if (comments.length < pageSize) {
             document.getElementById('load-more').disabled = true;
@@ -22,6 +23,11 @@ document.getElementById('load-more').addEventListener('click', async function ()
 async function fetchComments(hotelId,page, size) {
     try {
         const response = await fetch('/loadComments', {
+
+// Function to fetch comments from the server
+async function fetchComments(hotelId,page, size) {
+    try {
+        const response = await fetch(`/api/rooms/${hotelId}/comments/extra`, {
             method: 'POST', // Use POST 
             headers: {
                 'Content-Type': 'application/json', // Specify the content type as JSON
@@ -59,8 +65,34 @@ function appendComments(comments) {
                 </div>
                 <p class="mb-2 text-break">${comment.comment}</p>
                 <strong class="text-dark">Rating: ${comment.rating}/100</strong>
+                <!-- Barra de rating -->
+                        <div class="rating-bar">
+                            <div class="rating-fill" style="width: ${comment.rating}%;"></div>
+                        </div>
             </div>
         `;
         commentsContainer.insertAdjacentHTML('beforeend', commentHtml);
     });
+}
+
+function colorRatingBars() {
+    const ratingFills = document.querySelectorAll('.rating-fill');
+
+    ratingFills.forEach(ratingFill => {
+        const rating = parseInt(ratingFill.style.width, 10);
+
+        let red, green, blue;
+        if (rating <= 50) {
+            red = 255;
+            green = Math.round((rating / 50) * 255);
+            blue = 0;
+        } else {
+            red = Math.round(((100 - rating) / 50) * 255);
+            green = 255;
+            blue = 0;
+        }
+
+        ratingFill.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+    });
+    
 }

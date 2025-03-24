@@ -154,7 +154,7 @@ function validateForm() {
         alert("La contraseña no puede estar vacía.");
     }
 
-    return true; // Permite el envío si coinciden
+    return true; // lets submit if its correct
 }
 
 
