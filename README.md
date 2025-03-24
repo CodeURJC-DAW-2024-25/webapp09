@@ -112,8 +112,8 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 - **Usuario GitHub**: [rualpa2004](https://github.com/rualpa2004)
 
 ### **Commits más importantes**
-1. 
-2. 
+1. He creado y escrito el archivo docker-compose.yml y el Dockerfile dentro de la máquina virtual.
+2. He instalado Docker y Docker compose dentro de la máquina virtual.
 3. 
 4. 
 5. 
