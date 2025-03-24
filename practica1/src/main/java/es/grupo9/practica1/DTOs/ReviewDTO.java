@@ -2,7 +2,7 @@ package es.grupo9.practica1.DTOs;
 
 import es.grupo9.practica1.entities.Review;
 
-public class ReviewDTO {
+public final class ReviewDTO {
 
     private Integer reviewId;
     private Integer rating;
@@ -10,10 +10,16 @@ public class ReviewDTO {
     private int hotelCode;
     private String userDni;
 
-    public ReviewDTO() {
-    }
+    /* Constructores */
+    public ReviewDTO() {}
 
-    public ReviewDTO(Integer reviewId, Integer rating, String comment, int hotelCode, String userDni) {
+    public ReviewDTO(
+        final Integer reviewId, 
+        final Integer rating, 
+        final String comment, 
+        final int hotelCode, 
+        final String userDni
+    ) {
         this.reviewId = reviewId;
         this.rating = rating;
         this.comment = comment;
@@ -21,51 +27,54 @@ public class ReviewDTO {
         this.userDni = userDni;
     }
 
-    public ReviewDTO(Review review) {
-        this.reviewId = review.getReviewId();
-        this.rating = review.getRating();
-        this.comment = review.getComment();
-        this.hotelCode = review.getHotel().getCode();
-        this.userDni = review.getUser().getDni();
+    public ReviewDTO(final Review review) {
+        this(
+            review.getReviewId(),
+            review.getRating(),
+            review.getComment(),
+            review.getHotel().getCode(),
+            review.getUser().getDni()
+        );
     }
 
-    public Integer getReviewId() {
-        return reviewId;
+    /* Accessors */
+    public Integer getReviewId() { 
+        return this.reviewId; 
     }
 
-    public void setReviewId(Integer reviewId) {
-        this.reviewId = reviewId;
+    public void setReviewId(final Integer reviewId) { 
+        this.reviewId = reviewId; 
     }
 
-    public Integer getRating() {
-        return rating;
+    public Integer getRating() { 
+        return this.rating; 
     }
 
-    public void setRating(Integer rating) {
-        this.rating = rating;
+    public void setRating(final Integer rating) { 
+        this.rating = rating; 
     }
 
-    public String getComment() {
-        return comment;
+    public String getComment() { 
+        return this.comment; 
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setComment(final String comment) { 
+        this.comment = comment; 
     }
 
-    public int getHotelCode() {
-        return hotelCode;
+    public int getHotelCode() { 
+        return this.hotelCode; 
     }
 
-    public void setHotelCode(int hotelCode) {
-        this.hotelCode = hotelCode;
+    public void setHotelCode(final int hotelCode) { 
+        this.hotelCode = hotelCode; 
     }
 
-    public String getUserDni() {
-        return userDni;
+    public String getUserDni() { 
+        return this.userDni; 
     }
 
-    public void setUserDni(String userDni) {
-        this.userDni = userDni;
+    public void setUserDni(final String userDni) { 
+        this.userDni = userDni; 
     }
 }
