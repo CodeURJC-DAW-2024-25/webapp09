@@ -14,6 +14,7 @@ public class RegisteredUserDTO {
     private Boolean admin;
     private List<String> roles;
 
+    //Constructors
     public RegisteredUserDTO() {
 
     }

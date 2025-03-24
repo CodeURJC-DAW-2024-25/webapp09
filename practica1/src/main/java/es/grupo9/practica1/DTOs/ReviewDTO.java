@@ -10,6 +10,7 @@ public class ReviewDTO {
     private int hotelCode;
     private String userDni;
 
+    //Constructors
     public ReviewDTO() {
     }
 

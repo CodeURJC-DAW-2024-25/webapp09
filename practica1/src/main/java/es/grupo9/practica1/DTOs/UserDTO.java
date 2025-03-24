@@ -14,6 +14,7 @@ public class UserDTO {
     private Boolean admin;
     private List<String> roles;
 
+    //Constructors
     public UserDTO() {
 
     }

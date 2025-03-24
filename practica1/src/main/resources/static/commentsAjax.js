@@ -22,11 +22,6 @@ document.getElementById('load-more').addEventListener('click', async function ()
 // Function to fetch comments from the server
 async function fetchComments(hotelId,page, size) {
     try {
-        const response = await fetch('/loadComments', {
-
-// Function to fetch comments from the server
-async function fetchComments(hotelId,page, size) {
-    try {
         const response = await fetch(`/api/rooms/${hotelId}/comments/extra`, {
             method: 'POST', // Use POST 
             headers: {
@@ -75,6 +70,7 @@ function appendComments(comments) {
     });
 }
 
+//Función que colorea automáticamente las barras de rating
 function colorRatingBars() {
     const ratingFills = document.querySelectorAll('.rating-fill');
 

@@ -9,6 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import es.grupo9.practica1.entities.Housing;
+import es.grupo9.practica1.entities.Review;
+import es.grupo9.practica1.entities.User;
+import es.grupo9.practica1.repository.HousingRepository;
+import es.grupo9.practica1.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
 
 @Service
