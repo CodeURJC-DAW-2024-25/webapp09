@@ -15,6 +15,7 @@
 - Tener docker abierto y loggeado,
 - Introducir el comando en VisualStudio; docker run --rm -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=Trippins -p 3307:3306 -d mysql:8.0.33
 - Abrirlo en el puerto seguro 8443.
+
 **Fase 2**
 - En la terminal escribir Docker-compose up
 - Ir a localhost:443 para ver nuestra pagina web
@@ -24,12 +25,13 @@
     - git clone del repositorio
     - docker-compose up
     - docker run {nombre del contenedor}
+    - Abrir la página con la ip de la máquina virtual (https://10.100.139.215)
 
 # Participación de los miembros
 
 A continuación, se detalla la participación de cada miembro del equipo, incluyendo sus commits más importantes y las clases en las que han trabajado.
 
-#---Fase 2---
+## **--Fase 2---**
 
 ## **Sergio Villagarcía Sánchez**
 - **Correo**: [s.villagarcia.2019@alumnos.urjc.es](mailto:s.villagarcia.2019@alumnos.urjc.es)
@@ -49,12 +51,17 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 - **Correo**: [g.blazquez.2019@alumnos.urjc.es](mailto:g.blazquez.2019@alumnos.urjc.es)
 - **Usuario GitHub**: [Blazk0o](https://github.com/Blazk0o)
 
-### **Commits más importantes**
-1. 
-2.
-3. 
-4. 
-5. 
+### **Commits más importantes** 
+1. Commit:[b4327b96f41b12f83811de6102d11d0d6d111f4c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/b4327b96f41b12f83811de6102d11d0d6d111f4c)  
+   Descripcion: Creada reviewDTO.  
+2.Commit:[e2a77cfac7a0780f48f4279651bb8c30553c0c76](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/e2a77cfac7a0780f48f4279651bb8c30553c0c76)  
+   Descripcion: Reviewrestcontroller y service cambiados para poder editar los comentarios.  
+3. Commit:[f2802061cf1143c861a72ab371a5cd77d83e94d5](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/f2802061cf1143c861a72ab371a5cd77d83e94d5)  
+   Descripcion: Boton de editar comentarios si eres admin o usuario que ha comentado.  
+4. Commit:[]()  
+   Descripcion: .  
+5.Commit:[]()  
+   Descripcion: .  
 
 
 ---
@@ -64,12 +71,12 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 - **Usuario GitHub**: [Jantoniio3](https://github.com/Jantoniio3)
 
 ### **Commits más importantes**
-1. Commit:[e5364c425dd7537b46d3ff910e15d75606df598b](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/e5364c425dd7537b46d3ff910e15d75606df598b)
-   Descripcion:Crear imagenes docker, contenedor de la aplicacion y la imagen de la aplicacion
-2. Commit:[884441ca6070a55c26618bd9f8354aa594de5999](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/884441ca6070a55c26618bd9f8354aa594de5999)
-   Descripcion:crear reviewDTO
-3. Commit:[340d2d90cddfcddd5df6771ed9901bf6b008044c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/340d2d90cddfcddd5df6771ed9901bf6b008044c)
-   Descripcion:creando api-docs. Crea el yaml pero no crea la documentacion
+1. Commit:[e5364c425dd7537b46d3ff910e15d75606df598b](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/e5364c425dd7537b46d3ff910e15d75606df598b)  
+   Descripcion:Crear imagenes docker, contenedor de la aplicacion y la imagen de la aplicacion  
+2. Commit:[884441ca6070a55c26618bd9f8354aa594de5999](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/884441ca6070a55c26618bd9f8354aa594de5999)  
+   Descripcion:crear reviewDTO  
+3. Commit:[340d2d90cddfcddd5df6771ed9901bf6b008044c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/340d2d90cddfcddd5df6771ed9901bf6b008044c)  
+   Descripcion:creando api-docs. Crea el yaml pero no crea la documentacion  
 4. 
 5. 
 
@@ -82,16 +89,16 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 - **Usuario GitHub**: [Jadrados](https://github.com/Jadrados)
 
 ### **Commits más importantes**
-1. Commit:[0878b1f8107e3e773bf912c616ad496bdea6fa8c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/0878b1f8107e3e773bf912c616ad496bdea6fa8c)
-   Descripcion:Incluida toda la seguridad de jwt por tokens, te devuelve el token y el rol o roles del user
-2. Commit:[db8105be0556165c2bb5783eb43b6d8bde72c36c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/db8105be0556165c2bb5783eb43b6d8bde72c36c)
-   Descripcion:ya estala api rest de review
-3. Commit:[653c5a6739c872b97935cf27ef176ec534feefe1](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/653c5a6739c872b97935cf27ef176ec534feefe1)
-   Descripcion:ya funciona la api rest de las casas
-4. Commit:[97fa6c5de631a6fbb5589070c170371aa67d3574](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/97fa6c5de631a6fbb5589070c170371aa67d3574)
-   Descripcion:API de users ya funciona
-5. Commit:[1e20834394eb8cf5e7f6972bc364628c65760543](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/1e20834394eb8cf5e7f6972bc364628c65760543)
-   Descripcion:tags introducidas en housing api rest
+1. Commit:[0878b1f8107e3e773bf912c616ad496bdea6fa8c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/0878b1f8107e3e773bf912c616ad496bdea6fa8c)  
+   Descripcion:Incluida toda la seguridad de jwt por tokens, te devuelve el token y el rol o roles del user  
+2. Commit:[db8105be0556165c2bb5783eb43b6d8bde72c36c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/db8105be0556165c2bb5783eb43b6d8bde72c36c)  
+   Descripcion:ya estala api rest de review  
+3. Commit:[653c5a6739c872b97935cf27ef176ec534feefe1](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/653c5a6739c872b97935cf27ef176ec534feefe1)  
+   Descripcion:ya funciona la api rest de las casas  
+4. Commit:[97fa6c5de631a6fbb5589070c170371aa67d3574](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/97fa6c5de631a6fbb5589070c170371aa67d3574)  
+   Descripcion:API de users ya funciona  
+5. Commit:[1e20834394eb8cf5e7f6972bc364628c65760543](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/1e20834394eb8cf5e7f6972bc364628c65760543)  
+   Descripcion:tags introducidas en housing api rest  
 
 
 ## **Rubén Alcojor Patilla**
@@ -283,4 +290,4 @@ Los gráficos son una herramienta visual clave para mejorar la experiencia del u
 ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Diagrama%20de%20flujo%20arreglado.png?raw=true)
 
 # Diagrama de clases
-![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Diagrama%20de%20clases.png?raw=true)
+![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Diagrama%20de%20clases%20(Practica%202).png?raw=true)
