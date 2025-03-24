@@ -288,4 +288,4 @@ Los gráficos son una herramienta visual clave para mejorar la experiencia del u
 ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Diagrama%20de%20flujo%20arreglado.png?raw=true)
 
 # Diagrama de clases
-![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Diagrama%20de%20clases.png?raw=true)
+![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Diagrama%20de%20clases%20(Practica%202).png?raw=true)
