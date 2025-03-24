@@ -1,13 +1,11 @@
 package es.grupo9.practica1;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import es.grupo9.practica1.entities.Housing;
 import es.grupo9.practica1.entities.Review;

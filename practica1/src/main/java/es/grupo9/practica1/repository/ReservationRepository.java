@@ -2,8 +2,6 @@ package es.grupo9.practica1.repository;
 
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
 import es.grupo9.practica1.entities.Reservation;
 
 import org.springframework.data.jpa.repository.JpaRepository;
