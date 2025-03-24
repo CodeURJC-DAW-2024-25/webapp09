@@ -71,15 +71,21 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 - **Usuario GitHub**: [Jantoniio3](https://github.com/Jantoniio3)
 
 ### **Commits más importantes**
-1. Commit:[e5364c425dd7537b46d3ff910e15d75606df598b](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/e5364c425dd7537b46d3ff910e15d75606df598b)  
-   Descripcion:Crear imagenes docker, contenedor de la aplicacion y la imagen de la aplicacion  
-2. Commit:[884441ca6070a55c26618bd9f8354aa594de5999](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/884441ca6070a55c26618bd9f8354aa594de5999)  
-   Descripcion:crear reviewDTO  
-3. Commit:[340d2d90cddfcddd5df6771ed9901bf6b008044c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/340d2d90cddfcddd5df6771ed9901bf6b008044c)  
-   Descripcion:creando api-docs. Crea el yaml pero no crea la documentacion  
-4. 
-5. 
+## **Juan Antonio Alcalde Yuste**
+- **Correo**: [ja.alcalde.2021@alumnos.urjc.es](mailto:ja.alcalde.2021@alumnos.urjc.es)
+- **Usuario GitHub**: [Jantoniio3](https://github.com/Jantoniio3)
 
+### **Commits más importantes**
+1. Commit:[e5364c425dd7537b46d3ff910e15d75606df598b](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/e5364c425dd7537b46d3ff910e15d75606df598b)    
+   Descripcion:Crear imagenes docker, contenedor de la aplicacion y la imagen de la aplicacion  
+2. Commit:[884441ca6070a55c26618bd9f8354aa594de5999](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/884441ca6070a55c26618bd9f8354aa594de5999)    
+   Descripcion:crear reviewDTO  
+3. Commit:[340d2d90cddfcddd5df6771ed9901bf6b008044c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/340d2d90cddfcddd5df6771ed9901bf6b008044c)    
+   Descripcion:creando api-docs. Crea el yaml pero no crea la documentacion  
+4. Commit [852f1ac1c8518a626589c28550681607233a6eee](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/852f1ac1c8518a626589c28550681607233a6eee)  
+   Descripcion: crear fichero postman
+5. Commit: [48596e4212609a4052356c47de55bcc33e928c06](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/48596e4212609a4052356c47de55bcc33e928c06)
+   Descripcion: crear la entidad TagDTO
 
 
 ---
@@ -106,8 +112,8 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 - **Usuario GitHub**: [rualpa2004](https://github.com/rualpa2004)
 
 ### **Commits más importantes**
-1. 
-2. 
+1. He creado y escrito el archivo docker-compose.yml y el Dockerfile dentro de la máquina virtual.
+2. He instalado Docker y Docker compose dentro de la máquina virtual.
 3. 
 4. 
 5. 
