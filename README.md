@@ -15,6 +15,7 @@
 - Tener docker abierto y loggeado,
 - Introducir el comando en VisualStudio; docker run --rm -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=Trippins -p 3307:3306 -d mysql:8.0.33
 - Abrirlo en el puerto seguro 8443.
+
 **Fase 2**
 - En la terminal escribir Docker-compose up
 - Ir a localhost:443 para ver nuestra pagina web
