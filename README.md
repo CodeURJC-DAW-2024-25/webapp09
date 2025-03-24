@@ -29,7 +29,7 @@
 
 A continuación, se detalla la participación de cada miembro del equipo, incluyendo sus commits más importantes y las clases en las que han trabajado.
 
-#---Fase 2---
+## **--Fase 2---**
 
 ## **Sergio Villagarcía Sánchez**
 - **Correo**: [s.villagarcia.2019@alumnos.urjc.es](mailto:s.villagarcia.2019@alumnos.urjc.es)
