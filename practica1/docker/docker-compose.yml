@@ -16,7 +16,7 @@ services:
       - trippins-network  # Connect to the custom network
 
   web:
-    image: jantoniio3/trippins:1.0
+    image: jantoniio3/trippins:latest
     container_name: trippins-app
     ports:
       - "443:8443"  # Map port 443 on the host to port 8443 in the container
