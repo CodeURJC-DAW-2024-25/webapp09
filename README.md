@@ -22,10 +22,10 @@
 - En caso de estar en la maquina virtual:
     - Ir a la carpeta donde esta el proyecto
     - ssh -i ssh-keys/appWeb09.key vmuser@10.100.139.215
-    - git clone del repositorio
+    - git clone https://github.com/CodeURJC-DAW-2024-25/webapp09.git
+    - cd webapp09/practica1/docker
     - docker-compose up
-    - docker run {nombre del contenedor}
-    - Abrir la página con la ip de la máquina virtual (https://10.100.139.215)
+    - https://10.100.139.215/
 
 # Participación de los miembros
 
@@ -58,10 +58,10 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
    Descripcion: Reviewrestcontroller y service cambiados para poder editar los comentarios.  
 3. Commit:[f2802061cf1143c861a72ab371a5cd77d83e94d5](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/f2802061cf1143c861a72ab371a5cd77d83e94d5)  
    Descripcion: Boton de editar comentarios si eres admin o usuario que ha comentado.  
-4. Commit:[]()  
-   Descripcion: .  
-5.Commit:[]()  
-   Descripcion: .  
+4. Commit:[de6f484c53633b685ba7beaa8a64fa278013d405](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/de6f484c53633b685ba7beaa8a64fa278013d405)  
+   Descripcion: Creado ReservationDTO.  
+5.Commit:[3989225de995928adfb6a6c501846e355a25006d](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/3989225de995928adfb6a6c501846e355a25006d)  
+   Descripcion: Reserva controller, algun error.  
 
 
 ---
@@ -77,15 +77,15 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 
 ### **Commits más importantes**
 1. Commit:[e5364c425dd7537b46d3ff910e15d75606df598b](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/e5364c425dd7537b46d3ff910e15d75606df598b)    
-   Descripcion:Crear imagenes docker, contenedor de la aplicacion y la imagen de la aplicacion  
+   Descripcion:Crear imagenes docker, contenedor de la aplicacion y la imagen de la aplicacion.  
 2. Commit:[884441ca6070a55c26618bd9f8354aa594de5999](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/884441ca6070a55c26618bd9f8354aa594de5999)    
-   Descripcion:crear reviewDTO  
+   Descripcion:crear reviewDTO.  
 3. Commit:[340d2d90cddfcddd5df6771ed9901bf6b008044c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/340d2d90cddfcddd5df6771ed9901bf6b008044c)    
-   Descripcion:creando api-docs. Crea el yaml pero no crea la documentacion  
+   Descripcion:creando api-docs. Crea el yaml pero no crea la documentacion.  
 4. Commit [852f1ac1c8518a626589c28550681607233a6eee](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/852f1ac1c8518a626589c28550681607233a6eee)  
-   Descripcion: crear fichero postman
-5. Commit: [48596e4212609a4052356c47de55bcc33e928c06](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/48596e4212609a4052356c47de55bcc33e928c06)
-   Descripcion: crear la entidad TagDTO
+   Descripcion: crear fichero postman.
+5. Commit: [48596e4212609a4052356c47de55bcc33e928c06](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/48596e4212609a4052356c47de55bcc33e928c06)  
+   Descripcion: crear la entidad TagDTO.
 
 
 ---
@@ -96,15 +96,15 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 
 ### **Commits más importantes**
 1. Commit:[0878b1f8107e3e773bf912c616ad496bdea6fa8c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/0878b1f8107e3e773bf912c616ad496bdea6fa8c)  
-   Descripcion:Incluida toda la seguridad de jwt por tokens, te devuelve el token y el rol o roles del user  
+   Descripcion:Incluida toda la seguridad de jwt por tokens, te devuelve el token y el rol o roles del user.  
 2. Commit:[db8105be0556165c2bb5783eb43b6d8bde72c36c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/db8105be0556165c2bb5783eb43b6d8bde72c36c)  
-   Descripcion:ya estala api rest de review  
+   Descripcion:ya estala api rest de review.  
 3. Commit:[653c5a6739c872b97935cf27ef176ec534feefe1](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/653c5a6739c872b97935cf27ef176ec534feefe1)  
-   Descripcion:ya funciona la api rest de las casas  
+   Descripcion:ya funciona la api rest de las casas.  
 4. Commit:[97fa6c5de631a6fbb5589070c170371aa67d3574](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/97fa6c5de631a6fbb5589070c170371aa67d3574)  
-   Descripcion:API de users ya funciona  
+   Descripcion:API de users ya funciona.  
 5. Commit:[1e20834394eb8cf5e7f6972bc364628c65760543](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/1e20834394eb8cf5e7f6972bc364628c65760543)  
-   Descripcion:tags introducidas en housing api rest  
+   Descripcion:tags introducidas en housing api rest.  
 
 
 ## **Rubén Alcojor Patilla**
