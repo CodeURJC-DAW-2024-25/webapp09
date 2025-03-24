@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "bfd4e959-e9cd-473b-801c-3a23934dc2fd",
-		"name": "Trippins's springboot API rest",
+		"_postman_id": "76d4c835-06b9-47e7-a330-521ad8f14c5a",
+		"name": "Trippins's springboot API rest Copy",
 		"description": "This is the API respnsible for managing the data from our webapp be it from an entity or a customer.\n\nContact Support:\n Name: Trippins admin\n Email: trippins.urjc@gmail.com",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "43111768"
@@ -101,7 +101,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+											"body": "{\n  \"dni\": \"12345678C\",\n  \"name\": \"Juan\",\n  \"number\": \"123456789\",\n  \"email\": \"pepito@trippins.com\",\n  \"admin\": \"false\",\n  \"roles\": [\n    \"user\"\n  ]\n}"
 										},
 										{
 											"name": "Forbidden - Access denied",
@@ -147,7 +147,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+											"body": "{\n  \"dni\": \"12345678C>\",\n  \"name\": \"Pepe\",\n  \"number\": \"\",\n  \"email\": \"pepito@trippins.com\",\n  \"admin\": \"false\",\n  \"roles\": [\n    \"user\"\n  ]\n}"
 										},
 										{
 											"name": "User not found",
@@ -193,7 +193,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+											"body": "{\n  \"dni\": \"11223344J>\",\n  \"name\": \"Pepe\",\n  \"number\": \"123456789\",\n  \"email\": \"pepito@trippins.com\",\n  \"admin\": \"false\",\n  \"roles\": [\n    \"user\"\n  ]\n}"
 										}
 									]
 								},
@@ -304,7 +304,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+											"body": "{\n  \"dni\": \"12345678C>\",\n  \"name\": \"Pepe\",\n  \"number\": \"123456789\",\n  \"email\": \"pepito@trippins.com\",\n  \"admin\": \"false\",\n  \"roles\": [\n    \"user\"\n  ]\n}"
 										},
 										{
 											"name": "Invalid input",
@@ -359,7 +359,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+											"body": "{\n  \"dni\": \"12345678C>\",\n  \"name\": \"Pepe\",\n  \"number\": \"123456789\",\n  \"email\": \"pepito@trippins.com\",\n  \"admin\": \"false\",\n  \"roles\": [\n    \"user\"\n  ]\n}"
 										},
 										{
 											"name": "Forbidden - Access denied",
@@ -414,7 +414,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+											"body": "{\n  \"dni\": \"12345678C>\",\n  \"name\": \"Pepe\",\n  \"number\": \"123456789\",\n  \"email\": \"pepito@trippins.com\",\n  \"admin\": \"false\",\n  \"roles\": [\n    \"user\"\n  ]\n}"
 										},
 										{
 											"name": "User not found",
@@ -469,7 +469,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+											"body": "{\n  \"dni\": \"1234568K\",\n  \"name\": \"Pepe\",\n  \"number\": \"123456789\",\n  \"email\": \"pepito@trippins.com\",\n  \"admin\": \"false\",\n  \"roles\": [\n    \"user\"\n  ]\n}"
 										}
 									]
 								},
@@ -708,7 +708,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "[\n  {\n    \"dni\": \"<string>\",\n    \"name\": \"<string>\",\n    \"number\": \"<integer>\",\n    \"email\": \"<string>\",\n    \"admin\": \"<boolean>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  {\n    \"dni\": \"<string>\",\n    \"name\": \"<string>\",\n    \"number\": \"<integer>\",\n    \"email\": \"<string>\",\n    \"admin\": \"<boolean>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n]"
+									"body": "[\n  {\n  \"dni\": \"12345678C\",\n  \"name\": \"Pepe\",\n  \"number\": \"123456789\",\n  \"email\": \"pepito@trippins.com\",\n  \"admin\": \"false\",\n  \"roles\": [\n    \"user\"\n  ]\n}\n {\n  \"dni\": \"12345678M\",\n  \"name\": \"Jim\",\n  \"number\": \"123456788\",\n  \"email\": \"jim@trippins.com\",\n  \"admin\": \"false\",\n  \"roles\": [\n    \"user\"\n  ]\n}\n]"
 								},
 								{
 									"name": "Forbidden - Access denied",
@@ -746,7 +746,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "[\n  {\n    \"dni\": \"<string>\",\n    \"name\": \"<string>\",\n    \"number\": \"<integer>\",\n    \"email\": \"<string>\",\n    \"admin\": \"<boolean>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  {\n    \"dni\": \"<string>\",\n    \"name\": \"<string>\",\n    \"number\": \"<integer>\",\n    \"email\": \"<string>\",\n    \"admin\": \"<boolean>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n]"
+									"body": "[\n  {\n  \"dni\": \"12345678C\",\n  \"name\": \"Pepe\",\n  \"number\": \"123456789\",\n  \"email\": \"pepito@trippins.com\",\n  \"admin\": \"false\",\n  \"roles\": [\n    \"user\"\n  ]\n}\n {\n  \"dni\": \"12345678M\",\n  \"name\": \"Jim\",\n  \"number\": \"123456788\",\n  \"email\": \"jim@trippins.com\",\n  \"admin\": \"false\",\n  \"roles\": [\n    \"user\"\n  ]\n}\n]"
 								}
 							]
 						},
@@ -841,7 +841,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+									"body": "{\n  \"dni\": \"12345678C\",\n  \"name\": \"Pepe\",\n  \"number\": \"123456789\",\n  \"email\": \"pepito@trippins.com\",\n  \"admin\": \"false\",\n  \"roles\": [\n    \"user\"\n  ]\n}"
 								},
 								{
 									"name": "Invalid input",
@@ -888,7 +888,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+									"body": "{\n  \"dni\": \"12345678C>\",\n  \"name\": \"Pepe\",\n  \"number\": \"123456789\",\n  \"email\": \"pepito@trippins.com\",\n  \"admin\": \"false\",\n  \"roles\": [\n    \"user\"\n  ]\n}"
 								},
 								{
 									"name": "Forbidden - Access denied",
@@ -935,7 +935,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+									"body": "{\n  \"dni\": \"12345678C>\",\n  \"name\": \"Pepe\",\n  \"number\": \"123456789\",\n  \"email\": \"pepito@trippins.com\",\n  \"admin\": \"false\",\n  \"roles\": [\n    \"user\"\n  ]\n}"
 								}
 							]
 						}
@@ -1032,7 +1032,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userDni\": \"<string>\"\n}"
+											"body": "{\n  \"reviewId\": 123,\n  \"rating\": 5,\n  \"comment\": \"Excelente servicio, habitaciones limpias y personal amable.\",\n  \"hotelCode\": 456,\n  \"userDni\": \"12345678A\"\n}"
 										},
 										{
 											"name": "Forbidden - Access denied",
@@ -1078,7 +1078,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userDni\": \"<string>\"\n}"
+											"body": "{\n  \"reviewId\": null,\n  \"rating\": null,\n  \"comment\": \"Access denied\",\n  \"hotelCode\": null,\n  \"userDni\": null\n}"
 										},
 										{
 											"name": "Review not found",
@@ -1124,7 +1124,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userDni\": \"<string>\"\n}"
+											"body": "{\n  \"reviewId\": null,\n  \"rating\": null,\n  \"comment\": \"Review not found.\",\n  \"hotelCode\": null,\n  \"userDni\": null\n}"
 										}
 									]
 								},
@@ -1235,7 +1235,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userDni\": \"<string>\"\n}"
+											"body": "{\n  \"reviewId\": 123,\n  \"rating\": 5,\n  \"comment\": \"Excelente servicio, habitaciones limpias y personal amable.\",\n  \"hotelCode\": 456,\n  \"userDni\": \"12345678A\"\n}"
 										},
 										{
 											"name": "Invalid input",
@@ -1290,7 +1290,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userDni\": \"<string>\"\n}"
+											"body": "{\n  \"reviewId\": null,\n  \"rating\": -1,\n  \"comment\": \"Invalid input: rating must be between 1 and 5.\",\n  \"hotelCode\": null,\n  \"userDni\": \"\"\n}"
 										},
 										{
 											"name": "Forbidden - Access denied",
@@ -1345,7 +1345,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userDni\": \"<string>\"\n}"
+											"body": "{\n  \"reviewId\": 123,\n  \"rating\": null,\n  \"comment\": \"Access denied. You are not authorized to update this review.\",\n  \"hotelCode\": 456,\n  \"userDni\": null\n}"
 										},
 										{
 											"name": "Review not found",
@@ -1400,7 +1400,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userDni\": \"<string>\"\n}"
+											"body": "{\n  \"reviewId\": null,\n  \"rating\": null,\n  \"comment\": \"Review not found. Unable to update.\",\n  \"hotelCode\": null,\n  \"userDni\": null\n}"
 										}
 									]
 								},
@@ -1639,7 +1639,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "[\n  {\n    \"reviewId\": \"<integer>\",\n    \"rating\": \"<integer>\",\n    \"comment\": \"<string>\",\n    \"hotelCode\": \"<integer>\",\n    \"userDni\": \"<string>\"\n  },\n  {\n    \"reviewId\": \"<integer>\",\n    \"rating\": \"<integer>\",\n    \"comment\": \"<string>\",\n    \"hotelCode\": \"<integer>\",\n    \"userDni\": \"<string>\"\n  }\n]"
+									"body": "[\n  {\n    \"reviewId\": 101,\n    \"rating\": 4,\n    \"comment\": \"Great stay, the staff was very friendly and the room was comfortable.\",\n    \"hotelCode\": 203,\n    \"userDni\": \"12345678A\"\n  },\n  {\n    \"reviewId\": 102,\n    \"rating\": 3,\n    \"comment\": \"Good location, but the room was a bit noisy. Could use some updates.\",\n    \"hotelCode\": 203,\n    \"userDni\": \"98765432B\"\n  }\n]\n"
 								},
 								{
 									"name": "Forbidden - Access denied",
@@ -1677,7 +1677,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "[\n  {\n    \"reviewId\": \"<integer>\",\n    \"rating\": \"<integer>\",\n    \"comment\": \"<string>\",\n    \"hotelCode\": \"<integer>\",\n    \"userDni\": \"<string>\"\n  },\n  {\n    \"reviewId\": \"<integer>\",\n    \"rating\": \"<integer>\",\n    \"comment\": \"<string>\",\n    \"hotelCode\": \"<integer>\",\n    \"userDni\": \"<string>\"\n  }\n]"
+									"body": "[\n  {\n    \"reviewId\": null,\n    \"rating\": null,\n    \"comment\": \"Access denied. You do not have permission to view this review.\",\n    \"hotelCode\": null,\n    \"userDni\": null\n  },\n  {\n    \"reviewId\": null,\n    \"rating\": null,\n    \"comment\": \"Access denied. You do not have permission to view this review.\",\n    \"hotelCode\": null,\n    \"userDni\": null\n  }\n]\n"
 								}
 							]
 						},
@@ -1772,7 +1772,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userDni\": \"<string>\"\n}"
+									"body": "{\n  \"reviewId\": 103,\n  \"rating\": 5,\n  \"comment\": \"Excellent stay! The hotel was beautiful, and the staff went above and beyond to make our experience memorable.\",\n  \"hotelCode\": 201,\n  \"userDni\": \"11223344C\"\n}\n"
 								},
 								{
 									"name": "Invalid input",
@@ -1819,7 +1819,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userDni\": \"<string>\"\n}"
+									"body": "{\n  \"reviewId\": null,\n  \"rating\": -1,\n  \"comment\": \"\",\n  \"hotelCode\": null,\n  \"userDni\": \"1234\"\n}"
 								},
 								{
 									"name": "Forbidden - Access denied",
@@ -1866,7 +1866,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userDni\": \"<string>\"\n}"
+									"body": "{\n  \"reviewId\": null,\n  \"rating\": null,\n  \"comment\": \"Access denied. You do not have permission to create a new review.\",\n  \"hotelCode\": null,\n  \"userDni\": null\n}\n"
 								}
 							]
 						}
@@ -1963,7 +1963,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"id\": \"<integer>\",\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}"
+											"body": "{\n  \"id\": 1,\n  \"checkIn\": \"2025-03-25T14:00:00\",\n  \"checkOut\": \"2025-03-28T12:00:00\",\n  \"valorated\": true,\n  \"clientDni\": \"12345678A\",\n  \"housingCode\": 101,\n  \"housingName\": \"Ocean View Hotel\"\n}"
 										},
 										{
 											"name": "Forbidden - Access denied",
@@ -2009,7 +2009,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"id\": \"<integer>\",\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}"
+											"body": "{\n  \"id\": null,\n  \"checkIn\": null,\n  \"checkOut\": null,\n  \"valorated\": null,\n  \"clientDni\": null,\n  \"housingCode\": null,\n  \"housingName\": \"Access denied. You do not have permission to view this data.\"\n}"
 										},
 										{
 											"name": "Reservation not found",
@@ -2055,7 +2055,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"id\": \"<integer>\",\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}"
+											"body": "{\n  \"id\": null,\n  \"checkIn\": null,\n  \"checkOut\": null,\n  \"valorated\": null,\n  \"clientDni\": null,\n  \"housingCode\": null,\n  \"housingName\": \"Resource not found. The requested data does not exist.\"\n}"
 										}
 									]
 								},
@@ -2166,7 +2166,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"id\": \"<integer>\",\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}"
+											"body": "{\n  \"id\": 1,\n  \"checkIn\": \"2025-03-25T14:00:00\",\n  \"checkOut\": \"2025-03-28T12:00:00\",\n  \"valorated\": true,\n  \"clientDni\": \"12345678A\",\n  \"housingCode\": 101,\n  \"housingName\": \"Ocean View Hotel\"\n}"
 										},
 										{
 											"name": "Invalid input",
@@ -2221,7 +2221,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"id\": \"<integer>\",\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}"
+											"body": "{\n  \"id\": null,\n  \"checkIn\": null,\n  \"checkOut\": null,\n  \"valorated\": null,\n  \"clientDni\": null,\n  \"housingCode\": null,\n  \"housingName\": \"Invalid input. Please check the provided data.\"\n}"
 										},
 										{
 											"name": "Forbidden - Access denied",
@@ -2276,7 +2276,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"id\": \"<integer>\",\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}"
+											"body": "{\n  \"id\": null,\n  \"checkIn\": null,\n  \"checkOut\": null,\n  \"valorated\": null,\n  \"clientDni\": null,\n  \"housingCode\": null,\n  \"housingName\": \"Access denied. You do not have permission to update this reservation.\"\n}"
 										},
 										{
 											"name": "Reservation not found",
@@ -2331,7 +2331,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"id\": \"<integer>\",\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}"
+											"body": "{\n  \"id\": null,\n  \"checkIn\": null,\n  \"checkOut\": null,\n  \"valorated\": null,\n  \"clientDni\": null,\n  \"housingCode\": null,\n  \"housingName\": \"Reservation not found. The resource you are trying to update does not exist.\"\n}"
 										}
 									]
 								},
@@ -2570,7 +2570,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"checkIn\": \"<dateTime>\",\n    \"checkOut\": \"<dateTime>\",\n    \"valorated\": \"<boolean>\",\n    \"clientDni\": \"<string>\",\n    \"housingCode\": \"<integer>\",\n    \"housingName\": \"<string>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"checkIn\": \"<dateTime>\",\n    \"checkOut\": \"<dateTime>\",\n    \"valorated\": \"<boolean>\",\n    \"clientDni\": \"<string>\",\n    \"housingCode\": \"<integer>\",\n    \"housingName\": \"<string>\"\n  }\n]"
+									"body": "[\n  {\n    \"id\": 1,\n    \"checkIn\": \"2025-03-25T14:00:00\",\n    \"checkOut\": \"2025-03-28T12:00:00\",\n    \"valorated\": true,\n    \"clientDni\": \"12345678A\",\n    \"housingCode\": 101,\n    \"housingName\": \"Ocean View Hotel\"\n  },\n  {\n    \"id\": 2,\n    \"checkIn\": \"2025-04-01T15:00:00\",\n    \"checkOut\": \"2025-04-05T11:00:00\",\n    \"valorated\": false,\n    \"clientDni\": \"87654321B\",\n    \"housingCode\": 102,\n    \"housingName\": \"Mountain Retreat\"\n  }\n]\n"
 								},
 								{
 									"name": "Forbidden - Access denied",
@@ -2608,7 +2608,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"checkIn\": \"<dateTime>\",\n    \"checkOut\": \"<dateTime>\",\n    \"valorated\": \"<boolean>\",\n    \"clientDni\": \"<string>\",\n    \"housingCode\": \"<integer>\",\n    \"housingName\": \"<string>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"checkIn\": \"<dateTime>\",\n    \"checkOut\": \"<dateTime>\",\n    \"valorated\": \"<boolean>\",\n    \"clientDni\": \"<string>\",\n    \"housingCode\": \"<integer>\",\n    \"housingName\": \"<string>\"\n  }\n]"
+									"body": "[\n  {\n    \"id\": null,\n    \"checkIn\": null,\n    \"checkOut\": null,\n    \"valorated\": null,\n    \"clientDni\": null,\n    \"housingCode\": null,\n    \"housingName\": \"Access denied. You do not have permission to view these reservations.\"\n  },\n  {\n    \"id\": null,\n    \"checkIn\": null,\n    \"checkOut\": null,\n    \"valorated\": null,\n    \"clientDni\": null,\n    \"housingCode\": null,\n    \"housingName\": \"Access denied. You do not have permission to view these reservations.\"\n  }\n]"
 								}
 							]
 						},
@@ -2703,7 +2703,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"id\": \"<integer>\",\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}"
+									"body": "{\n  \"id\": 1,\n  \"checkIn\": \"2025-03-25T14:00:00\",\n  \"checkOut\": \"2025-03-28T12:00:00\",\n  \"valorated\": true,\n  \"clientDni\": \"12345678A\",\n  \"housingCode\": 101,\n  \"housingName\": \"Ocean View Hotel\"\n}\n"
 								},
 								{
 									"name": "Invalid input",
@@ -2750,7 +2750,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"id\": \"<integer>\",\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}"
+									"body": "{\n  \"id\": null,\n  \"checkIn\": null,\n  \"checkOut\": null,\n  \"valorated\": null,\n  \"clientDni\": \"123\",  \n  \"housingCode\": null,\n  \"housingName\": \"\"\n}"
 								},
 								{
 									"name": "Forbidden - Access denied",
@@ -2797,7 +2797,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"id\": \"<integer>\",\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}"
+									"body": "{\n  \"id\": null,\n  \"checkIn\": null,\n  \"checkOut\": null,\n  \"valorated\": null,\n  \"clientDni\": null,\n  \"housingCode\": null,\n  \"housingName\": \"Access denied. You do not have permission to create this reservation.\"\n}\n"
 								}
 							]
 						}
@@ -4018,7 +4018,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotel\": {\n    \"code\": \"<integer>\",\n    \"location\": \"<string>\",\n    \"name\": \"<string>\",\n    \"price\": \"<integer>\",\n    \"description\": \"<string>\",\n    \"stars\": \"<integer>\",\n    \"acepted\": \"<boolean>\",\n    \"tags\": [\n      {\n        \"id\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\"\n      }\n    ],\n    \"imageBase64\": \"<string>\"\n  },\n  \"user\": {\n    \"dni\": \"<string>\",\n    \"name\": \"<string>\",\n    \"number\": \"<integer>\",\n    \"password\": \"<string>\",\n    \"email\": \"<string>\",\n    \"admin\": \"<boolean>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"encodedPassword\": \"<string>\"\n  }\n}"
+									"body": "{\n  \"reviewId\": 1,\n  \"rating\": 4,\n  \"comment\": \"Great experience! The hotel was very comfortable and the staff was friendly.\",\n  \"hotel\": {\n    \"code\": 101,\n    \"location\": \"New York\",\n    \"name\": \"Central Park Hotel\",\n    \"price\": 150,\n    \"description\": \"A luxurious hotel near Central Park with modern amenities.\",\n    \"stars\": 5,\n    \"acepted\": true,\n    \"tags\": [\n      {\n        \"id\": \"luxury\"\n      },\n      {\n        \"id\": \"family\"\n      }\n    ],\n    \"imageBase64\": \"iVBORw0KGgoAAAANSUhEUgAAA...\"\n  },\n  \"user\": {\n    \"dni\": \"12345678A\",\n    \"name\": \"John Doe\",\n    \"number\": 1234567890,\n    \"password\": \"encrypted_password\",\n    \"email\": \"john.doe@example.com\",\n    \"admin\": false,\n    \"roles\": [\n      \"user\",\n      \"member\"\n    ],\n    \"encodedPassword\": \"encoded_encrypted_password\"\n  }\n}\n"
 								},
 								{
 									"name": "Internal server error",
@@ -4152,7 +4152,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"code\": \"<integer>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"acepted\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ],\n  \"imageBase64\": \"<string>\"\n}"
+									"body": "{\n  \"houses\": [\n    {\n      \"reviewId\": 1,\n      \"rating\": 4,\n      \"comment\": \"Great experience! The hotel was very comfortable and the staff was friendly.\",\n      \"hotel\": {\n        \"code\": 101,\n        \"location\": \"New York\",\n        \"name\": \"Central Park Hotel\",\n        \"price\": 150,\n        \"description\": \"A luxurious hotel near Central Park with modern amenities.\",\n        \"stars\": 5,\n        \"acepted\": true,\n        \"tags\": [\n          {\n            \"id\": \"luxury\"\n          },\n          {\n            \"id\": \"family\"\n          }\n        ],\n        \"imageBase64\": \"iVBORw0KGgoAAAANSUhEUgAAA...\"\n      },\n      \"user\": {\n        \"dni\": \"12345678A\",\n        \"name\": \"John Doe\",\n        \"number\": 1234567890,\n        \"password\": \"encrypted_password\",\n        \"email\": \"john.doe@example.com\",\n        \"admin\": false,\n        \"roles\": [\n          \"user\",\n          \"member\"\n        ],\n        \"encodedPassword\": \"encoded_encrypted_password\"\n      }\n    },\n    {\n      \"reviewId\": 2,\n      \"rating\": 5,\n      \"comment\": \"Amazing stay! Very clean and perfect location.\",\n      \"hotel\": {\n        \"code\": 102,\n        \"location\": \"Los Angeles\",\n        \"name\": \"Hollywood Suites\",\n        \"price\": 200,\n        \"description\": \"Modern hotel with stunning views of the Hollywood sign.\",\n        \"stars\": 4,\n        \"acepted\": true,\n        \"tags\": [\n          {\n            \"id\": \"romantic\"\n          },\n          {\n            \"id\": \"view\"\n          }\n        ],\n        \"imageBase64\": \"iVBORw0KGgoAAAANSUhEUgAAA...\"\n      },\n      \"user\": {\n        \"dni\": \"87654321B\",\n        \"name\": \"Jane Smith\",\n        \"number\": 9876543210,\n        \"password\": \"encrypted_password\",\n        \"email\": \"jane.smith@example.com\",\n        \"admin\": false,\n        \"roles\": [\n          \"user\",\n          \"member\"\n        ],\n        \"encodedPassword\": \"encoded_encrypted_password\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"currentPage\": 1,\n    \"totalPages\": 5,\n    \"totalItems\": 10,\n    \"itemsPerPage\": 2\n  }\n}\n"
 								},
 								{
 									"name": "Internal server error",
