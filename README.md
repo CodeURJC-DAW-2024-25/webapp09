@@ -55,7 +55,7 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 2.Commit:[e2a77cfac7a0780f48f4279651bb8c30553c0c76](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/e2a77cfac7a0780f48f4279651bb8c30553c0c76)  
    Descripcion: Reviewrestcontroller y service cambiados para poder editar los comentarios.  
 3. Commit:[f2802061cf1143c861a72ab371a5cd77d83e94d5](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/f2802061cf1143c861a72ab371a5cd77d83e94d5)  
-   Descripcion: Boton de editar comentarios si eres admin o usuarui que ha comentado.  
+   Descripcion: Boton de editar comentarios si eres admin o usuario que ha comentado.  
 4. Commit:[]()  
    Descripcion: .  
 5.Commit:[]()  
