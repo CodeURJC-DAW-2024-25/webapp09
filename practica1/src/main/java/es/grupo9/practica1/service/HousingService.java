@@ -211,4 +211,21 @@ public class HousingService {
 
         return tagDTOs;
     }
+
+    public Housing findByCode(int code){
+        return housingRepository.findByCode(code).get();
+    }
+
+    public void saveImage(Housing house){
+        
+
+        housingRepository.save(house);
+    }
+
+    public void deleteImage(int code){
+
+        Housing houseWithImage = housingRepository.findByCode(code).get();
+        houseWithImage.setImage(null);
+        housingRepository.save(houseWithImage);
+    }
 }
