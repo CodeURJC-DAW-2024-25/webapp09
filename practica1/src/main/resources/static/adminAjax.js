@@ -25,8 +25,8 @@ document.getElementById('load-more').addEventListener('click', async function ()
 // Function to fetch houses from the server
 async function fetchHouses(page, size) {
     try {
-        const response = await fetch('/adminHouses', {
-            method: 'POST', // Use POST 
+        const response = await fetch('/api/admin/houses', {
+            method: 'GET', // Use POST 
             headers: {
                 'Content-Type': 'application/json', // Specify the content type as JSON
             },

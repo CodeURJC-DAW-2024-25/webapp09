@@ -10,6 +10,8 @@ import javax.sql.rowset.serial.SerialBlob;
 import es.grupo9.practica1.entities.Housing;
 import es.grupo9.practica1.entities.Tag;
 
+
+
 public class HousingDTO {
     private int code;
     private String location;
@@ -20,6 +22,7 @@ public class HousingDTO {
     private Integer stars;
     private Boolean acepted;
     private Set<Tag> tags;
+
 
 
 
