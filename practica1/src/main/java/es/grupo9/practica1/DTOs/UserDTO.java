@@ -1,101 +1,79 @@
 package es.grupo9.practica1.DTOs;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+import es.grupo9.practica1.entities.User;
 import java.util.List;
 
-import es.grupo9.practica1.entities.User;
-import io.swagger.v3.oas.annotations.media.Schema;
+public final class UserDTO {
 
-public class UserDTO {
+    // Campos
     private String dni;
     private String name;
+    
     @Schema(description = "User's phone number", example = "111322999", pattern = "^\\d{9}$")
     private Integer number;
+    
     private String email;
     private Boolean admin;
     private List<String> roles;
 
-    public UserDTO() {
+    // Constructores
+    public UserDTO() {}
 
-    }
-
-    public UserDTO(String dni, String name, Integer number, String email, Boolean admin, List<String> roles) {
-
+    public UserDTO(
+        String dni, 
+        String name, 
+        Integer number, 
+        String email, 
+        Boolean admin, 
+        List<String> roles
+    ) {
         this.dni = dni;
         this.name = name;
+        this.number = number;
         this.email = email;
         this.admin = admin;
         this.roles = roles;
-
     }
 
     public UserDTO(User user) {
-        this.dni = user.getDni();
-        this.name = user.getName();
-        this.number = user.getNumber();
-        this.email = user.getEmail();
-        this.admin = user.getAdmin();
-        this.roles = user.getRoles();
+        this(
+            user.getDni(),
+            user.getName(),
+            user.getNumber(),
+            user.getEmail(),
+            user.getAdmin(),
+            user.getRoles()
+        );
     }
 
-    // Getters and Setters
-    public String getDni() {
-        return dni;
-    }
+    // Getters
+    public String getDni() { return this.dni; }
+    public String getName() { return this.name; }
+    public Integer getNumber() { return this.number; }
+    public String getEmail() { return this.email; }
+    public Boolean getAdmin() { return this.admin; }
+    public List<String> getRoles() { return this.roles; }
 
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
+    // Setters
+    public void setDni(String dni) { this.dni = dni; }
+    public void setName(String name) { this.name = name; }
+    public void setNumber(Integer number) { this.number = number; }
+    public void setEmail(String email) { this.email = email; }
+    public void setAdmin(Boolean admin) { this.admin = admin; }
+    public void setRoles(List<String> roles) { this.roles = roles; }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Boolean getAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(Boolean admin) {
-        this.admin = admin;
-    }
-
-    public List<String> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<String> roles) {
-        this.roles = roles;
-    }
-
+    // Representación como String
     @Override
     public String toString() {
-        return "UserDTO{" +
-                "dni='" + dni + '\'' +
-                ", name='" + name + '\'' +
-                ", number=" + number +
-                ", email='" + email + '\'' +
-                ", admin=" + admin +
-                ", roles=" + roles +
-                '}';
+        return new StringBuilder("UserDTO{")
+            .append("dni='").append(dni).append("', ")
+            .append("name='").append(name).append("', ")
+            .append("number=").append(number).append(", ")
+            .append("email='").append(email).append("', ")
+            .append("admin=").append(admin).append(", ")
+            .append("roles=").append(roles)
+            .append('}')
+            .toString();
     }
-
 }
