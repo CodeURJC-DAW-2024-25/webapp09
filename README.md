@@ -25,6 +25,7 @@
     - git clone del repositorio
     - docker-compose up
     - docker run {nombre del contenedor}
+    - Abrir la página con la ip de la máquina virtual (https://10.100.139.215)
 
 # Participación de los miembros
 
