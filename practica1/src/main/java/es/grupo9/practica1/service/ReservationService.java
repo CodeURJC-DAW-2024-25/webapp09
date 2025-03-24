@@ -116,4 +116,11 @@ public class ReservationService {
 
         
     }
+
+    public void acceptReservation(Integer id){
+
+        Reservation reservation = reservationRepository.findById(id).get();
+        reservation.setValorated(true);
+        reservationRepository.save(reservation);
+    }
 }

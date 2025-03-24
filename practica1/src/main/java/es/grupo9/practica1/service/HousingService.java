@@ -1,7 +1,8 @@
 package es.grupo9.practica1.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import es.grupo9.practica1.DTOs.HousingDTO;
@@ -227,5 +228,88 @@ public class HousingService {
         Housing houseWithImage = housingRepository.findByCode(code).get();
         houseWithImage.setImage(null);
         housingRepository.save(houseWithImage);
+    }
+
+    public Page<HousingDTO> findByAceptedTrue(Pageable pageable){
+        Page<Housing> houses = housingRepository.findByAceptedTrue(pageable);
+            
+    // Convert Page<Housing> to Page<HousingDTO>
+    return houses.map(housing -> {
+        HousingDTO dto = new HousingDTO();
+        // Map simple fields
+        dto.setCode(housing.getCode());
+        dto.setLocation(housing.getLocation());
+        dto.setName(housing.getName());
+        dto.setPrice(housing.getPrice());
+        dto.setDescription(housing.getDescription());
+        dto.setStars(housing.getStars());
+        dto.setAcepted(housing.getAcepted());
+        
+        // Handle image conversion
+        try {
+            if (housing.getImage() != null) {
+                dto.setImageBase64(housing.getImageBase64());
+            } else {
+                dto.setImageBase64(""); // or null if preferred
+            }
+        } catch (Exception e) {
+            dto.setImageBase64(""); // fallback for error cases
+        }
+        
+        // Map tags (direct entity reference - consider TagDTO if needed)
+        dto.setTags(housing.getTags());
+        
+        return dto;
+    });
+    }
+
+    public Page<HousingDTO> findByAceptedFalse(Pageable pageable){
+        Page<Housing> houses = housingRepository.findByAceptedFalse(pageable);
+            
+    // Convert Page<Housing> to Page<HousingDTO>
+    return houses.map(housing -> {
+        HousingDTO dto = new HousingDTO();
+        // Map simple fields
+        dto.setCode(housing.getCode());
+        dto.setLocation(housing.getLocation());
+        dto.setName(housing.getName());
+        dto.setPrice(housing.getPrice());
+        dto.setDescription(housing.getDescription());
+        dto.setStars(housing.getStars());
+        dto.setAcepted(housing.getAcepted());
+        
+        // Handle image conversion
+        try {
+            if (housing.getImage() != null) {
+                dto.setImageBase64(housing.getImageBase64());
+            } else {
+                dto.setImageBase64(""); // or null if preferred
+            }
+        } catch (Exception e) {
+            dto.setImageBase64(""); // fallback for error cases
+        }
+        
+        // Map tags (direct entity reference - consider TagDTO if needed)
+        dto.setTags(housing.getTags());
+        
+        return dto;
+    });
+    }
+
+    public void deleteById(int code){
+        if (housingRepository.existsById(code)) {
+            housingRepository.deleteById(code);
+            
+        } 
+        
+
+    }
+
+    public void acceptHouse(int code){
+        Housing house = housingRepository.findByCode(code).get();
+        house.setAcepted(true);
+        housingRepository.save(house);
+
+
     }
 }

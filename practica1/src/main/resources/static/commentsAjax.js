@@ -24,7 +24,7 @@ document.getElementById('load-more').addEventListener('click', async function ()
 async function fetchComments(hotelId,page, size) {
     try {
         const response = await fetch(`/api/rooms/${hotelId}/comments/extra`, {
-            method: 'GET', // Use POST 
+            method: 'POST', // Use POST 
             headers: {
                 'Content-Type': 'application/json', // Specify the content type as JSON
             },

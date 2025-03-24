@@ -2,26 +2,29 @@ package es.grupo9.practica1.controller;
 
 
 import java.util.Map;
-import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import es.grupo9.practica1.DTOs.HousingDTO;
+import es.grupo9.practica1.DTOs.ReviewDTO;
 import es.grupo9.practica1.entities.Housing;
-import es.grupo9.practica1.entities.Reservation;
+
 import es.grupo9.practica1.entities.Review;
-import es.grupo9.practica1.repository.HousingRepository;
-import es.grupo9.practica1.repository.ReservationRepository;
-import es.grupo9.practica1.repository.ReviewRepository;
+
+import es.grupo9.practica1.service.HousingService;
+import es.grupo9.practica1.service.ReservationService;
+import es.grupo9.practica1.service.ReviewService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -38,17 +41,18 @@ import org.springframework.data.domain.Pageable;
 @Tag(name = "Custom AJAX Endpoints", description = "APIs for pagination, loading elements, and managing reservations and houses via AJAX")
 public class CustomAjaxController {
 
-    //the new routes of this controller must be changed on the corresponding ajax.js files
+    
+
+
 
     @Autowired
-    private HousingRepository housingRepository;
+    private ReservationService reservationService;
 
     @Autowired
-    private ReservationRepository reservationRepository;
+    private ReviewService reviewService;
 
-    @Autowired
-    private ReviewRepository reviewRepository;
-
+    @Autowired 
+    private HousingService housingService;
 
 
     @Operation(
@@ -73,8 +77,8 @@ public class CustomAjaxController {
             )
         )
     })
-    @GetMapping("/api/rooms/extra") 
-    public Page<Housing> getHouses(
+    @PostMapping("/api/rooms/extra") 
+    public Page<HousingDTO> getHouses(
         @io.swagger.v3.oas.annotations.parameters.RequestBody(
                 description = "Pagination parameters",
                 required = true,
@@ -96,8 +100,8 @@ public class CustomAjaxController {
 
             // Fetch the houses using pagination
             Pageable pageable = PageRequest.of(page, size);
-            Page<Housing> houses = housingRepository.findByAceptedTrue(pageable);
-
+            
+            Page<HousingDTO> houses = housingService.findByAceptedTrue(pageable);
             // Log the number of houses fetched
             System.out.println("Fetched " + houses.getNumberOfElements() + " houses");
 
@@ -133,8 +137,8 @@ public class CustomAjaxController {
             )
         )
     })
-    @GetMapping("/api/rooms/{id}/comments/extra")
-    public Page<Review> getComments(
+    @PostMapping("/api/rooms/{id}/comments/extra")
+    public Page<ReviewDTO> getComments(
         @Parameter(description = "ID of the house", example = "1", required = true)
         @PathVariable Integer id,
         @io.swagger.v3.oas.annotations.parameters.RequestBody(
@@ -159,10 +163,10 @@ public class CustomAjaxController {
             System.out.println("Received request - hotelId: " + hotelId + ", page: " + page + ", size: " + size);
 
             // Fetch comments using pagination
-            Optional<Housing> house = housingRepository.findByCode(hotelId);
+
 
             Pageable pageable = PageRequest.of(page, size);
-            Page<Review> comments = reviewRepository.findByHotel(house.get(), pageable);
+            Page<ReviewDTO> comments = reviewService.findByHotel(hotelId, pageable);
 
             // Log the number of comments fetched
             System.out.println("Fetched " + comments.getNumberOfElements() + " comments");
@@ -200,8 +204,8 @@ public class CustomAjaxController {
         )
     })
     @SecurityRequirement(name = "JWT")
-    @GetMapping("/api/admin/houses")
-    public Page<Housing> getAdminHouses(
+    @PostMapping("/api/admin/houses")
+    public Page<HousingDTO> getAdminHouses(
         @io.swagger.v3.oas.annotations.parameters.RequestBody(
                 description = "Pagination parameters",
                 required = true,
@@ -223,7 +227,9 @@ public class CustomAjaxController {
 
             // Fetch the houses using pagination
             Pageable pageable = PageRequest.of(page, size);
-            Page<Housing> houses = housingRepository.findByAceptedFalse(pageable);
+
+            
+            Page<HousingDTO> houses = housingService.findByAceptedFalse(pageable);
 
             return houses;
         } catch (Exception e) {
@@ -263,15 +269,9 @@ public class CustomAjaxController {
     public void acceptHouse(
         @Parameter(description = "ID(code) of the house", example = "1", required = true)
         @PathVariable Integer houseId) {
-        Optional<Housing> optionalHouse = housingRepository.findById(houseId);
-        if (optionalHouse.isPresent()) {
-            Housing house = optionalHouse.get();
-            house.setAcepted(true);
-            housingRepository.save(house);
-            System.out.println("House with ID " + houseId + " has been accepted.");
-        } else {
-            System.err.println("House with ID " + houseId + " not found.");
-        }
+
+        housingService.acceptHouse( houseId);
+
     }
 
     // Deny House: Deletes the house from the database
@@ -303,12 +303,7 @@ public class CustomAjaxController {
     public void denyHouse(
         @Parameter(description = "ID(code) of the house", example = "1", required = true)
         @PathVariable Integer houseId) {
-        if (housingRepository.existsById(houseId)) {
-            housingRepository.deleteById(houseId);
-            System.out.println("House with ID " + houseId + " has been denied and removed.");
-        } else {
-            System.err.println("House with ID " + houseId + " not found.");
-        }
+        housingService.deleteHouse(houseId);
     }
 
     // Accept reservation: Sets the "valorated" field to true
@@ -339,13 +334,9 @@ public class CustomAjaxController {
     public void acceptReservation(
         @Parameter(description = "ID of the reservation", example = "1", required = true)
         @PathVariable Integer reservationId) {
-        Optional<Reservation> optionalReservation = reservationRepository.findById(reservationId);
-        if (optionalReservation.isPresent()) {
-            Reservation reservation = optionalReservation.get();
-            reservation.setValorated(true);
-            reservationRepository.save(reservation);
 
-        }
+        reservationService.acceptReservation(reservationId);
+
     }
 
     @Operation(
@@ -376,9 +367,7 @@ public class CustomAjaxController {
     public void denyReservation(
         @Parameter(description = "ID of the reservation", example = "1", required = true)
         @PathVariable Integer reservationId) {
-        if (reservationRepository.existsById(reservationId)) {
-            reservationRepository.deleteById(reservationId);
-        }
+        reservationService.deleteReservation(reservationId);
     }
 
 }

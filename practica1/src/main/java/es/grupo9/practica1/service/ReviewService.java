@@ -6,7 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
@@ -100,5 +101,24 @@ public class ReviewService {
 
     public void deleteReview(Integer id){
         reviewRepository.deleteById(id);
+    }
+
+
+    public Page<ReviewDTO> findByHotel(int code,  Pageable pageable){
+        Housing house = housingRepository.findByCode(code).get();
+        Page<Review> paginatedReview = reviewRepository.findByHotel(house, pageable);
+
+        return paginatedReview.map(review -> {
+            ReviewDTO dto = new ReviewDTO();
+            dto.setReviewId(review.getReviewId());
+            dto.setRating(review.getRating());
+            dto.setComment(review.getComment());
+            dto.setHotelCode(review.getHotel().getCode());
+            dto.setUserDni(review.getUser().getDni());
+            return dto;
+        });
+
+
+
     }
 }
