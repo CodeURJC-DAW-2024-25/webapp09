@@ -38,11 +38,16 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 - **Usuario GitHub**: [Sergio-1502](https://github.com/Sergio-1502)
 
 ### **Commits más importantes**
-1. 
-2.
-3.
-4. 
-5.  
+1. Commit:[260263f1e662ee3844be5fbfff51e5c4b23f8df1](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/260263f1e662ee3844be5fbfff51e5c4b23f8df1)  
+   Descripcion: Modificada para prueba personal la clase ReviewDTO.  
+2. Commit:[406013e1caa2d36bb10958437d014215af525a54](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/406013e1caa2d36bb10958437d014215af525a54)  
+   Descripcion: Modificada la clase UserDTO para probar nueva sintaxis.  
+3. Commit:[2b31e9dc8bcc41b28c2c7f57a94c7153775753e8](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/2b31e9dc8bcc41b28c2c7f57a94c7153775753e8)  
+   Descripcion: ReviewApiController para manejar las reviews y ver los diferentes "ApiResponse".  
+4. Commit:[1e257e8527f8b6fa8c486a3d03e1ccb24f7338a0](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/1e257e8527f8b6fa8c486a3d03e1ccb24f7338a0)  
+   Descripcion: UserApiController para manejar usuarios y ver como funcionan los apiResponse.  
+5. Commit:[a1e2240e1192a105a2c3d204aef2a147f0e41f2c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/a1e2240e1192a105a2c3d204aef2a147f0e41f2c)  
+   Descripcion: Borrados de los controladores que ya no se utilizan.  
 
 
 ---
