@@ -22,10 +22,10 @@
 - En caso de estar en la maquina virtual:
     - Ir a la carpeta donde esta el proyecto
     - ssh -i ssh-keys/appWeb09.key vmuser@10.100.139.215
-    - git clone del repositorio
+    - git clone https://github.com/CodeURJC-DAW-2024-25/webapp09.git
+    - cd webapp09/practica1/docker
     - docker-compose up
-    - docker run {nombre del contenedor}
-    - Abrir la página con la ip de la máquina virtual (https://10.100.139.215)
+    - https://10.100.139.215/
 
 # Participación de los miembros
 
