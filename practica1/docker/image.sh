@@ -1,4 +1,5 @@
-docker build -t jantoniio3/trippins -f ../docker/Dockerfile ../
-docker tag jantoniio3/trippins jantoniio3/trippins:latest
-docker push jantoniio3/trippins:latest
+docker build -t trippins:1.0 . -f docker/Dockerfile
+docker tag trippins:1.0 jantoniio3/trippins:1.0
+docker push jantoniio3/trippins:1.0
+
 
