@@ -28,7 +28,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 
 @RestController
-@RequestMapping("/api/reviews")
+@RequestMapping("/v1/api/reviews")
 @Tag(name = "Review Management", description = "APIs for managing reviews")
 public class ReviewRestController {
 

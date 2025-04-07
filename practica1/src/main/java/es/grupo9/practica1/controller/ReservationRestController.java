@@ -28,7 +28,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
-@RequestMapping("/api/reservations")
+@RequestMapping("/v1/api/reservations")
 @Tag(name = "Reservation Management", description = "APIs for managing reservations")
 public class ReservationRestController {
 

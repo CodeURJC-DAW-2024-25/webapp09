@@ -28,7 +28,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/v1/api")
 @Tag(name = "Authentication Management", description = "This APIs is the one in charge of loggin in/loggin off and authenticating users and their data")
 public class AuthenticationRestController {
 

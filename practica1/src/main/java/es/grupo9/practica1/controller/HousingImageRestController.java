@@ -32,7 +32,7 @@ import java.sql.Blob;
 import org.springframework.http.MediaType;
 
 @RestController
-@RequestMapping("/api/houses/")
+@RequestMapping("/v1/api/houses/")
 @Tag(name = "Housing Images Managing", description = "Endpoints for managing housing images")
 public class HousingImageRestController {
 
