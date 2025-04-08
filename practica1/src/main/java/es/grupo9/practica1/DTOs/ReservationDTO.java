@@ -17,7 +17,7 @@ public class ReservationDTO {
     public ReservationDTO() {
     }
 
-    public ReservationDTO( Date checkIn, Date checkOut, boolean valorated, String clientDni,
+    public ReservationDTO(Date checkIn, Date checkOut, boolean valorated, String clientDni,
         int housingCode, String housingName) {
         this.checkIn = checkIn;
         this.checkOut = checkOut;

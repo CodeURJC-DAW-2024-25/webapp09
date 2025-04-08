@@ -46,7 +46,28 @@ public class UserService {
     @Autowired
     private EmailService emailService;
 
+    public User addUser(String dni, String name, Integer number, String password, String email){
+        User newUser = new Client(dni, name, number, password, email);
+        newUser.setEncodedPassword(passwordEncoder.encode(password));
+        List<String> newRoles = new ArrayList<String>();
+        newRoles.add("USER");
 
+        newUser.setRoles(newRoles);
+
+
+        String subject = "Registro exitoso en Trippins";
+        String body = "Bienvenid@ a Trippins 🌎, " + name + " ✨\n\n" +
+        "Tu aventura comienza aquí 🚀.\n\n" +
+        "Tu cuenta ha sido creada con éxito ✅ y ahora tienes acceso a un mundo lleno de experiencias inolvidables 🌟.\n\n" +
+        "Desde destinos paradisíacos 🏖️ hasta escapadas urbanas 🏙️, en Trippins hacemos que cada viaje sea único ✈️.\n\n" +
+        "Prepárate para descubrir 🔍, explorar 🌍 y vivir aventuras increíbles 🎒🐵.\n\n" +
+        "Si tienes alguna pregunta ❓, estamos aquí para ayudarte 🤗.\n\n" +
+        "El equipo de desarrollo de Trippins 💻";
+        emailService.sendEmail(email, subject, body);
+
+        return userRepository.save(newUser);
+
+    }
     @PostConstruct
     public void initializeUsers() {
 
@@ -86,25 +107,11 @@ public class UserService {
     }
 
     public UserDTO createUser(RegisteredUserDTO user){
-
-
         User newUser = new User(user.getDni(), user.getName(), user.getNumber(), user.getPassword(), user.getEmail());
         newUser.setEncodedPassword(passwordEncoder.encode(user.getPassword()));
         List<String> newRoles = user.getRoles();
 
-
         newUser.setRoles(newRoles);
-        String subject = "Registro exitoso en Trippins";
-        String body = "Bienvenid@ a Trippins 🌎, " + newUser.getName() + " ✨\n\n" +
-        "Tu aventura comienza aquí 🚀.\n\n" +
-        "Tu cuenta ha sido creada con éxito ✅ y ahora tienes acceso a un mundo lleno de experiencias inolvidables 🌟.\n\n" +
-        "Desde destinos paradisíacos 🏖️ hasta escapadas urbanas 🏙️, en Trippins hacemos que cada viaje sea único ✈️.\n\n" +
-        "Prepárate para descubrir 🔍, explorar 🌍 y vivir aventuras increíbles 🎒🐵.\n\n" +
-        "Si tienes alguna pregunta ❓, estamos aquí para ayudarte 🤗.\n\n" +
-        "El equipo de desarrollo de Trippins 💻";
-        emailService.sendEmail(newUser.getEmail(), subject, body);
-
-        
 
         userRepository.save(newUser);
         return new UserDTO(newUser);

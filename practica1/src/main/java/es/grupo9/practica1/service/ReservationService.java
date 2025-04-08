@@ -64,6 +64,15 @@ public class ReservationService {
 
     }
 
+    public Reservation addReservation(  User client, Housing housing, Date check_in, Date check_out) {
+        
+
+        
+
+        // Create new hotel and save
+        Reservation newReservation = new Reservation( reservationCounter, client, housing, check_in, check_out);
+        return reservationRepository.save(newReservation);
+    }
 
 
 
@@ -85,7 +94,7 @@ public class ReservationService {
     }
 
     public ReservationDTO createReservation(ReservationDTO reservation){
-        Reservation newReservation = new Reservation(reservationCounter++, userRepository.findById(reservation.getClientDni()).get(),housingRepository.findByCode(reservation.getHousingCode()).get(),reservation.getCheckIn(),
+        Reservation newReservation = new Reservation(reservation.getId(), userRepository.findById(reservation.getClientDni()).get(),housingRepository.findByCode(reservation.getHousingCode()).get(),reservation.getCheckIn(),
         reservation.getCheckOut(),reservation.isValorated());
         reservationRepository.save(newReservation);
         return new ReservationDTO(newReservation);

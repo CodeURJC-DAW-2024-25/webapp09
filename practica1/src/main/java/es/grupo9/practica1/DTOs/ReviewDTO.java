@@ -14,7 +14,6 @@ public class ReviewDTO {
     }
 
     public ReviewDTO(Integer rating, String comment, int hotelCode, String userDni) {
-        
         this.rating = rating;
         this.comment = comment;
         this.hotelCode = hotelCode;
