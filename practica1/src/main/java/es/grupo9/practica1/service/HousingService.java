@@ -63,23 +63,7 @@ public class HousingService {
         }
     }
 
-    // Método para agregar un nuevo hotel
-    public Housing addHotel(String location, String name, byte[] imageBytes, Integer stars, Integer price,
-            String description, Set<Tag> tags) {
-        // Convertir el array de bytes a Blob
-        Blob imageBlob = convertToBlob(imageBytes);
 
-        // Obtener el código más alto actual
-        Integer hotelCode = housingRepository.maxhotelCode();
-        if (hotelCode == null) {
-            hotelCode = 0; // Si no hay hoteles, iniciar desde 1
-        }
-        hotelCode += 1;
-
-        // Crear el nuevo hotel y guardarlo
-        Housing newHotel = new Housing(hotelCode, location, name, imageBlob, stars, price, description, false, tags);
-        return housingRepository.save(newHotel);
-    }
 
     @PostConstruct
     public void initializeHotels() {
@@ -173,9 +157,15 @@ public class HousingService {
 
     public HousingDTO createHouse(HousingDTO house) {
         Housing newHouse = new Housing(house.getCode(), house.getLocation(), house.getName(),
-                house.obtainImage(house.getImageBase64()), house.getStars(), house.getPrice(), house.getDescription(),
-                house.getAcepted(), house.getTags());
+            house.obtainImage(house.getImageBase64()), house.getStars(), house.getPrice(), house.getDescription(),
+            house.getAcepted(), house.getTags());
 
+        Integer hotelCode = housingRepository.maxhotelCode();
+        if (hotelCode == null) {
+            hotelCode = 0; // Si no hay hoteles, iniciar desde 1
+        }
+        hotelCode += 1;
+        newHouse.setCode(hashCode());
         housingRepository.save(newHouse);
         return new HousingDTO(newHouse);
     }

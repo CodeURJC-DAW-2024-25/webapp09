@@ -3,6 +3,8 @@ package es.grupo9.practica1.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -65,15 +67,6 @@ public class ReservationService {
 
     }
 
-    public Reservation addReservation(  User client, Housing housing, Date check_in, Date check_out) {
-        
-
-        
-
-        // Create new hotel and save
-        Reservation newReservation = new Reservation( reservationCounter, client, housing, check_in, check_out);
-        return reservationRepository.save(newReservation);
-    }
 
 
 
@@ -95,7 +88,7 @@ public class ReservationService {
     }
 
     public ReservationDTO createReservation(ReservationDTO reservation){
-        Reservation newReservation = new Reservation(reservation.getId(), userRepository.findById(reservation.getClientDni()).get(),housingRepository.findByCode(reservation.getHousingCode()).get(),reservation.getCheckIn(),
+        Reservation newReservation = new Reservation(reservationCounter++, userRepository.findById(reservation.getClientDni()).get(),housingRepository.findByCode(reservation.getHousingCode()).get(),reservation.getCheckIn(),
         reservation.getCheckOut(),reservation.isValorated());
         reservationRepository.save(newReservation);
         return new ReservationDTO(newReservation);
@@ -127,6 +120,30 @@ public class ReservationService {
         Reservation reservation = reservationRepository.findById(id).get();
         reservation.setValorated(true);
         reservationRepository.save(reservation);
+    }
+
+
+
+    public Page<ReservationDTO> findByValoratedFalse(Pageable pageable){
+        Page<Reservation> reservations = reservationRepository.findByValoratedFalse(pageable);
+
+
+        return reservations.map(reserves -> {
+        ReservationDTO dto = new ReservationDTO();
+
+        dto.setCheckIn(reserves.getCheck_in());
+        dto.setCheckOut(reserves.getCheck_out());
+        dto.setClientDni(reserves.getID_cliente().getDni());
+        dto.setHousingCode(reserves.getHousing().getCode());
+        dto.setHousingName(reserves.getHousing().getName());
+        dto.setValorated(false);
+        dto.setId(reserves.getId());
+
+        return dto;
+        }
+        
+        );
+        
     }
 }
 
