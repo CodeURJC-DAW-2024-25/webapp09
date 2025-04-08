@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -100,22 +101,13 @@ public class MustacheController {
 
     @PostMapping("/profile/update")
     public String updateProfile(@ModelAttribute User updatedUser) {
-        // Get the currently logged-in user's email (or username)
-        String email = updatedUser.getEmail();
 
-        // Fetch the existing user from the database
-        Optional<User> existingUser = userRepository.findByEmail(email);
 
-        User finalUser = existingUser.get();
 
-        // Update the user's data
-        finalUser.setName(updatedUser.getName());
-        finalUser.setEmail(updatedUser.getEmail());
-        finalUser.setNumber(updatedUser.getNumber());
-        finalUser.setPassword(updatedUser.getPassword()); 
 
-        // Save the updated user to the database
-        userRepository.save(finalUser);
+
+        RegisteredUserDTO registeredUserDTO = new RegisteredUserDTO(updatedUser);
+        userService.updateUser(updatedUser.getDni(), registeredUserDTO);
 
         return "index"; // Redirect to the index page
     }
@@ -167,53 +159,42 @@ public class MustacheController {
     @GetMapping("/admin")
     public String admin(Model model) {
 
-        var reservations = reservationRepository.findAll();
-        var allHouses = housingRepository.findAll();
+        Pageable pagination = PageRequest.of(0, 3);
 
-        var filteredHouses = allHouses.stream()
-                .filter(house -> !house.getAcepted()) // Filters only unaccepted houses
-                .limit(3)                      // Limit the result to 3 houses
-                .collect(Collectors.toList());
-        var filteredReservations = reservations.stream() //Literally the same but for reservations
-                .filter(reservation -> !reservation.isValorated()) 
-                .limit(3) 
-                .collect(Collectors.toList());
+        Page<HousingDTO> filteredHouses = housingService.findByAceptedFalse(pagination);
+        Page<ReservationDTO> filteredReservations = reservationService.findByValoratedFalse(pagination);
 
-        model.addAttribute("reservations", filteredReservations);
-        model.addAttribute("houses", filteredHouses);
+        model.addAttribute("reservations", filteredReservations.getContent());
+        model.addAttribute("houses", filteredHouses.getContent());
 
         return "admin";
     }
 
-    @PostMapping("/addUser")
+    @PostMapping("/v1/api/users")
     public String addUser(@ModelAttribute User user, Model model) {
-        userService.addUser(user.getDni(), user.getName(), user.getNumber(), user.getPassword(), user.getEmail());
+        RegisteredUserDTO registeredUserDTO = new RegisteredUserDTO(user);
+        userService.createUser(registeredUserDTO);
         return "login";
     }
 
-    @PostMapping("/addReservation")
+    @PostMapping("/v1/api/reservations")
     public String addReservation(Model model, @RequestParam("houseId") Integer houseId,
-            @RequestParam("checkIn") String checkInStr, @RequestParam("checkOut") String checkOutStr) {
+            @RequestParam("checkIn") String checkInStr, @RequestParam("checkOut") String checkOutStr,@RequestParam("houseName") String houseName) {
 
         User user = (User) model.getAttribute("user");
         Date checkIn = Date.valueOf(LocalDate.parse(checkInStr));
         Date checkOut = Date.valueOf(LocalDate.parse(checkOutStr));
 
-        // Get the house from the repository
-        Optional<Housing> optionalHousing = housingRepository.findByCode(houseId);
-        if (optionalHousing.isEmpty()) {
-            return "redirect:/room"; // Redirect if the house doesn't exist
-        }
-        Housing house = optionalHousing.get();
 
         // Create and save the reservation
 
-        reservationService.addReservation(user, house, checkIn, checkOut);
+        ReservationDTO reservationDTO = new ReservationDTO(checkIn, checkOut, false, user.getDni(), houseId, houseName);
+        reservationService.createReservation(reservationDTO);
 
         return "redirect:/profile"; // Redirect to profile after reservation
     }
 
-    @PostMapping("/addHotel")
+    @PostMapping("/v1/api/houses")
     public String addHotel(@RequestParam("location") String location,
             @RequestParam("name") String name,
             @RequestParam("image") MultipartFile imageFile,
@@ -223,10 +204,8 @@ public class MustacheController {
             @RequestParam(value = "tags", required = false) String tags,
             Model model) {
 
-        try {
             // Transform the image to byte
-            byte[] imageBytes = imageFile.getBytes();
-            
+            String stringImageBytes = imageFile.toString();
             // Add the hotel via service
 
             Set<Tag> tagSet = new HashSet<>();
@@ -240,13 +219,10 @@ public class MustacheController {
 
             } 
 
-            housingService.addHotel(location, name, imageBytes, stars, price, description,tagSet);
+            HousingDTO houseDTO = new HousingDTO(location, name,stringImageBytes, price,description, stars, false,tagSet); 
+            housingService.createHouse(houseDTO);
             return "redirect:/room"; // Redirect to rooms
-        } catch (IOException e) {
-            model.addAttribute("error", "Error al cargar la imagen.");
-            e.printStackTrace();
-            return "newhotel"; // Return to the form page in case of error
-        }
+
 
         
     }
@@ -284,17 +260,15 @@ public class MustacheController {
     
 
 
-    @PostMapping("/addComment")
+    @PostMapping("/v1/api/reviews")
     public String addComment(@RequestParam("comment") String comment, @RequestParam("rating") Integer rating,@RequestParam("houseId") Integer houseId ,Model model) {
         User user = (User) model.getAttribute("user");
         
-        Optional<Housing> optionalHousing = housingRepository.findByCode(houseId);
-
-        Housing house = optionalHousing.get();
 
 
 
-        reviewService.addReview(rating, comment,house ,user );
+        ReviewDTO reviewDTO = new ReviewDTO(rating, comment, houseId, user.getDni());
+        reviewService.createReview(reviewDTO);
         
         return "index";
     }
@@ -304,7 +278,7 @@ public class MustacheController {
 
 
 
-    @PostMapping("/form/login")
+    @PostMapping("/v1/api/login")
     public String userlogin(String email, String password, Model model) {
         return "index";
     }

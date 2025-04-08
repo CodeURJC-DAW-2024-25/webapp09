@@ -27,9 +27,8 @@ public class HousingDTO {
 
 
     // Constructors
-    public HousingDTO(int code, String location, String name, String imageBase64, Integer price, String description,
-        Integer stars, Boolean acepted, Set<Tag> tags) {
-        this.code = code;
+    public HousingDTO(String location, String name, String imageBase64, Integer price, String description,
+        Integer stars, Boolean acepted, Set<Tag> tags) {        
         this.location = location;
         this.name = name;
         this.imageBase64 = imageBase64;
