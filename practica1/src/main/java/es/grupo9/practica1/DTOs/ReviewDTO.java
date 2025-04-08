@@ -13,8 +13,8 @@ public class ReviewDTO {
     public ReviewDTO() {
     }
 
-    public ReviewDTO(Integer rating, String comment, int hotelCode, String userDni) {
-        
+    public ReviewDTO(Integer reviewId, Integer rating, String comment, int hotelCode, String userDni) {
+        this.reviewId = reviewId;
         this.rating = rating;
         this.comment = comment;
         this.hotelCode = hotelCode;

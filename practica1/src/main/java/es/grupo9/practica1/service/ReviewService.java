@@ -40,6 +40,12 @@ public class ReviewService {
 
 
 
+    public Review addReview(Integer rating, String comment, Housing hotel, User user) {
+        Review newReview = new Review(reviewCounter++, rating, comment, hotel, user);
+
+        return reviewRepository.save(newReview);
+
+    }
 
     public void initializeComments() {
 
@@ -71,8 +77,7 @@ public class ReviewService {
     }
 
     public ReviewDTO createReview(ReviewDTO review){
-
-        Review newReview = new Review(reviewCounter++,review.getRating(),review.getComment(),housingRepository.findByCode(review.getHotelCode()).get(),userRepository.findById(review.getUserDni()).get());
+        Review newReview = new Review(review.getReviewId(),review.getRating(),review.getComment(),housingRepository.findByCode(review.getHotelCode()).get(),userRepository.findById(review.getUserDni()).get());
         reviewRepository.save(newReview);
         return new ReviewDTO(newReview);
 
