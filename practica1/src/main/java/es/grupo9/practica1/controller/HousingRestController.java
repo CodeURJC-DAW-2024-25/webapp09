@@ -27,7 +27,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
-@RequestMapping("/api/houses")
+@RequestMapping("/v1/api/houses")
 @Tag(name = "Housing Management", description = "APIs for managing houses and their tags")
 public class HousingRestController {
 
