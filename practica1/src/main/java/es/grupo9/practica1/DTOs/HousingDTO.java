@@ -142,4 +142,6 @@ public class HousingDTO {
     public Blob obtainImage(String image) {
         return convertBase64ToBlob(image);
     }
+
+    
 }

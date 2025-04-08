@@ -302,4 +302,50 @@ public class HousingService {
 
 
     }
+
+    public HousingDTO findByCode(Integer code){
+        Optional<Housing> optionalHousing = housingRepository.findByCode(code); 
+
+        if (optionalHousing.isPresent()) {
+            Housing house = optionalHousing.get();
+
+
+            return new HousingDTO(house);
+        }
+        else 
+            return null;
+    }
+
+    public List<HousingDTO> getPaginatedHousing(Pageable pageable){
+
+        Page<Housing> houses = housingRepository.findAll(pageable);
+        return houses.map(housing -> {
+            HousingDTO dto = new HousingDTO();
+            // Map simple fields
+            dto.setCode(housing.getCode());
+            dto.setLocation(housing.getLocation());
+            dto.setName(housing.getName());
+            dto.setPrice(housing.getPrice());
+            dto.setDescription(housing.getDescription());
+            dto.setStars(housing.getStars());
+            dto.setAcepted(housing.getAcepted());
+            
+            // Handle image conversion
+            try {
+                if (housing.getImage() != null) {
+                    dto.setImageBase64(housing.getImageBase64());
+                } else {
+                    dto.setImageBase64(""); // or null if preferred
+                }
+            } catch (Exception e) {
+                dto.setImageBase64(""); // fallback for error cases
+            }
+            
+            // Map tags (direct entity reference - consider TagDTO if needed)
+            dto.setTags(housing.getTags());
+            
+            return dto;
+        }).getContent();
+
+    }
 }

@@ -1,12 +1,12 @@
 package es.grupo9.practica1.controller;
-import java.io.IOException;
+
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
+
 import java.util.Set;
-import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -23,15 +23,13 @@ import es.grupo9.practica1.DTOs.HousingDTO;
 import es.grupo9.practica1.DTOs.RegisteredUserDTO;
 import es.grupo9.practica1.DTOs.ReservationDTO;
 import es.grupo9.practica1.DTOs.ReviewDTO;
-import es.grupo9.practica1.DTOs.UserDTO;
+
 import es.grupo9.practica1.entities.Housing;
 import es.grupo9.practica1.entities.Tag;
 import es.grupo9.practica1.entities.User;
-import es.grupo9.practica1.repository.HousingRepository;
-import es.grupo9.practica1.repository.ReservationRepository;
-import es.grupo9.practica1.repository.ReviewRepository;
+
 import es.grupo9.practica1.repository.TagRepository;
-import es.grupo9.practica1.repository.UserRepository;
+
 import es.grupo9.practica1.service.HousingService;
 import es.grupo9.practica1.service.ReservationService;
 import es.grupo9.practica1.service.ReviewService;
@@ -49,23 +47,13 @@ public class MustacheController {
     @Autowired
     private HousingService housingService;
 
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private ReservationRepository reservationRepository;
 
     @Autowired
     private ReservationService reservationService;
 
     @Autowired
-    private HousingRepository housingRepository;
-
-    @Autowired
     private ReviewService reviewService;
 
-    @Autowired
-    private ReviewRepository reviewRepository;
 
     @Autowired
     private TagRepository tagRepository;
@@ -103,12 +91,8 @@ public class MustacheController {
     @GetMapping("/profile")
     public String profile(Model model) {
         User user = (User) model.getAttribute("user");
-        var reservations = reservationRepository.findAll();
 
-        var filteredReservations = reservations.stream()
-                .filter(reservation -> reservation.getID_cliente().getDni().equals(user.getDni())) // Filters houses per dni
-                .limit(3) // Limit the result to 3
-                .collect(Collectors.toList());
+        var filteredReservations = reservationService.getReservationsByOwner(user);
 
         model.addAttribute("reservations", filteredReservations);
 
@@ -141,7 +125,8 @@ public class MustacheController {
     public String room(Model model) {
         
         Pageable pageable = PageRequest.of(0, 6);
-        var houses = housingRepository.findAll(pageable).getContent();
+
+        var houses = housingService.getPaginatedHousing(pageable);
 
         model.addAttribute("houses", houses);
         model.addAttribute("botonajax", true);
@@ -150,21 +135,15 @@ public class MustacheController {
 
     @GetMapping("/room/{code}")
     public String roomDetails(@PathVariable Integer code, Model model) {
-        Optional<Housing> optionalHousing = housingRepository.findByCode(code);
-        if (optionalHousing.isPresent()) {
-            Housing house = optionalHousing.get();
-            model.addAttribute("house", house);
-            var allReviews = reviewRepository.findAll();
 
-            var filteredReviews = allReviews.stream()
-                    .filter(review -> review.getHotel().getCode() == code)// igual da error que cod ees int no Integer
-                    .limit(3)
-                    .collect(Collectors.toList());
+
+            model.addAttribute("house", housingService.findByCode(code));
+
+            var filteredReviews = reviewService.getReviewsByHouse(code);
             model.addAttribute("comments", filteredReviews);
 
             return "roomDetails"; // The HTML page for room details
-        }
-        return "redirect:/room";
+
     }
 
     @GetMapping("/testimonial")
