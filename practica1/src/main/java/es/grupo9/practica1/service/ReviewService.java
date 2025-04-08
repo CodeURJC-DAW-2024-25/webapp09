@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -119,5 +121,21 @@ public class ReviewService {
 
 
 
+    }
+
+    public List<ReviewDTO> getReviewsByHouse(Integer code){
+
+        var allReviews = reviewRepository.findAll();
+        allReviews.stream()
+                    .filter(review -> review.getHotel().getCode() == code)// igual da error que cod ees int no Integer
+                    .limit(3)
+                    .collect(Collectors.toList());
+
+        List<ReviewDTO> reviewDTOs = new ArrayList<>(); 
+        for (Review review : allReviews) {
+            reviewDTOs.add(new ReviewDTO(review));
+        }
+
+        return reviewDTOs;
     }
 }

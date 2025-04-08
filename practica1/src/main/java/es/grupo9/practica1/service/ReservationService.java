@@ -1,9 +1,10 @@
 package es.grupo9.practica1.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.stereotype.Component;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import org.springframework.stereotype.Service;
 
 import es.grupo9.practica1.DTOs.ReservationDTO;
@@ -14,7 +15,7 @@ import es.grupo9.practica1.entities.User;
 import es.grupo9.practica1.repository.HousingRepository;
 import es.grupo9.practica1.repository.ReservationRepository;
 import es.grupo9.practica1.repository.UserRepository;
-import jakarta.annotation.PostConstruct;
+
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,8 +27,6 @@ import java.util.Calendar;
 @Service
 public class ReservationService {
     
-    @Autowired
-    private ReservationInitializer reservationInitializer;
 
     @Autowired
     private ReservationRepository reservationRepository;
@@ -127,6 +126,42 @@ public class ReservationService {
         Reservation reservation = reservationRepository.findById(id).get();
         reservation.setValorated(true);
         reservationRepository.save(reservation);
+    }
+
+
+
+    public Page<ReservationDTO> findByValoratedFalse(Pageable pageable){
+        Page<Reservation> reservations = reservationRepository.findByValoratedFalse(pageable);
+
+
+        return reservations.map(reserves -> {
+        ReservationDTO dto = new ReservationDTO();
+
+        dto.setCheckIn(reserves.getCheck_in());
+        dto.setCheckOut(reserves.getCheck_out());
+        dto.setClientDni(reserves.getID_cliente().getDni());
+        dto.setHousingCode(reserves.getHousing().getCode());
+        dto.setHousingName(reserves.getHousing().getName());
+        dto.setValorated(false);
+        dto.setId(reserves.getId());
+
+        return dto;
+        }
+        
+        );
+        
+    }
+
+    public List<ReservationDTO> getReservationsByOwner(User user){
+        List<Reservation> reservations = reservationRepository.findByClientDni(user.getDni());
+
+        List<ReservationDTO> reservationDTOs = new ArrayList<>();
+
+        for (Reservation reservation : reservations) {
+            
+            reservationDTOs.add(new ReservationDTO(reservation));
+        }
+        return reservationDTOs;
     }
 }
 
