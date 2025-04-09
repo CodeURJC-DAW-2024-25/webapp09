@@ -248,7 +248,7 @@ public class MustacheController {
                 }
         
                 // Query the database for houses that match the criteria
-                List<Housing> filteredHouses = housingService.findHousesByTagsAndStars(tagNames, stars);
+                List<HousingDTO> filteredHouses = housingService.findHousesByTagsAndStars(tagNames, stars);
         
                 // Add the filtered houses to the model
                 model.addAttribute("houses", filteredHouses);

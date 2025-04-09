@@ -142,13 +142,23 @@ public class HousingService {
         return housingRepository.findAll();
     }
 
-    public List<Housing> findHousesByTagsAndStars(Set<String> tagNames, Integer stars) {
+    public List<HousingDTO> findHousesByTagsAndStars(Set<String> tagNames, Integer stars) {
         if (tagNames == null || tagNames.isEmpty()) {
             // If no tags are provided, filter only by stars
-            return housingRepository.findByStarsGreaterThanEqual(stars);
+            List<Housing> houses = housingRepository.findByStarsGreaterThanEqual(stars);
+            List<HousingDTO> housingDTOs = new ArrayList<>();
+            for (Housing house : houses) {
+                housingDTOs.add(new HousingDTO(house));
+            }
+            return housingDTOs;
         } else {
             // If tags are provided, filter by both tags and stars
-            return housingRepository.findByTagsAndStars(tagNames, stars, (long) tagNames.size());
+            List<Housing> houses = housingRepository.findByTagsAndStars(tagNames, stars, (long) tagNames.size());
+            List<HousingDTO> housingDTOs = new ArrayList<>();
+            for (Housing house : houses) {
+                housingDTOs.add(new HousingDTO(house));
+            }
+            return housingDTOs;
         }
     }
 
