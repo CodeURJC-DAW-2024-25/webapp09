@@ -99,7 +99,7 @@
                 <div>
                     <h3 class="section-title">¡Reserva <strong class="text-primary">ya!</strong></h3>
                     <br><br><br>
-                    <form action="/addReservation" method="POST">
+                    <form action="/v1/api/reservations/forms" method="POST">
                         <div class="row g-3">
                             <div class="col-md-12">
                                 <div class="form-floating">
@@ -130,7 +130,7 @@
                 <!-- Comment Form -->
                 <div class="mt-5">
                     <h3>Deja un comentario</h3>
-                    <form action="/addComment" method="POST">
+                    <form action="/v1/api/reviews/forms" method="POST">
                         <div class="mb-3">
                             <label for="comment" class="form-label">Comentario</label>
                             <textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>

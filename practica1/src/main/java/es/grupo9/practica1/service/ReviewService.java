@@ -21,7 +21,7 @@ import es.grupo9.practica1.entities.User;
 import es.grupo9.practica1.repository.HousingRepository;
 import es.grupo9.practica1.repository.ReviewRepository;
 import es.grupo9.practica1.repository.UserRepository;
-import jakarta.annotation.PostConstruct;
+
 
 @Service
 public class ReviewService {

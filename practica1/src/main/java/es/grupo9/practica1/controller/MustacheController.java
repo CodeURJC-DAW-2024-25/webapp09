@@ -7,6 +7,7 @@ import java.util.List;
 
 import java.util.Set;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -29,13 +30,15 @@ import es.grupo9.practica1.entities.Tag;
 import es.grupo9.practica1.entities.User;
 
 import es.grupo9.practica1.repository.TagRepository;
-
+import es.grupo9.practica1.security.jwt.AuthenticationRequest;
 import es.grupo9.practica1.service.HousingService;
 import es.grupo9.practica1.service.ReservationService;
 import es.grupo9.practica1.service.ReviewService;
 import es.grupo9.practica1.service.UserService;
 
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 
 @Controller
@@ -53,6 +56,10 @@ public class MustacheController {
 
     @Autowired
     private ReviewService reviewService;
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
 
 
     @Autowired
@@ -170,14 +177,14 @@ public class MustacheController {
         return "admin";
     }
 
-    @PostMapping("/v1/api/users")
+    @PostMapping("/v1/api/users/forms")
     public String addUser(@ModelAttribute User user, Model model) {
         RegisteredUserDTO registeredUserDTO = new RegisteredUserDTO(user);
         userService.createUser(registeredUserDTO);
         return "login";
     }
 
-    @PostMapping("/v1/api/reservations")
+    @PostMapping("/v1/api/reservations/forms")
     public String addReservation(Model model, @RequestParam("houseId") Integer houseId,
             @RequestParam("checkIn") String checkInStr, @RequestParam("checkOut") String checkOutStr,@RequestParam("houseName") String houseName) {
 
@@ -194,7 +201,7 @@ public class MustacheController {
         return "redirect:/profile"; // Redirect to profile after reservation
     }
 
-    @PostMapping("/v1/api/houses")
+    @PostMapping("/v1/api/houses/forms")
     public String addHotel(@RequestParam("location") String location,
             @RequestParam("name") String name,
             @RequestParam("image") MultipartFile imageFile,
@@ -260,7 +267,7 @@ public class MustacheController {
     
 
 
-    @PostMapping("/v1/api/reviews")
+    @PostMapping("/v1/api/reviews/forms")
     public String addComment(@RequestParam("comment") String comment, @RequestParam("rating") Integer rating,@RequestParam("houseId") Integer houseId ,Model model) {
         User user = (User) model.getAttribute("user");
         
@@ -278,8 +285,14 @@ public class MustacheController {
 
 
 
-    @PostMapping("/v1/api/login")
-    public String userlogin(String email, String password, Model model) {
+    @PostMapping("/v1/api/login/forms")
+    public String userlogin(String email, String password, Model model) throws Exception {
+        AuthenticationRequest authenticationRequest = new AuthenticationRequest(email, password);
+
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(),
+                                authenticationRequest.getPassword()));
+
         return "index";
     }
 }
