@@ -867,6 +867,412 @@ ul.nav-tabs {
     }
   }
 };
+    defs["ContentDisposition"] = {
+  "properties" : {
+    "type" : {
+      "type" : "string"
+    },
+    "name" : {
+      "type" : "string"
+    },
+    "filename" : {
+      "type" : "string"
+    },
+    "charset" : {
+      "type" : "string"
+    },
+    "size" : {
+      "type" : "integer",
+      "format" : "int64",
+      "deprecated" : true
+    },
+    "creationDate" : {
+      "type" : "string",
+      "format" : "date-time",
+      "deprecated" : true
+    },
+    "modificationDate" : {
+      "type" : "string",
+      "format" : "date-time",
+      "deprecated" : true
+    },
+    "readDate" : {
+      "type" : "string",
+      "format" : "date-time",
+      "deprecated" : true
+    },
+    "formData" : {
+      "type" : "boolean"
+    },
+    "inline" : {
+      "type" : "boolean"
+    },
+    "attachment" : {
+      "type" : "boolean"
+    }
+  }
+};
+    defs["DefaultHttpStatusCode"] = {
+  "allOf" : [ {
+    "$ref" : "#/components/schemas/HttpStatusCode"
+  } ]
+};
+    defs["ErrorResponse"] = {
+  "properties" : {
+    "headers" : {
+      "$ref" : "#/components/schemas/ErrorResponse_headers"
+    },
+    "statusCode" : {
+      "$ref" : "#/components/schemas/ErrorResponse_statusCode"
+    },
+    "body" : {
+      "$ref" : "#/components/schemas/ProblemDetail"
+    },
+    "typeMessageCode" : {
+      "type" : "string"
+    },
+    "titleMessageCode" : {
+      "type" : "string"
+    },
+    "detailMessageArguments" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object"
+      }
+    },
+    "detailMessageCode" : {
+      "type" : "string"
+    }
+  }
+};
+    defs["ErrorResponse_headers"] = {
+  "properties" : {
+    "empty" : {
+      "type" : "boolean"
+    },
+    "location" : {
+      "format" : "uri"
+    },
+    "host" : {
+      "$ref" : "#/components/schemas/ErrorResponse_headers_host"
+    },
+    "all" : {
+      "additionalProperties" : {
+        "type" : "string"
+      },
+      "writeOnly" : true
+    },
+    "lastModified" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
+    "date" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
+    "contentLength" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
+    "accessControlMaxAge" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
+    "ifModifiedSince" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
+    "contentType" : {
+      "$ref" : "#/components/schemas/MediaType"
+    },
+    "origin" : {
+      "type" : "string"
+    },
+    "accept" : {
+      "items" : {
+        "$ref" : "#/components/schemas/MediaType"
+      }
+    },
+    "connection" : {
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "range" : {
+      "items" : {
+        "$ref" : "#/components/schemas/HttpRange"
+      }
+    },
+    "contentLanguage" : {
+      "$ref" : "#/components/schemas/ErrorResponse_headers_contentLanguage"
+    },
+    "acceptCharset" : {
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "contentDisposition" : {
+      "$ref" : "#/components/schemas/ContentDisposition"
+    },
+    "allow" : {
+      "uniqueItems" : true,
+      "items" : {
+        "$ref" : "#/components/schemas/HttpMethod"
+      }
+    },
+    "acceptPatch" : {
+      "items" : {
+        "$ref" : "#/components/schemas/MediaType"
+      }
+    },
+    "ifNoneMatch" : {
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "basicAuth" : {
+      "writeOnly" : true
+    },
+    "acceptLanguage" : {
+      "items" : {
+        "$ref" : "#/components/schemas/ErrorResponse_headers_acceptLanguage_inner"
+      }
+    },
+    "bearerAuth" : {
+      "writeOnly" : true
+    },
+    "pragma" : {
+      "type" : "string"
+    },
+    "upgrade" : {
+      "type" : "string"
+    },
+    "ifMatch" : {
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "vary" : {
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "expires" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
+    "etag" : {
+      "type" : "string"
+    },
+    "cacheControl" : {
+      "type" : "string"
+    },
+    "acceptLanguageAsLocales" : {
+      "items" : {
+        "$ref" : "#/components/schemas/ErrorResponse_headers_acceptLanguageAsLocales_inner"
+      }
+    },
+    "ifUnmodifiedSince" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
+    "accessControlAllowCredentials" : {
+      "type" : "boolean"
+    },
+    "accessControlAllowMethods" : {
+      "items" : {
+        "$ref" : "#/components/schemas/HttpMethod"
+      }
+    },
+    "accessControlAllowHeaders" : {
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "accessControlRequestHeaders" : {
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "accessControlAllowOrigin" : {
+      "type" : "string"
+    },
+    "accessControlExposeHeaders" : {
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "accessControlRequestMethod" : {
+      "$ref" : "#/components/schemas/HttpMethod"
+    }
+  },
+  "additionalProperties" : {
+    "items" : {
+      "type" : "string"
+    }
+  }
+};
+    defs["ErrorResponse_headers_acceptLanguageAsLocales_inner"] = {
+  "properties" : {
+    "language" : { },
+    "displayName" : { },
+    "country" : { },
+    "variant" : { },
+    "script" : { },
+    "unicodeLocaleAttributes" : {
+      "uniqueItems" : true,
+      "items" : { }
+    },
+    "unicodeLocaleKeys" : {
+      "uniqueItems" : true,
+      "items" : { }
+    },
+    "displayLanguage" : { },
+    "displayScript" : { },
+    "displayCountry" : { },
+    "displayVariant" : { },
+    "extensionKeys" : {
+      "uniqueItems" : true,
+      "items" : { }
+    },
+    "iso3Language" : { },
+    "iso3Country" : { }
+  }
+};
+    defs["ErrorResponse_headers_acceptLanguage_inner"] = {
+  "properties" : {
+    "range" : {
+      "type" : "string"
+    },
+    "weight" : {
+      "format" : "double"
+    }
+  }
+};
+    defs["ErrorResponse_headers_contentLanguage"] = {
+  "properties" : {
+    "language" : {
+      "type" : "string"
+    },
+    "displayName" : {
+      "type" : "string"
+    },
+    "country" : {
+      "type" : "string"
+    },
+    "variant" : {
+      "type" : "string"
+    },
+    "script" : {
+      "type" : "string"
+    },
+    "unicodeLocaleAttributes" : {
+      "uniqueItems" : true,
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "unicodeLocaleKeys" : {
+      "uniqueItems" : true,
+      "items" : { }
+    },
+    "displayLanguage" : {
+      "type" : "string"
+    },
+    "displayScript" : {
+      "type" : "string"
+    },
+    "displayCountry" : {
+      "type" : "string"
+    },
+    "displayVariant" : {
+      "type" : "string"
+    },
+    "extensionKeys" : {
+      "uniqueItems" : true,
+      "items" : { }
+    },
+    "iso3Language" : {
+      "type" : "string"
+    },
+    "iso3Country" : {
+      "type" : "string"
+    }
+  }
+};
+    defs["ErrorResponse_headers_host"] = {
+  "properties" : {
+    "address" : {
+      "$ref" : "#/components/schemas/ErrorResponse_headers_host_address"
+    },
+    "port" : {
+      "type" : "integer",
+      "format" : "int32"
+    },
+    "unresolved" : {
+      "type" : "boolean"
+    },
+    "hostName" : {
+      "type" : "string"
+    },
+    "hostString" : {
+      "type" : "string"
+    }
+  }
+};
+    defs["ErrorResponse_headers_host_address"] = {
+  "properties" : {
+    "hostAddress" : {
+      "type" : "string"
+    },
+    "address" : {
+      "format" : "byte"
+    },
+    "hostName" : {
+      "type" : "string"
+    },
+    "linkLocalAddress" : {
+      "type" : "boolean"
+    },
+    "multicastAddress" : {
+      "type" : "boolean"
+    },
+    "anyLocalAddress" : {
+      "type" : "boolean"
+    },
+    "loopbackAddress" : {
+      "type" : "boolean"
+    },
+    "siteLocalAddress" : {
+      "type" : "boolean"
+    },
+    "mcglobal" : {
+      "type" : "boolean"
+    },
+    "mcnodeLocal" : {
+      "type" : "boolean"
+    },
+    "mclinkLocal" : {
+      "type" : "boolean"
+    },
+    "mcsiteLocal" : {
+      "type" : "boolean"
+    },
+    "mcorgLocal" : {
+      "type" : "boolean"
+    },
+    "canonicalHostName" : {
+      "type" : "string"
+    }
+  }
+};
+    defs["ErrorResponse_statusCode"] = {
+  "oneOf" : [ {
+    "$ref" : "#/components/schemas/DefaultHttpStatusCode"
+  }, {
+    "$ref" : "#/components/schemas/HttpStatus"
+  } ]
+};
     defs["Housing"] = {
   "properties" : {
     "code" : {
@@ -877,6 +1283,9 @@ ul.nav-tabs {
       "type" : "string"
     },
     "name" : {
+      "type" : "string"
+    },
+    "imageBase64" : {
       "type" : "string"
     },
     "price" : {
@@ -899,9 +1308,6 @@ ul.nav-tabs {
       "items" : {
         "$ref" : "#/components/schemas/Tag"
       }
-    },
-    "imageBase64" : {
-      "type" : "string"
     }
   }
 };
@@ -941,8 +1347,69 @@ ul.nav-tabs {
         "$ref" : "#/components/schemas/Tag"
       }
     }
-  },
-  "description" : "House details needed to create the house"
+  }
+};
+    defs["HttpStatus"] = {
+  "allOf" : [ {
+    "$ref" : "#/components/schemas/HttpStatusCode"
+  } ],
+  "enum" : [ "100 CONTINUE", "101 SWITCHING_PROTOCOLS", "102 PROCESSING", "103 EARLY_HINTS", "103 CHECKPOINT", "200 OK", "201 CREATED", "202 ACCEPTED", "203 NON_AUTHORITATIVE_INFORMATION", "204 NO_CONTENT", "205 RESET_CONTENT", "206 PARTIAL_CONTENT", "207 MULTI_STATUS", "208 ALREADY_REPORTED", "226 IM_USED", "300 MULTIPLE_CHOICES", "301 MOVED_PERMANENTLY", "302 FOUND", "302 MOVED_TEMPORARILY", "303 SEE_OTHER", "304 NOT_MODIFIED", "305 USE_PROXY", "307 TEMPORARY_REDIRECT", "308 PERMANENT_REDIRECT", "400 BAD_REQUEST", "401 UNAUTHORIZED", "402 PAYMENT_REQUIRED", "403 FORBIDDEN", "404 NOT_FOUND", "405 METHOD_NOT_ALLOWED", "406 NOT_ACCEPTABLE", "407 PROXY_AUTHENTICATION_REQUIRED", "408 REQUEST_TIMEOUT", "409 CONFLICT", "410 GONE", "411 LENGTH_REQUIRED", "412 PRECONDITION_FAILED", "413 PAYLOAD_TOO_LARGE", "413 REQUEST_ENTITY_TOO_LARGE", "414 URI_TOO_LONG", "414 REQUEST_URI_TOO_LONG", "415 UNSUPPORTED_MEDIA_TYPE", "416 REQUESTED_RANGE_NOT_SATISFIABLE", "417 EXPECTATION_FAILED", "418 I_AM_A_TEAPOT", "419 INSUFFICIENT_SPACE_ON_RESOURCE", "420 METHOD_FAILURE", "421 DESTINATION_LOCKED", "422 UNPROCESSABLE_ENTITY", "423 LOCKED", "424 FAILED_DEPENDENCY", "425 TOO_EARLY", "426 UPGRADE_REQUIRED", "428 PRECONDITION_REQUIRED", "429 TOO_MANY_REQUESTS", "431 REQUEST_HEADER_FIELDS_TOO_LARGE", "451 UNAVAILABLE_FOR_LEGAL_REASONS", "500 INTERNAL_SERVER_ERROR", "501 NOT_IMPLEMENTED", "502 BAD_GATEWAY", "503 SERVICE_UNAVAILABLE", "504 GATEWAY_TIMEOUT", "505 HTTP_VERSION_NOT_SUPPORTED", "506 VARIANT_ALSO_NEGOTIATES", "507 INSUFFICIENT_STORAGE", "508 LOOP_DETECTED", "509 BANDWIDTH_LIMIT_EXCEEDED", "510 NOT_EXTENDED", "511 NETWORK_AUTHENTICATION_REQUIRED" ]
+};
+    defs["HttpStatusCode"] = {
+  "properties" : {
+    "error" : {
+      "type" : "boolean"
+    },
+    "is5xxServerError" : {
+      "type" : "boolean"
+    },
+    "is4xxClientError" : {
+      "type" : "boolean"
+    },
+    "is1xxInformational" : {
+      "type" : "boolean"
+    },
+    "is2xxSuccessful" : {
+      "type" : "boolean"
+    },
+    "is3xxRedirection" : {
+      "type" : "boolean"
+    }
+  }
+};
+    defs["MediaType"] = {
+  "properties" : {
+    "type" : {
+      "type" : "string"
+    },
+    "subtype" : {
+      "type" : "string"
+    },
+    "parameters" : {
+      "additionalProperties" : {
+        "type" : "string"
+      }
+    },
+    "qualityValue" : {
+      "type" : "number",
+      "format" : "double"
+    },
+    "charset" : {
+      "type" : "string"
+    },
+    "concrete" : {
+      "type" : "boolean"
+    },
+    "wildcardSubtype" : {
+      "type" : "boolean"
+    },
+    "wildcardType" : {
+      "type" : "boolean"
+    },
+    "subtypeSuffix" : {
+      "type" : "string"
+    }
+  }
 };
     defs["Page"] = {
   "properties" : {
@@ -971,15 +1438,15 @@ ul.nav-tabs {
     "sort" : {
       "$ref" : "#/components/schemas/SortObject"
     },
+    "numberOfElements" : {
+      "type" : "integer",
+      "format" : "int32"
+    },
     "first" : {
       "type" : "boolean"
     },
     "last" : {
       "type" : "boolean"
-    },
-    "numberOfElements" : {
-      "type" : "integer",
-      "format" : "int32"
     },
     "pageable" : {
       "$ref" : "#/components/schemas/PageableObject"
@@ -998,12 +1465,6 @@ ul.nav-tabs {
     "sort" : {
       "$ref" : "#/components/schemas/SortObject"
     },
-    "paged" : {
-      "type" : "boolean"
-    },
-    "unpaged" : {
-      "type" : "boolean"
-    },
     "pageSize" : {
       "type" : "integer",
       "format" : "int32"
@@ -1011,6 +1472,39 @@ ul.nav-tabs {
     "pageNumber" : {
       "type" : "integer",
       "format" : "int32"
+    },
+    "paged" : {
+      "type" : "boolean"
+    },
+    "unpaged" : {
+      "type" : "boolean"
+    }
+  }
+};
+    defs["ProblemDetail"] = {
+  "properties" : {
+    "type" : {
+      "type" : "string",
+      "format" : "uri"
+    },
+    "title" : {
+      "type" : "string"
+    },
+    "status" : {
+      "type" : "integer",
+      "format" : "int32"
+    },
+    "detail" : {
+      "type" : "string"
+    },
+    "instance" : {
+      "type" : "string",
+      "format" : "uri"
+    },
+    "properties" : {
+      "additionalProperties" : {
+        "type" : "object"
+      }
     }
   }
 };
@@ -1235,6 +1729,10 @@ ul.nav-tabs {
             -->
             <li class="nav-fixed nav-header active" data-group="_"><a href="#api-_">API Summary</a></li>
 
+                  <li class="nav-header" data-group="AdvancedHousingSearch"><a href="#api-AdvancedHousingSearch">API Methods - AdvancedHousingSearch</a></li>
+                    <li data-group="AdvancedHousingSearch" data-name="searchHouses" class="">
+                      <a href="#api-AdvancedHousingSearch-searchHouses">searchHouses</a>
+                    </li>
                   <li class="nav-header" data-group="AuthenticationManagement"><a href="#api-AuthenticationManagement">API Methods - AuthenticationManagement</a></li>
                     <li data-group="AuthenticationManagement" data-name="createAuthenticationToken" class="">
                       <a href="#api-AuthenticationManagement-createAuthenticationToken">createAuthenticationToken</a>
@@ -1359,6 +1857,487 @@ ul.nav-tabs {
           </div>
         </div>
         <div id="sections">
+                <section id="api-AdvancedHousingSearch">
+                  <h1>AdvancedHousingSearch</h1>
+                    <div id="api-AdvancedHousingSearch-searchHouses">
+                      <article id="api-AdvancedHousingSearch-searchHouses-0" data-group="User" data-name="searchHouses" data-version="0">
+                        <div class="pull-left">
+                          <h1>searchHouses</h1>
+                          <p>Search houses by tags and stars</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Returns a list of houses filtered by optional tags and minimum star rating</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/v1/api/query</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-AdvancedHousingSearch-searchHouses-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-AdvancedHousingSearch-searchHouses-0-java">Java</a></li>
+                          <li class=""><a href="#examples-AdvancedHousingSearch-searchHouses-0-dart">Dart</a></li>
+                          <li class=""><a href="#examples-AdvancedHousingSearch-searchHouses-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-AdvancedHousingSearch-searchHouses-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-AdvancedHousingSearch-searchHouses-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-AdvancedHousingSearch-searchHouses-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-AdvancedHousingSearch-searchHouses-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-AdvancedHousingSearch-searchHouses-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-AdvancedHousingSearch-searchHouses-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-AdvancedHousingSearch-searchHouses-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-AdvancedHousingSearch-searchHouses-0-python">Python</a></li>
+                          <li class=""><a href="#examples-AdvancedHousingSearch-searchHouses-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-AdvancedHousingSearch-searchHouses-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+ -H "Accept: application/json" \
+ "https://localhost:8443/v1/api/query?tags=beach,pool&stars=4"
+</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-AdvancedHousingSearch-searchHouses-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.AdvancedHousingSearchApi;
+
+import java.io.File;
+import java.util.*;
+
+public class AdvancedHousingSearchApiExample {
+    public static void main(String[] args) {
+
+        // Create an instance of the API class
+        AdvancedHousingSearchApi apiInstance = new AdvancedHousingSearchApi();
+        String tags = beach,pool; // String | Comma-separated list of tags to filter by (e.g. 'beach,pool,wifi')
+        Integer stars = 4; // Integer | Minimum star rating to filter by (1-5)
+
+        try {
+            array[HousingDTO] result = apiInstance.searchHouses(tags, stars);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AdvancedHousingSearchApi#searchHouses");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-AdvancedHousingSearch-searchHouses-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final String tags = new String(); // String | Comma-separated list of tags to filter by (e.g. 'beach,pool,wifi')
+final Integer stars = new Integer(); // Integer | Minimum star rating to filter by (1-5)
+
+try {
+    final result = await api_instance.searchHouses(tags, stars);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->searchHouses: $e\n');
+}
+
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-AdvancedHousingSearch-searchHouses-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.AdvancedHousingSearchApi;
+
+public class AdvancedHousingSearchApiExample {
+    public static void main(String[] args) {
+        AdvancedHousingSearchApi apiInstance = new AdvancedHousingSearchApi();
+        String tags = beach,pool; // String | Comma-separated list of tags to filter by (e.g. 'beach,pool,wifi')
+        Integer stars = 4; // Integer | Minimum star rating to filter by (1-5)
+
+        try {
+            array[HousingDTO] result = apiInstance.searchHouses(tags, stars);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AdvancedHousingSearchApi#searchHouses");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-AdvancedHousingSearch-searchHouses-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-AdvancedHousingSearch-searchHouses-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+AdvancedHousingSearchApi *apiInstance = [[AdvancedHousingSearchApi alloc] init];
+String *tags = beach,pool; // Comma-separated list of tags to filter by (e.g. 'beach,pool,wifi') (optional) (default to null)
+Integer *stars = 4; // Minimum star rating to filter by (1-5) (optional) (default to null)
+
+// Search houses by tags and stars
+[apiInstance searchHousesWith:tags
+    stars:stars
+              completionHandler: ^(array[HousingDTO] output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-AdvancedHousingSearch-searchHouses-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var TrippinssSpringbootApiRest = require('trippinss_springboot_api_rest');
+
+// Create an instance of the API class
+var api = new TrippinssSpringbootApiRest.AdvancedHousingSearchApi()
+var opts = {
+  'tags': beach,pool, // {String} Comma-separated list of tags to filter by (e.g. 'beach,pool,wifi')
+  'stars': 4 // {Integer} Minimum star rating to filter by (1-5)
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.searchHouses(opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-AdvancedHousingSearch-searchHouses-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-AdvancedHousingSearch-searchHouses-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class searchHousesExample
+    {
+        public void main()
+        {
+
+            // Create an instance of the API class
+            var apiInstance = new AdvancedHousingSearchApi();
+            var tags = beach,pool;  // String | Comma-separated list of tags to filter by (e.g. 'beach,pool,wifi') (optional)  (default to null)
+            var stars = 4;  // Integer | Minimum star rating to filter by (1-5) (optional)  (default to null)
+
+            try {
+                // Search houses by tags and stars
+                array[HousingDTO] result = apiInstance.searchHouses(tags, stars);
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling AdvancedHousingSearchApi.searchHouses: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-AdvancedHousingSearch-searchHouses-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\AdvancedHousingSearchApi();
+$tags = beach,pool; // String | Comma-separated list of tags to filter by (e.g. 'beach,pool,wifi')
+$stars = 4; // Integer | Minimum star rating to filter by (1-5)
+
+try {
+    $result = $api_instance->searchHouses($tags, $stars);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AdvancedHousingSearchApi->searchHouses: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-AdvancedHousingSearch-searchHouses-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::AdvancedHousingSearchApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::AdvancedHousingSearchApi->new();
+my $tags = beach,pool; # String | Comma-separated list of tags to filter by (e.g. 'beach,pool,wifi')
+my $stars = 4; # Integer | Minimum star rating to filter by (1-5)
+
+eval {
+    my $result = $api_instance->searchHouses(tags => $tags, stars => $stars);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling AdvancedHousingSearchApi->searchHouses: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-AdvancedHousingSearch-searchHouses-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.AdvancedHousingSearchApi()
+tags = beach,pool # String | Comma-separated list of tags to filter by (e.g. 'beach,pool,wifi') (optional) (default to null)
+stars = 4 # Integer | Minimum star rating to filter by (1-5) (optional) (default to null)
+
+try:
+    # Search houses by tags and stars
+    api_response = api_instance.search_houses(tags=tags, stars=stars)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AdvancedHousingSearchApi->searchHouses: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-AdvancedHousingSearch-searchHouses-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate AdvancedHousingSearchApi;
+
+pub fn main() {
+    let tags = beach,pool; // String
+    let stars = 4; // Integer
+
+    let mut context = AdvancedHousingSearchApi::Context::default();
+    let result = client.searchHouses(tags, stars, &context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">tags</td>
+<td>
+
+
+    <div id="d2e199_searchHouses_tags">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+Comma-separated list of tags to filter by (e.g. &#39;beach,pool,wifi&#39;)
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">stars</td>
+<td>
+
+
+    <div id="d2e199_searchHouses_stars">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Minimum star rating to filter by (1-5)
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-AdvancedHousingSearch-searchHouses-title-200"></h3>
+                            <p id="examples-AdvancedHousingSearch-searchHouses-description-200" class="marked"></p>
+                            <script>
+                              var responseAdvancedHousingSearch200_description = `Successful operation`;
+                              var responseAdvancedHousingSearch200_description_break = responseAdvancedHousingSearch200_description.indexOf('\n');
+                              if (responseAdvancedHousingSearch200_description_break == -1) {
+                                $("#examples-AdvancedHousingSearch-searchHouses-title-200").text("Status: 200 - " + responseAdvancedHousingSearch200_description);
+                              } else {
+                                $("#examples-AdvancedHousingSearch-searchHouses-title-200").text("Status: 200 - " + responseAdvancedHousingSearch200_description.substring(0, responseAdvancedHousingSearch200_description_break));
+                                $("#examples-AdvancedHousingSearch-searchHouses-description-200").html(responseAdvancedHousingSearch200_description.substring(responseAdvancedHousingSearch200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-AdvancedHousingSearch-searchHouses-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-AdvancedHousingSearch-searchHouses-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-AdvancedHousingSearch-searchHouses-200-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-AdvancedHousingSearch-searchHouses-200-schema">
+                                <div id="responses-AdvancedHousingSearch-searchHouses-schema-200" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "Successful operation",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/HousingDTO"
+        }
+      }
+    }
+  }
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
+
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-AdvancedHousingSearch-searchHouses-200-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-AdvancedHousingSearch-searchHouses-schema-200');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
+                                </div>
+                                <input id='responses-AdvancedHousingSearch-searchHouses-200-schema-data' type='hidden' value=''></input>
+                              </div>
+                            </div>
+                            <h3 id="examples-AdvancedHousingSearch-searchHouses-title-500"></h3>
+                            <p id="examples-AdvancedHousingSearch-searchHouses-description-500" class="marked"></p>
+                            <script>
+                              var responseAdvancedHousingSearch500_description = `Internal server error`;
+                              var responseAdvancedHousingSearch500_description_break = responseAdvancedHousingSearch500_description.indexOf('\n');
+                              if (responseAdvancedHousingSearch500_description_break == -1) {
+                                $("#examples-AdvancedHousingSearch-searchHouses-title-500").text("Status: 500 - " + responseAdvancedHousingSearch500_description);
+                              } else {
+                                $("#examples-AdvancedHousingSearch-searchHouses-title-500").text("Status: 500 - " + responseAdvancedHousingSearch500_description.substring(0, responseAdvancedHousingSearch500_description_break));
+                                $("#examples-AdvancedHousingSearch-searchHouses-description-500").html(responseAdvancedHousingSearch500_description.substring(responseAdvancedHousingSearch500_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-AdvancedHousingSearch-searchHouses-500" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-AdvancedHousingSearch-searchHouses-500-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-AdvancedHousingSearch-searchHouses-500-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-AdvancedHousingSearch-searchHouses-500-schema">
+                                <div id="responses-AdvancedHousingSearch-searchHouses-schema-500" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "Internal server error",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/ErrorResponse"
+      }
+    }
+  }
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
+
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-AdvancedHousingSearch-searchHouses-500-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-AdvancedHousingSearch-searchHouses-schema-500');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
+                                </div>
+                                <input id='responses-AdvancedHousingSearch-searchHouses-500-schema-data' type='hidden' value=''></input>
+                              </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                  </section>
                 <section id="api-AuthenticationManagement">
                   <h1>AuthenticationManagement</h1>
                     <div id="api-AuthenticationManagement-createAuthenticationToken">
@@ -1373,7 +2352,7 @@ ul.nav-tabs {
                         <p class="marked">Authenticates a user with their email and password, and returns a JWT token and their roles.</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/login</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/v1/api/login</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -1398,7 +2377,7 @@ ul.nav-tabs {
                             <pre class="prettyprint"><code class="language-bsh">curl -X POST \
  -H "Accept: */*" \
  -H "Content-Type: application/json" \
- "http://localhost:8443/api/login" \
+ "https://localhost:8443/v1/api/login" \
  -d '{
   &quot;password&quot; : &quot;password&quot;,
   &quot;email&quot; : &quot;email&quot;
@@ -1940,7 +2919,7 @@ $(document).ready(function() {
                           <div class="tab-pane active" id="examples-CustomAJAXEndpoints-acceptHouse-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X PUT \
  -H "Authorization: Bearer [[accessToken]]" \
- "http://localhost:8443/api/admin/houses/decision/{houseId}"
+ "https://localhost:8443/api/admin/houses/decision/{houseId}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-CustomAJAXEndpoints-acceptHouse-0-java">
@@ -2507,7 +3486,7 @@ ID(code) of the house
                           <div class="tab-pane active" id="examples-CustomAJAXEndpoints-acceptReservation-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X PUT \
  -H "Authorization: Bearer [[accessToken]]" \
- "http://localhost:8443/api/admin/reservations/decision/{reservationId}"
+ "https://localhost:8443/api/admin/reservations/decision/{reservationId}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-CustomAJAXEndpoints-acceptReservation-0-java">
@@ -3074,7 +4053,7 @@ ID of the reservation
                           <div class="tab-pane active" id="examples-CustomAJAXEndpoints-denyHouse-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X DELETE \
  -H "Authorization: Bearer [[accessToken]]" \
- "http://localhost:8443/api/admin/houses/decision/{houseId}"
+ "https://localhost:8443/api/admin/houses/decision/{houseId}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-CustomAJAXEndpoints-denyHouse-0-java">
@@ -3641,7 +4620,7 @@ ID(code) of the house
                           <div class="tab-pane active" id="examples-CustomAJAXEndpoints-denyReservation-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X DELETE \
  -H "Authorization: Bearer [[accessToken]]" \
- "http://localhost:8443/api/admin/reservations/decision/{reservationId}"
+ "https://localhost:8443/api/admin/reservations/decision/{reservationId}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-CustomAJAXEndpoints-denyReservation-0-java">
@@ -4184,7 +5163,7 @@ ID of the reservation
                         <p class="marked">Returns a paginated list of unaccepted houses for admin review.</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/admin/houses</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/admin/houses</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -4206,11 +5185,11 @@ ID of the reservation
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-CustomAJAXEndpoints-getAdminHouses-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+                            <pre class="prettyprint"><code class="language-bsh">curl -X POST \
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Accept: */*" \
  -H "Content-Type: application/json" \
- "http://localhost:8443/api/admin/houses" \
+ "https://localhost:8443/api/admin/houses" \
  -d ''
 </code></pre>
                           </div>
@@ -4675,7 +5654,7 @@ $(document).ready(function() {
                         <p class="marked">Returns a paginated list of comments for a specific house.</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/rooms/{id}/comments/extra</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/rooms/{id}/comments/extra</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -4697,10 +5676,10 @@ $(document).ready(function() {
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-CustomAJAXEndpoints-getComments-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+                            <pre class="prettyprint"><code class="language-bsh">curl -X POST \
  -H "Accept: */*" \
  -H "Content-Type: application/json" \
- "http://localhost:8443/api/rooms/{id}/comments/extra" \
+ "https://localhost:8443/api/rooms/{id}/comments/extra" \
  -d ''
 </code></pre>
                           </div>
@@ -5185,7 +6164,7 @@ $(document).ready(function() {
                         <p class="marked">Returns a paginated list of accepted houses.</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/rooms/extra</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/rooms/extra</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -5207,10 +6186,10 @@ $(document).ready(function() {
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-CustomAJAXEndpoints-getHouses-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+                            <pre class="prettyprint"><code class="language-bsh">curl -X POST \
  -H "Accept: */*" \
  -H "Content-Type: application/json" \
- "http://localhost:8443/api/rooms/extra" \
+ "https://localhost:8443/api/rooms/extra" \
  -d ''
 </code></pre>
                           </div>
@@ -5654,7 +6633,7 @@ $(document).ready(function() {
                         <p class="marked">Removes the image associated with a housing listing</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/api/houses/{id}/image</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/v1/api/houses/{id}/image</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -5678,7 +6657,7 @@ $(document).ready(function() {
                           <div class="tab-pane active" id="examples-HousingImagesManaging-deleteImage-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X DELETE \
  -H "Authorization: Bearer [[accessToken]]" \
- "http://localhost:8443/api/houses/{id}/image"
+ "https://localhost:8443/v1/api/houses/{id}/image"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-HousingImagesManaging-deleteImage-0-java">
@@ -6090,7 +7069,7 @@ pub fn main() {
                         <p class="marked">Retrieves the image associated with a housing listing</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/houses/{id}/image</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/v1/api/houses/{id}/image</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -6115,7 +7094,7 @@ pub fn main() {
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Accept: image/jpeg,*/*" \
- "http://localhost:8443/api/houses/{id}/image"
+ "https://localhost:8443/v1/api/houses/{id}/image"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-HousingImagesManaging-getImage-0-java">
@@ -6546,7 +7525,7 @@ ID(code) of the house which you desire to edit
                         <p class="marked">Uploads or updates the image for a housing listing</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/api/houses/{id}/image</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/v1/api/houses/{id}/image</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -6571,7 +7550,7 @@ ID(code) of the house which you desire to edit
                             <pre class="prettyprint"><code class="language-bsh">curl -X PUT \
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Content-Type: application/json" \
- "http://localhost:8443/api/houses/{id}/image" \
+ "https://localhost:8443/v1/api/houses/{id}/image" \
  -d ''
 </code></pre>
                           </div>
@@ -7114,7 +8093,7 @@ $(document).ready(function() {
                         <p class="marked">Creates a new house with the provided details</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/houses</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/v1/api/houses</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -7140,7 +8119,7 @@ $(document).ready(function() {
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Accept: */*" \
  -H "Content-Type: application/json" \
- "http://localhost:8443/api/houses" \
+ "https://localhost:8443/v1/api/houses" \
  -d '{
   &quot;imageBase64&quot; : &quot;imageBase64&quot;,
   &quot;code&quot; : 0,
@@ -7694,7 +8673,7 @@ $(document).ready(function() {
                         <p class="marked">Deletes a house by its ID</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/api/houses/{id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/v1/api/houses/{id}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -7718,7 +8697,7 @@ $(document).ready(function() {
                           <div class="tab-pane active" id="examples-HousingManagement-deleteHouse-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X DELETE \
  -H "Authorization: Bearer [[accessToken]]" \
- "http://localhost:8443/api/houses/{id}"
+ "https://localhost:8443/v1/api/houses/{id}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-HousingManagement-deleteHouse-0-java">
@@ -8197,7 +9176,7 @@ ID of the house to delete
                         <p class="marked">Returns a list of all houses</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/houses</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/v1/api/houses</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -8222,7 +9201,7 @@ ID of the house to delete
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Accept: */*" \
- "http://localhost:8443/api/houses"
+ "https://localhost:8443/v1/api/houses"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-HousingManagement-getAllhouses-0-java">
@@ -8632,7 +9611,7 @@ pub fn main() {
                         <p class="marked">Returns a house by its ID in our api the ID of the houses is referred to as code</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/houses/{id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/v1/api/houses/{id}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -8657,7 +9636,7 @@ pub fn main() {
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Accept: */*" \
- "http://localhost:8443/api/houses/{id}"
+ "https://localhost:8443/v1/api/houses/{id}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-HousingManagement-getHouseById-0-java">
@@ -9181,7 +10160,7 @@ ID(Code) of the house
                         <p class="marked">Returns a set of tags associated with a house by its ID(code)</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/houses/{id}/tags</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/v1/api/houses/{id}/tags</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -9206,7 +10185,7 @@ ID(Code) of the house
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Accept: */*" \
- "http://localhost:8443/api/houses/{id}/tags"
+ "https://localhost:8443/v1/api/houses/{id}/tags"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-HousingManagement-getTagsById-0-java">
@@ -9742,7 +10721,7 @@ ID of the house
                         <p class="marked">Updates an existing house with the provided details</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/api/houses/{id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/v1/api/houses/{id}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -9768,7 +10747,7 @@ ID of the house
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Accept: */*" \
  -H "Content-Type: application/json" \
- "http://localhost:8443/api/houses/{id}" \
+ "https://localhost:8443/v1/api/houses/{id}" \
  -d '{
   &quot;imageBase64&quot; : &quot;imageBase64&quot;,
   &quot;code&quot; : 0,
@@ -10445,7 +11424,7 @@ $(document).ready(function() {
                         <p class="marked">Creates a new reservation with the provided details</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/reservations</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/v1/api/reservations</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -10471,7 +11450,7 @@ $(document).ready(function() {
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Accept: */*" \
  -H "Content-Type: application/json" \
- "http://localhost:8443/api/reservations" \
+ "https://localhost:8443/v1/api/reservations" \
  -d '{
   &quot;checkIn&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
   &quot;clientDni&quot; : &quot;clientDni&quot;,
@@ -11019,7 +11998,7 @@ $(document).ready(function() {
                         <p class="marked">Deletes a reservation by its ID</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/api/reservations/{id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/v1/api/reservations/{id}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -11043,7 +12022,7 @@ $(document).ready(function() {
                           <div class="tab-pane active" id="examples-ReservationManagement-deleteUser1-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X DELETE \
  -H "Authorization: Bearer [[accessToken]]" \
- "http://localhost:8443/api/reservations/{id}"
+ "https://localhost:8443/v1/api/reservations/{id}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-ReservationManagement-deleteUser1-0-java">
@@ -11519,7 +12498,7 @@ pub fn main() {
                         <p class="marked">Returns a list of all reservations</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/reservations</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/v1/api/reservations</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -11544,7 +12523,7 @@ pub fn main() {
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Accept: */*" \
- "http://localhost:8443/api/reservations"
+ "https://localhost:8443/v1/api/reservations"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-ReservationManagement-getAllReservations-0-java">
@@ -11954,7 +12933,7 @@ pub fn main() {
                         <p class="marked">Returns a reservation by its ID</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/reservations/{id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/v1/api/reservations/{id}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -11979,7 +12958,7 @@ pub fn main() {
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Accept: */*" \
- "http://localhost:8443/api/reservations/{id}"
+ "https://localhost:8443/v1/api/reservations/{id}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-ReservationManagement-getReservationById-0-java">
@@ -12503,7 +13482,7 @@ ID of the reservation
                         <p class="marked">Updates an existing reservation with the provided details</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/api/reservations/{id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/v1/api/reservations/{id}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -12529,7 +13508,7 @@ ID of the reservation
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Accept: */*" \
  -H "Content-Type: application/json" \
- "http://localhost:8443/api/reservations/{id}" \
+ "https://localhost:8443/v1/api/reservations/{id}" \
  -d '{
   &quot;checkIn&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
   &quot;clientDni&quot; : &quot;clientDni&quot;,
@@ -13200,7 +14179,7 @@ $(document).ready(function() {
                         <p class="marked">Creates a new review with the provided details</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/reviews</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/v1/api/reviews</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -13226,7 +14205,7 @@ $(document).ready(function() {
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Accept: */*" \
  -H "Content-Type: application/json" \
- "http://localhost:8443/api/reviews" \
+ "https://localhost:8443/v1/api/reviews" \
  -d '{
   &quot;rating&quot; : 6,
   &quot;comment&quot; : &quot;comment&quot;,
@@ -13772,7 +14751,7 @@ $(document).ready(function() {
                         <p class="marked">Deletes a review by its ID</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/api/reviews/{id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/v1/api/reviews/{id}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -13796,7 +14775,7 @@ $(document).ready(function() {
                           <div class="tab-pane active" id="examples-ReviewManagement-deleteReview-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X DELETE \
  -H "Authorization: Bearer [[accessToken]]" \
- "http://localhost:8443/api/reviews/{id}"
+ "https://localhost:8443/v1/api/reviews/{id}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-ReviewManagement-deleteReview-0-java">
@@ -14275,7 +15254,7 @@ ID of the review to delete
                         <p class="marked">Returns a list of all reviews</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/reviews</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/v1/api/reviews</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -14300,7 +15279,7 @@ ID of the review to delete
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Accept: */*" \
- "http://localhost:8443/api/reviews"
+ "https://localhost:8443/v1/api/reviews"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-ReviewManagement-getAllReviews-0-java">
@@ -14710,7 +15689,7 @@ pub fn main() {
                         <p class="marked">Returns a review by its ID</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/reviews/{id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/v1/api/reviews/{id}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -14735,7 +15714,7 @@ pub fn main() {
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Accept: */*" \
- "http://localhost:8443/api/reviews/{id}"
+ "https://localhost:8443/v1/api/reviews/{id}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-ReviewManagement-getReviewById-0-java">
@@ -15259,7 +16238,7 @@ ID of the review
                         <p class="marked">Updates an existing review with the provided details</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/api/reviews/{id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/v1/api/reviews/{id}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -15285,7 +16264,7 @@ ID of the review
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Accept: */*" \
  -H "Content-Type: application/json" \
- "http://localhost:8443/api/reviews/{id}" \
+ "https://localhost:8443/v1/api/reviews/{id}" \
  -d '{
   &quot;rating&quot; : 6,
   &quot;comment&quot; : &quot;comment&quot;,
@@ -15954,7 +16933,7 @@ $(document).ready(function() {
                         <p class="marked">Creates a new user with the provided details</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/users</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/v1/api/users</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -15980,7 +16959,7 @@ $(document).ready(function() {
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Accept: */*" \
  -H "Content-Type: application/json" \
- "http://localhost:8443/api/users" \
+ "https://localhost:8443/v1/api/users" \
  -d '{
   &quot;number&quot; : 0,
   &quot;password&quot; : &quot;password&quot;,
@@ -16528,7 +17507,7 @@ $(document).ready(function() {
                         <p class="marked">Deletes a user by their ID</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/api/users/{id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/v1/api/users/{id}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -16552,7 +17531,7 @@ $(document).ready(function() {
                           <div class="tab-pane active" id="examples-UserManagement-deleteUser-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X DELETE \
  -H "Authorization: Bearer [[accessToken]]" \
- "http://localhost:8443/api/users/{id}"
+ "https://localhost:8443/v1/api/users/{id}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-UserManagement-deleteUser-0-java">
@@ -17028,7 +18007,7 @@ Dni of the user to delete
                         <p class="marked">Returns a list of all users</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/users</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/v1/api/users</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -17053,7 +18032,7 @@ Dni of the user to delete
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Accept: */*" \
- "http://localhost:8443/api/users"
+ "https://localhost:8443/v1/api/users"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-UserManagement-getAllUsers-0-java">
@@ -17463,7 +18442,7 @@ pub fn main() {
                         <p class="marked">Returns a user by their ID</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/users/{id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/v1/api/users/{id}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -17488,7 +18467,7 @@ pub fn main() {
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Accept: */*" \
- "http://localhost:8443/api/users/{id}"
+ "https://localhost:8443/v1/api/users/{id}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-UserManagement-getUserById-0-java">
@@ -18009,7 +18988,7 @@ Dni of the user
                         <p class="marked">Updates an existing user with the provided details</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/api/users/{id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/v1/api/users/{id}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -18035,7 +19014,7 @@ Dni of the user
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Accept: */*" \
  -H "Content-Type: application/json" \
- "http://localhost:8443/api/users/{id}" \
+ "https://localhost:8443/v1/api/users/{id}" \
  -d '{
   &quot;number&quot; : 0,
   &quot;password&quot; : &quot;password&quot;,
