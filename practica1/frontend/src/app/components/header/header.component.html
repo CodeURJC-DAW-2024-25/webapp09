@@ -1,1 +1,50 @@
-<p>header works!</p>
+<!-- Spinner Start -->
+<div id="spinner"
+    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<!-- Spinner End -->
+
+<!-- Header Start -->
+<div class="container-fluid bg-dark px-0">
+
+    <div class="row gx-0">
+        <div class="col-lg-3 bg-dark d-none d-lg-block">
+            <a href="/index" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                <h1 class="m-0 text-primary text-uppercase">TriPPins</h1>
+            </a>
+        </div>
+        <div class="col-lg-9">
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto py-0">
+                        <a href="/index" class="nav-item nav-link">Home</a>
+                        <a href="/about" class="nav-item nav-link">Nuestro Staff</a>
+                        <a href="/room" class="nav-item nav-link ">Alojamientos</a>
+                        <a href="/register" class="nav-item nav-link">Registrate</a>
+                        {{#user}}
+                        <a href="/newHotel" class="nav-item nav-link">Nuevo Hotel</a>
+                        {{/user}}
+                        {{#admin}}
+                        <a href="/admin" class="nav-item nav-link">Admin</a>
+                        {{/admin}}
+                    </div>
+                    {{#username}}
+                    <a href="/profile" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Bienvenido, {{username}}</a>
+
+                    {{/username}}
+                    {{^username}}
+                    <a href="/login" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Iniciar Sesion  <i
+                            class="fas fa-lock"></i></a>
+                    {{/username}}
+                </div>
+            </nav>
+        </div>
+
+    </div>
+</div>
