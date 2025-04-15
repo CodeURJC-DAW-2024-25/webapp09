@@ -57,18 +57,18 @@ public class SecurityConfiguration {
         http
             .authorizeHttpRequests(auth -> auth
                 // Public endpoints (accessible to everyone, registered or not)
-                .requestMatchers("/", "/index", "/about", "/contact", "/register", "/error", "/api/login", "/css/**", "/js/**", "/images/**").permitAll()
+                .requestMatchers("/", "/index", "/about", "/contact", "/register", "/error", "/v1/api/login/**", "/css/**", "/js/**", "/images/**").permitAll()
                 .requestMatchers("/room").permitAll() // ✅ Anyone can see the rooms page
                 .requestMatchers("/room/{code}", "/roomDetails").authenticated()
 
                 // Allow POST requests to /addUser for unauthenticated users
                 .requestMatchers(HttpMethod.POST, "/addUser").permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/login").permitAll()
+                .requestMatchers(HttpMethod.POST, "/v1/api/login/forms").permitAll()
 
                 // Allow POST requests to /addHotel for authenticated users with USER or ADMIN role
                 .requestMatchers(HttpMethod.POST, "/addHotel").hasAnyRole("USER", "ADMIN")
                 // Restricted endpoints
-                .requestMatchers("/api/users/**","/api/reviews/**","/api/admin/**").hasRole("ADMIN")
+                .requestMatchers("/v1/api/users/**","/v1/api/reviews/**","/v1/api/admin/**").hasRole("ADMIN")
                 .requestMatchers("/admin/**").hasRole("ADMIN") // Only ADMIN can access /admin
                 .requestMatchers("/newHotel", "/booking", "/profile","/api/houses/**").authenticated() // Only authenticated users (registered or admin) can access /newHotel and /booking
                 .anyRequest().permitAll() // Allow all other endpoints by default
