@@ -69,7 +69,7 @@ public class SecurityConfiguration {
                 .requestMatchers(HttpMethod.POST, "/addHotel").hasAnyRole("USER", "ADMIN")
                 // Restricted endpoints
                 .requestMatchers("/v1/api/users/**","/v1/api/reviews/**","/v1/api/admin/**").hasRole("ADMIN")
-                .requestMatchers("/admin/**").hasRole("ADMIN") // Only ADMIN can access /admin
+                .requestMatchers("/admin/**", "/admin").hasRole("ADMIN") // Only ADMIN can access /admin
                 .requestMatchers("/newHotel", "/booking", "/profile","/api/houses/**").authenticated() // Only authenticated users (registered or admin) can access /newHotel and /booking
                 .anyRequest().permitAll() // Allow all other endpoints by default
             )

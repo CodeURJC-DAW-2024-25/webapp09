@@ -153,4 +153,17 @@ public class UserService {
         }
         return userDTOs;
     }
+
+    public UserDTO getUserByEmail(String email){
+        List<User> userList= userRepository.findAll();
+        UserDTO userDTO = new UserDTO();
+        for (User user : userList) {
+            if (user.getEmail().equals(email)){
+            userDTO =new UserDTO(user);
+            }
+        }
+        return userDTO;
+
+    }
+    
 }

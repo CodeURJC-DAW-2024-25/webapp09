@@ -230,6 +230,18 @@
     <script src="/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
     <!-- Template Javascript -->
     <script src="/main.js"></script>
+    <script>
+        if (document.cookie.includes('justLoggedIn=true')) {
+    // Erase the cookie by setting expiration to past date
+    document.cookie = 'justLoggedIn=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    console.log("aaa");
+    // Reload the page after a tiny delay (10ms) to ensure cookie is cleared
+    setTimeout(() => {
+        console.log("Reloading after cookie cleanup...");
+        window.location.href = "/index"
+    }, 50);
+    }
+    </script>
 </body>
 
 </html>

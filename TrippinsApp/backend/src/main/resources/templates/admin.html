@@ -62,12 +62,12 @@
                             <!-- Example Row for a Reservation -->
                             {{#reservations}}
                             <tr data-reservation-id="{{id}}">
-                                <td>Reserva en {{housing_name.name}} (id de hotel {{housing.code}}) con id de reserva:
+                                <td>Reserva en {{housingName}} (id de hotel {{housingCode}}) con id de reserva:
                                     {{id}}
                                     <br>
-                                    Esta peticion de reserva la solicita {{client.name}} con dni: {{client.dni}}
+                                    Esta peticion de reserva la solicita el cliente con dni: {{clientDni}}
                                 </td>
-                                <td>Check-in: {{check_in}} - Check-out: {{check_out}}</td>
+                                <td>Check-in: {{checkIn}} - Check-out: {{checkOut}}</td>
                                 <td>
                                     <button class="btn btn-success"><i class="bi bi-check"></i></button>
                                     <button class="btn btn-danger"><i class="bi bi-x"></i></button>

@@ -24,8 +24,7 @@ import es.grupo9.practica1.DTOs.HousingDTO;
 import es.grupo9.practica1.DTOs.RegisteredUserDTO;
 import es.grupo9.practica1.DTOs.ReservationDTO;
 import es.grupo9.practica1.DTOs.ReviewDTO;
-
-
+import es.grupo9.practica1.DTOs.UserDTO;
 import es.grupo9.practica1.entities.Tag;
 import es.grupo9.practica1.entities.User;
 
@@ -38,11 +37,15 @@ import es.grupo9.practica1.service.ReservationService;
 import es.grupo9.practica1.service.ReviewService;
 import es.grupo9.practica1.service.UserService;
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
 
@@ -295,18 +298,23 @@ public class MustacheController {
     @PostMapping("/v1/api/login/forms")
     public String userlogin(@RequestParam String email, @RequestParam String password, HttpServletResponse response) throws Exception {
         AuthenticationRequest authenticationRequest = new AuthenticationRequest(email, password);
-
         authenticationManager.authenticate(
                                 new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(),
                                                 authenticationRequest.getPassword()));
 
-                final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getEmail());
-                final String jwt = jwtUtil.generateToken(userDetails);
+
+
+
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getEmail());
+        final String jwt = jwtUtil.generateToken(userDetails);
 
         Cookie jwtCookie = new Cookie("JWT", jwt);
         jwtCookie.setHttpOnly(true);
         jwtCookie.setPath("/");
         response.addCookie(jwtCookie);
+        Cookie loggedCookie = new Cookie("justLoggedIn", "true");
+        loggedCookie.setPath("/");
+        response.addCookie(loggedCookie);
         
         // 5. Redirect to dashboard
         return "index";
