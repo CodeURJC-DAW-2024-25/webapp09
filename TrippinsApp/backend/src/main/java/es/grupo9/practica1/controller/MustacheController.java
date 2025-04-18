@@ -1,5 +1,6 @@
 package es.grupo9.practica1.controller;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -217,7 +218,7 @@ public class MustacheController {
             @RequestParam("price") Integer price,
             @RequestParam("description") String description,
             @RequestParam(value = "tags", required = false) String tags,
-            Model model) {
+            Model model) throws IOException {
 
             // Transform the image to byte
             String stringImageBytes = imageFile.toString();
@@ -234,7 +235,7 @@ public class MustacheController {
 
             } 
 
-            HousingDTO houseDTO = new HousingDTO(location, name,stringImageBytes, price,description, stars, false,tagSet); 
+            HousingDTO houseDTO = new HousingDTO(location, name,imageFile, price,description, stars, false,tagSet); 
             housingService.createHouse(houseDTO);
             return "redirect:/room"; // Redirect to rooms
 

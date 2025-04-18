@@ -1,11 +1,16 @@
 package es.grupo9.practica1.DTOs;
 
+import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.Base64;
 import java.util.Set;
 
 import javax.sql.rowset.serial.SerialBlob;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import es.grupo9.practica1.entities.Housing;
 import es.grupo9.practica1.entities.Tag;
@@ -16,7 +21,9 @@ public class HousingDTO {
     private int code;
     private String location;
     private String name;
+    @JsonIgnore
     private String imageBase64; // Store the image as a Base64 string
+    private transient MultipartFile imageFile;
     private Integer price;
     private String description;
     private Integer stars;
@@ -27,11 +34,12 @@ public class HousingDTO {
 
 
     // Constructors
-    public HousingDTO(String location, String name, String imageBase64, Integer price, String description,
-        Integer stars, Boolean acepted, Set<Tag> tags) {        
+    public HousingDTO(String location, String name, MultipartFile imageFile, Integer price, String description,
+        Integer stars, Boolean acepted, Set<Tag> tags) throws IOException {        
         this.location = location;
         this.name = name;
-        this.imageBase64 = imageBase64;
+        this.imageBase64 = convertToBase64(imageFile);
+        this.imageFile = imageFile;
         this.price = price;
         this.description = description;
         this.stars = stars;
@@ -137,6 +145,11 @@ public class HousingDTO {
         } catch (SQLException e) {
             throw new RuntimeException("Failed to convert Base64 to Blob", e);
         }
+    }
+
+    public String convertToBase64 (MultipartFile image) throws IOException{
+        String base64Image = Base64.getEncoder().encodeToString(image.getBytes());
+        return base64Image;
     }
 
     public Blob obtainImage(String image) {
