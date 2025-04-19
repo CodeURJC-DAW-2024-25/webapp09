@@ -901,13 +901,13 @@ ul.nav-tabs {
       "format" : "date-time",
       "deprecated" : true
     },
-    "formData" : {
-      "type" : "boolean"
-    },
     "inline" : {
       "type" : "boolean"
     },
     "attachment" : {
+      "type" : "boolean"
+    },
+    "formData" : {
       "type" : "boolean"
     }
   }
@@ -922,16 +922,13 @@ ul.nav-tabs {
     "headers" : {
       "$ref" : "#/components/schemas/ErrorResponse_headers"
     },
-    "statusCode" : {
-      "$ref" : "#/components/schemas/ErrorResponse_statusCode"
-    },
     "body" : {
       "$ref" : "#/components/schemas/ProblemDetail"
     },
-    "typeMessageCode" : {
+    "titleMessageCode" : {
       "type" : "string"
     },
-    "titleMessageCode" : {
+    "detailMessageCode" : {
       "type" : "string"
     },
     "detailMessageArguments" : {
@@ -940,7 +937,10 @@ ul.nav-tabs {
         "type" : "object"
       }
     },
-    "detailMessageCode" : {
+    "statusCode" : {
+      "$ref" : "#/components/schemas/ErrorResponse_statusCode"
+    },
+    "typeMessageCode" : {
       "type" : "string"
     }
   }
@@ -963,6 +963,9 @@ ul.nav-tabs {
       "writeOnly" : true
     },
     "lastModified" : {
+      "format" : "int64"
+    },
+    "contentLength" : {
       "type" : "integer",
       "format" : "int64"
     },
@@ -970,49 +973,39 @@ ul.nav-tabs {
       "type" : "integer",
       "format" : "int64"
     },
-    "contentLength" : {
-      "type" : "integer",
-      "format" : "int64"
-    },
-    "accessControlMaxAge" : {
-      "type" : "integer",
-      "format" : "int64"
-    },
-    "ifModifiedSince" : {
-      "type" : "integer",
-      "format" : "int64"
-    },
-    "contentType" : {
-      "$ref" : "#/components/schemas/MediaType"
-    },
     "origin" : {
       "type" : "string"
     },
-    "accept" : {
-      "items" : {
-        "$ref" : "#/components/schemas/MediaType"
-      }
+    "contentType" : {
+      "$ref" : "#/components/schemas/MediaType"
     },
     "connection" : {
       "items" : {
         "type" : "string"
       }
     },
+    "ifModifiedSince" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
     "range" : {
       "items" : {
         "$ref" : "#/components/schemas/HttpRange"
       }
     },
+    "contentDisposition" : {
+      "$ref" : "#/components/schemas/ContentDisposition"
+    },
     "contentLanguage" : {
       "$ref" : "#/components/schemas/ErrorResponse_headers_contentLanguage"
+    },
+    "cacheControl" : {
+      "type" : "string"
     },
     "acceptCharset" : {
       "items" : {
         "type" : "string"
       }
-    },
-    "contentDisposition" : {
-      "$ref" : "#/components/schemas/ContentDisposition"
     },
     "allow" : {
       "uniqueItems" : true,
@@ -1025,26 +1018,30 @@ ul.nav-tabs {
         "$ref" : "#/components/schemas/MediaType"
       }
     },
-    "ifNoneMatch" : {
+    "accept" : {
       "items" : {
-        "type" : "string"
-      }
-    },
-    "basicAuth" : {
-      "writeOnly" : true
-    },
-    "acceptLanguage" : {
-      "items" : {
-        "$ref" : "#/components/schemas/ErrorResponse_headers_acceptLanguage_inner"
+        "$ref" : "#/components/schemas/MediaType"
       }
     },
     "bearerAuth" : {
       "writeOnly" : true
     },
+    "expires" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
     "pragma" : {
       "type" : "string"
     },
     "upgrade" : {
+      "type" : "string"
+    },
+    "ifNoneMatch" : {
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "etag" : {
       "type" : "string"
     },
     "ifMatch" : {
@@ -1057,53 +1054,55 @@ ul.nav-tabs {
         "type" : "string"
       }
     },
-    "expires" : {
-      "type" : "integer",
-      "format" : "int64"
-    },
-    "etag" : {
-      "type" : "string"
-    },
-    "cacheControl" : {
-      "type" : "string"
-    },
-    "acceptLanguageAsLocales" : {
-      "items" : {
-        "$ref" : "#/components/schemas/ErrorResponse_headers_acceptLanguageAsLocales_inner"
-      }
-    },
-    "ifUnmodifiedSince" : {
-      "type" : "integer",
-      "format" : "int64"
-    },
-    "accessControlAllowCredentials" : {
-      "type" : "boolean"
-    },
-    "accessControlAllowMethods" : {
-      "items" : {
-        "$ref" : "#/components/schemas/HttpMethod"
-      }
-    },
-    "accessControlAllowHeaders" : {
-      "items" : {
-        "type" : "string"
-      }
-    },
     "accessControlRequestHeaders" : {
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "accessControlAllowOrigin" : {
-      "type" : "string"
-    },
-    "accessControlExposeHeaders" : {
       "items" : {
         "type" : "string"
       }
     },
     "accessControlRequestMethod" : {
       "$ref" : "#/components/schemas/HttpMethod"
+    },
+    "accessControlAllowHeaders" : {
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "accessControlExposeHeaders" : {
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "accessControlAllowMethods" : {
+      "items" : {
+        "$ref" : "#/components/schemas/HttpMethod"
+      }
+    },
+    "accessControlMaxAge" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
+    "accessControlAllowCredentials" : {
+      "type" : "boolean"
+    },
+    "accessControlAllowOrigin" : {
+      "type" : "string"
+    },
+    "ifUnmodifiedSince" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
+    "acceptLanguageAsLocales" : {
+      "items" : {
+        "$ref" : "#/components/schemas/ErrorResponse_headers_acceptLanguageAsLocales_inner"
+      }
+    },
+    "acceptLanguage" : {
+      "items" : {
+        "$ref" : "#/components/schemas/ErrorResponse_headers_acceptLanguage_inner"
+      }
+    },
+    "basicAuth" : {
+      "writeOnly" : true
     }
   },
   "additionalProperties" : {
@@ -1115,10 +1114,9 @@ ul.nav-tabs {
     defs["ErrorResponse_headers_acceptLanguageAsLocales_inner"] = {
   "properties" : {
     "language" : { },
-    "displayName" : { },
+    "script" : { },
     "country" : { },
     "variant" : { },
-    "script" : { },
     "unicodeLocaleAttributes" : {
       "uniqueItems" : true,
       "items" : { }
@@ -1131,6 +1129,7 @@ ul.nav-tabs {
     "displayScript" : { },
     "displayCountry" : { },
     "displayVariant" : { },
+    "displayName" : { },
     "extensionKeys" : {
       "uniqueItems" : true,
       "items" : { }
@@ -1154,16 +1153,13 @@ ul.nav-tabs {
     "language" : {
       "type" : "string"
     },
-    "displayName" : {
+    "script" : {
       "type" : "string"
     },
     "country" : {
       "type" : "string"
     },
     "variant" : {
-      "type" : "string"
-    },
-    "script" : {
       "type" : "string"
     },
     "unicodeLocaleAttributes" : {
@@ -1186,6 +1182,9 @@ ul.nav-tabs {
       "type" : "string"
     },
     "displayVariant" : {
+      "type" : "string"
+    },
+    "displayName" : {
       "type" : "string"
     },
     "extensionKeys" : {
@@ -1285,9 +1284,6 @@ ul.nav-tabs {
     "name" : {
       "type" : "string"
     },
-    "imageBase64" : {
-      "type" : "string"
-    },
     "price" : {
       "type" : "integer",
       "format" : "int32"
@@ -1308,6 +1304,9 @@ ul.nav-tabs {
       "items" : {
         "$ref" : "#/components/schemas/Tag"
       }
+    },
+    "imageBase64" : {
+      "type" : "string"
     }
   }
 };
@@ -1321,9 +1320,6 @@ ul.nav-tabs {
       "type" : "string"
     },
     "name" : {
-      "type" : "string"
-    },
-    "imageBase64" : {
       "type" : "string"
     },
     "price" : {
@@ -1360,19 +1356,19 @@ ul.nav-tabs {
     "error" : {
       "type" : "boolean"
     },
-    "is5xxServerError" : {
-      "type" : "boolean"
-    },
-    "is4xxClientError" : {
-      "type" : "boolean"
-    },
     "is1xxInformational" : {
+      "type" : "boolean"
+    },
+    "is3xxRedirection" : {
       "type" : "boolean"
     },
     "is2xxSuccessful" : {
       "type" : "boolean"
     },
-    "is3xxRedirection" : {
+    "is4xxClientError" : {
+      "type" : "boolean"
+    },
+    "is5xxServerError" : {
       "type" : "boolean"
     }
   }
@@ -1397,13 +1393,13 @@ ul.nav-tabs {
     "charset" : {
       "type" : "string"
     },
-    "concrete" : {
+    "wildcardType" : {
       "type" : "boolean"
     },
     "wildcardSubtype" : {
       "type" : "boolean"
     },
-    "wildcardType" : {
+    "concrete" : {
       "type" : "boolean"
     },
     "subtypeSuffix" : {
@@ -1413,13 +1409,13 @@ ul.nav-tabs {
 };
     defs["Page"] = {
   "properties" : {
-    "totalElements" : {
-      "type" : "integer",
-      "format" : "int64"
-    },
     "totalPages" : {
       "type" : "integer",
       "format" : "int32"
+    },
+    "totalElements" : {
+      "type" : "integer",
+      "format" : "int64"
     },
     "size" : {
       "type" : "integer",
@@ -1438,15 +1434,15 @@ ul.nav-tabs {
     "sort" : {
       "$ref" : "#/components/schemas/SortObject"
     },
-    "numberOfElements" : {
-      "type" : "integer",
-      "format" : "int32"
-    },
     "first" : {
       "type" : "boolean"
     },
     "last" : {
       "type" : "boolean"
+    },
+    "numberOfElements" : {
+      "type" : "integer",
+      "format" : "int32"
     },
     "pageable" : {
       "$ref" : "#/components/schemas/PageableObject"
@@ -1465,16 +1461,16 @@ ul.nav-tabs {
     "sort" : {
       "$ref" : "#/components/schemas/SortObject"
     },
-    "pageSize" : {
-      "type" : "integer",
-      "format" : "int32"
+    "paged" : {
+      "type" : "boolean"
     },
     "pageNumber" : {
       "type" : "integer",
       "format" : "int32"
     },
-    "paged" : {
-      "type" : "boolean"
+    "pageSize" : {
+      "type" : "integer",
+      "format" : "int32"
     },
     "unpaged" : {
       "type" : "boolean"
@@ -1605,6 +1601,9 @@ ul.nav-tabs {
     "hotelCode" : {
       "type" : "integer",
       "format" : "int32"
+    },
+    "userName" : {
+      "type" : "string"
     },
     "userDni" : {
       "type" : "string"
@@ -5163,7 +5162,7 @@ ID of the reservation
                         <p class="marked">Returns a paginated list of unaccepted houses for admin review.</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/admin/houses</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/v1/api/admin/houses</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -5185,12 +5184,10 @@ ID of the reservation
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-CustomAJAXEndpoints-getAdminHouses-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X POST \
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Authorization: Bearer [[accessToken]]" \
  -H "Accept: */*" \
- -H "Content-Type: application/json" \
- "https://localhost:8443/api/admin/houses" \
- -d ''
+ "https://localhost:8443/v1/api/admin/houses?page=0&size=6"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-CustomAJAXEndpoints-getAdminHouses-0-java">
@@ -5212,10 +5209,11 @@ public class CustomAJAXEndpointsApiExample {
 
         // Create an instance of the API class
         CustomAJAXEndpointsApi apiInstance = new CustomAJAXEndpointsApi();
-        String body = {"page":0,"size":3}; // String | 
+        Integer page = 0; // Integer | Page number (0-based)
+        Integer size = 6; // Integer | Number of items per page
 
         try {
-            Page result = apiInstance.getAdminHouses(body);
+            Page result = apiInstance.getAdminHouses(page, size);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling CustomAJAXEndpointsApi#getAdminHouses");
@@ -5231,10 +5229,11 @@ public class CustomAJAXEndpointsApiExample {
 
 final api_instance = DefaultApi();
 
-final String body = new String(); // String | 
+final Integer page = new Integer(); // Integer | Page number (0-based)
+final Integer size = new Integer(); // Integer | Number of items per page
 
 try {
-    final result = await api_instance.getAdminHouses(body);
+    final result = await api_instance.getAdminHouses(page, size);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->getAdminHouses: $e\n');
@@ -5249,10 +5248,11 @@ try {
 public class CustomAJAXEndpointsApiExample {
     public static void main(String[] args) {
         CustomAJAXEndpointsApi apiInstance = new CustomAJAXEndpointsApi();
-        String body = {"page":0,"size":3}; // String | 
+        Integer page = 0; // Integer | Page number (0-based)
+        Integer size = 6; // Integer | Number of items per page
 
         try {
-            Page result = apiInstance.getAdminHouses(body);
+            Page result = apiInstance.getAdminHouses(page, size);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling CustomAJAXEndpointsApi#getAdminHouses");
@@ -5273,10 +5273,12 @@ public class CustomAJAXEndpointsApiExample {
 
 // Create an instance of the API class
 CustomAJAXEndpointsApi *apiInstance = [[CustomAJAXEndpointsApi alloc] init];
-String *body = {"page":0,"size":3}; // 
+Integer *page = 0; // Page number (0-based) (optional) (default to 0)
+Integer *size = 6; // Number of items per page (optional) (default to 3)
 
 // Get paginated unaccepted houses for admin
-[apiInstance getAdminHousesWith:body
+[apiInstance getAdminHousesWith:page
+    size:size
               completionHandler: ^(Page output, NSError* error) {
     if (output) {
         NSLog(@"%@", output);
@@ -5298,7 +5300,10 @@ JWT.accessToken = "YOUR ACCESS TOKEN";
 
 // Create an instance of the API class
 var api = new TrippinssSpringbootApiRest.CustomAJAXEndpointsApi()
-var body = {"page":0,"size":3}; // {String} 
+var opts = {
+  'page': 0, // {Integer} Page number (0-based)
+  'size': 6 // {Integer} Number of items per page
+};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -5307,7 +5312,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getAdminHouses(body, callback);
+api.getAdminHouses(opts, callback);
 </code></pre>
                             </div>
 
@@ -5332,11 +5337,12 @@ namespace Example
 
             // Create an instance of the API class
             var apiInstance = new CustomAJAXEndpointsApi();
-            var body = {"page":0,"size":3};  // String | 
+            var page = 0;  // Integer | Page number (0-based) (optional)  (default to 0)
+            var size = 6;  // Integer | Number of items per page (optional)  (default to 3)
 
             try {
                 // Get paginated unaccepted houses for admin
-                Page result = apiInstance.getAdminHouses(body);
+                Page result = apiInstance.getAdminHouses(page, size);
                 Debug.WriteLine(result);
             } catch (Exception e) {
                 Debug.Print("Exception when calling CustomAJAXEndpointsApi.getAdminHouses: " + e.Message );
@@ -5356,10 +5362,11 @@ OpenAPITools\Client\Configuration::getDefaultConfiguration()->setAccessToken('',
 
 // Create an instance of the API class
 $api_instance = new OpenAPITools\Client\Api\CustomAJAXEndpointsApi();
-$body = {"page":0,"size":3}; // String | 
+$page = 0; // Integer | Page number (0-based)
+$size = 6; // Integer | Number of items per page
 
 try {
-    $result = $api_instance->getAdminHouses($body);
+    $result = $api_instance->getAdminHouses($page, $size);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomAJAXEndpointsApi->getAdminHouses: ', $e->getMessage(), PHP_EOL;
@@ -5377,10 +5384,11 @@ $WWW::OPenAPIClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 # Create an instance of the API class
 my $api_instance = WWW::OPenAPIClient::CustomAJAXEndpointsApi->new();
-my $body = WWW::OPenAPIClient::Object::String->new(); # String | 
+my $page = 0; # Integer | Page number (0-based)
+my $size = 6; # Integer | Number of items per page
 
 eval {
-    my $result = $api_instance->getAdminHouses(body => $body);
+    my $result = $api_instance->getAdminHouses(page => $page, size => $size);
     print Dumper($result);
 };
 if ($@) {
@@ -5400,11 +5408,12 @@ openapi_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Create an instance of the API class
 api_instance = openapi_client.CustomAJAXEndpointsApi()
-body = {"page":0,"size":3} # String | 
+page = 0 # Integer | Page number (0-based) (optional) (default to 0)
+size = 6 # Integer | Number of items per page (optional) (default to 3)
 
 try:
     # Get paginated unaccepted houses for admin
-    api_response = api_instance.get_admin_houses(body)
+    api_response = api_instance.get_admin_houses(page=page, size=size)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CustomAJAXEndpointsApi->getAdminHouses: %s\n" % e)</code></pre>
@@ -5414,10 +5423,11 @@ except ApiException as e:
                               <pre class="prettyprint"><code class="language-rust">extern crate CustomAJAXEndpointsApi;
 
 pub fn main() {
-    let body = {"page":0,"size":3}; // String
+    let page = 0; // Integer
+    let size = 6; // Integer
 
     let mut context = CustomAJAXEndpointsApi::Context::default();
-    let result = client.getAdminHouses(body, &context).wait();
+    let result = client.getAdminHouses(page, size, &context).wait();
 
     println!("{:?}", result);
 }
@@ -5434,61 +5444,61 @@ pub fn main() {
 
 
 
-                            <div class="methodsubtabletitle">Body parameters</div>
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
                             <table id="methodsubtable">
                               <tr>
                                 <th width="150px">Name</th>
                                 <th>Description</th>
                               </tr>
-                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <tr><td style="width:150px;">page</td>
 <td>
-<p class="marked">Pagination parameters</p>
-<script>
-$(document).ready(function() {
-  var schemaWrapper = {
-  "description" : "Pagination parameters",
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "type" : "string"
-      },
-      "example" : {
-        "page" : 0,
-        "size" : 3
-      }
-    }
-  },
-  "required" : true
-};
 
-  var schema = findNode('schema',schemaWrapper).schema;
-  if (!schema) {
-    schema = schemaWrapper.schema;
-  }
-  if (schema.$ref != null) {
-    schema = defsParser.$refs.get(schema.$ref);
-  } else if (schema.items != null && schema.items.$ref != null) {
-    schema.items = defsParser.$refs.get(schema.items.$ref);
-  } else {
-    schemaWrapper.definitions = Object.assign({}, defs);
-    $RefParser.dereference(schemaWrapper).catch(function(err) {
-      console.log(err);
-    });
-  }
 
-  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-  var result = $('#d2e199_getAdminHouses_body');
-  result.empty();
-  result.append(view.render());
-});
-</script>
-<div id="d2e199_getAdminHouses_body"></div>
+    <div id="d2e199_getAdminHouses_page">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+                    <span class="format">
+                        (int32)
+                    </span>
+
+                    <div class="inner description marked">
+Page number (0-based)
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">size</td>
+<td>
+
+
+    <div id="d2e199_getAdminHouses_size">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+                    <span class="format">
+                        (int32)
+                    </span>
+
+                    <div class="inner description marked">
+Number of items per page
+                    </div>
+            </div>
+        </div>
+    </div>
 </td>
 </tr>
 
                             </table>
-
-
 
                           <h2>Responses</h2>
                             <h3 id="examples-CustomAJAXEndpoints-getAdminHouses-title-200"></h3>
@@ -5654,7 +5664,7 @@ $(document).ready(function() {
                         <p class="marked">Returns a paginated list of comments for a specific house.</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/rooms/{id}/comments/extra</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/rooms/{id}/comments/extra</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -5676,11 +5686,9 @@ $(document).ready(function() {
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-CustomAJAXEndpoints-getComments-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X POST \
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: */*" \
- -H "Content-Type: application/json" \
- "https://localhost:8443/api/rooms/{id}/comments/extra" \
- -d ''
+ "https://localhost:8443/api/rooms/{id}/comments/extra?page=0&size=6"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-CustomAJAXEndpoints-getComments-0-java">
@@ -5698,10 +5706,11 @@ public class CustomAJAXEndpointsApiExample {
         // Create an instance of the API class
         CustomAJAXEndpointsApi apiInstance = new CustomAJAXEndpointsApi();
         Integer id = 1; // Integer | ID of the house
-        String body = {"page":0,"size":6}; // String | 
+        Integer page = 0; // Integer | Page number (0-based)
+        Integer size = 6; // Integer | Number of items per page
 
         try {
-            Review result = apiInstance.getComments(id, body);
+            Review result = apiInstance.getComments(id, page, size);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling CustomAJAXEndpointsApi#getComments");
@@ -5718,10 +5727,11 @@ public class CustomAJAXEndpointsApiExample {
 final api_instance = DefaultApi();
 
 final Integer id = new Integer(); // Integer | ID of the house
-final String body = new String(); // String | 
+final Integer page = new Integer(); // Integer | Page number (0-based)
+final Integer size = new Integer(); // Integer | Number of items per page
 
 try {
-    final result = await api_instance.getComments(id, body);
+    final result = await api_instance.getComments(id, page, size);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->getComments: $e\n');
@@ -5737,10 +5747,11 @@ public class CustomAJAXEndpointsApiExample {
     public static void main(String[] args) {
         CustomAJAXEndpointsApi apiInstance = new CustomAJAXEndpointsApi();
         Integer id = 1; // Integer | ID of the house
-        String body = {"page":0,"size":6}; // String | 
+        Integer page = 0; // Integer | Page number (0-based)
+        Integer size = 6; // Integer | Number of items per page
 
         try {
-            Review result = apiInstance.getComments(id, body);
+            Review result = apiInstance.getComments(id, page, size);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling CustomAJAXEndpointsApi#getComments");
@@ -5759,11 +5770,13 @@ public class CustomAJAXEndpointsApiExample {
 // Create an instance of the API class
 CustomAJAXEndpointsApi *apiInstance = [[CustomAJAXEndpointsApi alloc] init];
 Integer *id = 1; // ID of the house (default to null)
-String *body = {"page":0,"size":6}; // 
+Integer *page = 0; // Page number (0-based) (optional) (default to 0)
+Integer *size = 6; // Number of items per page (optional) (default to 3)
 
 // Get paginated comments for a house
 [apiInstance getCommentsWith:id
-    body:body
+    page:page
+    size:size
               completionHandler: ^(Review output, NSError* error) {
     if (output) {
         NSLog(@"%@", output);
@@ -5781,7 +5794,10 @@ String *body = {"page":0,"size":6}; //
 // Create an instance of the API class
 var api = new TrippinssSpringbootApiRest.CustomAJAXEndpointsApi()
 var id = 1; // {Integer} ID of the house
-var body = {"page":0,"size":6}; // {String} 
+var opts = {
+  'page': 0, // {Integer} Page number (0-based)
+  'size': 6 // {Integer} Number of items per page
+};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -5790,7 +5806,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getComments(id, body, callback);
+api.getComments(id, opts, callback);
 </code></pre>
                             </div>
 
@@ -5814,11 +5830,12 @@ namespace Example
             // Create an instance of the API class
             var apiInstance = new CustomAJAXEndpointsApi();
             var id = 1;  // Integer | ID of the house (default to null)
-            var body = {"page":0,"size":6};  // String | 
+            var page = 0;  // Integer | Page number (0-based) (optional)  (default to 0)
+            var size = 6;  // Integer | Number of items per page (optional)  (default to 3)
 
             try {
                 // Get paginated comments for a house
-                Review result = apiInstance.getComments(id, body);
+                Review result = apiInstance.getComments(id, page, size);
                 Debug.WriteLine(result);
             } catch (Exception e) {
                 Debug.Print("Exception when calling CustomAJAXEndpointsApi.getComments: " + e.Message );
@@ -5836,10 +5853,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Create an instance of the API class
 $api_instance = new OpenAPITools\Client\Api\CustomAJAXEndpointsApi();
 $id = 1; // Integer | ID of the house
-$body = {"page":0,"size":6}; // String | 
+$page = 0; // Integer | Page number (0-based)
+$size = 6; // Integer | Number of items per page
 
 try {
-    $result = $api_instance->getComments($id, $body);
+    $result = $api_instance->getComments($id, $page, $size);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomAJAXEndpointsApi->getComments: ', $e->getMessage(), PHP_EOL;
@@ -5855,10 +5873,11 @@ use WWW::OPenAPIClient::CustomAJAXEndpointsApi;
 # Create an instance of the API class
 my $api_instance = WWW::OPenAPIClient::CustomAJAXEndpointsApi->new();
 my $id = 1; # Integer | ID of the house
-my $body = WWW::OPenAPIClient::Object::String->new(); # String | 
+my $page = 0; # Integer | Page number (0-based)
+my $size = 6; # Integer | Number of items per page
 
 eval {
-    my $result = $api_instance->getComments(id => $id, body => $body);
+    my $result = $api_instance->getComments(id => $id, page => $page, size => $size);
     print Dumper($result);
 };
 if ($@) {
@@ -5876,11 +5895,12 @@ from pprint import pprint
 # Create an instance of the API class
 api_instance = openapi_client.CustomAJAXEndpointsApi()
 id = 1 # Integer | ID of the house (default to null)
-body = {"page":0,"size":6} # String | 
+page = 0 # Integer | Page number (0-based) (optional) (default to 0)
+size = 6 # Integer | Number of items per page (optional) (default to 3)
 
 try:
     # Get paginated comments for a house
-    api_response = api_instance.get_comments(id, body)
+    api_response = api_instance.get_comments(id, page=page, size=size)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CustomAJAXEndpointsApi->getComments: %s\n" % e)</code></pre>
@@ -5891,10 +5911,11 @@ except ApiException as e:
 
 pub fn main() {
     let id = 1; // Integer
-    let body = {"page":0,"size":6}; // String
+    let page = 0; // Integer
+    let size = 6; // Integer
 
     let mut context = CustomAJAXEndpointsApi::Context::default();
-    let result = client.getComments(id, body, &context).wait();
+    let result = client.getComments(id, page, size, &context).wait();
 
     println!("{:?}", result);
 }
@@ -5944,61 +5965,61 @@ ID of the house
                             </table>
 
 
-                            <div class="methodsubtabletitle">Body parameters</div>
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
                             <table id="methodsubtable">
                               <tr>
                                 <th width="150px">Name</th>
                                 <th>Description</th>
                               </tr>
-                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <tr><td style="width:150px;">page</td>
 <td>
-<p class="marked">Pagination parameters</p>
-<script>
-$(document).ready(function() {
-  var schemaWrapper = {
-  "description" : "Pagination parameters",
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "type" : "string"
-      },
-      "example" : {
-        "page" : 0,
-        "size" : 6
-      }
-    }
-  },
-  "required" : true
-};
 
-  var schema = findNode('schema',schemaWrapper).schema;
-  if (!schema) {
-    schema = schemaWrapper.schema;
-  }
-  if (schema.$ref != null) {
-    schema = defsParser.$refs.get(schema.$ref);
-  } else if (schema.items != null && schema.items.$ref != null) {
-    schema.items = defsParser.$refs.get(schema.items.$ref);
-  } else {
-    schemaWrapper.definitions = Object.assign({}, defs);
-    $RefParser.dereference(schemaWrapper).catch(function(err) {
-      console.log(err);
-    });
-  }
 
-  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-  var result = $('#d2e199_getComments_body');
-  result.empty();
-  result.append(view.render());
-});
-</script>
-<div id="d2e199_getComments_body"></div>
+    <div id="d2e199_getComments_page">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+                    <span class="format">
+                        (int32)
+                    </span>
+
+                    <div class="inner description marked">
+Page number (0-based)
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">size</td>
+<td>
+
+
+    <div id="d2e199_getComments_size">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+                    <span class="format">
+                        (int32)
+                    </span>
+
+                    <div class="inner description marked">
+Number of items per page
+                    </div>
+            </div>
+        </div>
+    </div>
 </td>
 </tr>
 
                             </table>
-
-
 
                           <h2>Responses</h2>
                             <h3 id="examples-CustomAJAXEndpoints-getComments-title-200"></h3>
@@ -6164,7 +6185,7 @@ $(document).ready(function() {
                         <p class="marked">Returns a paginated list of accepted houses.</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/rooms/extra</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/rooms/extra</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -6186,11 +6207,9 @@ $(document).ready(function() {
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-CustomAJAXEndpoints-getHouses-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X POST \
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: */*" \
- -H "Content-Type: application/json" \
- "https://localhost:8443/api/rooms/extra" \
- -d ''
+ "https://localhost:8443/api/rooms/extra?page=0&size=6"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-CustomAJAXEndpoints-getHouses-0-java">
@@ -6207,10 +6226,11 @@ public class CustomAJAXEndpointsApiExample {
 
         // Create an instance of the API class
         CustomAJAXEndpointsApi apiInstance = new CustomAJAXEndpointsApi();
-        String body = {page=0, size=6}; // String | 
+        Integer page = 0; // Integer | Page number (0-based)
+        Integer size = 6; // Integer | Number of items per page
 
         try {
-            Housing result = apiInstance.getHouses(body);
+            Housing result = apiInstance.getHouses(page, size);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling CustomAJAXEndpointsApi#getHouses");
@@ -6226,10 +6246,11 @@ public class CustomAJAXEndpointsApiExample {
 
 final api_instance = DefaultApi();
 
-final String body = new String(); // String | 
+final Integer page = new Integer(); // Integer | Page number (0-based)
+final Integer size = new Integer(); // Integer | Number of items per page
 
 try {
-    final result = await api_instance.getHouses(body);
+    final result = await api_instance.getHouses(page, size);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->getHouses: $e\n');
@@ -6244,10 +6265,11 @@ try {
 public class CustomAJAXEndpointsApiExample {
     public static void main(String[] args) {
         CustomAJAXEndpointsApi apiInstance = new CustomAJAXEndpointsApi();
-        String body = {page=0, size=6}; // String | 
+        Integer page = 0; // Integer | Page number (0-based)
+        Integer size = 6; // Integer | Number of items per page
 
         try {
-            Housing result = apiInstance.getHouses(body);
+            Housing result = apiInstance.getHouses(page, size);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling CustomAJAXEndpointsApi#getHouses");
@@ -6265,10 +6287,12 @@ public class CustomAJAXEndpointsApiExample {
 
 // Create an instance of the API class
 CustomAJAXEndpointsApi *apiInstance = [[CustomAJAXEndpointsApi alloc] init];
-String *body = {page=0, size=6}; // 
+Integer *page = 0; // Page number (0-based) (optional) (default to 0)
+Integer *size = 6; // Number of items per page (optional) (default to 6)
 
 // Get paginated houses
-[apiInstance getHousesWith:body
+[apiInstance getHousesWith:page
+    size:size
               completionHandler: ^(Housing output, NSError* error) {
     if (output) {
         NSLog(@"%@", output);
@@ -6285,7 +6309,10 @@ String *body = {page=0, size=6}; //
 
 // Create an instance of the API class
 var api = new TrippinssSpringbootApiRest.CustomAJAXEndpointsApi()
-var body = {page=0, size=6}; // {String} 
+var opts = {
+  'page': 0, // {Integer} Page number (0-based)
+  'size': 6 // {Integer} Number of items per page
+};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -6294,7 +6321,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getHouses(body, callback);
+api.getHouses(opts, callback);
 </code></pre>
                             </div>
 
@@ -6317,11 +6344,12 @@ namespace Example
 
             // Create an instance of the API class
             var apiInstance = new CustomAJAXEndpointsApi();
-            var body = {page=0, size=6};  // String | 
+            var page = 0;  // Integer | Page number (0-based) (optional)  (default to 0)
+            var size = 6;  // Integer | Number of items per page (optional)  (default to 6)
 
             try {
                 // Get paginated houses
-                Housing result = apiInstance.getHouses(body);
+                Housing result = apiInstance.getHouses(page, size);
                 Debug.WriteLine(result);
             } catch (Exception e) {
                 Debug.Print("Exception when calling CustomAJAXEndpointsApi.getHouses: " + e.Message );
@@ -6338,10 +6366,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 // Create an instance of the API class
 $api_instance = new OpenAPITools\Client\Api\CustomAJAXEndpointsApi();
-$body = {page=0, size=6}; // String | 
+$page = 0; // Integer | Page number (0-based)
+$size = 6; // Integer | Number of items per page
 
 try {
-    $result = $api_instance->getHouses($body);
+    $result = $api_instance->getHouses($page, $size);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomAJAXEndpointsApi->getHouses: ', $e->getMessage(), PHP_EOL;
@@ -6356,10 +6385,11 @@ use WWW::OPenAPIClient::CustomAJAXEndpointsApi;
 
 # Create an instance of the API class
 my $api_instance = WWW::OPenAPIClient::CustomAJAXEndpointsApi->new();
-my $body = WWW::OPenAPIClient::Object::String->new(); # String | 
+my $page = 0; # Integer | Page number (0-based)
+my $size = 6; # Integer | Number of items per page
 
 eval {
-    my $result = $api_instance->getHouses(body => $body);
+    my $result = $api_instance->getHouses(page => $page, size => $size);
     print Dumper($result);
 };
 if ($@) {
@@ -6376,11 +6406,12 @@ from pprint import pprint
 
 # Create an instance of the API class
 api_instance = openapi_client.CustomAJAXEndpointsApi()
-body = {page=0, size=6} # String | 
+page = 0 # Integer | Page number (0-based) (optional) (default to 0)
+size = 6 # Integer | Number of items per page (optional) (default to 6)
 
 try:
     # Get paginated houses
-    api_response = api_instance.get_houses(body)
+    api_response = api_instance.get_houses(page=page, size=size)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CustomAJAXEndpointsApi->getHouses: %s\n" % e)</code></pre>
@@ -6390,10 +6421,11 @@ except ApiException as e:
                               <pre class="prettyprint"><code class="language-rust">extern crate CustomAJAXEndpointsApi;
 
 pub fn main() {
-    let body = {page=0, size=6}; // String
+    let page = 0; // Integer
+    let size = 6; // Integer
 
     let mut context = CustomAJAXEndpointsApi::Context::default();
-    let result = client.getHouses(body, &context).wait();
+    let result = client.getHouses(page, size, &context).wait();
 
     println!("{:?}", result);
 }
@@ -6410,61 +6442,61 @@ pub fn main() {
 
 
 
-                            <div class="methodsubtabletitle">Body parameters</div>
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
                             <table id="methodsubtable">
                               <tr>
                                 <th width="150px">Name</th>
                                 <th>Description</th>
                               </tr>
-                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <tr><td style="width:150px;">page</td>
 <td>
-<p class="marked">Pagination parameters</p>
-<script>
-$(document).ready(function() {
-  var schemaWrapper = {
-  "description" : "Pagination parameters",
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "type" : "string"
-      },
-      "example" : {
-        "page" : 0,
-        "size" : 6
-      }
-    }
-  },
-  "required" : true
-};
 
-  var schema = findNode('schema',schemaWrapper).schema;
-  if (!schema) {
-    schema = schemaWrapper.schema;
-  }
-  if (schema.$ref != null) {
-    schema = defsParser.$refs.get(schema.$ref);
-  } else if (schema.items != null && schema.items.$ref != null) {
-    schema.items = defsParser.$refs.get(schema.items.$ref);
-  } else {
-    schemaWrapper.definitions = Object.assign({}, defs);
-    $RefParser.dereference(schemaWrapper).catch(function(err) {
-      console.log(err);
-    });
-  }
 
-  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-  var result = $('#d2e199_getHouses_body');
-  result.empty();
-  result.append(view.render());
-});
-</script>
-<div id="d2e199_getHouses_body"></div>
+    <div id="d2e199_getHouses_page">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+                    <span class="format">
+                        (int32)
+                    </span>
+
+                    <div class="inner description marked">
+Page number (0-based)
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">size</td>
+<td>
+
+
+    <div id="d2e199_getHouses_size">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+                    <span class="format">
+                        (int32)
+                    </span>
+
+                    <div class="inner description marked">
+Number of items per page
+                    </div>
+            </div>
+        </div>
+    </div>
 </td>
 </tr>
 
                             </table>
-
-
 
                           <h2>Responses</h2>
                             <h3 id="examples-CustomAJAXEndpoints-getHouses-title-200"></h3>
@@ -8121,7 +8153,6 @@ $(document).ready(function() {
  -H "Content-Type: application/json" \
  "https://localhost:8443/v1/api/houses" \
  -d '{
-  &quot;imageBase64&quot; : &quot;imageBase64&quot;,
   &quot;code&quot; : 0,
   &quot;price&quot; : 6,
   &quot;acepted&quot; : true,
@@ -10749,7 +10780,6 @@ ID of the house
  -H "Content-Type: application/json" \
  "https://localhost:8443/v1/api/houses/{id}" \
  -d '{
-  &quot;imageBase64&quot; : &quot;imageBase64&quot;,
   &quot;code&quot; : 0,
   &quot;price&quot; : 6,
   &quot;acepted&quot; : true,
@@ -14210,6 +14240,7 @@ $(document).ready(function() {
   &quot;rating&quot; : 6,
   &quot;comment&quot; : &quot;comment&quot;,
   &quot;hotelCode&quot; : 1,
+  &quot;userName&quot; : &quot;userName&quot;,
   &quot;reviewId&quot; : 0,
   &quot;userDni&quot; : &quot;userDni&quot;
 }'
@@ -16269,6 +16300,7 @@ ID of the review
   &quot;rating&quot; : 6,
   &quot;comment&quot; : &quot;comment&quot;,
   &quot;hotelCode&quot; : 1,
+  &quot;userName&quot; : &quot;userName&quot;,
   &quot;reviewId&quot; : 0,
   &quot;userDni&quot; : &quot;userDni&quot;
 }'
