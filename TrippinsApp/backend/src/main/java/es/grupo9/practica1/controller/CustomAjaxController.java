@@ -9,11 +9,12 @@ import org.springframework.data.domain.Page;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.DeleteMapping;
-
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.grupo9.practica1.DTOs.HousingDTO;
@@ -78,23 +79,14 @@ public class CustomAjaxController {
             )
         )
     })
-    @PostMapping("/api/rooms/extra") 
+    @GetMapping("/api/rooms/extra") 
     public Page<HousingDTO> getHouses(
-        @io.swagger.v3.oas.annotations.parameters.RequestBody(
-                description = "Pagination parameters",
-                required = true,
-                content = @Content(
-                    schema = @Schema(implementation = Map.class),
-                    examples = @ExampleObject(
-                        value = "{\"page\": 0, \"size\": 6}"
-                    )
-                )
-            )  
-        @RequestBody Map<String, Integer> request) {
+        @Parameter(description = "Page number (0-based)", example = "0")
+        @RequestParam(defaultValue = "0") int page,
+    
+        @Parameter(description = "Number of items per page", example = "6")
+        @RequestParam(defaultValue = "6") int size) {
         try {
-            // Extract page and size from the request body
-            int page = request.getOrDefault("page", 0); // Default to page 0 if not provided
-            int size = request.getOrDefault("size", 6); // Default to size 6 if not provided
 
             // Log the received parameters
             System.out.println("Received request - page: " + page + ", size: " + size);
@@ -138,26 +130,19 @@ public class CustomAjaxController {
             )
         )
     })
-    @PostMapping("/api/rooms/{id}/comments/extra")
+    @GetMapping("/api/rooms/{id}/comments/extra")
     public Page<ReviewDTO> getComments(
         @Parameter(description = "ID of the house", example = "1", required = true)
         @PathVariable Integer id,
-        @io.swagger.v3.oas.annotations.parameters.RequestBody(
-                description = "Pagination parameters",
-                required = true,
-                content = @Content(
-                    schema = @Schema(implementation = Map.class),
-                    examples = @ExampleObject(
-                        value = "{\"page\": 0, \"size\": 6}"
-                    )
-                )
-            ) 
-        @RequestBody Map<String, Integer> request) {
+        @Parameter(description = "Page number (0-based)", example = "0")
+        @RequestParam(defaultValue = "0") int page,
+    
+        @Parameter(description = "Number of items per page", example = "6")
+        @RequestParam(defaultValue = "3") int size) {
         try {
             // Extract  page, and size from the request body
             Integer hotelId = id; 
-            int page = request.getOrDefault("page", 0); // Default to page 0 if not provided
-            int size = request.getOrDefault("size", 3); // Default to size 3 if not provided
+
 
             
             // Log the received parameters
@@ -205,23 +190,14 @@ public class CustomAjaxController {
         )
     })
     @SecurityRequirement(name = "JWT")
-    @PostMapping("/api/admin/houses")
+    @GetMapping("/v1/api/admin/houses")
     public Page<HousingDTO> getAdminHouses(
-        @io.swagger.v3.oas.annotations.parameters.RequestBody(
-                description = "Pagination parameters",
-                required = true,
-                content = @Content(
-                    schema = @Schema(implementation = Map.class),
-                    examples = @ExampleObject(
-                        value = "{\"page\": 0, \"size\": 3}"
-                    )
-                )
-            )
-        @RequestBody Map<String, Integer> request) {
+        @Parameter(description = "Page number (0-based)", example = "0")
+        @RequestParam(defaultValue = "0") int page,
+    
+        @Parameter(description = "Number of items per page", example = "6")
+        @RequestParam(defaultValue = "3") int size) {
         try {
-            // Extract page and size from the request body
-            int page = request.getOrDefault("page", 0); // Default to page 0 if not provided
-            int size = request.getOrDefault("size", 3); // Default to size 3 if not provided
 
             // Log the received parameters
             System.out.println("Received request - page: " + page + ", size: " + size);

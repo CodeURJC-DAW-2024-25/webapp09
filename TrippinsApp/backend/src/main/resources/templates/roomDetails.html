@@ -57,7 +57,7 @@
                 <h6 class="section-title text-primary text-uppercase">Sobre {{house.name}}</h6>
                 <h1 class="mb-4">Bienvenido a <span class="text-primary text-uppercase">{{house.name}}</span></h1>
 
-                <img src="data:image/jpeg;base64,{{house.imageBase64}}" alt="{{house.name}}"
+                <img src="/v1/api/houses/{{code}}/image" alt="{{house.name}}"
                     class="img-fluid rounded mb-4" style="max-width: 80%;">
                     <div class="d-flex flex-wrap justify-content-center mb-4">
                         {{#house.tags}}

@@ -8,16 +8,18 @@ public class ReviewDTO {
     private Integer rating;
     private String comment;
     private int hotelCode;
+    private String userName;
     private String userDni;
 
     public ReviewDTO() {
     }
 
-    public ReviewDTO(Integer rating, String comment, int hotelCode, String userDni) {
+    public ReviewDTO(Integer rating, String comment, int hotelCode, String userDni, String userName) {
         this.rating = rating;
         this.comment = comment;
         this.hotelCode = hotelCode;
         this.userDni = userDni;
+        this.userName = userName;
     }
 
     public ReviewDTO(Review review) {
@@ -25,6 +27,7 @@ public class ReviewDTO {
         this.rating = review.getRating();
         this.comment = review.getComment();
         this.hotelCode = review.getHotel().getCode();
+        this.userName = review.getUser().getName();
         this.userDni = review.getUser().getDni();
     }
 
@@ -60,11 +63,19 @@ public class ReviewDTO {
         this.hotelCode = hotelCode;
     }
 
+    public String getUserName() {
+        return this.userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
     public String getUserDni() {
-        return userDni;
+        return this.userDni;
     }
 
     public void setUserDni(String userDni) {
         this.userDni = userDni;
     }
+
 }

@@ -21,13 +21,15 @@ document.getElementById('load-more').addEventListener('click', async function ()
 // Function to fetch houses from the server
 async function fetchHouses(page, size) {
     try {
-        const response = await fetch('/api/rooms/extra', {
-            method: 'POST', // Use POST 
+        const url = `/api/rooms/extra?page=${page}&size=${size}`;
+
+        const response = await fetch(url, {
+            method: 'GET', // Use GET 
             headers: {
-                'Content-Type': 'application/json', // Specify the content type as JSON
-            },
-            body: JSON.stringify({ page, size }), // Send page and size in the request body
+                'Accept': 'application/json',
+            }
         });
+
 
         if (!response.ok) {
             const errorText = await response.text();
@@ -52,7 +54,7 @@ function appendHouses(houses) {
                 <a href="/room/${house.code}" class="room-link">
                     <div class="room-item shadow rounded overflow-hidden">
                         <div class="position-relative">
-                            <img style="width: 450px; height: 275px" class="img-fluid" src="data:image/jpeg;base64,${house.imageBase64}" alt="${house.name}">
+                            <img style="width: 450px; height: 275px" class="img-fluid" src="/v1/api/houses/${house.code}/image" alt="${house.name}">
                             <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$${house.price}/Night</small>
                         </div>
                         <div class="p-4 mt-2">

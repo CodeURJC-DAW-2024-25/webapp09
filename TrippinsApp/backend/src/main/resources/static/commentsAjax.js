@@ -23,12 +23,11 @@ document.getElementById('load-more').addEventListener('click', async function ()
 // Function to fetch comments from the server
 async function fetchComments(hotelId,page, size) {
     try {
-        const response = await fetch(`/api/rooms/${hotelId}/comments/extra`, {
-            method: 'POST', // Use POST 
+        const response = await fetch(`/api/rooms/${hotelId}/comments/extra?page=${page}&size=${size}`, {
+            method: 'GET', // Use GET 
             headers: {
-                'Content-Type': 'application/json', // Specify the content type as JSON
-            },
-            body: JSON.stringify({hotelId, page, size }), // Send page and size in the request body
+                'Accept': 'application/json',
+            }
         });
 
         if (!response.ok) {
@@ -57,7 +56,7 @@ function appendComments(comments) {
 
                 <div class="d-flex align-items-center mb-2">
                     <i class="bi bi-person-circle me-2" style="font-size: 2rem;"></i>
-                    <h5 class="m-0">${comment.user.name}</h5>
+                    <h5 class="m-0">${comment.userName}</h5>
                 </div>
                 <p class="mb-2 text-break">${comment.comment}</p>
                 <strong class="text-dark">Rating: ${comment.rating}/100</strong>

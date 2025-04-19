@@ -116,6 +116,7 @@ public class ReviewService {
             dto.setComment(review.getComment());
             dto.setHotelCode(review.getHotel().getCode());
             dto.setUserDni(review.getUser().getDni());
+            dto.setUserName(review.getUser().getName());
             return dto;
         });
 
@@ -126,7 +127,7 @@ public class ReviewService {
     public List<ReviewDTO> getReviewsByHouse(Integer code){
 
         var allReviews = reviewRepository.findAll();
-        allReviews.stream()
+        allReviews = allReviews.stream()
                     .filter(review -> review.getHotel().getCode() == code)// igual da error que cod ees int no Integer
                     .limit(3)
                     .collect(Collectors.toList());

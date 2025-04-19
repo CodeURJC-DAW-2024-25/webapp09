@@ -24,12 +24,11 @@ document.getElementById('load-more').addEventListener('click', async function ()
 // Function to fetch houses from the server
 async function fetchHouses(page, size) {
     try {
-        const response = await fetch('/api/admin/houses', {
-            method: 'POST', // Use POST 
+        const response = await fetch(`v1/api/admin/houses?page=${page}&size=${size}`, {
+            method: 'GET', // Use GET 
             headers: {
-                'Content-Type': 'application/json', // Specify the content type as JSON
-            },
-            body: JSON.stringify({ page, size }), // Send page and size in the request body
+                'Accept': 'application/json',
+            }
         });
 
         if (!response.ok) {
@@ -54,7 +53,7 @@ function appendHouses(houses) {
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" data-house-id="${house.code}">
                 <div class="room-item shadow rounded overflow-hidden" >
                     <div class="position-relative">
-                        <img style="width: 450px; height: 275px" class="img-fluid" src="data:image/jpeg;base64,${house.imageBase64}" alt="${house.name}">
+                        <img style="width: 450px; height: 275px" class="img-fluid" src="/v1/api/houses/${house.code}/image" alt="${house.name}">
                         <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$${house.price}/Night</small>
                     </div>
                     <div class="p-4 mt-2">

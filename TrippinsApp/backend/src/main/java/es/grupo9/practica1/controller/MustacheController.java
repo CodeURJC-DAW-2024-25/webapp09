@@ -25,7 +25,6 @@ import es.grupo9.practica1.DTOs.HousingDTO;
 import es.grupo9.practica1.DTOs.RegisteredUserDTO;
 import es.grupo9.practica1.DTOs.ReservationDTO;
 import es.grupo9.practica1.DTOs.ReviewDTO;
-import es.grupo9.practica1.DTOs.UserDTO;
 import es.grupo9.practica1.entities.Tag;
 import es.grupo9.practica1.entities.User;
 
@@ -38,15 +37,11 @@ import es.grupo9.practica1.service.ReservationService;
 import es.grupo9.practica1.service.ReviewService;
 import es.grupo9.practica1.service.UserService;
 import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
 
@@ -220,8 +215,6 @@ public class MustacheController {
             @RequestParam(value = "tags", required = false) String tags,
             Model model) throws IOException {
 
-            // Transform the image to byte
-            String stringImageBytes = imageFile.toString();
             // Add the hotel via service
 
             Set<Tag> tagSet = new HashSet<>();
@@ -283,7 +276,7 @@ public class MustacheController {
 
 
 
-        ReviewDTO reviewDTO = new ReviewDTO(rating, comment, houseId, user.getDni());
+        ReviewDTO reviewDTO = new ReviewDTO(rating, comment, houseId, user.getDni(), user.getName());
         reviewService.createReview(reviewDTO);
         
         return "index";
