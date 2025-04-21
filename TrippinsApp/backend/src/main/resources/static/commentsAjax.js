@@ -23,7 +23,7 @@ document.getElementById('load-more').addEventListener('click', async function ()
 // Function to fetch comments from the server
 async function fetchComments(hotelId,page, size) {
     try {
-        const response = await fetch(`/api/rooms/${hotelId}/comments/extra?page=${page}&size=${size}`, {
+        const response = await fetch(`v1/api/rooms/${hotelId}/comments/extra?page=${page}&size=${size}`, {
             method: 'GET', // Use GET 
             headers: {
                 'Accept': 'application/json',

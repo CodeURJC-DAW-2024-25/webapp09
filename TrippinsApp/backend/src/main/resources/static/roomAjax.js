@@ -21,7 +21,7 @@ document.getElementById('load-more').addEventListener('click', async function ()
 // Function to fetch houses from the server
 async function fetchHouses(page, size) {
     try {
-        const url = `/api/rooms/extra?page=${page}&size=${size}`;
+        const url = `v1/api/rooms/extra?page=${page}&size=${size}`;
 
         const response = await fetch(url, {
             method: 'GET', // Use GET 

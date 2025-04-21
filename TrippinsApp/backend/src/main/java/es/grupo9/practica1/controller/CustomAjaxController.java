@@ -79,7 +79,7 @@ public class CustomAjaxController {
             )
         )
     })
-    @GetMapping("/api/rooms/extra") 
+    @GetMapping("v1/api/rooms/extra") 
     public Page<HousingDTO> getHouses(
         @Parameter(description = "Page number (0-based)", example = "0")
         @RequestParam(defaultValue = "0") int page,
@@ -130,7 +130,7 @@ public class CustomAjaxController {
             )
         )
     })
-    @GetMapping("/api/rooms/{id}/comments/extra")
+    @GetMapping("v1/api/rooms/{id}/comments/extra")
     public Page<ReviewDTO> getComments(
         @Parameter(description = "ID of the house", example = "1", required = true)
         @PathVariable Integer id,
@@ -242,7 +242,7 @@ public class CustomAjaxController {
         )
     })
     @SecurityRequirement(name = "JWT")
-    @PutMapping("/api/admin/houses/decision/{houseId}")
+    @PutMapping("v1/api/admin/houses/decision/{houseId}")
     public void acceptHouse(
         @Parameter(description = "ID(code) of the house", example = "1", required = true)
         @PathVariable Integer houseId) {
@@ -276,7 +276,7 @@ public class CustomAjaxController {
         )
     })
     @SecurityRequirement(name = "JWT")
-    @DeleteMapping("/api/admin/houses/decision/{houseId}")
+    @DeleteMapping("v1/api/admin/houses/decision/{houseId}")
     public void denyHouse(
         @Parameter(description = "ID(code) of the house", example = "1", required = true)
         @PathVariable Integer houseId) {
@@ -307,7 +307,7 @@ public class CustomAjaxController {
         )
     })
     @SecurityRequirement(name = "JWT")
-    @PutMapping("/api/admin/reservations/decision/{reservationId}")
+    @PutMapping("v1/api/admin/reservations/decision/{reservationId}")
     public void acceptReservation(
         @Parameter(description = "ID of the reservation", example = "1", required = true)
         @PathVariable Integer reservationId) {
@@ -340,7 +340,7 @@ public class CustomAjaxController {
     })
     @SecurityRequirement(name = "JWT")
     //Deny reservation: just deletes from the database
-    @DeleteMapping("/api/admin/reservations/decision/{reservationId}")
+    @DeleteMapping("v1/api/admin/reservations/decision/{reservationId}")
     public void denyReservation(
         @Parameter(description = "ID of the reservation", example = "1", required = true)
         @PathVariable Integer reservationId) {
