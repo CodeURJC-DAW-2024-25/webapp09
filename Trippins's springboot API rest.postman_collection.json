@@ -1,0 +1,6018 @@
+{
+	"info": {
+		"_postman_id": "bd706948-711b-4cd0-9706-f76e784a6b1d",
+		"name": "Trippins's springboot API rest",
+		"description": "This is the API respnsible for managing the data from our webapp be it from an entity or a customer.\n\nContact Support:\n Name: Trippins admin\n Email: trippins.urjc@gmail.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43165407"
+	},
+	"item": [
+		{
+			"name": "v1/api",
+			"item": [
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Get user by ID",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required) Dni of the user"
+												}
+											]
+										},
+										"description": "Returns a user by their ID"
+									},
+									"response": [
+										{
+											"name": "Successfully retrieved user",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "https://localhost:8443/v1/api/users/:id",
+													"protocol": "https",
+													"host": [
+														"localhost"
+													],
+													"port": "8443",
+													"path": [
+														"v1",
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<string>",
+															"description": "(Required) Dni of the user"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+										},
+										{
+											"name": "Forbidden - Access denied",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<string>",
+															"description": "(Required) Dni of the user"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+										},
+										{
+											"name": "User not found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<string>",
+															"description": "(Required) Dni of the user"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Update a user",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"dni\": \"12345679A\",\n  \"name\": \"Adolfo\",\n  \"number\": \"999111999\",\n  \"password\": \"patata\",\n  \"email\": \"abc@gmail.com\",\n  \"admin\": false,\n  \"roles\": [\n    \"ROLE_USER\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/users/12345678A",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"users",
+												"12345678A"
+											]
+										},
+										"description": "Updates an existing user with the provided details"
+									},
+									"response": [
+										{
+											"name": "User updated successfully",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"password\": \"<string>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "https://localhost:8443/v1/api/users/:id",
+													"protocol": "https",
+													"host": [
+														"localhost"
+													],
+													"port": "8443",
+													"path": [
+														"v1",
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<string>",
+															"description": "(Required) Dni of the user to update"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+										},
+										{
+											"name": "Invalid input",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"password\": \"<string>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<string>",
+															"description": "(Required) Dni of the user to update"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+										},
+										{
+											"name": "Forbidden - Access denied",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"password\": \"<string>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<string>",
+															"description": "(Required) Dni of the user to update"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+										},
+										{
+											"name": "User not found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"password\": \"<string>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<string>",
+															"description": "(Required) Dni of the user to update"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete a user",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/users/12345678A",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"users",
+												"12345678A"
+											]
+										},
+										"description": "Deletes a user by their ID"
+									},
+									"response": [
+										{
+											"name": "User deleted successfully",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "https://localhost:8443/v1/api/users/:id",
+													"protocol": "https",
+													"host": [
+														"localhost"
+													],
+													"port": "8443",
+													"path": [
+														"v1",
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<string>",
+															"description": "(Required) Dni of the user to delete"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Forbidden - Access denied",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<string>",
+															"description": "(Required) Dni of the user to delete"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "User not found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<string>",
+															"description": "(Required) Dni of the user to delete"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get all users",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"users"
+									]
+								},
+								"description": "Returns a list of all users"
+							},
+							"response": [
+								{
+									"name": "Successfully retrieved list of users",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "https://localhost:8443/v1/api/users",
+											"protocol": "https",
+											"host": [
+												"localhost"
+											],
+											"port": "8443",
+											"path": [
+												"v1",
+												"api",
+												"users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"dni\": \"<string>\",\n    \"name\": \"<string>\",\n    \"number\": \"<integer>\",\n    \"email\": \"<string>\",\n    \"admin\": \"<boolean>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  {\n    \"dni\": \"<string>\",\n    \"name\": \"<string>\",\n    \"number\": \"<integer>\",\n    \"email\": \"<string>\",\n    \"admin\": \"<boolean>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n]"
+								},
+								{
+									"name": "Forbidden - Access denied",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"users"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"dni\": \"<string>\",\n    \"name\": \"<string>\",\n    \"number\": \"<integer>\",\n    \"email\": \"<string>\",\n    \"admin\": \"<boolean>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  {\n    \"dni\": \"<string>\",\n    \"name\": \"<string>\",\n    \"number\": \"<integer>\",\n    \"email\": \"<string>\",\n    \"admin\": \"<boolean>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "Create a new user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"dni\": \"<12345651A\",\n  \"name\": \"Trala\",\n  \"number\": \"555444555\",\n  \"password\": \"lero\",\n  \"email\": \"tralala@gmail.com\",\n  \"admin\": true,\n  \"roles\": [\n    \"ROLE_ADMIN\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"users"
+									]
+								},
+								"description": "Creates a new user with the provided details"
+							},
+							"response": [
+								{
+									"name": "User created successfully",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"password\": \"<string>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://localhost:8443/v1/api/users",
+											"protocol": "https",
+											"host": [
+												"localhost"
+											],
+											"port": "8443",
+											"path": [
+												"v1",
+												"api",
+												"users"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+								},
+								{
+									"name": "Invalid input",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"password\": \"<string>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"users"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+								},
+								{
+									"name": "Forbidden - Access denied",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"password\": \"<string>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"users"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"dni\": \"<string>\",\n  \"name\": \"<string>\",\n  \"number\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "reviews",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Get a specific review by ID",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/reviews/1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"reviews",
+												"1"
+											]
+										},
+										"description": "Returns a review by its ID"
+									},
+									"response": [
+										{
+											"name": "Successfully retrieved review",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/reviews/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"reviews",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the review"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userName\": \"<string>\",\n  \"userDni\": \"<string>\"\n}"
+										},
+										{
+											"name": "Forbidden - Access denied",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/reviews/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"reviews",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the review"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userName\": \"<string>\",\n  \"userDni\": \"<string>\"\n}"
+										},
+										{
+											"name": "Review not found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/reviews/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"reviews",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the review"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userName\": \"<string>\",\n  \"userDni\": \"<string>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Update a review",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"rating\": 100,\n  \"comment\": \"que way el sitio, muy guapo\",\n  \"hotelCode\": 1,\n  \"userName\": \"Pepe\",\n  \"userDni\": \"12345678A\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/reviews/1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"reviews",
+												"1"
+											]
+										},
+										"description": "Updates an existing review with the provided details"
+									},
+									"response": [
+										{
+											"name": "Review updated successfully",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userName\": \"<string>\",\n  \"userDni\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/reviews/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"reviews",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the review to update"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userName\": \"<string>\",\n  \"userDni\": \"<string>\"\n}"
+										},
+										{
+											"name": "Invalid input",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userName\": \"<string>\",\n  \"userDni\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/reviews/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"reviews",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the review to update"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userName\": \"<string>\",\n  \"userDni\": \"<string>\"\n}"
+										},
+										{
+											"name": "Forbidden - Access denied",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userName\": \"<string>\",\n  \"userDni\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/reviews/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"reviews",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the review to update"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userName\": \"<string>\",\n  \"userDni\": \"<string>\"\n}"
+										},
+										{
+											"name": "Review not found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userName\": \"<string>\",\n  \"userDni\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/reviews/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"reviews",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the review to update"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userName\": \"<string>\",\n  \"userDni\": \"<string>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete a review",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/reviews/1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"reviews",
+												"1"
+											]
+										},
+										"description": "Deletes a review by its ID"
+									},
+									"response": [
+										{
+											"name": "Review deleted successfully",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/reviews/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"reviews",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the review to delete"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Forbidden - Access denied",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/reviews/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"reviews",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the review to delete"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Review not found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/reviews/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"reviews",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the review to delete"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get all reviews",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/reviews",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"reviews"
+									]
+								},
+								"description": "Returns a list of all reviews"
+							},
+							"response": [
+								{
+									"name": "Successfully retrieved list of reviews",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/reviews",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"reviews"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"reviewId\": \"<integer>\",\n    \"rating\": \"<integer>\",\n    \"comment\": \"<string>\",\n    \"hotelCode\": \"<integer>\",\n    \"userName\": \"<string>\",\n    \"userDni\": \"<string>\"\n  },\n  {\n    \"reviewId\": \"<integer>\",\n    \"rating\": \"<integer>\",\n    \"comment\": \"<string>\",\n    \"hotelCode\": \"<integer>\",\n    \"userName\": \"<string>\",\n    \"userDni\": \"<string>\"\n  }\n]"
+								},
+								{
+									"name": "Forbidden - Access denied",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/reviews",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"reviews"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"reviewId\": \"<integer>\",\n    \"rating\": \"<integer>\",\n    \"comment\": \"<string>\",\n    \"hotelCode\": \"<integer>\",\n    \"userName\": \"<string>\",\n    \"userDni\": \"<string>\"\n  },\n  {\n    \"reviewId\": \"<integer>\",\n    \"rating\": \"<integer>\",\n    \"comment\": \"<string>\",\n    \"hotelCode\": \"<integer>\",\n    \"userName\": \"<string>\",\n    \"userDni\": \"<string>\"\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "Create a new review",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"rating\": 100,\n  \"comment\": \"muymuymuymuy bueno\",\n  \"hotelCode\": 1,\n  \"userName\": \"Pedro\",\n  \"userDni\": \"12345678A\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/reviews",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"reviews"
+									]
+								},
+								"description": "Creates a new review with the provided details"
+							},
+							"response": [
+								{
+									"name": "Review created successfully",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userName\": \"<string>\",\n  \"userDni\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/reviews",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"reviews"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userName\": \"<string>\",\n  \"userDni\": \"<string>\"\n}"
+								},
+								{
+									"name": "Invalid input",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userName\": \"<string>\",\n  \"userDni\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/reviews",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"reviews"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userName\": \"<string>\",\n  \"userDni\": \"<string>\"\n}"
+								},
+								{
+									"name": "Forbidden - Access denied",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userName\": \"<string>\",\n  \"userDni\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/reviews",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"reviews"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotelCode\": \"<integer>\",\n  \"userName\": \"<string>\",\n  \"userDni\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "reservations",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Get reservation by ID",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/reservations/1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"reservations",
+												"1"
+											]
+										},
+										"description": "Returns a reservation by its ID"
+									},
+									"response": [
+										{
+											"name": "Successfully retrieved reservation",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/reservations/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"reservations",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the reservation"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<integer>\",\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}"
+										},
+										{
+											"name": "Forbidden - Access denied",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/reservations/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"reservations",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the reservation"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<integer>\",\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}"
+										},
+										{
+											"name": "Reservation not found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/reservations/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"reservations",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the reservation"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<integer>\",\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Update a reservation",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"checkIn\": \"2025-04-21T08:05:39.855Z\",\n  \"checkOut\": \"2025-05-21T08:05:39.855Z\",\n  \"valorated\": false,\n  \"clientDni\": \"12345678A\",\n  \"housingCode\": 1,\n  \"housingName\": \"Hotel Madrid\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/reservations/1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"reservations",
+												"1"
+											]
+										},
+										"description": "Updates an existing reservation with the provided details"
+									},
+									"response": [
+										{
+											"name": "Reservation updated successfully",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/reservations/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"reservations",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the reservation to update"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<integer>\",\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}"
+										},
+										{
+											"name": "Invalid input",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/reservations/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"reservations",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the reservation to update"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<integer>\",\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}"
+										},
+										{
+											"name": "Forbidden - Access denied",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/reservations/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"reservations",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the reservation to update"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<integer>\",\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}"
+										},
+										{
+											"name": "Reservation not found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/reservations/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"reservations",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the reservation to update"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<integer>\",\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete a reservation",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/reservations/1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"reservations",
+												"1"
+											]
+										},
+										"description": "Deletes a reservation by its ID"
+									},
+									"response": [
+										{
+											"name": "Reservation deleted successfully",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/reservations/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"reservations",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Forbidden - Access denied",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/reservations/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"reservations",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Reservation not found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/reservations/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"reservations",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get all reservations",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/reservations",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"reservations"
+									]
+								},
+								"description": "Returns a list of all reservations"
+							},
+							"response": [
+								{
+									"name": "Successfully retrieved list of reservations",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/reservations",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"reservations"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"checkIn\": \"<dateTime>\",\n    \"checkOut\": \"<dateTime>\",\n    \"valorated\": \"<boolean>\",\n    \"clientDni\": \"<string>\",\n    \"housingCode\": \"<integer>\",\n    \"housingName\": \"<string>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"checkIn\": \"<dateTime>\",\n    \"checkOut\": \"<dateTime>\",\n    \"valorated\": \"<boolean>\",\n    \"clientDni\": \"<string>\",\n    \"housingCode\": \"<integer>\",\n    \"housingName\": \"<string>\"\n  }\n]"
+								},
+								{
+									"name": "Forbidden - Access denied",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/reservations",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"reservations"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"checkIn\": \"<dateTime>\",\n    \"checkOut\": \"<dateTime>\",\n    \"valorated\": \"<boolean>\",\n    \"clientDni\": \"<string>\",\n    \"housingCode\": \"<integer>\",\n    \"housingName\": \"<string>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"checkIn\": \"<dateTime>\",\n    \"checkOut\": \"<dateTime>\",\n    \"valorated\": \"<boolean>\",\n    \"clientDni\": \"<string>\",\n    \"housingCode\": \"<integer>\",\n    \"housingName\": \"<string>\"\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "Create a new reservation",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/reservations",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"reservations"
+									]
+								},
+								"description": "Creates a new reservation with the provided details"
+							},
+							"response": [
+								{
+									"name": "Reservation created successfully",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/reservations",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"reservations"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}"
+								},
+								{
+									"name": "Invalid input",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/reservations",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"reservations"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}"
+								},
+								{
+									"name": "Forbidden - Access denied",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/reservations",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"reservations"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"checkIn\": \"<dateTime>\",\n  \"checkOut\": \"<dateTime>\",\n  \"valorated\": \"<boolean>\",\n  \"clientDni\": \"<string>\",\n  \"housingCode\": \"<integer>\",\n  \"housingName\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "houses",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "image",
+									"item": [
+										{
+											"name": "Get housing image",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearerToken}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "image/jpeg"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/houses/1/image",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"houses",
+														"1",
+														"image"
+													]
+												},
+												"description": "Retrieves the image associated with a housing listing"
+											},
+											"response": [
+												{
+													"name": "Image retrieved successfully",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															},
+															{
+																"key": "Accept",
+																"value": "image/jpeg"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/api/houses/:id/image",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"api",
+																"houses",
+																":id",
+																"image"
+															],
+															"variable": [
+																{
+																	"key": "id",
+																	"value": "<integer>",
+																	"description": "(Required) ID(code) of the house which you desire to edit"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "image/jpeg"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Housing not found or has no image",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															},
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/api/houses/:id/image",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"api",
+																"houses",
+																":id",
+																"image"
+															],
+															"variable": [
+																{
+																	"key": "id",
+																	"value": "<integer>",
+																	"description": "(Required) ID(code) of the house which you desire to edit"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "<binary>"
+												}
+											]
+										},
+										{
+											"name": "Upload housing image",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearerToken}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file",
+															"type": "file",
+															"src": "postman-cloud:///1f0089f3-2db7-41f0-819a-d15391888525"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/houses/1/image",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"houses",
+														"1",
+														"image"
+													]
+												},
+												"description": "Uploads or updates the image for a housing listing"
+											},
+											"response": [
+												{
+													"name": "Image uploaded successfully",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"file\": \"<binary>\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/v1/api/houses/:id/image",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"api",
+																"houses",
+																":id",
+																"image"
+															],
+															"variable": [
+																{
+																	"key": "id",
+																	"value": "<integer>",
+																	"description": "(Required) ID(code) of the house which you desire to edit"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Invalid file format or empty file",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"file\": \"<binary>\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/v1/api/houses/:id/image",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"api",
+																"houses",
+																":id",
+																"image"
+															],
+															"variable": [
+																{
+																	"key": "id",
+																	"value": "<integer>",
+																	"description": "(Required) ID(code) of the house which you desire to edit"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Housing not found",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"file\": \"<binary>\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/v1/api/houses/:id/image",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"api",
+																"houses",
+																":id",
+																"image"
+															],
+															"variable": [
+																{
+																	"key": "id",
+																	"value": "<integer>",
+																	"description": "(Required) ID(code) of the house which you desire to edit"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										},
+										{
+											"name": "Delete housing image",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearerToken}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/houses/1/image",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"houses",
+														"1",
+														"image"
+													]
+												},
+												"description": "Removes the image associated with a housing listing"
+											},
+											"response": [
+												{
+													"name": "Image deleted successfully",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/api/houses/:id/image",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"api",
+																"houses",
+																":id",
+																"image"
+															],
+															"variable": [
+																{
+																	"key": "id",
+																	"value": "<integer>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"status": "No Content",
+													"code": 204,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Housing not found",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/api/houses/:id/image",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"api",
+																"houses",
+																":id",
+																"image"
+															],
+															"variable": [
+																{
+																	"key": "id",
+																	"value": "<integer>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Get house by ID(Code)",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/houses/1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"houses",
+												"1"
+											]
+										},
+										"description": "Returns a house by its ID in our api the ID of the houses is referred to as code"
+									},
+									"response": [
+										{
+											"name": "Successfully retrieved house",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/houses/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"houses",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID(Code) of the house"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<integer>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"acepted\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Forbidden - Access denied",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/houses/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"houses",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID(Code) of the house"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<integer>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"acepted\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "House not found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/houses/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"houses",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID(Code) of the house"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<integer>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"acepted\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Update a house",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"location\": \"Madrid\",\n  \"name\": \"Madrid RIU\",\n  \"price\": 500,\n  \"description\": \"Muy acogedor madrid riu\",\n  \"stars\": 4,\n  \"acepted\": true,\n  \"tags\": [\n    {\n      \"id\": \"city\"\n    },\n    {\n      \"id\": \"centre\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/houses/1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"houses",
+												"1"
+											]
+										},
+										"description": "Updates an existing house with the provided details"
+									},
+									"response": [
+										{
+											"name": "House updated successfully",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"acepted\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/houses/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"houses",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID(code) of the house to update"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<integer>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"acepted\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Invalid input",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"acepted\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/houses/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"houses",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID(code) of the house to update"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<integer>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"acepted\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Forbidden - Access denied",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"acepted\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/houses/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"houses",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID(code) of the house to update"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<integer>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"acepted\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "House not found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"acepted\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/houses/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"houses",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID(code) of the house to update"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<integer>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"acepted\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete a house",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/houses/1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"houses",
+												"1"
+											]
+										},
+										"description": "Deletes a house by its ID"
+									},
+									"response": [
+										{
+											"name": "House deleted successfully",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/houses/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"houses",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the house to delete"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Forbidden - Access denied",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/houses/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"houses",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the house to delete"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "House not found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/houses/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"houses",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the house to delete"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Get tags by house ID(code)",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/houses/1/tags",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"houses",
+												"1",
+												"tags"
+											]
+										},
+										"description": "Returns a set of tags associated with a house by its ID(code)"
+									},
+									"response": [
+										{
+											"name": "Successfully retrieved tags",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/houses/:id/tags",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"houses",
+														":id",
+														"tags"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the house"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\"\n  }\n]"
+										},
+										{
+											"name": "Forbidden - Access denied",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/houses/:id/tags",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"houses",
+														":id",
+														"tags"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the house"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\"\n  }\n]"
+										},
+										{
+											"name": "House not found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/houses/:id/tags",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"houses",
+														":id",
+														"tags"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) ID of the house"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\"\n  }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get all houses",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/houses",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"houses"
+									]
+								},
+								"description": "Returns a list of all houses"
+							},
+							"response": [
+								{
+									"name": "Successfully retrieved list of houses",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/houses",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"houses"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"code\": \"<integer>\",\n    \"location\": \"<string>\",\n    \"name\": \"<string>\",\n    \"price\": \"<integer>\",\n    \"description\": \"<string>\",\n    \"stars\": \"<integer>\",\n    \"acepted\": \"<boolean>\",\n    \"tags\": [\n      {\n        \"id\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\"\n      }\n    ]\n  },\n  {\n    \"code\": \"<integer>\",\n    \"location\": \"<string>\",\n    \"name\": \"<string>\",\n    \"price\": \"<integer>\",\n    \"description\": \"<string>\",\n    \"stars\": \"<integer>\",\n    \"acepted\": \"<boolean>\",\n    \"tags\": [\n      {\n        \"id\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\"\n      }\n    ]\n  }\n]"
+								},
+								{
+									"name": "Forbidden - Access denied",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/houses",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"houses"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"code\": \"<integer>\",\n    \"location\": \"<string>\",\n    \"name\": \"<string>\",\n    \"price\": \"<integer>\",\n    \"description\": \"<string>\",\n    \"stars\": \"<integer>\",\n    \"acepted\": \"<boolean>\",\n    \"tags\": [\n      {\n        \"id\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\"\n      }\n    ]\n  },\n  {\n    \"code\": \"<integer>\",\n    \"location\": \"<string>\",\n    \"name\": \"<string>\",\n    \"price\": \"<integer>\",\n    \"description\": \"<string>\",\n    \"stars\": \"<integer>\",\n    \"acepted\": \"<boolean>\",\n    \"tags\": [\n      {\n        \"id\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\"\n      }\n    ]\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "Create a new house",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"location\": \"Madrid\",\n  \"name\": \"AAAAAA\",\n  \"price\": 400,\n  \"description\": \"El hotel de los gritos\",\n  \"stars\": 4,\n  \"acepted\": true,\n  \"tags\": [\n    {\n      \"id\": \"gritos\"\n    },\n    {\n      \"id\": \"city\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/houses",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"houses"
+									]
+								},
+								"description": "Creates a new house with the provided details"
+							},
+							"response": [
+								{
+									"name": "House created successfully",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"acepted\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/houses",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"houses"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": \"<integer>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"acepted\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "Invalid input",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"acepted\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/houses",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"houses"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": \"<integer>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"acepted\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "Forbidden - Access denied",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"acepted\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/houses",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"houses"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": \"<integer>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"acepted\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "admin",
+					"item": [
+						{
+							"name": "reservations/decision/{reservationId}",
+							"item": [
+								{
+									"name": "Accept a reservation",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/admin/reservations/decision/1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"admin",
+												"reservations",
+												"decision",
+												"1"
+											]
+										},
+										"description": "Accepts a reservation by setting its 'valorated' field to true. "
+									},
+									"response": [
+										{
+											"name": "Reservation accepted successfully",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/admin/reservations/decision/:reservationId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"admin",
+														"reservations",
+														"decision",
+														":reservationId"
+													],
+													"variable": [
+														{
+															"key": "reservationId",
+															"value": "<integer>",
+															"description": "(Required) ID of the reservation"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Unauthorized - JWT token missing or invalid",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/admin/reservations/decision/:reservationId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"admin",
+														"reservations",
+														"decision",
+														":reservationId"
+													],
+													"variable": [
+														{
+															"key": "reservationId",
+															"value": "<integer>",
+															"description": "(Required) ID of the reservation"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Forbidden - Access denied (requires ADMIN role)",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/admin/reservations/decision/:reservationId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"admin",
+														"reservations",
+														"decision",
+														":reservationId"
+													],
+													"variable": [
+														{
+															"key": "reservationId",
+															"value": "<integer>",
+															"description": "(Required) ID of the reservation"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Reservation not found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/admin/reservations/decision/:reservationId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"admin",
+														"reservations",
+														"decision",
+														":reservationId"
+													],
+													"variable": [
+														{
+															"key": "reservationId",
+															"value": "<integer>",
+															"description": "(Required) ID of the reservation"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Deny a reservation",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/admin/reservations/decision/1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"admin",
+												"reservations",
+												"decision",
+												"1"
+											]
+										},
+										"description": "Denies a reservation by deleting it from the database. **Requires ADMIN role.**"
+									},
+									"response": [
+										{
+											"name": "Reservation denied and removed successfully",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/admin/reservations/decision/:reservationId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"admin",
+														"reservations",
+														"decision",
+														":reservationId"
+													],
+													"variable": [
+														{
+															"key": "reservationId",
+															"value": "<integer>",
+															"description": "(Required) ID of the reservation"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Unauthorized - JWT token missing or invalid",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/admin/reservations/decision/:reservationId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"admin",
+														"reservations",
+														"decision",
+														":reservationId"
+													],
+													"variable": [
+														{
+															"key": "reservationId",
+															"value": "<integer>",
+															"description": "(Required) ID of the reservation"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Forbidden - Access denied (requires ADMIN role)",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/admin/reservations/decision/:reservationId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"admin",
+														"reservations",
+														"decision",
+														":reservationId"
+													],
+													"variable": [
+														{
+															"key": "reservationId",
+															"value": "<integer>",
+															"description": "(Required) ID of the reservation"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Reservation not found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/admin/reservations/decision/:reservationId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"admin",
+														"reservations",
+														"decision",
+														":reservationId"
+													],
+													"variable": [
+														{
+															"key": "reservationId",
+															"value": "<integer>",
+															"description": "(Required) ID of the reservation"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "houses",
+							"item": [
+								{
+									"name": "decision/{houseId}",
+									"item": [
+										{
+											"name": "Accept a house",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearerToken}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PUT",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/admin/houses/decision/1",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"admin",
+														"houses",
+														"decision",
+														"1"
+													]
+												},
+												"description": "Accepts a house by setting its 'acepted' field to true. "
+											},
+											"response": [
+												{
+													"name": "House accepted successfully",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/api/admin/houses/decision/:houseId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"api",
+																"admin",
+																"houses",
+																"decision",
+																":houseId"
+															],
+															"variable": [
+																{
+																	"key": "houseId",
+																	"value": "<integer>",
+																	"description": "(Required) ID(code) of the house"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Unauthorized - JWT token missing or invalid",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/api/admin/houses/decision/:houseId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"api",
+																"admin",
+																"houses",
+																"decision",
+																":houseId"
+															],
+															"variable": [
+																{
+																	"key": "houseId",
+																	"value": "<integer>",
+																	"description": "(Required) ID(code) of the house"
+																}
+															]
+														}
+													},
+													"status": "Unauthorized",
+													"code": 401,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Forbidden - Access denied (requires ADMIN role)",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/api/admin/houses/decision/:houseId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"api",
+																"admin",
+																"houses",
+																"decision",
+																":houseId"
+															],
+															"variable": [
+																{
+																	"key": "houseId",
+																	"value": "<integer>",
+																	"description": "(Required) ID(code) of the house"
+																}
+															]
+														}
+													},
+													"status": "Forbidden",
+													"code": 403,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "House not found",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/api/admin/houses/decision/:houseId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"api",
+																"admin",
+																"houses",
+																"decision",
+																":houseId"
+															],
+															"variable": [
+																{
+																	"key": "houseId",
+																	"value": "<integer>",
+																	"description": "(Required) ID(code) of the house"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										},
+										{
+											"name": "Deny a house",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearerToken}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/admin/houses/decision/1",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"admin",
+														"houses",
+														"decision",
+														"1"
+													]
+												},
+												"description": "Denies a house by deleting it from the database."
+											},
+											"response": [
+												{
+													"name": "House denied and removed successfully",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/api/admin/houses/decision/:houseId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"api",
+																"admin",
+																"houses",
+																"decision",
+																":houseId"
+															],
+															"variable": [
+																{
+																	"key": "houseId",
+																	"value": "<integer>",
+																	"description": "(Required) ID(code) of the house"
+																}
+															]
+														}
+													},
+													"status": "No Content",
+													"code": 204,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Unauthorized - JWT token missing or invalid",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/api/admin/houses/decision/:houseId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"api",
+																"admin",
+																"houses",
+																"decision",
+																":houseId"
+															],
+															"variable": [
+																{
+																	"key": "houseId",
+																	"value": "<integer>",
+																	"description": "(Required) ID(code) of the house"
+																}
+															]
+														}
+													},
+													"status": "Unauthorized",
+													"code": 401,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Forbidden - Access denied (requires ADMIN role)",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/api/admin/houses/decision/:houseId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"api",
+																"admin",
+																"houses",
+																"decision",
+																":houseId"
+															],
+															"variable": [
+																{
+																	"key": "houseId",
+																	"value": "<integer>",
+																	"description": "(Required) ID(code) of the house"
+																}
+															]
+														}
+													},
+													"status": "Forbidden",
+													"code": 403,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "House not found",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/api/admin/houses/decision/:houseId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"api",
+																"admin",
+																"houses",
+																"decision",
+																":houseId"
+															],
+															"variable": [
+																{
+																	"key": "houseId",
+																	"value": "<integer>",
+																	"description": "(Required) ID(code) of the house"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Get paginated unaccepted houses for admin",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/admin/houses?page=0&size=3",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"admin",
+												"houses"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "0",
+													"description": "Page number (0-based)"
+												},
+												{
+													"key": "size",
+													"value": "3",
+													"description": "Number of items per page"
+												}
+											]
+										},
+										"description": "Returns a paginated list of unaccepted houses for admin review."
+									},
+									"response": [
+										{
+											"name": "Successfully retrieved paginated unaccepted houses",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/admin/houses?page=0&size=3",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"admin",
+														"houses"
+													],
+													"query": [
+														{
+															"key": "page",
+															"value": "0"
+														},
+														{
+															"key": "size",
+															"value": "3"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"totalPages\": \"<integer>\",\n  \"totalElements\": \"<long>\",\n  \"size\": \"<integer>\",\n  \"content\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"number\": \"<integer>\",\n  \"sort\": {\n    \"empty\": \"<boolean>\",\n    \"sorted\": \"<boolean>\",\n    \"unsorted\": \"<boolean>\"\n  },\n  \"first\": \"<boolean>\",\n  \"last\": \"<boolean>\",\n  \"numberOfElements\": \"<integer>\",\n  \"pageable\": {\n    \"offset\": \"<long>\",\n    \"sort\": {\n      \"empty\": \"<boolean>\",\n      \"sorted\": \"<boolean>\",\n      \"unsorted\": \"<boolean>\"\n    },\n    \"pageNumber\": \"<integer>\",\n    \"paged\": \"<boolean>\",\n    \"pageSize\": \"<integer>\",\n    \"unpaged\": \"<boolean>\"\n  },\n  \"empty\": \"<boolean>\"\n}"
+										},
+										{
+											"name": "Internal server error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/api/admin/houses?page=0&size=3",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"api",
+														"admin",
+														"houses"
+													],
+													"query": [
+														{
+															"key": "page",
+															"value": "0"
+														},
+														{
+															"key": "size",
+															"value": "3"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"Internal Server Error\",\n  \"message\": \"Error fetching houses\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "rooms",
+					"item": [
+						{
+							"name": "Get paginated comments for a house",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/rooms/:id/comments/extra?page=0&size=3",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"rooms",
+										":id",
+										"comments",
+										"extra"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0",
+											"description": "Page number (0-based)"
+										},
+										{
+											"key": "size",
+											"value": "3",
+											"description": "Number of items per page"
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) ID of the house"
+										}
+									]
+								},
+								"description": "Returns a paginated list of comments for a specific house."
+							},
+							"response": [
+								{
+									"name": "Successfully retrieved paginated comments",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/rooms/:id/comments/extra?page=0&size=3",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"rooms",
+												":id",
+												"comments",
+												"extra"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "0"
+												},
+												{
+													"key": "size",
+													"value": "3"
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "(Required) ID of the house"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"reviewId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"hotel\": {\n    \"code\": \"<integer>\",\n    \"location\": \"<string>\",\n    \"name\": \"<string>\",\n    \"price\": \"<integer>\",\n    \"description\": \"<string>\",\n    \"stars\": \"<integer>\",\n    \"acepted\": \"<boolean>\",\n    \"tags\": [\n      {\n        \"id\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\"\n      }\n    ],\n    \"imageBase64\": \"<string>\"\n  },\n  \"user\": {\n    \"dni\": \"<string>\",\n    \"name\": \"<string>\",\n    \"number\": \"<integer>\",\n    \"password\": \"<string>\",\n    \"email\": \"<string>\",\n    \"admin\": \"<boolean>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"encodedPassword\": \"<string>\"\n  }\n}"
+								},
+								{
+									"name": "Internal server error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/rooms/:id/comments/extra?page=0&size=3",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"rooms",
+												":id",
+												"comments",
+												"extra"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "0"
+												},
+												{
+													"key": "size",
+													"value": "3"
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "(Required) ID of the house"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"Internal Server Error\",\n  \"message\": \"Error fetching comments\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get paginated houses",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/rooms/extra?page=0&size=6",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"rooms",
+										"extra"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0",
+											"description": "Page number (0-based)"
+										},
+										{
+											"key": "size",
+											"value": "6",
+											"description": "Number of items per page"
+										}
+									]
+								},
+								"description": "Returns a paginated list of accepted houses."
+							},
+							"response": [
+								{
+									"name": "Successfully retrieved paginated houses",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/rooms/extra?page=0&size=6",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"rooms",
+												"extra"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "0"
+												},
+												{
+													"key": "size",
+													"value": "6"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": \"<integer>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"acepted\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ],\n  \"imageBase64\": \"<string>\"\n}"
+								},
+								{
+									"name": "Internal server error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/api/rooms/extra?page=0&size=6",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"api",
+												"rooms",
+												"extra"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "0"
+												},
+												{
+													"key": "size",
+													"value": "6"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"Internal Server Error\",\n  \"message\": \"Error fetching houses\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Log in user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/api/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"login"
+							]
+						},
+						"description": "Authenticates a user with their email and password, and returns a JWT token and their roles."
+					},
+					"response": [
+						{
+							"name": "Successfully authenticated",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"jwt\": \"<string>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+						},
+						{
+							"name": "Bad Request - Invalid input",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"error\": \"Bad Request\",\n  \"message\": \"Invalid input\"\n}"
+						},
+						{
+							"name": "Unauthorized - Invalid credentials",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"error\": \"Unauthorized\",\n  \"message\": \"Bad credentials\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Search houses by tags and stars",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/v1/api/query?tags=<string>&stars=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"query"
+							],
+							"query": [
+								{
+									"key": "tags",
+									"value": "<string>",
+									"description": "Comma-separated list of tags to filter by (e.g. 'beach,pool,wifi')"
+								},
+								{
+									"key": "stars",
+									"value": "<integer>",
+									"description": "Minimum star rating to filter by (1-5)"
+								}
+							]
+						},
+						"description": "Returns a list of houses filtered by optional tags and minimum star rating"
+					},
+					"response": [
+						{
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/query?tags=<string>&stars=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"query"
+									],
+									"query": [
+										{
+											"key": "tags",
+											"value": "<string>"
+										},
+										{
+											"key": "stars",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"code\": \"<integer>\",\n    \"location\": \"<string>\",\n    \"name\": \"<string>\",\n    \"price\": \"<integer>\",\n    \"description\": \"<string>\",\n    \"stars\": \"<integer>\",\n    \"acepted\": \"<boolean>\",\n    \"tags\": [\n      {\n        \"id\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\"\n      }\n    ]\n  },\n  {\n    \"code\": \"<integer>\",\n    \"location\": \"<string>\",\n    \"name\": \"<string>\",\n    \"price\": \"<integer>\",\n    \"description\": \"<string>\",\n    \"stars\": \"<integer>\",\n    \"acepted\": \"<boolean>\",\n    \"tags\": [\n      {\n        \"id\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\"\n      }\n    ]\n  }\n]"
+						},
+						{
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v1/api/query?tags=<string>&stars=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"api",
+										"query"
+									],
+									"query": [
+										{
+											"key": "tags",
+											"value": "<string>"
+										},
+										{
+											"key": "stars",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"headers\": {\n    \"empty\": \"<boolean>\",\n    \"location\": \"<uri>\",\n    \"host\": {\n      \"address\": {\n        \"hostAddress\": \"<string>\",\n        \"address\": \"<byte>\",\n        \"hostName\": \"<string>\",\n        \"linkLocalAddress\": \"<boolean>\",\n        \"multicastAddress\": \"<boolean>\",\n        \"anyLocalAddress\": \"<boolean>\",\n        \"loopbackAddress\": \"<boolean>\",\n        \"siteLocalAddress\": \"<boolean>\",\n        \"mcglobal\": \"<boolean>\",\n        \"mcnodeLocal\": \"<boolean>\",\n        \"mclinkLocal\": \"<boolean>\",\n        \"mcsiteLocal\": \"<boolean>\",\n        \"mcorgLocal\": \"<boolean>\",\n        \"canonicalHostName\": \"<string>\"\n      },\n      \"port\": \"<integer>\",\n      \"unresolved\": \"<boolean>\",\n      \"hostName\": \"<string>\",\n      \"hostString\": \"<string>\"\n    },\n    \"lastModified\": \"<long>\",\n    \"contentLength\": \"<long>\",\n    \"date\": \"<long>\",\n    \"origin\": \"<string>\",\n    \"contentType\": {\n      \"type\": \"<string>\",\n      \"subtype\": \"<string>\",\n      \"parameters\": {\n        \"consequat_6\": \"<string>\",\n        \"ipsum406\": \"<string>\",\n        \"sunt_bb\": \"<string>\"\n      },\n      \"qualityValue\": \"<double>\",\n      \"charset\": \"<string>\",\n      \"subtypeSuffix\": \"<string>\",\n      \"concrete\": \"<boolean>\",\n      \"wildcardSubtype\": \"<boolean>\",\n      \"wildcardType\": \"<boolean>\"\n    },\n    \"connection\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ifModifiedSince\": \"<long>\",\n    \"range\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"contentDisposition\": {\n      \"type\": \"<string>\",\n      \"name\": \"<string>\",\n      \"filename\": \"<string>\",\n      \"charset\": \"<string>\",\n      \"size\": \"<long>\",\n      \"creationDate\": \"<dateTime>\",\n      \"modificationDate\": \"<dateTime>\",\n      \"readDate\": \"<dateTime>\",\n      \"inline\": \"<boolean>\",\n      \"attachment\": \"<boolean>\",\n      \"formData\": \"<boolean>\"\n    },\n    \"allow\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"acceptCharset\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"accessControlExposeHeaders\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"accessControlAllowOrigin\": \"<string>\",\n    \"accessControlAllowMethods\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"accessControlAllowHeaders\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"accessControlMaxAge\": \"<long>\",\n    \"accessControlAllowCredentials\": \"<boolean>\",\n    \"accessControlRequestMethod\": \"<object>\",\n    \"accessControlRequestHeaders\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ifUnmodifiedSince\": \"<long>\",\n    \"acceptLanguageAsLocales\": [\n      {\n        \"language\": \"<string>\",\n        \"script\": \"<string>\",\n        \"country\": \"<string>\",\n        \"variant\": \"<string>\",\n        \"unicodeLocaleAttributes\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"unicodeLocaleKeys\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"displayLanguage\": \"<string>\",\n        \"displayScript\": \"<string>\",\n        \"displayCountry\": \"<string>\",\n        \"displayVariant\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"extensionKeys\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"iso3Language\": \"<string>\",\n        \"iso3Country\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"script\": \"<string>\",\n        \"country\": \"<string>\",\n        \"variant\": \"<string>\",\n        \"unicodeLocaleAttributes\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"unicodeLocaleKeys\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"displayLanguage\": \"<string>\",\n        \"displayScript\": \"<string>\",\n        \"displayCountry\": \"<string>\",\n        \"displayVariant\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"extensionKeys\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"iso3Language\": \"<string>\",\n        \"iso3Country\": \"<string>\"\n      }\n    ],\n    \"contentLanguage\": {\n      \"language\": \"<string>\",\n      \"script\": \"<string>\",\n      \"country\": \"<string>\",\n      \"variant\": \"<string>\",\n      \"unicodeLocaleAttributes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"unicodeLocaleKeys\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"displayLanguage\": \"<string>\",\n      \"displayScript\": \"<string>\",\n      \"displayCountry\": \"<string>\",\n      \"displayVariant\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"extensionKeys\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"iso3Language\": \"<string>\",\n      \"iso3Country\": \"<string>\"\n    },\n    \"acceptPatch\": [\n      {\n        \"type\": \"<string>\",\n        \"subtype\": \"<string>\",\n        \"parameters\": {\n          \"sit_3\": \"<string>\"\n        },\n        \"qualityValue\": \"<double>\",\n        \"charset\": \"<string>\",\n        \"subtypeSuffix\": \"<string>\",\n        \"concrete\": \"<boolean>\",\n        \"wildcardSubtype\": \"<boolean>\",\n        \"wildcardType\": \"<boolean>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"subtype\": \"<string>\",\n        \"parameters\": {\n          \"culpa_7\": \"<string>\",\n          \"culpa_293\": \"<string>\",\n          \"laborea\": \"<string>\"\n        },\n        \"qualityValue\": \"<double>\",\n        \"charset\": \"<string>\",\n        \"subtypeSuffix\": \"<string>\",\n        \"concrete\": \"<boolean>\",\n        \"wildcardSubtype\": \"<boolean>\",\n        \"wildcardType\": \"<boolean>\"\n      }\n    ],\n    \"acceptLanguage\": [\n      {\n        \"range\": \"<string>\",\n        \"weight\": \"<double>\"\n      },\n      {\n        \"range\": \"<string>\",\n        \"weight\": \"<double>\"\n      }\n    ],\n    \"accept\": [\n      {\n        \"type\": \"<string>\",\n        \"subtype\": \"<string>\",\n        \"parameters\": {\n          \"nonc0\": \"<string>\",\n          \"temporf\": \"<string>\"\n        },\n        \"qualityValue\": \"<double>\",\n        \"charset\": \"<string>\",\n        \"subtypeSuffix\": \"<string>\",\n        \"concrete\": \"<boolean>\",\n        \"wildcardSubtype\": \"<boolean>\",\n        \"wildcardType\": \"<boolean>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"subtype\": \"<string>\",\n        \"parameters\": {\n          \"aliqua96\": \"<string>\"\n        },\n        \"qualityValue\": \"<double>\",\n        \"charset\": \"<string>\",\n        \"subtypeSuffix\": \"<string>\",\n        \"concrete\": \"<boolean>\",\n        \"wildcardSubtype\": \"<boolean>\",\n        \"wildcardType\": \"<boolean>\"\n      }\n    ],\n    \"ifMatch\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"expires\": \"<long>\",\n    \"ifNoneMatch\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"etag\": \"<string>\",\n    \"pragma\": \"<string>\",\n    \"upgrade\": \"<string>\",\n    \"vary\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"cacheControl\": \"<string>\",\n    \"Lorem_fc2\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"eab\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"Excepteur7ef\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"body\": {\n    \"type\": \"<uri>\",\n    \"title\": \"<string>\",\n    \"status\": \"<integer>\",\n    \"detail\": \"<string>\",\n    \"instance\": \"<uri>\",\n    \"properties\": {\n      \"veniam_af1\": \"<object>\",\n      \"fugiat_e4a\": \"<object>\",\n      \"non_5\": \"<object>\",\n      \"culpae8\": \"<object>\"\n    }\n  },\n  \"statusCode\": {\n    \"error\": \"<boolean>\",\n    \"is4xxClientError\": \"<boolean>\",\n    \"is5xxServerError\": \"<boolean>\",\n    \"is3xxRedirection\": \"<boolean>\",\n    \"is2xxSuccessful\": \"<boolean>\",\n    \"is1xxInformational\": \"<boolean>\"\n  },\n  \"typeMessageCode\": \"<string>\",\n  \"detailMessageArguments\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"titleMessageCode\": \"<string>\",\n  \"detailMessageCode\": \"<string>\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://localhost:8443",
+			"type": "string"
+		}
+	]
+}
