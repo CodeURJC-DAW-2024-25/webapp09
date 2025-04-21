@@ -1,9 +1,12 @@
 package es.grupo9.practica1.DTOs;
 
 import es.grupo9.practica1.entities.Review;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema.AccessMode;
 
 public class ReviewDTO {
 
+    @Schema(accessMode = AccessMode.READ_ONLY ,description = "Auto-generated ID (not required in request)")
     private Integer reviewId;
     private Integer rating;
     private String comment;

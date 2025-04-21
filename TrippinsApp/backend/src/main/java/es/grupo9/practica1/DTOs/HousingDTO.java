@@ -14,10 +14,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import es.grupo9.practica1.entities.Housing;
 import es.grupo9.practica1.entities.Tag;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema.AccessMode;
 
 
 
 public class HousingDTO {
+
+    @Schema(accessMode = AccessMode.READ_ONLY ,description = "Auto-generated ID (not required in request)")
     private int code;
     private String location;
     private String name;

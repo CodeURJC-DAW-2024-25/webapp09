@@ -3,8 +3,12 @@ package es.grupo9.practica1.DTOs;
 import java.sql.Date;
 
 import es.grupo9.practica1.entities.Reservation;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema.AccessMode;
 
 public class ReservationDTO {
+
+    @Schema(accessMode = AccessMode.READ_ONLY ,description = "Auto-generated ID (not required in request)")
     private Integer id;
     private Date checkIn;
     private Date checkOut;

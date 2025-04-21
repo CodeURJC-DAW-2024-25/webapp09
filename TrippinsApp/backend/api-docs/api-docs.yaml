@@ -1198,6 +1198,8 @@ components:
         reviewId:
           type: integer
           format: int32
+          description: Auto-generated ID (not required in request)
+          readOnly: true
         rating:
           type: integer
           format: int32
@@ -1217,6 +1219,8 @@ components:
         id:
           type: integer
           format: int32
+          description: Auto-generated ID (not required in request)
+          readOnly: true
         checkIn:
           type: string
           format: date-time
@@ -1238,6 +1242,8 @@ components:
         code:
           type: integer
           format: int32
+          description: Auto-generated ID (not required in request)
+          readOnly: true
         location:
           type: string
         name:
@@ -1468,70 +1474,21 @@ components:
                 $ref: "#/components/schemas/HttpRange"
             contentDisposition:
               $ref: "#/components/schemas/ContentDisposition"
-            acceptCharset:
-              type: array
-              items:
-                type: string
-            contentLanguage:
-              type: object
-              properties:
-                language:
-                  type: string
-                script:
-                  type: string
-                country:
-                  type: string
-                variant:
-                  type: string
-                unicodeLocaleAttributes:
-                  type: array
-                  items:
-                    type: string
-                  uniqueItems: true
-                unicodeLocaleKeys:
-                  type: array
-                  items:
-                    type: string
-                  uniqueItems: true
-                displayLanguage:
-                  type: string
-                displayScript:
-                  type: string
-                displayCountry:
-                  type: string
-                displayVariant:
-                  type: string
-                displayName:
-                  type: string
-                extensionKeys:
-                  type: array
-                  items:
-                    type: string
-                  uniqueItems: true
-                iso3Language:
-                  type: string
-                iso3Country:
-                  type: string
             allow:
               type: array
               items:
                 $ref: "#/components/schemas/HttpMethod"
               uniqueItems: true
-            cacheControl:
-              type: string
-            accessControlAllowCredentials:
-              type: boolean
-            accessControlRequestMethod:
-              $ref: "#/components/schemas/HttpMethod"
-            accessControlAllowOrigin:
-              type: string
-            accessControlMaxAge:
-              type: integer
-              format: int64
+            acceptCharset:
+              type: array
+              items:
+                type: string
             accessControlExposeHeaders:
               type: array
               items:
                 type: string
+            accessControlAllowOrigin:
+              type: string
             accessControlAllowMethods:
               type: array
               items:
@@ -1540,55 +1497,17 @@ components:
               type: array
               items:
                 type: string
+            accessControlMaxAge:
+              type: integer
+              format: int64
+            accessControlAllowCredentials:
+              type: boolean
+            accessControlRequestMethod:
+              $ref: "#/components/schemas/HttpMethod"
             accessControlRequestHeaders:
               type: array
               items:
                 type: string
-            accept:
-              type: array
-              items:
-                $ref: "#/components/schemas/MediaType"
-            etag:
-              type: string
-            acceptPatch:
-              type: array
-              items:
-                $ref: "#/components/schemas/MediaType"
-            acceptLanguage:
-              type: array
-              items:
-                type: object
-                properties:
-                  range:
-                    type: string
-                  weight:
-                    type: number
-                    format: double
-            basicAuth:
-              type: string
-              writeOnly: true
-            expires:
-              type: integer
-              format: int64
-            ifMatch:
-              type: array
-              items:
-                type: string
-            bearerAuth:
-              type: string
-              writeOnly: true
-            ifNoneMatch:
-              type: array
-              items:
-                type: string
-            vary:
-              type: array
-              items:
-                type: string
-            pragma:
-              type: string
-            upgrade:
-              type: string
             ifUnmodifiedSince:
               type: integer
               format: int64
@@ -1634,21 +1553,108 @@ components:
                     type: string
                   iso3Country:
                     type: string
+            contentLanguage:
+              type: object
+              properties:
+                language:
+                  type: string
+                script:
+                  type: string
+                country:
+                  type: string
+                variant:
+                  type: string
+                unicodeLocaleAttributes:
+                  type: array
+                  items:
+                    type: string
+                  uniqueItems: true
+                unicodeLocaleKeys:
+                  type: array
+                  items:
+                    type: string
+                  uniqueItems: true
+                displayLanguage:
+                  type: string
+                displayScript:
+                  type: string
+                displayCountry:
+                  type: string
+                displayVariant:
+                  type: string
+                displayName:
+                  type: string
+                extensionKeys:
+                  type: array
+                  items:
+                    type: string
+                  uniqueItems: true
+                iso3Language:
+                  type: string
+                iso3Country:
+                  type: string
+            acceptPatch:
+              type: array
+              items:
+                $ref: "#/components/schemas/MediaType"
+            acceptLanguage:
+              type: array
+              items:
+                type: object
+                properties:
+                  range:
+                    type: string
+                  weight:
+                    type: number
+                    format: double
+            basicAuth:
+              type: string
+              writeOnly: true
+            accept:
+              type: array
+              items:
+                $ref: "#/components/schemas/MediaType"
+            ifMatch:
+              type: array
+              items:
+                type: string
+            bearerAuth:
+              type: string
+              writeOnly: true
+            expires:
+              type: integer
+              format: int64
+            ifNoneMatch:
+              type: array
+              items:
+                type: string
+            etag:
+              type: string
+            pragma:
+              type: string
+            upgrade:
+              type: string
+            vary:
+              type: array
+              items:
+                type: string
+            cacheControl:
+              type: string
         body:
           $ref: "#/components/schemas/ProblemDetail"
         statusCode:
           oneOf:
           - $ref: "#/components/schemas/DefaultHttpStatusCode"
           - $ref: "#/components/schemas/HttpStatus"
+        typeMessageCode:
+          type: string
         detailMessageArguments:
           type: array
           items:
             type: object
-        detailMessageCode:
-          type: string
         titleMessageCode:
           type: string
-        typeMessageCode:
+        detailMessageCode:
           type: string
     HttpMethod:
       type: object
@@ -1732,15 +1738,15 @@ components:
       properties:
         error:
           type: boolean
-        is1xxInformational:
-          type: boolean
-        is2xxSuccessful:
-          type: boolean
-        is3xxRedirection:
+        is4xxClientError:
           type: boolean
         is5xxServerError:
           type: boolean
-        is4xxClientError:
+        is3xxRedirection:
+          type: boolean
+        is2xxSuccessful:
+          type: boolean
+        is1xxInformational:
           type: boolean
     MediaType:
       type: object
@@ -1758,14 +1764,14 @@ components:
           format: double
         charset:
           type: string
+        subtypeSuffix:
+          type: string
+        concrete:
+          type: boolean
         wildcardSubtype:
           type: boolean
         wildcardType:
           type: boolean
-        concrete:
-          type: boolean
-        subtypeSuffix:
-          type: string
     ProblemDetail:
       type: object
       properties:
@@ -1794,12 +1800,12 @@ components:
     Page:
       type: object
       properties:
-        totalElements:
-          type: integer
-          format: int64
         totalPages:
           type: integer
           format: int32
+        totalElements:
+          type: integer
+          format: int64
         size:
           type: integer
           format: int32
@@ -1831,14 +1837,14 @@ components:
           format: int64
         sort:
           $ref: "#/components/schemas/SortObject"
-        pageSize:
-          type: integer
-          format: int32
         pageNumber:
           type: integer
           format: int32
         paged:
           type: boolean
+        pageSize:
+          type: integer
+          format: int32
         unpaged:
           type: boolean
     SortObject:
