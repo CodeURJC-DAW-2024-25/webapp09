@@ -925,11 +925,8 @@ ul.nav-tabs {
     "body" : {
       "$ref" : "#/components/schemas/ProblemDetail"
     },
-    "titleMessageCode" : {
-      "type" : "string"
-    },
-    "detailMessageCode" : {
-      "type" : "string"
+    "statusCode" : {
+      "$ref" : "#/components/schemas/ErrorResponse_statusCode"
     },
     "detailMessageArguments" : {
       "type" : "array",
@@ -937,8 +934,11 @@ ul.nav-tabs {
         "type" : "object"
       }
     },
-    "statusCode" : {
-      "$ref" : "#/components/schemas/ErrorResponse_statusCode"
+    "detailMessageCode" : {
+      "type" : "string"
+    },
+    "titleMessageCode" : {
+      "type" : "string"
     },
     "typeMessageCode" : {
       "type" : "string"
@@ -996,16 +996,13 @@ ul.nav-tabs {
     "contentDisposition" : {
       "$ref" : "#/components/schemas/ContentDisposition"
     },
-    "contentLanguage" : {
-      "$ref" : "#/components/schemas/ErrorResponse_headers_contentLanguage"
-    },
-    "cacheControl" : {
-      "type" : "string"
-    },
     "acceptCharset" : {
       "items" : {
         "type" : "string"
       }
+    },
+    "contentLanguage" : {
+      "$ref" : "#/components/schemas/ErrorResponse_headers_contentLanguage"
     },
     "allow" : {
       "uniqueItems" : true,
@@ -1013,59 +1010,21 @@ ul.nav-tabs {
         "$ref" : "#/components/schemas/HttpMethod"
       }
     },
-    "acceptPatch" : {
-      "items" : {
-        "$ref" : "#/components/schemas/MediaType"
-      }
-    },
-    "accept" : {
-      "items" : {
-        "$ref" : "#/components/schemas/MediaType"
-      }
-    },
-    "bearerAuth" : {
-      "writeOnly" : true
-    },
-    "expires" : {
-      "type" : "integer",
-      "format" : "int64"
-    },
-    "pragma" : {
+    "cacheControl" : {
       "type" : "string"
     },
-    "upgrade" : {
-      "type" : "string"
-    },
-    "ifNoneMatch" : {
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "etag" : {
-      "type" : "string"
-    },
-    "ifMatch" : {
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "vary" : {
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "accessControlRequestHeaders" : {
-      "items" : {
-        "type" : "string"
-      }
+    "accessControlAllowCredentials" : {
+      "type" : "boolean"
     },
     "accessControlRequestMethod" : {
       "$ref" : "#/components/schemas/HttpMethod"
     },
-    "accessControlAllowHeaders" : {
-      "items" : {
-        "type" : "string"
-      }
+    "accessControlAllowOrigin" : {
+      "type" : "string"
+    },
+    "accessControlMaxAge" : {
+      "type" : "integer",
+      "format" : "int64"
     },
     "accessControlExposeHeaders" : {
       "items" : {
@@ -1077,14 +1036,63 @@ ul.nav-tabs {
         "$ref" : "#/components/schemas/HttpMethod"
       }
     },
-    "accessControlMaxAge" : {
+    "accessControlAllowHeaders" : {
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "accessControlRequestHeaders" : {
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "accept" : {
+      "items" : {
+        "$ref" : "#/components/schemas/MediaType"
+      }
+    },
+    "etag" : {
+      "type" : "string"
+    },
+    "acceptPatch" : {
+      "items" : {
+        "$ref" : "#/components/schemas/MediaType"
+      }
+    },
+    "acceptLanguage" : {
+      "items" : {
+        "$ref" : "#/components/schemas/ErrorResponse_headers_acceptLanguage_inner"
+      }
+    },
+    "basicAuth" : {
+      "writeOnly" : true
+    },
+    "expires" : {
       "type" : "integer",
       "format" : "int64"
     },
-    "accessControlAllowCredentials" : {
-      "type" : "boolean"
+    "ifMatch" : {
+      "items" : {
+        "type" : "string"
+      }
     },
-    "accessControlAllowOrigin" : {
+    "bearerAuth" : {
+      "writeOnly" : true
+    },
+    "ifNoneMatch" : {
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "vary" : {
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "pragma" : {
+      "type" : "string"
+    },
+    "upgrade" : {
       "type" : "string"
     },
     "ifUnmodifiedSince" : {
@@ -1095,14 +1103,6 @@ ul.nav-tabs {
       "items" : {
         "$ref" : "#/components/schemas/ErrorResponse_headers_acceptLanguageAsLocales_inner"
       }
-    },
-    "acceptLanguage" : {
-      "items" : {
-        "$ref" : "#/components/schemas/ErrorResponse_headers_acceptLanguage_inner"
-      }
-    },
-    "basicAuth" : {
-      "writeOnly" : true
     }
   },
   "additionalProperties" : {
@@ -1359,16 +1359,16 @@ ul.nav-tabs {
     "is1xxInformational" : {
       "type" : "boolean"
     },
-    "is3xxRedirection" : {
-      "type" : "boolean"
-    },
     "is2xxSuccessful" : {
       "type" : "boolean"
     },
-    "is4xxClientError" : {
+    "is3xxRedirection" : {
       "type" : "boolean"
     },
     "is5xxServerError" : {
+      "type" : "boolean"
+    },
+    "is4xxClientError" : {
       "type" : "boolean"
     }
   }
@@ -1393,10 +1393,10 @@ ul.nav-tabs {
     "charset" : {
       "type" : "string"
     },
-    "wildcardType" : {
+    "wildcardSubtype" : {
       "type" : "boolean"
     },
-    "wildcardSubtype" : {
+    "wildcardType" : {
       "type" : "boolean"
     },
     "concrete" : {
@@ -1409,13 +1409,13 @@ ul.nav-tabs {
 };
     defs["Page"] = {
   "properties" : {
-    "totalPages" : {
-      "type" : "integer",
-      "format" : "int32"
-    },
     "totalElements" : {
       "type" : "integer",
       "format" : "int64"
+    },
+    "totalPages" : {
+      "type" : "integer",
+      "format" : "int32"
     },
     "size" : {
       "type" : "integer",
@@ -1461,16 +1461,16 @@ ul.nav-tabs {
     "sort" : {
       "$ref" : "#/components/schemas/SortObject"
     },
-    "paged" : {
-      "type" : "boolean"
+    "pageSize" : {
+      "type" : "integer",
+      "format" : "int32"
     },
     "pageNumber" : {
       "type" : "integer",
       "format" : "int32"
     },
-    "pageSize" : {
-      "type" : "integer",
-      "format" : "int32"
+    "paged" : {
+      "type" : "boolean"
     },
     "unpaged" : {
       "type" : "boolean"
@@ -2894,7 +2894,7 @@ $(document).ready(function() {
                         <p class="marked">Accepts a house by setting its &#39;acepted&#39; field to true. </p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/api/admin/houses/decision/{houseId}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/v1/api/admin/houses/decision/{houseId}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -2918,7 +2918,7 @@ $(document).ready(function() {
                           <div class="tab-pane active" id="examples-CustomAJAXEndpoints-acceptHouse-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X PUT \
  -H "Authorization: Bearer [[accessToken]]" \
- "https://localhost:8443/api/admin/houses/decision/{houseId}"
+ "https://localhost:8443/v1/api/admin/houses/decision/{houseId}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-CustomAJAXEndpoints-acceptHouse-0-java">
@@ -3461,7 +3461,7 @@ ID(code) of the house
                         <p class="marked">Accepts a reservation by setting its &#39;valorated&#39; field to true. </p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/api/admin/reservations/decision/{reservationId}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/v1/api/admin/reservations/decision/{reservationId}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -3485,7 +3485,7 @@ ID(code) of the house
                           <div class="tab-pane active" id="examples-CustomAJAXEndpoints-acceptReservation-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X PUT \
  -H "Authorization: Bearer [[accessToken]]" \
- "https://localhost:8443/api/admin/reservations/decision/{reservationId}"
+ "https://localhost:8443/v1/api/admin/reservations/decision/{reservationId}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-CustomAJAXEndpoints-acceptReservation-0-java">
@@ -4028,7 +4028,7 @@ ID of the reservation
                         <p class="marked">Denies a house by deleting it from the database.</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/api/admin/houses/decision/{houseId}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/v1/api/admin/houses/decision/{houseId}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -4052,7 +4052,7 @@ ID of the reservation
                           <div class="tab-pane active" id="examples-CustomAJAXEndpoints-denyHouse-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X DELETE \
  -H "Authorization: Bearer [[accessToken]]" \
- "https://localhost:8443/api/admin/houses/decision/{houseId}"
+ "https://localhost:8443/v1/api/admin/houses/decision/{houseId}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-CustomAJAXEndpoints-denyHouse-0-java">
@@ -4595,7 +4595,7 @@ ID(code) of the house
                         <p class="marked">Denies a reservation by deleting it from the database. **Requires ADMIN role.**</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/api/admin/reservations/decision/{reservationId}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/v1/api/admin/reservations/decision/{reservationId}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -4619,7 +4619,7 @@ ID(code) of the house
                           <div class="tab-pane active" id="examples-CustomAJAXEndpoints-denyReservation-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X DELETE \
  -H "Authorization: Bearer [[accessToken]]" \
- "https://localhost:8443/api/admin/reservations/decision/{reservationId}"
+ "https://localhost:8443/v1/api/admin/reservations/decision/{reservationId}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-CustomAJAXEndpoints-denyReservation-0-java">
@@ -5664,7 +5664,7 @@ Number of items per page
                         <p class="marked">Returns a paginated list of comments for a specific house.</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/rooms/{id}/comments/extra</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/v1/api/rooms/{id}/comments/extra</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -5688,7 +5688,7 @@ Number of items per page
                           <div class="tab-pane active" id="examples-CustomAJAXEndpoints-getComments-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: */*" \
- "https://localhost:8443/api/rooms/{id}/comments/extra?page=0&size=6"
+ "https://localhost:8443/v1/api/rooms/{id}/comments/extra?page=0&size=6"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-CustomAJAXEndpoints-getComments-0-java">
@@ -6185,7 +6185,7 @@ Number of items per page
                         <p class="marked">Returns a paginated list of accepted houses.</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/rooms/extra</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/v1/api/rooms/extra</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -6209,7 +6209,7 @@ Number of items per page
                           <div class="tab-pane active" id="examples-CustomAJAXEndpoints-getHouses-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: */*" \
- "https://localhost:8443/api/rooms/extra?page=0&size=6"
+ "https://localhost:8443/v1/api/rooms/extra?page=0&size=6"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-CustomAJAXEndpoints-getHouses-0-java">

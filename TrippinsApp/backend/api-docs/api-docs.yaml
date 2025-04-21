@@ -549,7 +549,7 @@ paths:
           description: Housing not found
       security:
       - JWT: []
-  /api/admin/reservations/decision/{reservationId}:
+  /v1/api/admin/reservations/decision/{reservationId}:
     put:
       tags:
       - Custom AJAX Endpoints
@@ -603,7 +603,7 @@ paths:
           description: Unauthorized - JWT token missing or invalid
       security:
       - JWT: []
-  /api/admin/houses/decision/{houseId}:
+  /v1/api/admin/houses/decision/{houseId}:
     put:
       tags:
       - Custom AJAX Endpoints
@@ -931,6 +931,94 @@ paths:
                 $ref: "#/components/schemas/HousingDTO"
       security:
       - JWT: []
+  /v1/api/rooms/{id}/comments/extra:
+    get:
+      tags:
+      - Custom AJAX Endpoints
+      summary: Get paginated comments for a house
+      description: Returns a paginated list of comments for a specific house.
+      operationId: getComments
+      parameters:
+      - name: id
+        in: path
+        description: ID of the house
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: page
+        in: query
+        description: Page number (0-based)
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+        example: 0
+      - name: size
+        in: query
+        description: Number of items per page
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 3
+        example: 6
+      responses:
+        "200":
+          description: Successfully retrieved paginated comments
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Review"
+        "500":
+          description: Internal server error
+          content:
+            '*/*':
+              example:
+                error: Internal Server Error
+                message: Error fetching comments
+  /v1/api/rooms/extra:
+    get:
+      tags:
+      - Custom AJAX Endpoints
+      summary: Get paginated houses
+      description: Returns a paginated list of accepted houses.
+      operationId: getHouses
+      parameters:
+      - name: page
+        in: query
+        description: Page number (0-based)
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+        example: 0
+      - name: size
+        in: query
+        description: Number of items per page
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 6
+        example: 6
+      responses:
+        "200":
+          description: Successfully retrieved paginated houses
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Housing"
+        "500":
+          description: Internal server error
+          content:
+            '*/*':
+              example:
+                error: Internal Server Error
+                message: Error fetching houses
   /v1/api/query:
     get:
       tags:
@@ -1059,94 +1147,6 @@ paths:
                 message: Error fetching houses
       security:
       - JWT: []
-  /api/rooms/{id}/comments/extra:
-    get:
-      tags:
-      - Custom AJAX Endpoints
-      summary: Get paginated comments for a house
-      description: Returns a paginated list of comments for a specific house.
-      operationId: getComments
-      parameters:
-      - name: id
-        in: path
-        description: ID of the house
-        required: true
-        schema:
-          type: integer
-          format: int32
-        example: 1
-      - name: page
-        in: query
-        description: Page number (0-based)
-        required: false
-        schema:
-          type: integer
-          format: int32
-          default: 0
-        example: 0
-      - name: size
-        in: query
-        description: Number of items per page
-        required: false
-        schema:
-          type: integer
-          format: int32
-          default: 3
-        example: 6
-      responses:
-        "200":
-          description: Successfully retrieved paginated comments
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/Review"
-        "500":
-          description: Internal server error
-          content:
-            '*/*':
-              example:
-                error: Internal Server Error
-                message: Error fetching comments
-  /api/rooms/extra:
-    get:
-      tags:
-      - Custom AJAX Endpoints
-      summary: Get paginated houses
-      description: Returns a paginated list of accepted houses.
-      operationId: getHouses
-      parameters:
-      - name: page
-        in: query
-        description: Page number (0-based)
-        required: false
-        schema:
-          type: integer
-          format: int32
-          default: 0
-        example: 0
-      - name: size
-        in: query
-        description: Number of items per page
-        required: false
-        schema:
-          type: integer
-          format: int32
-          default: 6
-        example: 6
-      responses:
-        "200":
-          description: Successfully retrieved paginated houses
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/Housing"
-        "500":
-          description: Internal server error
-          content:
-            '*/*':
-              example:
-                error: Internal Server Error
-                message: Error fetching houses
 components:
   schemas:
     RegisteredUserDTO:
@@ -1278,6 +1278,70 @@ components:
           type: array
           items:
             type: string
+    Housing:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        location:
+          type: string
+        name:
+          type: string
+        price:
+          type: integer
+          format: int32
+        description:
+          type: string
+        stars:
+          type: integer
+          format: int32
+        acepted:
+          type: boolean
+        tags:
+          type: array
+          items:
+            $ref: "#/components/schemas/Tag"
+          uniqueItems: true
+        imageBase64:
+          type: string
+    Review:
+      type: object
+      properties:
+        reviewId:
+          type: integer
+          format: int32
+        rating:
+          type: integer
+          format: int32
+        comment:
+          type: string
+        hotel:
+          $ref: "#/components/schemas/Housing"
+        user:
+          $ref: "#/components/schemas/User"
+    User:
+      type: object
+      properties:
+        dni:
+          type: string
+        name:
+          type: string
+        number:
+          type: integer
+          format: int32
+        password:
+          type: string
+        email:
+          type: string
+        admin:
+          type: boolean
+        roles:
+          type: array
+          items:
+            type: string
+        encodedPassword:
+          type: string
     ContentDisposition:
       type: object
       properties:
@@ -1404,6 +1468,10 @@ components:
                 $ref: "#/components/schemas/HttpRange"
             contentDisposition:
               $ref: "#/components/schemas/ContentDisposition"
+            acceptCharset:
+              type: array
+              items:
+                type: string
             contentLanguage:
               type: object
               properties:
@@ -1444,59 +1512,22 @@ components:
                   type: string
                 iso3Country:
                   type: string
-            cacheControl:
-              type: string
-            acceptCharset:
-              type: array
-              items:
-                type: string
             allow:
               type: array
               items:
                 $ref: "#/components/schemas/HttpMethod"
               uniqueItems: true
-            acceptPatch:
-              type: array
-              items:
-                $ref: "#/components/schemas/MediaType"
-            accept:
-              type: array
-              items:
-                $ref: "#/components/schemas/MediaType"
-            bearerAuth:
+            cacheControl:
               type: string
-              writeOnly: true
-            expires:
-              type: integer
-              format: int64
-            pragma:
-              type: string
-            upgrade:
-              type: string
-            ifNoneMatch:
-              type: array
-              items:
-                type: string
-            etag:
-              type: string
-            ifMatch:
-              type: array
-              items:
-                type: string
-            vary:
-              type: array
-              items:
-                type: string
-            accessControlRequestHeaders:
-              type: array
-              items:
-                type: string
+            accessControlAllowCredentials:
+              type: boolean
             accessControlRequestMethod:
               $ref: "#/components/schemas/HttpMethod"
-            accessControlAllowHeaders:
-              type: array
-              items:
-                type: string
+            accessControlAllowOrigin:
+              type: string
+            accessControlMaxAge:
+              type: integer
+              format: int64
             accessControlExposeHeaders:
               type: array
               items:
@@ -1505,12 +1536,58 @@ components:
               type: array
               items:
                 $ref: "#/components/schemas/HttpMethod"
-            accessControlMaxAge:
+            accessControlAllowHeaders:
+              type: array
+              items:
+                type: string
+            accessControlRequestHeaders:
+              type: array
+              items:
+                type: string
+            accept:
+              type: array
+              items:
+                $ref: "#/components/schemas/MediaType"
+            etag:
+              type: string
+            acceptPatch:
+              type: array
+              items:
+                $ref: "#/components/schemas/MediaType"
+            acceptLanguage:
+              type: array
+              items:
+                type: object
+                properties:
+                  range:
+                    type: string
+                  weight:
+                    type: number
+                    format: double
+            basicAuth:
+              type: string
+              writeOnly: true
+            expires:
               type: integer
               format: int64
-            accessControlAllowCredentials:
-              type: boolean
-            accessControlAllowOrigin:
+            ifMatch:
+              type: array
+              items:
+                type: string
+            bearerAuth:
+              type: string
+              writeOnly: true
+            ifNoneMatch:
+              type: array
+              items:
+                type: string
+            vary:
+              type: array
+              items:
+                type: string
+            pragma:
+              type: string
+            upgrade:
               type: string
             ifUnmodifiedSince:
               type: integer
@@ -1557,33 +1634,20 @@ components:
                     type: string
                   iso3Country:
                     type: string
-            acceptLanguage:
-              type: array
-              items:
-                type: object
-                properties:
-                  range:
-                    type: string
-                  weight:
-                    type: number
-                    format: double
-            basicAuth:
-              type: string
-              writeOnly: true
         body:
           $ref: "#/components/schemas/ProblemDetail"
-        titleMessageCode:
-          type: string
-        detailMessageCode:
-          type: string
-        detailMessageArguments:
-          type: array
-          items:
-            type: object
         statusCode:
           oneOf:
           - $ref: "#/components/schemas/DefaultHttpStatusCode"
           - $ref: "#/components/schemas/HttpStatus"
+        detailMessageArguments:
+          type: array
+          items:
+            type: object
+        detailMessageCode:
+          type: string
+        titleMessageCode:
+          type: string
         typeMessageCode:
           type: string
     HttpMethod:
@@ -1670,13 +1734,13 @@ components:
           type: boolean
         is1xxInformational:
           type: boolean
-        is3xxRedirection:
-          type: boolean
         is2xxSuccessful:
           type: boolean
-        is4xxClientError:
+        is3xxRedirection:
           type: boolean
         is5xxServerError:
+          type: boolean
+        is4xxClientError:
           type: boolean
     MediaType:
       type: object
@@ -1694,9 +1758,9 @@ components:
           format: double
         charset:
           type: string
-        wildcardType:
-          type: boolean
         wildcardSubtype:
+          type: boolean
+        wildcardType:
           type: boolean
         concrete:
           type: boolean
@@ -1730,12 +1794,12 @@ components:
     Page:
       type: object
       properties:
-        totalPages:
-          type: integer
-          format: int32
         totalElements:
           type: integer
           format: int64
+        totalPages:
+          type: integer
+          format: int32
         size:
           type: integer
           format: int32
@@ -1767,14 +1831,14 @@ components:
           format: int64
         sort:
           $ref: "#/components/schemas/SortObject"
-        paged:
-          type: boolean
-        pageNumber:
-          type: integer
-          format: int32
         pageSize:
           type: integer
           format: int32
+        pageNumber:
+          type: integer
+          format: int32
+        paged:
+          type: boolean
         unpaged:
           type: boolean
     SortObject:
@@ -1786,70 +1850,6 @@ components:
           type: boolean
         unsorted:
           type: boolean
-    Housing:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        location:
-          type: string
-        name:
-          type: string
-        price:
-          type: integer
-          format: int32
-        description:
-          type: string
-        stars:
-          type: integer
-          format: int32
-        acepted:
-          type: boolean
-        tags:
-          type: array
-          items:
-            $ref: "#/components/schemas/Tag"
-          uniqueItems: true
-        imageBase64:
-          type: string
-    Review:
-      type: object
-      properties:
-        reviewId:
-          type: integer
-          format: int32
-        rating:
-          type: integer
-          format: int32
-        comment:
-          type: string
-        hotel:
-          $ref: "#/components/schemas/Housing"
-        user:
-          $ref: "#/components/schemas/User"
-    User:
-      type: object
-      properties:
-        dni:
-          type: string
-        name:
-          type: string
-        number:
-          type: integer
-          format: int32
-        password:
-          type: string
-        email:
-          type: string
-        admin:
-          type: boolean
-        roles:
-          type: array
-          items:
-            type: string
-        encodedPassword:
-          type: string
   securitySchemes:
     JWT:
       type: http
