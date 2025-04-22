@@ -1,1 +1,14 @@
 <p>admin works!</p>
+<div class="admin-container">
+    <h2>Admin Dashboard</h2>
+    
+    <app-reservation-panel 
+      [reservations]="reservations$ | async"
+      (approve)="onApproveReservation($event)">
+    </app-reservation-panel>
+  
+    <app-housing-panel 
+      [posts]="housingPosts$ | async"
+      (approve)="onApprovePost($event)">
+    </app-housing-panel>
+  </div>

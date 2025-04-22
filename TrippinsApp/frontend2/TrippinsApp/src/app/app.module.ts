@@ -15,6 +15,8 @@ import { NewhotelComponent } from './components/newhotel/newhotel.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RoomDetailsComponent } from './components/room-details/room-details.component';
+import { ReservationPanelComponent } from './components/admin/reservation-panel/reservation-panel.component';
+import { HousingPanelComponent } from './components/admin/housing-panel/housing-panel.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { RoomDetailsComponent } from './components/room-details/room-details.com
     NewhotelComponent,
     ProfileComponent,
     RegisterComponent,
-    RoomDetailsComponent
+    RoomDetailsComponent,
+    ReservationPanelComponent,
+    HousingPanelComponent
   ],
   imports: [
     BrowserModule,
