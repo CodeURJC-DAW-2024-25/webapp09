@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>TriPPins</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Header Start -->
+        {{>header}}
+        <!-- Header End -->
+
+
+        <!-- Page Header Start -->
+        <div class="container-fluid page-header mb-5 p-0" style="background-image: url(/img/carousel-1.jpg);">
+            <div class="container-fluid page-header-inner py-5">
+                <div class="container text-center pb-5">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">{{house.name}}</h1>
+                </div>
+            </div>
+        </div>
+        <!-- Page Header End -->
+
+        <!-- Room Start -->
+        <div class="container-xxl py-5">
+            <div class="container text-center">
+                <h6 class="section-title text-primary text-uppercase">Sobre {{house.name}}</h6>
+                <h1 class="mb-4">Bienvenido a <span class="text-primary text-uppercase">{{house.name}}</span></h1>
+
+                <img src="data:image/jpeg;base64,{{house.imageBase64}}" alt="{{house.name}}"
+                    class="img-fluid rounded mb-4" style="max-width: 80%;">
+                    <div class="d-flex flex-wrap justify-content-center mb-4">
+                        {{#house.tags}}
+                            <div class="badge bg-primary me-2">{{id}}</div>
+                        {{/house.tags}}
+                    </div>
+                <p class="mb-4" style="font-size: 1.2rem;">{{house.description}}</p>
+
+                <div class="row justify-content-center g-3 pb-4">
+                    <div class="col-sm-4 wow fadeIn" data-wow-delay="0.3s">
+                        <div class="border rounded p-1">
+                            <div class="border rounded text-center p-4">
+                                <i class="bi-star-fill fa-2x text-primary mb-2"></i>
+                                <h2 class="mb-1">{{house.stars}}</h2>
+                                <p class="mb-0">Estrellas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="border rounded p-1">
+                            <div class="border rounded text-center p-4">
+                                <i class="bi bi-currency-euro"></i>
+                                <h2 class="mb-1">{{house.price}}€/ la noche</h2>
+                                <p class="mb-0">Precio económico</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 wow fadeIn" data-wow-delay="0.7s">
+                        <div class="border rounded p-1">
+                            <div class="border rounded text-center p-4">
+                                <i class="fas fa-globe fa-2x text-primary mb-2"></i>
+                                <h2 class="mb-1">{{house.location}}</h2>
+                                <p class="mb-0">Ubicación</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br><br>
+                <div>
+                    <h3 class="section-title">¡Reserva <strong class="text-primary">ya!</strong></h3>
+                    <br><br><br>
+                    <form action="/v1/api/reservations/forms" method="POST">
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input type="date" id="checkIn" name="checkIn"  class="form-control" required>
+                                    <label for="checkIn">Fecha de entrada:</label>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    
+                                    <input type="date" id="checkOut" name="checkOut" class="form-control"required>
+                                    <label for="checkOut">Fecha de salida:</label>
+                                </div>
+                            </div>
+                            <input type="hidden" name="houseId" value="{{house.code}}">
+                            <input type="hidden" name="userId" value="{{user.dni}}">
+                            
+                            <button type="submit" class="btn btn-primary" id="reservation-button">Hacer reserva como
+                                {{user.name}}
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+
+
+                <!-- Comment Form -->
+                <div class="mt-5">
+                    <h3>Deja un comentario</h3>
+                    <form action="/v1/api/reviews/forms" method="POST">
+                        <div class="mb-3">
+                            <label for="comment" class="form-label">Comentario</label>
+                            <textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <label for="rating">Rating (0-100):</label>
+                                <input type="range" class="form-range" name="rating" id="rating" min="0" max="100"
+                                    step="1" value="0">
+                                <br><br>
+                                <output for="rating" id="rating-output" class="fs-4">0</output></small>
+                            </div>
+                        </div>
+
+                        <input id="houseIdHidden" type="hidden" name="houseId" value="{{house.code}}">
+                        <br><br><br>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+
+                <!-- Comment Section -->
+                <h3 class="section-title">Comentarios</h3>
+                <div class="mt-5" id="comment-container">
+
+                    <br><br>
+                    {{#comments}}
+                    <div class="comment-box border rounded p-4 mb-3 shadow-sm position-relative "
+                        style="background-color: rgba(39, 58, 77, 0.1);">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="fa fa-quote-right fa-2x text-primary position-absolute top-0 end-0 me-3 mt-3"></i>
+
+                            <!-- Profile Icon -->
+                            <i class="bi bi-person-circle me-2" style="font-size: 2rem;"></i>
+                            <h5 class="m-0">{{user.name}}</h5>
+                        </div>
+                        <!-- Comment Content -->
+                        <p class="mb-2 text-break">{{comment}}</p>
+                        <!-- Rating -->
+                        <br><br>
+                        <strong class="text-dark">Rating: {{rating}}/100</strong>
+                        <!-- Barra de rating -->
+                        <div class="rating-bar">
+                            <!-- eslint-disable-next-line -->
+                            <div class="rating-fill" style="width: {{rating}}%;"></div>
+                        </div>
+                    </div>
+                    {{/comments}}
+
+
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button id="load-more" class="btn btn-primary">Cargar más</button>
+            </div>
+        </div>
+    </div>
+    <!-- Room End -->
+
+
+    <!-- Testimonial End -->
+    <br><br><br>
+    <!-- Footer Start -->
+    {{>footer}}
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/wow/wow.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/lib/waypoints/waypoints.min.js"></script>
+    <script src="/lib/counterup/counterup.min.js"></script>
+    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/main.js"></script>
+    <script src="/commentsAjax.js"></script>
+    <script>
+        const ratingSlider = document.getElementById("rating");
+        const ratingOutput = document.getElementById("rating-output");
+
+        ratingSlider.addEventListener("input", () => {
+            ratingOutput.value = ratingSlider.value; // Update the displayed value
+        });
+    </script>
+    <script src="/rating.js"></script>
+
+</body>
+
+</html>
