@@ -1,0 +1,2481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="es.grupo9.practica1.Practica1ApplicationTests" time="10.625" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="23"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\j_adr\Desktop\asjdbajsbfasfasd\webapp09\practica1\target\test-classes;C:\Users\j_adr\Desktop\asjdbajsbfasfasd\webapp09\practica1\target\classes;C:\Users\j_adr\.m2\repository\com\mysql\mysql-connector-j\8.0.33\mysql-connector-j-8.0.33.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-actuator\3.4.3\spring-boot-starter-actuator-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter\3.4.3\spring-boot-starter-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.4.3\spring-boot-starter-logging-3.4.3.jar;C:\Users\j_adr\.m2\repository\ch\qos\logback\logback-classic\1.5.16\logback-classic-1.5.16.jar;C:\Users\j_adr\.m2\repository\ch\qos\logback\logback-core\1.5.16\logback-core-1.5.16.jar;C:\Users\j_adr\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.24.3\log4j-to-slf4j-2.24.3.jar;C:\Users\j_adr\.m2\repository\org\apache\logging\log4j\log4j-api\2.24.3\log4j-api-2.24.3.jar;C:\Users\j_adr\.m2\repository\org\slf4j\jul-to-slf4j\2.0.16\jul-to-slf4j-2.0.16.jar;C:\Users\j_adr\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\j_adr\.m2\repository\org\yaml\snakeyaml\2.3\snakeyaml-2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-actuator-autoconfigure\3.4.3\spring-boot-actuator-autoconfigure-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-actuator\3.4.3\spring-boot-actuator-3.4.3.jar;C:\Users\j_adr\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.18.2\jackson-datatype-jsr310-2.18.2.jar;C:\Users\j_adr\.m2\repository\io\micrometer\micrometer-observation\1.14.4\micrometer-observation-1.14.4.jar;C:\Users\j_adr\.m2\repository\io\micrometer\micrometer-commons\1.14.4\micrometer-commons-1.14.4.jar;C:\Users\j_adr\.m2\repository\io\micrometer\micrometer-jakarta9\1.14.4\micrometer-jakarta9-1.14.4.jar;C:\Users\j_adr\.m2\repository\io\micrometer\micrometer-core\1.14.4\micrometer-core-1.14.4.jar;C:\Users\j_adr\.m2\repository\org\hdrhistogram\HdrHistogram\2.2.2\HdrHistogram-2.2.2.jar;C:\Users\j_adr\.m2\repository\org\latencyutils\LatencyUtils\2.0.3\LatencyUtils-2.0.3.jar;C:\Users\j_adr\.m2\repository\org\hibernate\orm\hibernate-core\6.3.1.Final\hibernate-core-6.3.1.Final.jar;C:\Users\j_adr\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\j_adr\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\j_adr\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\j_adr\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\j_adr\.m2\repository\io\smallrye\jandex\3.1.2\jandex-3.1.2.jar;C:\Users\j_adr\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar;C:\Users\j_adr\.m2\repository\net\bytebuddy\byte-buddy\1.15.11\byte-buddy-1.15.11.jar;C:\Users\j_adr\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\j_adr\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\j_adr\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\j_adr\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\j_adr\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\j_adr\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\j_adr\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\j_adr\.m2\repository\org\antlr\antlr4-runtime\4.10.1\antlr4-runtime-4.10.1.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-security\3.4.3\spring-boot-starter-security-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-aop\6.2.3\spring-aop-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-beans\6.2.3\spring-beans-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\security\spring-security-config\6.4.3\spring-security-config-6.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\security\spring-security-core\6.4.3\spring-security-core-6.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\security\spring-security-crypto\6.4.3\spring-security-crypto-6.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-context\6.2.3\spring-context-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\security\spring-security-web\6.4.3\spring-security-web-6.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-expression\6.2.3\spring-expression-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-mustache\3.4.3\spring-boot-starter-mustache-3.4.3.jar;C:\Users\j_adr\.m2\repository\com\samskivert\jmustache\1.16\jmustache-1.16.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.4.3\spring-boot-starter-web-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.4.3\spring-boot-starter-json-3.4.3.jar;C:\Users\j_adr\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.18.2\jackson-datatype-jdk8-2.18.2.jar;C:\Users\j_adr\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.18.2\jackson-module-parameter-names-2.18.2.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.4.3\spring-boot-starter-tomcat-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.36\tomcat-embed-core-10.1.36.jar;C:\Users\j_adr\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.36\tomcat-embed-el-10.1.36.jar;C:\Users\j_adr\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.36\tomcat-embed-websocket-10.1.36.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-web\6.2.3\spring-web-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-webmvc\6.2.3\spring-webmvc-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-devtools\3.4.3\spring-boot-devtools-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot\3.4.3\spring-boot-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.4.3\spring-boot-autoconfigure-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.4.3\spring-boot-starter-test-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-test\3.4.3\spring-boot-test-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.4.3\spring-boot-test-autoconfigure-3.4.3.jar;C:\Users\j_adr\.m2\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;C:\Users\j_adr\.m2\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar;C:\Users\j_adr\.m2\repository\net\minidev\json-smart\2.5.2\json-smart-2.5.2.jar;C:\Users\j_adr\.m2\repository\net\minidev\accessors-smart\2.5.2\accessors-smart-2.5.2.jar;C:\Users\j_adr\.m2\repository\org\ow2\asm\asm\9.7.1\asm-9.7.1.jar;C:\Users\j_adr\.m2\repository\org\assertj\assertj-core\3.26.3\assertj-core-3.26.3.jar;C:\Users\j_adr\.m2\repository\org\awaitility\awaitility\4.2.2\awaitility-4.2.2.jar;C:\Users\j_adr\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\j_adr\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.4\junit-jupiter-5.11.4.jar;C:\Users\j_adr\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.4\junit-jupiter-api-5.11.4.jar;C:\Users\j_adr\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\j_adr\.m2\repository\org\junit\platform\junit-platform-commons\1.11.4\junit-platform-commons-1.11.4.jar;C:\Users\j_adr\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\j_adr\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.4\junit-jupiter-params-5.11.4.jar;C:\Users\j_adr\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.4\junit-jupiter-engine-5.11.4.jar;C:\Users\j_adr\.m2\repository\org\junit\platform\junit-platform-engine\1.11.4\junit-platform-engine-1.11.4.jar;C:\Users\j_adr\.m2\repository\org\mockito\mockito-core\5.14.2\mockito-core-5.14.2.jar;C:\Users\j_adr\.m2\repository\net\bytebuddy\byte-buddy-agent\1.15.11\byte-buddy-agent-1.15.11.jar;C:\Users\j_adr\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\j_adr\.m2\repository\org\mockito\mockito-junit-jupiter\5.14.2\mockito-junit-jupiter-5.14.2.jar;C:\Users\j_adr\.m2\repository\org\skyscreamer\jsonassert\1.5.3\jsonassert-1.5.3.jar;C:\Users\j_adr\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-core\6.2.3\spring-core-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-jcl\6.2.3\spring-jcl-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-test\6.2.3\spring-test-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\xmlunit\xmlunit-core\2.10.0\xmlunit-core-2.10.0.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.4.3\spring-boot-starter-data-jpa-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.4.3\spring-boot-starter-jdbc-3.4.3.jar;C:\Users\j_adr\.m2\repository\com\zaxxer\HikariCP\5.1.0\HikariCP-5.1.0.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-jdbc\6.2.3\spring-jdbc-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\data\spring-data-jpa\3.4.3\spring-data-jpa-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\data\spring-data-commons\3.4.3\spring-data-commons-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-orm\6.2.3\spring-orm-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-tx\6.2.3\spring-tx-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-aspects\6.2.3\spring-aspects-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\aspectj\aspectjweaver\1.9.22.1\aspectjweaver-1.9.22.1.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-mail\3.4.3\spring-boot-starter-mail-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-context-support\6.2.3\spring-context-support-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\eclipse\angus\jakarta.mail\2.0.3\jakarta.mail-2.0.3.jar;C:\Users\j_adr\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\j_adr\.m2\repository\org\springdoc\springdoc-openapi-starter-webmvc-ui\2.8.5\springdoc-openapi-starter-webmvc-ui-2.8.5.jar;C:\Users\j_adr\.m2\repository\org\springdoc\springdoc-openapi-starter-webmvc-api\2.8.5\springdoc-openapi-starter-webmvc-api-2.8.5.jar;C:\Users\j_adr\.m2\repository\org\springdoc\springdoc-openapi-starter-common\2.8.5\springdoc-openapi-starter-common-2.8.5.jar;C:\Users\j_adr\.m2\repository\io\swagger\core\v3\swagger-core-jakarta\2.2.28\swagger-core-jakarta-2.2.28.jar;C:\Users\j_adr\.m2\repository\org\apache\commons\commons-lang3\3.17.0\commons-lang3-3.17.0.jar;C:\Users\j_adr\.m2\repository\io\swagger\core\v3\swagger-annotations-jakarta\2.2.28\swagger-annotations-jakarta-2.2.28.jar;C:\Users\j_adr\.m2\repository\io\swagger\core\v3\swagger-models-jakarta\2.2.28\swagger-models-jakarta-2.2.28.jar;C:\Users\j_adr\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\j_adr\.m2\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-yaml\2.18.2\jackson-dataformat-yaml-2.18.2.jar;C:\Users\j_adr\.m2\repository\org\webjars\swagger-ui\5.18.3\swagger-ui-5.18.3.jar;C:\Users\j_adr\.m2\repository\org\webjars\webjars-locator-lite\1.0.1\webjars-locator-lite-1.0.1.jar;C:\Users\j_adr\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\j_adr\.m2\repository\io\jsonwebtoken\jjwt-api\0.11.5\jjwt-api-0.11.5.jar;C:\Users\j_adr\.m2\repository\io\jsonwebtoken\jjwt-impl\0.11.5\jjwt-impl-0.11.5.jar;C:\Users\j_adr\.m2\repository\io\jsonwebtoken\jjwt-jackson\0.11.5\jjwt-jackson-0.11.5.jar;C:\Users\j_adr\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.18.2\jackson-databind-2.18.2.jar;C:\Users\j_adr\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.18.2\jackson-annotations-2.18.2.jar;C:\Users\j_adr\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.18.2\jackson-core-2.18.2.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Madrid"/>
+    <property name="org.jboss.logging.provider" value="slf4j"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="java.vm.specification.version" value="23"/>
+    <property name="APPLICATION_NAME" value="practica1"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="ES"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-23\bin"/>
+    <property name="sun.java.command" value="C:\Users\j_adr\AppData\Local\Temp\surefire11520634832966893583\surefirebooter-20250410125507058_3.jar C:\Users\j_adr\AppData\Local\Temp\surefire11520634832966893583 2025-04-10T12-55-06_819-jvmRun1 surefire-20250410125507058_1tmp surefire_0-20250410125507058_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\j_adr\Desktop\asjdbajsbfasfasd\webapp09\practica1\target\test-classes;C:\Users\j_adr\Desktop\asjdbajsbfasfasd\webapp09\practica1\target\classes;C:\Users\j_adr\.m2\repository\com\mysql\mysql-connector-j\8.0.33\mysql-connector-j-8.0.33.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-actuator\3.4.3\spring-boot-starter-actuator-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter\3.4.3\spring-boot-starter-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.4.3\spring-boot-starter-logging-3.4.3.jar;C:\Users\j_adr\.m2\repository\ch\qos\logback\logback-classic\1.5.16\logback-classic-1.5.16.jar;C:\Users\j_adr\.m2\repository\ch\qos\logback\logback-core\1.5.16\logback-core-1.5.16.jar;C:\Users\j_adr\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.24.3\log4j-to-slf4j-2.24.3.jar;C:\Users\j_adr\.m2\repository\org\apache\logging\log4j\log4j-api\2.24.3\log4j-api-2.24.3.jar;C:\Users\j_adr\.m2\repository\org\slf4j\jul-to-slf4j\2.0.16\jul-to-slf4j-2.0.16.jar;C:\Users\j_adr\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\j_adr\.m2\repository\org\yaml\snakeyaml\2.3\snakeyaml-2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-actuator-autoconfigure\3.4.3\spring-boot-actuator-autoconfigure-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-actuator\3.4.3\spring-boot-actuator-3.4.3.jar;C:\Users\j_adr\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.18.2\jackson-datatype-jsr310-2.18.2.jar;C:\Users\j_adr\.m2\repository\io\micrometer\micrometer-observation\1.14.4\micrometer-observation-1.14.4.jar;C:\Users\j_adr\.m2\repository\io\micrometer\micrometer-commons\1.14.4\micrometer-commons-1.14.4.jar;C:\Users\j_adr\.m2\repository\io\micrometer\micrometer-jakarta9\1.14.4\micrometer-jakarta9-1.14.4.jar;C:\Users\j_adr\.m2\repository\io\micrometer\micrometer-core\1.14.4\micrometer-core-1.14.4.jar;C:\Users\j_adr\.m2\repository\org\hdrhistogram\HdrHistogram\2.2.2\HdrHistogram-2.2.2.jar;C:\Users\j_adr\.m2\repository\org\latencyutils\LatencyUtils\2.0.3\LatencyUtils-2.0.3.jar;C:\Users\j_adr\.m2\repository\org\hibernate\orm\hibernate-core\6.3.1.Final\hibernate-core-6.3.1.Final.jar;C:\Users\j_adr\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\j_adr\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\j_adr\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\j_adr\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\j_adr\.m2\repository\io\smallrye\jandex\3.1.2\jandex-3.1.2.jar;C:\Users\j_adr\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar;C:\Users\j_adr\.m2\repository\net\bytebuddy\byte-buddy\1.15.11\byte-buddy-1.15.11.jar;C:\Users\j_adr\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\j_adr\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\j_adr\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\j_adr\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\j_adr\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\j_adr\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\j_adr\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\j_adr\.m2\repository\org\antlr\antlr4-runtime\4.10.1\antlr4-runtime-4.10.1.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-security\3.4.3\spring-boot-starter-security-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-aop\6.2.3\spring-aop-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-beans\6.2.3\spring-beans-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\security\spring-security-config\6.4.3\spring-security-config-6.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\security\spring-security-core\6.4.3\spring-security-core-6.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\security\spring-security-crypto\6.4.3\spring-security-crypto-6.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-context\6.2.3\spring-context-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\security\spring-security-web\6.4.3\spring-security-web-6.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-expression\6.2.3\spring-expression-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-mustache\3.4.3\spring-boot-starter-mustache-3.4.3.jar;C:\Users\j_adr\.m2\repository\com\samskivert\jmustache\1.16\jmustache-1.16.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.4.3\spring-boot-starter-web-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.4.3\spring-boot-starter-json-3.4.3.jar;C:\Users\j_adr\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.18.2\jackson-datatype-jdk8-2.18.2.jar;C:\Users\j_adr\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.18.2\jackson-module-parameter-names-2.18.2.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.4.3\spring-boot-starter-tomcat-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.36\tomcat-embed-core-10.1.36.jar;C:\Users\j_adr\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.36\tomcat-embed-el-10.1.36.jar;C:\Users\j_adr\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.36\tomcat-embed-websocket-10.1.36.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-web\6.2.3\spring-web-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-webmvc\6.2.3\spring-webmvc-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-devtools\3.4.3\spring-boot-devtools-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot\3.4.3\spring-boot-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.4.3\spring-boot-autoconfigure-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.4.3\spring-boot-starter-test-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-test\3.4.3\spring-boot-test-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.4.3\spring-boot-test-autoconfigure-3.4.3.jar;C:\Users\j_adr\.m2\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;C:\Users\j_adr\.m2\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar;C:\Users\j_adr\.m2\repository\net\minidev\json-smart\2.5.2\json-smart-2.5.2.jar;C:\Users\j_adr\.m2\repository\net\minidev\accessors-smart\2.5.2\accessors-smart-2.5.2.jar;C:\Users\j_adr\.m2\repository\org\ow2\asm\asm\9.7.1\asm-9.7.1.jar;C:\Users\j_adr\.m2\repository\org\assertj\assertj-core\3.26.3\assertj-core-3.26.3.jar;C:\Users\j_adr\.m2\repository\org\awaitility\awaitility\4.2.2\awaitility-4.2.2.jar;C:\Users\j_adr\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\j_adr\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.4\junit-jupiter-5.11.4.jar;C:\Users\j_adr\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.4\junit-jupiter-api-5.11.4.jar;C:\Users\j_adr\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\j_adr\.m2\repository\org\junit\platform\junit-platform-commons\1.11.4\junit-platform-commons-1.11.4.jar;C:\Users\j_adr\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\j_adr\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.4\junit-jupiter-params-5.11.4.jar;C:\Users\j_adr\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.4\junit-jupiter-engine-5.11.4.jar;C:\Users\j_adr\.m2\repository\org\junit\platform\junit-platform-engine\1.11.4\junit-platform-engine-1.11.4.jar;C:\Users\j_adr\.m2\repository\org\mockito\mockito-core\5.14.2\mockito-core-5.14.2.jar;C:\Users\j_adr\.m2\repository\net\bytebuddy\byte-buddy-agent\1.15.11\byte-buddy-agent-1.15.11.jar;C:\Users\j_adr\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\j_adr\.m2\repository\org\mockito\mockito-junit-jupiter\5.14.2\mockito-junit-jupiter-5.14.2.jar;C:\Users\j_adr\.m2\repository\org\skyscreamer\jsonassert\1.5.3\jsonassert-1.5.3.jar;C:\Users\j_adr\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-core\6.2.3\spring-core-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-jcl\6.2.3\spring-jcl-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-test\6.2.3\spring-test-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\xmlunit\xmlunit-core\2.10.0\xmlunit-core-2.10.0.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.4.3\spring-boot-starter-data-jpa-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.4.3\spring-boot-starter-jdbc-3.4.3.jar;C:\Users\j_adr\.m2\repository\com\zaxxer\HikariCP\5.1.0\HikariCP-5.1.0.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-jdbc\6.2.3\spring-jdbc-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\data\spring-data-jpa\3.4.3\spring-data-jpa-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\data\spring-data-commons\3.4.3\spring-data-commons-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-orm\6.2.3\spring-orm-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-tx\6.2.3\spring-tx-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-aspects\6.2.3\spring-aspects-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\aspectj\aspectjweaver\1.9.22.1\aspectjweaver-1.9.22.1.jar;C:\Users\j_adr\.m2\repository\org\springframework\boot\spring-boot-starter-mail\3.4.3\spring-boot-starter-mail-3.4.3.jar;C:\Users\j_adr\.m2\repository\org\springframework\spring-context-support\6.2.3\spring-context-support-6.2.3.jar;C:\Users\j_adr\.m2\repository\org\eclipse\angus\jakarta.mail\2.0.3\jakarta.mail-2.0.3.jar;C:\Users\j_adr\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\j_adr\.m2\repository\org\springdoc\springdoc-openapi-starter-webmvc-ui\2.8.5\springdoc-openapi-starter-webmvc-ui-2.8.5.jar;C:\Users\j_adr\.m2\repository\org\springdoc\springdoc-openapi-starter-webmvc-api\2.8.5\springdoc-openapi-starter-webmvc-api-2.8.5.jar;C:\Users\j_adr\.m2\repository\org\springdoc\springdoc-openapi-starter-common\2.8.5\springdoc-openapi-starter-common-2.8.5.jar;C:\Users\j_adr\.m2\repository\io\swagger\core\v3\swagger-core-jakarta\2.2.28\swagger-core-jakarta-2.2.28.jar;C:\Users\j_adr\.m2\repository\org\apache\commons\commons-lang3\3.17.0\commons-lang3-3.17.0.jar;C:\Users\j_adr\.m2\repository\io\swagger\core\v3\swagger-annotations-jakarta\2.2.28\swagger-annotations-jakarta-2.2.28.jar;C:\Users\j_adr\.m2\repository\io\swagger\core\v3\swagger-models-jakarta\2.2.28\swagger-models-jakarta-2.2.28.jar;C:\Users\j_adr\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\j_adr\.m2\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-yaml\2.18.2\jackson-dataformat-yaml-2.18.2.jar;C:\Users\j_adr\.m2\repository\org\webjars\swagger-ui\5.18.3\swagger-ui-5.18.3.jar;C:\Users\j_adr\.m2\repository\org\webjars\webjars-locator-lite\1.0.1\webjars-locator-lite-1.0.1.jar;C:\Users\j_adr\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\j_adr\.m2\repository\io\jsonwebtoken\jjwt-api\0.11.5\jjwt-api-0.11.5.jar;C:\Users\j_adr\.m2\repository\io\jsonwebtoken\jjwt-impl\0.11.5\jjwt-impl-0.11.5.jar;C:\Users\j_adr\.m2\repository\io\jsonwebtoken\jjwt-jackson\0.11.5\jjwt-jackson-0.11.5.jar;C:\Users\j_adr\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.18.2\jackson-databind-2.18.2.jar;C:\Users\j_adr\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.18.2\jackson-annotations-2.18.2.jar;C:\Users\j_adr\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.18.2\jackson-core-2.18.2.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\j_adr"/>
+    <property name="user.language" value="es"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-01-21"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-23"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\j_adr\Desktop\asjdbajsbfasfasd\webapp09\practica1"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="FILE_LOG_CHARSET" value="UTF-8"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="surefire.real.class.path" value="C:\Users\j_adr\AppData\Local\Temp\surefire11520634832966893583\surefirebooter-20250410125507058_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="23.0.2+7-58"/>
+    <property name="user.name" value="j_adr"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\j_adr\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\j_adr\AppData\Local\Temp\"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
+    <property name="java.version" value="23.0.2"/>
+    <property name="user.dir" value="C:\Users\j_adr\Desktop\asjdbajsbfasfasd\webapp09\practica1"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="PID" value="19712"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-23\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Maven\apache-maven-3.9.9\bin;C:\Users\j_adr\AppData\Local\Microsoft\WindowsApps;C:\Users\j_adr\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\j_adr\AppData\Roaming\npm;C:\Users\j_adr\AppData\Local\GitHubDesktop\bin;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="23.0.2+7-58"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="67.0"/>
+    <property name="LOGGED_APPLICATION_NAME" value="[practica1] "/>
+  </properties>
+  <testcase name="contextLoads" classname="es.grupo9.practica1.Practica1ApplicationTests" time="0.552">
+    <system-out><![CDATA[12:55:08.013 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [es.grupo9.practica1.Practica1ApplicationTests]: Practica1ApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+12:55:08.183 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration es.grupo9.practica1.Practica1Application for test class es.grupo9.practica1.Practica1ApplicationTests
+12:55:08.398 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.3)
+
+2025-04-10T12:55:08.755+02:00  INFO 19712 --- [practica1] [           main] e.g.practica1.Practica1ApplicationTests  : Starting Practica1ApplicationTests using Java 23.0.2 with PID 19712 (started by j_adr in C:\Users\j_adr\Desktop\asjdbajsbfasfasd\webapp09\practica1)
+2025-04-10T12:55:08.756+02:00  INFO 19712 --- [practica1] [           main] e.g.practica1.Practica1ApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2025-04-10T12:55:10.307+02:00  INFO 19712 --- [practica1] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-10T12:55:10.396+02:00  INFO 19712 --- [practica1] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78 ms. Found 5 JPA repository interfaces.
+2025-04-10T12:55:11.390+02:00  INFO 19712 --- [practica1] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-10T12:55:11.459+02:00  INFO 19712 --- [practica1] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-04-10T12:55:11.502+02:00  INFO 19712 --- [practica1] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-04-10T12:55:11.855+02:00  INFO 19712 --- [practica1] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-10T12:55:11.890+02:00  INFO 19712 --- [practica1] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-04-10T12:55:12.242+02:00  INFO 19712 --- [practica1] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@45f95ac0
+2025-04-10T12:55:12.253+02:00  INFO 19712 --- [practica1] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-04-10T12:55:13.490+02:00  INFO 19712 --- [practica1] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-10T12:55:13.609+02:00  INFO 19712 --- [practica1] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-10T12:55:14.086+02:00  INFO 19712 --- [practica1] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-10T12:55:14.907+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id 
+    from
+        tag t1_0 
+    where
+        t1_0.id=?
+Hibernate: 
+    select
+        t1_0.id 
+    from
+        tag t1_0 
+    where
+        t1_0.id=?
+2025-04-10T12:55:15.009+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id 
+    from
+        tag t1_0 
+    where
+        t1_0.id=?
+Hibernate: 
+    select
+        t1_0.id 
+    from
+        tag t1_0 
+    where
+        t1_0.id=?
+2025-04-10T12:55:15.017+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id 
+    from
+        tag t1_0 
+    where
+        t1_0.id=?
+Hibernate: 
+    select
+        t1_0.id 
+    from
+        tag t1_0 
+    where
+        t1_0.id=?
+2025-04-10T12:55:15.029+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id 
+    from
+        tag t1_0 
+    where
+        t1_0.id=?
+Hibernate: 
+    select
+        t1_0.id 
+    from
+        tag t1_0 
+    where
+        t1_0.id=?
+2025-04-10T12:55:15.034+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id 
+    from
+        tag t1_0 
+    where
+        t1_0.id=?
+Hibernate: 
+    select
+        t1_0.id 
+    from
+        tag t1_0 
+    where
+        t1_0.id=?
+2025-04-10T12:55:15.037+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id 
+    from
+        tag t1_0 
+    where
+        t1_0.id=?
+Hibernate: 
+    select
+        t1_0.id 
+    from
+        tag t1_0 
+    where
+        t1_0.id=?
+2025-04-10T12:55:15.064+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:15.093+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+Hibernate: 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+2025-04-10T12:55:15.101+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:15.106+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+Hibernate: 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+2025-04-10T12:55:15.108+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:15.111+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+Hibernate: 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+2025-04-10T12:55:15.114+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:15.116+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+Hibernate: 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+2025-04-10T12:55:15.119+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:15.123+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+Hibernate: 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+2025-04-10T12:55:15.125+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:15.128+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+Hibernate: 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+2025-04-10T12:55:15.131+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:15.133+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+Hibernate: 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+2025-04-10T12:55:15.136+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:15.140+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+Hibernate: 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+2025-04-10T12:55:15.143+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:15.146+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+Hibernate: 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+2025-04-10T12:55:15.148+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:15.152+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+Hibernate: 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+2025-04-10T12:55:15.154+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:15.157+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+Hibernate: 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+2025-04-10T12:55:15.159+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:15.162+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+Hibernate: 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+2025-04-10T12:55:15.165+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:15.168+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+Hibernate: 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+2025-04-10T12:55:15.171+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:15.173+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+Hibernate: 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+2025-04-10T12:55:15.175+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:15.178+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+Hibernate: 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+2025-04-10T12:55:15.180+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:15.183+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+Hibernate: 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+2025-04-10T12:55:15.187+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:15.191+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+Hibernate: 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+2025-04-10T12:55:15.194+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:15.200+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+Hibernate: 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+2025-04-10T12:55:15.203+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:15.208+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+Hibernate: 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+2025-04-10T12:55:15.211+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:15.214+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+Hibernate: 
+    select
+        t1_0.housing_id,
+        t1_1.id 
+    from
+        housing_tags t1_0 
+    join
+        tag t1_1 
+            on t1_1.id=t1_0.tag_id 
+    where
+        t1_0.housing_id=?
+2025-04-10T12:55:15.239+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+Hibernate: 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+2025-04-10T12:55:15.255+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+Hibernate: 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+2025-04-10T12:55:15.261+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+Hibernate: 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+2025-04-10T12:55:15.264+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+Hibernate: 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+2025-04-10T12:55:15.267+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+Hibernate: 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+2025-04-10T12:55:15.273+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+Hibernate: 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+2025-04-10T12:55:15.276+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+Hibernate: 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+2025-04-10T12:55:15.292+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+Hibernate: 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+2025-04-10T12:55:15.297+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+Hibernate: 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+2025-04-10T12:55:15.301+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+Hibernate: 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+2025-04-10T12:55:15.305+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+Hibernate: 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+2025-04-10T12:55:15.308+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+Hibernate: 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+2025-04-10T12:55:15.312+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+Hibernate: 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+2025-04-10T12:55:15.315+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+Hibernate: 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+2025-04-10T12:55:15.319+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+Hibernate: 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+2025-04-10T12:55:15.324+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+Hibernate: 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+2025-04-10T12:55:15.327+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+Hibernate: 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+2025-04-10T12:55:15.330+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+Hibernate: 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+2025-04-10T12:55:15.337+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+Hibernate: 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+2025-04-10T12:55:15.341+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+Hibernate: 
+    update
+        housing 
+    set
+        acepted=?,
+        description=?,
+        image=?,
+        location=?,
+        name=?,
+        price=?,
+        stars=? 
+    where
+        code=?
+2025-04-10T12:55:15.625+02:00  WARN 19712 --- [practica1] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-10T12:55:15.700+02:00  INFO 19712 --- [practica1] [           main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-04-10T12:55:15.700+02:00  WARN 19712 --- [practica1] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-04-10T12:55:15.984+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        c1_0.dni,
+        c1_0.is_admin,
+        c1_0.email,
+        c1_0.encoded_password,
+        c1_0.name,
+        c1_0.number,
+        c1_0.password,
+        r1_0.user_dni,
+        r1_0.roles 
+    from
+        user c1_0 
+    left join
+        user_roles r1_0 
+            on c1_0.dni=r1_0.user_dni 
+    where
+        c1_0.dtype='Client' 
+        and c1_0.dni=?
+Hibernate: 
+    select
+        c1_0.dni,
+        c1_0.is_admin,
+        c1_0.email,
+        c1_0.encoded_password,
+        c1_0.name,
+        c1_0.number,
+        c1_0.password,
+        r1_0.user_dni,
+        r1_0.roles 
+    from
+        user c1_0 
+    left join
+        user_roles r1_0 
+            on c1_0.dni=r1_0.user_dni 
+    where
+        c1_0.dtype='Client' 
+        and c1_0.dni=?
+2025-04-10T12:55:15.989+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        user 
+    set
+        is_admin=?,
+        email=?,
+        encoded_password=?,
+        name=?,
+        number=?,
+        password=? 
+    where
+        dni=?
+Hibernate: 
+    update
+        user 
+    set
+        is_admin=?,
+        email=?,
+        encoded_password=?,
+        name=?,
+        number=?,
+        password=? 
+    where
+        dni=?
+2025-04-10T12:55:15.992+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    delete 
+    from
+        user_roles 
+    where
+        user_dni=?
+Hibernate: 
+    delete 
+    from
+        user_roles 
+    where
+        user_dni=?
+2025-04-10T12:55:15.995+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        user_roles
+        (user_dni, roles) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        user_roles
+        (user_dni, roles) 
+    values
+        (?, ?)
+2025-04-10T12:55:16.080+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        a1_0.dni,
+        a1_0.is_admin,
+        a1_0.email,
+        a1_0.encoded_password,
+        a1_0.name,
+        a1_0.number,
+        a1_0.password,
+        r1_0.user_dni,
+        r1_0.roles 
+    from
+        user a1_0 
+    left join
+        user_roles r1_0 
+            on a1_0.dni=r1_0.user_dni 
+    where
+        a1_0.dtype='Admin' 
+        and a1_0.dni=?
+Hibernate: 
+    select
+        a1_0.dni,
+        a1_0.is_admin,
+        a1_0.email,
+        a1_0.encoded_password,
+        a1_0.name,
+        a1_0.number,
+        a1_0.password,
+        r1_0.user_dni,
+        r1_0.roles 
+    from
+        user a1_0 
+    left join
+        user_roles r1_0 
+            on a1_0.dni=r1_0.user_dni 
+    where
+        a1_0.dtype='Admin' 
+        and a1_0.dni=?
+2025-04-10T12:55:16.084+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        user 
+    set
+        is_admin=?,
+        email=?,
+        encoded_password=?,
+        name=?,
+        number=?,
+        password=? 
+    where
+        dni=?
+Hibernate: 
+    update
+        user 
+    set
+        is_admin=?,
+        email=?,
+        encoded_password=?,
+        name=?,
+        number=?,
+        password=? 
+    where
+        dni=?
+2025-04-10T12:55:16.087+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    delete 
+    from
+        user_roles 
+    where
+        user_dni=?
+Hibernate: 
+    delete 
+    from
+        user_roles 
+    where
+        user_dni=?
+2025-04-10T12:55:16.090+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        user_roles
+        (user_dni, roles) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        user_roles
+        (user_dni, roles) 
+    values
+        (?, ?)
+2025-04-10T12:55:16.175+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        a1_0.dni,
+        a1_0.is_admin,
+        a1_0.email,
+        a1_0.encoded_password,
+        a1_0.name,
+        a1_0.number,
+        a1_0.password,
+        r1_0.user_dni,
+        r1_0.roles 
+    from
+        user a1_0 
+    left join
+        user_roles r1_0 
+            on a1_0.dni=r1_0.user_dni 
+    where
+        a1_0.dtype='Admin' 
+        and a1_0.dni=?
+Hibernate: 
+    select
+        a1_0.dni,
+        a1_0.is_admin,
+        a1_0.email,
+        a1_0.encoded_password,
+        a1_0.name,
+        a1_0.number,
+        a1_0.password,
+        r1_0.user_dni,
+        r1_0.roles 
+    from
+        user a1_0 
+    left join
+        user_roles r1_0 
+            on a1_0.dni=r1_0.user_dni 
+    where
+        a1_0.dtype='Admin' 
+        and a1_0.dni=?
+2025-04-10T12:55:16.178+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    update
+        user 
+    set
+        is_admin=?,
+        email=?,
+        encoded_password=?,
+        name=?,
+        number=?,
+        password=? 
+    where
+        dni=?
+Hibernate: 
+    update
+        user 
+    set
+        is_admin=?,
+        email=?,
+        encoded_password=?,
+        name=?,
+        number=?,
+        password=? 
+    where
+        dni=?
+2025-04-10T12:55:16.180+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    delete 
+    from
+        user_roles 
+    where
+        user_dni=?
+Hibernate: 
+    delete 
+    from
+        user_roles 
+    where
+        user_dni=?
+2025-04-10T12:55:16.182+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        user_roles
+        (user_dni, roles) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        user_roles
+        (user_dni, roles) 
+    values
+        (?, ?)
+2025-04-10T12:55:16.309+02:00  INFO 19712 --- [practica1] [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2025-04-10T12:55:16.826+02:00  INFO 19712 --- [practica1] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-04-10T12:55:16.943+02:00 DEBUG 19712 --- [practica1] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtRequestFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-04-10T12:55:17.135+02:00  INFO 19712 --- [practica1] [           main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-10T12:55:17.687+02:00  INFO 19712 --- [practica1] [           main] e.g.practica1.Practica1ApplicationTests  : Started Practica1ApplicationTests in 9.308 seconds (process running for 10.497)
+2025-04-10T12:55:17.821+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        u1_0.dni,
+        u1_0.dtype,
+        u1_0.is_admin,
+        u1_0.email,
+        u1_0.encoded_password,
+        u1_0.name,
+        u1_0.number,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.name=?
+Hibernate: 
+    select
+        u1_0.dni,
+        u1_0.dtype,
+        u1_0.is_admin,
+        u1_0.email,
+        u1_0.encoded_password,
+        u1_0.name,
+        u1_0.number,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.name=?
+2025-04-10T12:55:17.825+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        r1_0.user_dni,
+        r1_0.roles 
+    from
+        user_roles r1_0 
+    where
+        r1_0.user_dni=?
+Hibernate: 
+    select
+        r1_0.user_dni,
+        r1_0.roles 
+    from
+        user_roles r1_0 
+    where
+        r1_0.user_dni=?
+2025-04-10T12:55:17.830+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+Hibernate: 
+    select
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars 
+    from
+        housing h1_0 
+    where
+        h1_0.code=?
+2025-04-10T12:55:17.836+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        r1_0.id,
+        r1_0.check_in,
+        r1_0.check_out,
+        r1_0.client_id,
+        c1_0.dni,
+        c1_0.dtype,
+        c1_0.is_admin,
+        c1_0.email,
+        c1_0.encoded_password,
+        c1_0.name,
+        c1_0.number,
+        c1_0.password,
+        r2_0.user_dni,
+        r2_0.roles,
+        r1_0.hotel_code,
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars,
+        h2_0.code,
+        h2_0.acepted,
+        h2_0.description,
+        h2_0.image,
+        h2_0.location,
+        h2_0.name,
+        h2_0.price,
+        h2_0.stars,
+        r1_0.valorated 
+    from
+        reservation r1_0 
+    join
+        user c1_0 
+            on c1_0.dni=r1_0.client_id 
+    left join
+        user_roles r2_0 
+            on c1_0.dni=r2_0.user_dni 
+    join
+        housing h1_0 
+            on h1_0.code=r1_0.hotel_code 
+    left join
+        housing h2_0 
+            on h2_0.name=r1_0.hotel_name 
+    where
+        r1_0.id=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.check_in,
+        r1_0.check_out,
+        r1_0.client_id,
+        c1_0.dni,
+        c1_0.dtype,
+        c1_0.is_admin,
+        c1_0.email,
+        c1_0.encoded_password,
+        c1_0.name,
+        c1_0.number,
+        c1_0.password,
+        r2_0.user_dni,
+        r2_0.roles,
+        r1_0.hotel_code,
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars,
+        h2_0.code,
+        h2_0.acepted,
+        h2_0.description,
+        h2_0.image,
+        h2_0.location,
+        h2_0.name,
+        h2_0.price,
+        h2_0.stars,
+        r1_0.valorated 
+    from
+        reservation r1_0 
+    join
+        user c1_0 
+            on c1_0.dni=r1_0.client_id 
+    left join
+        user_roles r2_0 
+            on c1_0.dni=r2_0.user_dni 
+    join
+        housing h1_0 
+            on h1_0.code=r1_0.hotel_code 
+    left join
+        housing h2_0 
+            on h2_0.name=r1_0.hotel_name 
+    where
+        r1_0.id=?
+2025-04-10T12:55:17.844+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        r1_0.id,
+        r1_0.check_in,
+        r1_0.check_out,
+        r1_0.client_id,
+        c1_0.dni,
+        c1_0.dtype,
+        c1_0.is_admin,
+        c1_0.email,
+        c1_0.encoded_password,
+        c1_0.name,
+        c1_0.number,
+        c1_0.password,
+        r2_0.user_dni,
+        r2_0.roles,
+        r1_0.hotel_code,
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars,
+        h2_0.code,
+        h2_0.acepted,
+        h2_0.description,
+        h2_0.image,
+        h2_0.location,
+        h2_0.name,
+        h2_0.price,
+        h2_0.stars,
+        r1_0.valorated 
+    from
+        reservation r1_0 
+    join
+        user c1_0 
+            on c1_0.dni=r1_0.client_id 
+    left join
+        user_roles r2_0 
+            on c1_0.dni=r2_0.user_dni 
+    join
+        housing h1_0 
+            on h1_0.code=r1_0.hotel_code 
+    left join
+        housing h2_0 
+            on h2_0.name=r1_0.hotel_name 
+    where
+        r1_0.id=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.check_in,
+        r1_0.check_out,
+        r1_0.client_id,
+        c1_0.dni,
+        c1_0.dtype,
+        c1_0.is_admin,
+        c1_0.email,
+        c1_0.encoded_password,
+        c1_0.name,
+        c1_0.number,
+        c1_0.password,
+        r2_0.user_dni,
+        r2_0.roles,
+        r1_0.hotel_code,
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars,
+        h2_0.code,
+        h2_0.acepted,
+        h2_0.description,
+        h2_0.image,
+        h2_0.location,
+        h2_0.name,
+        h2_0.price,
+        h2_0.stars,
+        r1_0.valorated 
+    from
+        reservation r1_0 
+    join
+        user c1_0 
+            on c1_0.dni=r1_0.client_id 
+    left join
+        user_roles r2_0 
+            on c1_0.dni=r2_0.user_dni 
+    join
+        housing h1_0 
+            on h1_0.code=r1_0.hotel_code 
+    left join
+        housing h2_0 
+            on h2_0.name=r1_0.hotel_name 
+    where
+        r1_0.id=?
+2025-04-10T12:55:17.852+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        r1_0.review_id,
+        r1_0.comment,
+        r1_0.hotel_code,
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars,
+        r1_0.rating,
+        r1_0.user_id,
+        u1_0.dni,
+        u1_0.dtype,
+        u1_0.is_admin,
+        u1_0.email,
+        u1_0.encoded_password,
+        u1_0.name,
+        u1_0.number,
+        u1_0.password,
+        r2_0.user_dni,
+        r2_0.roles 
+    from
+        review r1_0 
+    join
+        housing h1_0 
+            on h1_0.code=r1_0.hotel_code 
+    join
+        user u1_0 
+            on u1_0.dni=r1_0.user_id 
+    left join
+        user_roles r2_0 
+            on u1_0.dni=r2_0.user_dni 
+    where
+        r1_0.review_id=?
+Hibernate: 
+    select
+        r1_0.review_id,
+        r1_0.comment,
+        r1_0.hotel_code,
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars,
+        r1_0.rating,
+        r1_0.user_id,
+        u1_0.dni,
+        u1_0.dtype,
+        u1_0.is_admin,
+        u1_0.email,
+        u1_0.encoded_password,
+        u1_0.name,
+        u1_0.number,
+        u1_0.password,
+        r2_0.user_dni,
+        r2_0.roles 
+    from
+        review r1_0 
+    join
+        housing h1_0 
+            on h1_0.code=r1_0.hotel_code 
+    join
+        user u1_0 
+            on u1_0.dni=r1_0.user_id 
+    left join
+        user_roles r2_0 
+            on u1_0.dni=r2_0.user_dni 
+    where
+        r1_0.review_id=?
+2025-04-10T12:55:17.857+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        r1_0.review_id,
+        r1_0.comment,
+        r1_0.hotel_code,
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars,
+        r1_0.rating,
+        r1_0.user_id,
+        u1_0.dni,
+        u1_0.dtype,
+        u1_0.is_admin,
+        u1_0.email,
+        u1_0.encoded_password,
+        u1_0.name,
+        u1_0.number,
+        u1_0.password,
+        r2_0.user_dni,
+        r2_0.roles 
+    from
+        review r1_0 
+    join
+        housing h1_0 
+            on h1_0.code=r1_0.hotel_code 
+    join
+        user u1_0 
+            on u1_0.dni=r1_0.user_id 
+    left join
+        user_roles r2_0 
+            on u1_0.dni=r2_0.user_dni 
+    where
+        r1_0.review_id=?
+Hibernate: 
+    select
+        r1_0.review_id,
+        r1_0.comment,
+        r1_0.hotel_code,
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars,
+        r1_0.rating,
+        r1_0.user_id,
+        u1_0.dni,
+        u1_0.dtype,
+        u1_0.is_admin,
+        u1_0.email,
+        u1_0.encoded_password,
+        u1_0.name,
+        u1_0.number,
+        u1_0.password,
+        r2_0.user_dni,
+        r2_0.roles 
+    from
+        review r1_0 
+    join
+        housing h1_0 
+            on h1_0.code=r1_0.hotel_code 
+    join
+        user u1_0 
+            on u1_0.dni=r1_0.user_id 
+    left join
+        user_roles r2_0 
+            on u1_0.dni=r2_0.user_dni 
+    where
+        r1_0.review_id=?
+2025-04-10T12:55:17.862+02:00 DEBUG 19712 --- [practica1] [           main] org.hibernate.SQL                        : 
+    select
+        r1_0.review_id,
+        r1_0.comment,
+        r1_0.hotel_code,
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars,
+        r1_0.rating,
+        r1_0.user_id,
+        u1_0.dni,
+        u1_0.dtype,
+        u1_0.is_admin,
+        u1_0.email,
+        u1_0.encoded_password,
+        u1_0.name,
+        u1_0.number,
+        u1_0.password,
+        r2_0.user_dni,
+        r2_0.roles 
+    from
+        review r1_0 
+    join
+        housing h1_0 
+            on h1_0.code=r1_0.hotel_code 
+    join
+        user u1_0 
+            on u1_0.dni=r1_0.user_id 
+    left join
+        user_roles r2_0 
+            on u1_0.dni=r2_0.user_dni 
+    where
+        r1_0.review_id=?
+Hibernate: 
+    select
+        r1_0.review_id,
+        r1_0.comment,
+        r1_0.hotel_code,
+        h1_0.code,
+        h1_0.acepted,
+        h1_0.description,
+        h1_0.image,
+        h1_0.location,
+        h1_0.name,
+        h1_0.price,
+        h1_0.stars,
+        r1_0.rating,
+        r1_0.user_id,
+        u1_0.dni,
+        u1_0.dtype,
+        u1_0.is_admin,
+        u1_0.email,
+        u1_0.encoded_password,
+        u1_0.name,
+        u1_0.number,
+        u1_0.password,
+        r2_0.user_dni,
+        r2_0.roles 
+    from
+        review r1_0 
+    join
+        housing h1_0 
+            on h1_0.code=r1_0.hotel_code 
+    join
+        user u1_0 
+            on u1_0.dni=r1_0.user_id 
+    left join
+        user_roles r2_0 
+            on u1_0.dni=r2_0.user_dni 
+    where
+        r1_0.review_id=?
+]]></system-out>
+    <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build what is described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (C:\Users\j_adr\.m2\repository\net\bytebuddy\byte-buddy-agent\1.15.11\byte-buddy-agent-1.15.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+  </testcase>
+</testsuite>
