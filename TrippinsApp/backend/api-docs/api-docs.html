@@ -928,19 +928,19 @@ ul.nav-tabs {
     "statusCode" : {
       "$ref" : "#/components/schemas/ErrorResponse_statusCode"
     },
+    "typeMessageCode" : {
+      "type" : "string"
+    },
     "detailMessageArguments" : {
       "type" : "array",
       "items" : {
         "type" : "object"
       }
     },
-    "detailMessageCode" : {
-      "type" : "string"
-    },
     "titleMessageCode" : {
       "type" : "string"
     },
-    "typeMessageCode" : {
+    "detailMessageCode" : {
       "type" : "string"
     }
   }
@@ -996,40 +996,24 @@ ul.nav-tabs {
     "contentDisposition" : {
       "$ref" : "#/components/schemas/ContentDisposition"
     },
-    "acceptCharset" : {
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "contentLanguage" : {
-      "$ref" : "#/components/schemas/ErrorResponse_headers_contentLanguage"
-    },
     "allow" : {
       "uniqueItems" : true,
       "items" : {
         "$ref" : "#/components/schemas/HttpMethod"
       }
     },
-    "cacheControl" : {
-      "type" : "string"
-    },
-    "accessControlAllowCredentials" : {
-      "type" : "boolean"
-    },
-    "accessControlRequestMethod" : {
-      "$ref" : "#/components/schemas/HttpMethod"
-    },
-    "accessControlAllowOrigin" : {
-      "type" : "string"
-    },
-    "accessControlMaxAge" : {
-      "type" : "integer",
-      "format" : "int64"
+    "acceptCharset" : {
+      "items" : {
+        "type" : "string"
+      }
     },
     "accessControlExposeHeaders" : {
       "items" : {
         "type" : "string"
       }
+    },
+    "accessControlAllowOrigin" : {
+      "type" : "string"
     },
     "accessControlAllowMethods" : {
       "items" : {
@@ -1041,18 +1025,32 @@ ul.nav-tabs {
         "type" : "string"
       }
     },
+    "accessControlMaxAge" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
+    "accessControlAllowCredentials" : {
+      "type" : "boolean"
+    },
+    "accessControlRequestMethod" : {
+      "$ref" : "#/components/schemas/HttpMethod"
+    },
     "accessControlRequestHeaders" : {
       "items" : {
         "type" : "string"
       }
     },
-    "accept" : {
+    "ifUnmodifiedSince" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
+    "acceptLanguageAsLocales" : {
       "items" : {
-        "$ref" : "#/components/schemas/MediaType"
+        "$ref" : "#/components/schemas/ErrorResponse_headers_acceptLanguageAsLocales_inner"
       }
     },
-    "etag" : {
-      "type" : "string"
+    "contentLanguage" : {
+      "$ref" : "#/components/schemas/ErrorResponse_headers_contentLanguage"
     },
     "acceptPatch" : {
       "items" : {
@@ -1067,9 +1065,10 @@ ul.nav-tabs {
     "basicAuth" : {
       "writeOnly" : true
     },
-    "expires" : {
-      "type" : "integer",
-      "format" : "int64"
+    "accept" : {
+      "items" : {
+        "$ref" : "#/components/schemas/MediaType"
+      }
     },
     "ifMatch" : {
       "items" : {
@@ -1079,15 +1078,17 @@ ul.nav-tabs {
     "bearerAuth" : {
       "writeOnly" : true
     },
+    "expires" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
     "ifNoneMatch" : {
       "items" : {
         "type" : "string"
       }
     },
-    "vary" : {
-      "items" : {
-        "type" : "string"
-      }
+    "etag" : {
+      "type" : "string"
     },
     "pragma" : {
       "type" : "string"
@@ -1095,14 +1096,13 @@ ul.nav-tabs {
     "upgrade" : {
       "type" : "string"
     },
-    "ifUnmodifiedSince" : {
-      "type" : "integer",
-      "format" : "int64"
-    },
-    "acceptLanguageAsLocales" : {
+    "vary" : {
       "items" : {
-        "$ref" : "#/components/schemas/ErrorResponse_headers_acceptLanguageAsLocales_inner"
+        "type" : "string"
       }
+    },
+    "cacheControl" : {
+      "type" : "string"
     }
   },
   "additionalProperties" : {
@@ -1112,43 +1112,6 @@ ul.nav-tabs {
   }
 };
     defs["ErrorResponse_headers_acceptLanguageAsLocales_inner"] = {
-  "properties" : {
-    "language" : { },
-    "script" : { },
-    "country" : { },
-    "variant" : { },
-    "unicodeLocaleAttributes" : {
-      "uniqueItems" : true,
-      "items" : { }
-    },
-    "unicodeLocaleKeys" : {
-      "uniqueItems" : true,
-      "items" : { }
-    },
-    "displayLanguage" : { },
-    "displayScript" : { },
-    "displayCountry" : { },
-    "displayVariant" : { },
-    "displayName" : { },
-    "extensionKeys" : {
-      "uniqueItems" : true,
-      "items" : { }
-    },
-    "iso3Language" : { },
-    "iso3Country" : { }
-  }
-};
-    defs["ErrorResponse_headers_acceptLanguage_inner"] = {
-  "properties" : {
-    "range" : {
-      "type" : "string"
-    },
-    "weight" : {
-      "format" : "double"
-    }
-  }
-};
-    defs["ErrorResponse_headers_contentLanguage"] = {
   "properties" : {
     "language" : {
       "type" : "string"
@@ -1197,6 +1160,43 @@ ul.nav-tabs {
     "iso3Country" : {
       "type" : "string"
     }
+  }
+};
+    defs["ErrorResponse_headers_acceptLanguage_inner"] = {
+  "properties" : {
+    "range" : {
+      "type" : "string"
+    },
+    "weight" : {
+      "format" : "double"
+    }
+  }
+};
+    defs["ErrorResponse_headers_contentLanguage"] = {
+  "properties" : {
+    "language" : { },
+    "script" : { },
+    "country" : { },
+    "variant" : { },
+    "unicodeLocaleAttributes" : {
+      "uniqueItems" : true,
+      "items" : { }
+    },
+    "unicodeLocaleKeys" : {
+      "uniqueItems" : true,
+      "items" : { }
+    },
+    "displayLanguage" : { },
+    "displayScript" : { },
+    "displayCountry" : { },
+    "displayVariant" : { },
+    "displayName" : { },
+    "extensionKeys" : {
+      "uniqueItems" : true,
+      "items" : { }
+    },
+    "iso3Language" : { },
+    "iso3Country" : { }
   }
 };
     defs["ErrorResponse_headers_host"] = {
@@ -1314,7 +1314,9 @@ ul.nav-tabs {
   "properties" : {
     "code" : {
       "type" : "integer",
-      "format" : "int32"
+      "description" : "Auto-generated ID (not required in request)",
+      "format" : "int32",
+      "readOnly" : true
     },
     "location" : {
       "type" : "string"
@@ -1356,19 +1358,19 @@ ul.nav-tabs {
     "error" : {
       "type" : "boolean"
     },
-    "is1xxInformational" : {
-      "type" : "boolean"
-    },
-    "is2xxSuccessful" : {
-      "type" : "boolean"
-    },
-    "is3xxRedirection" : {
+    "is4xxClientError" : {
       "type" : "boolean"
     },
     "is5xxServerError" : {
       "type" : "boolean"
     },
-    "is4xxClientError" : {
+    "is3xxRedirection" : {
+      "type" : "boolean"
+    },
+    "is2xxSuccessful" : {
+      "type" : "boolean"
+    },
+    "is1xxInformational" : {
       "type" : "boolean"
     }
   }
@@ -1393,29 +1395,29 @@ ul.nav-tabs {
     "charset" : {
       "type" : "string"
     },
+    "subtypeSuffix" : {
+      "type" : "string"
+    },
+    "concrete" : {
+      "type" : "boolean"
+    },
     "wildcardSubtype" : {
       "type" : "boolean"
     },
     "wildcardType" : {
       "type" : "boolean"
-    },
-    "concrete" : {
-      "type" : "boolean"
-    },
-    "subtypeSuffix" : {
-      "type" : "string"
     }
   }
 };
     defs["Page"] = {
   "properties" : {
-    "totalElements" : {
-      "type" : "integer",
-      "format" : "int64"
-    },
     "totalPages" : {
       "type" : "integer",
       "format" : "int32"
+    },
+    "totalElements" : {
+      "type" : "integer",
+      "format" : "int64"
     },
     "size" : {
       "type" : "integer",
@@ -1461,16 +1463,16 @@ ul.nav-tabs {
     "sort" : {
       "$ref" : "#/components/schemas/SortObject"
     },
-    "pageSize" : {
-      "type" : "integer",
-      "format" : "int32"
-    },
     "pageNumber" : {
       "type" : "integer",
       "format" : "int32"
     },
     "paged" : {
       "type" : "boolean"
+    },
+    "pageSize" : {
+      "type" : "integer",
+      "format" : "int32"
     },
     "unpaged" : {
       "type" : "boolean"
@@ -1538,7 +1540,9 @@ ul.nav-tabs {
   "properties" : {
     "id" : {
       "type" : "integer",
-      "format" : "int32"
+      "description" : "Auto-generated ID (not required in request)",
+      "format" : "int32",
+      "readOnly" : true
     },
     "checkIn" : {
       "type" : "string",
@@ -1589,7 +1593,9 @@ ul.nav-tabs {
   "properties" : {
     "reviewId" : {
       "type" : "integer",
-      "format" : "int32"
+      "description" : "Auto-generated ID (not required in request)",
+      "format" : "int32",
+      "readOnly" : true
     },
     "rating" : {
       "type" : "integer",
