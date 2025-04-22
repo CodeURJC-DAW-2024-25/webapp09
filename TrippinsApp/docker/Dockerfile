@@ -1,7 +1,7 @@
 FROM maven:3.8.4-openjdk-17 AS builder
 WORKDIR /daw
-COPY pom.xml .
-COPY src ./src
+COPY ../backend/pom.xml .  
+COPY ../backend/src ./src  
 
 # Run Maven command to build the project
 RUN mvn clean package -DskipTests
