@@ -9,7 +9,7 @@ import { ReservationDTO } from '../../../models/DTOS/reservation-dto';
 })
 export class ReservationPanelComponent {
 
-  @Input() reservations: ReservationDTO[];
-  @Output() approve = new EventEmitter<number>();
+  //@Input() reservations: ReservationDTO[];
+  //@Output() approve = new EventEmitter<number>();
 
 }

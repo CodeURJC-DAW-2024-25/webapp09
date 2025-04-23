@@ -43,7 +43,7 @@ const routes: Routes = [
   { 
     path: 'hotels/new', 
     component: NewhotelComponent,
-    canActivate: [adminGuard] 
+    canActivate: [authGuard] 
   },
   
   // Error route

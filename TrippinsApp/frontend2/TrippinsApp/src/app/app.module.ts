@@ -17,6 +17,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { RoomDetailsComponent } from './components/room-details/room-details.component';
 import { ReservationPanelComponent } from './components/admin/reservation-panel/reservation-panel.component';
 import { HousingPanelComponent } from './components/admin/housing-panel/housing-panel.component';
+import { RoomListComponent } from './components/room/room-list/room-list.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { HousingPanelComponent } from './components/admin/housing-panel/housing-
     RegisterComponent,
     RoomDetailsComponent,
     ReservationPanelComponent,
-    HousingPanelComponent
+    HousingPanelComponent,
+    RoomListComponent
   ],
   imports: [
     BrowserModule,

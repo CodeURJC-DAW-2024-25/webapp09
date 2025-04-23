@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ReservationDTO } from '../../models/DTOS/reservation-dto';
+import { HousingDTO } from '../../models/DTOS/housing-dto';
 
 @Component({
   selector: 'app-admin',
@@ -7,5 +9,7 @@ import { Component } from '@angular/core';
   standalone:false
 })
 export class AdminComponent {
+  //reservations: ReservationDTO[];
+  //housingPosts: HousingDTO[];
 
 }
