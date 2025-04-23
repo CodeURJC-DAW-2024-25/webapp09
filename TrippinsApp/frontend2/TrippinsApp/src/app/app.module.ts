@@ -18,6 +18,8 @@ import { RoomDetailsComponent } from './components/room-details/room-details.com
 import { ReservationPanelComponent } from './components/admin/reservation-panel/reservation-panel.component';
 import { HousingPanelComponent } from './components/admin/housing-panel/housing-panel.component';
 import { RoomListComponent } from './components/room/room-list/room-list.component';
+import { TestimonialsComponent } from './components/testimonials/testimonials.component';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { RoomListComponent } from './components/room/room-list/room-list.compone
     RoomDetailsComponent,
     ReservationPanelComponent,
     HousingPanelComponent,
-    RoomListComponent
+    RoomListComponent,
+    TestimonialsComponent
   ],
   imports: [
     BrowserModule,

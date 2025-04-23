@@ -38,21 +38,23 @@
               "src/styles.css",
               "src/assets/css/bootstrap.min.css",
               "src/assets/css/style.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "node_modules/animate.css/animate.min.css",
-              "src/assets/lib/owlcarousel/assets/owl.carousel.min.css",
-              "src/assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
+              "node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
+              "node_modules/owl.carousel/dist/assets/owl.theme.default.min.css",
+              "node_modules/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "src/assets/lib/wow/wow.min.js",
-              "src/assets/lib/easing/easing.min.js",
-              "src/assets/lib/waypoints/waypoints.min.js",
-              "src/assets/lib/counterup/counterup.min.js",
-              "src/assets/lib/owlcarousel/owl.carousel.min.js",
-              "src/assets/lib/tempusdominus/js/moment.min.js",
-              "src/assets/lib/tempusdominus/js/moment-timezone.min.js",
-              "src/assets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"
+              "node_modules/wow.js/dist/wow.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/owl.carousel/dist/owl.carousel.min.js",
+              "node_modules/counterup2/dist/index.js",
+              "node_modules/moment/min/moment.min.js",
+              "node_modules/moment-timezone/builds/moment-timezone-with-data.min.js",
+              "node_modules/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"
             ]
           },
           "configurations": {
