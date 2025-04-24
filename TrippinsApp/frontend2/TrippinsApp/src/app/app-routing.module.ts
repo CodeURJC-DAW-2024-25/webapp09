@@ -31,19 +31,16 @@ const routes: Routes = [
   { 
     path: 'profile', 
     component: ProfileComponent,
-    canActivate: [authGuard] 
   },
   
   // Admin routes
   { 
     path: 'admin', 
     component: AdminComponent,
-    canActivate: [adminGuard] 
   },
   { 
-    path: 'hotels/new', 
+    path: 'rooms/new', 
     component: NewhotelComponent,
-    canActivate: [authGuard] 
   },
   
   // Error route

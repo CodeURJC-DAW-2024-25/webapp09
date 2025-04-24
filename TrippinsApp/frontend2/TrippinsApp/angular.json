@@ -94,7 +94,8 @@
               "buildTarget": "TrippinsApp:build:production"
             },
             "development": {
-              "buildTarget": "TrippinsApp:build:development"
+              "buildTarget": "TrippinsApp:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

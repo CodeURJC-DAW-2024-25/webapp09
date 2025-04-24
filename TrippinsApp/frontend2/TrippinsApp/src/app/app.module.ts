@@ -17,8 +17,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { RoomDetailsComponent } from './components/room-details/room-details.component';
 import { ReservationPanelComponent } from './components/admin/reservation-panel/reservation-panel.component';
 import { HousingPanelComponent } from './components/admin/housing-panel/housing-panel.component';
-import { RoomListComponent } from './components/room/room-list/room-list.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -38,12 +39,13 @@ import { TestimonialsComponent } from './components/testimonials/testimonials.co
     RoomDetailsComponent,
     ReservationPanelComponent,
     HousingPanelComponent,
-    RoomListComponent,
     TestimonialsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

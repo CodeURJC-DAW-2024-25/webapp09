@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HousingDTO } from '../models/DTOS/housing-dto';
+import { HousingDTO, PagedResponse } from '../models/DTOS/housing-dto';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -12,8 +12,11 @@ export class HousingServiceService {
   constructor(private http: HttpClient) { }
 
 
-  getRooms(): Observable<HousingDTO[]>{
-  return this.http.get<HousingDTO[]>(`${environment.baseUrlApi}/houses`)
+  getRooms(page: number, size: number): Observable<PagedResponse<HousingDTO>>{
+  return this.http.get<PagedResponse<HousingDTO>>(`${environment.baseUrlApi}/rooms/extra?page=${page}&size=6`)
+  }
+  searchHouses(params: any): Observable<any[]> {
+    return this.http.post<any[]>(`${environment.baseUrlApi}/query`, params);
   }
 
 }

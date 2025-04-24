@@ -18,3 +18,15 @@ export interface TagDTO{
     id: number;
 
 }
+
+export interface PagedResponse<T> {
+    content: T[];
+    pageable: {
+      pageNumber: number;
+      pageSize: number;
+    };
+    last: boolean;
+    totalElements: number;
+    totalPages: number;
+    size: number;
+  }
