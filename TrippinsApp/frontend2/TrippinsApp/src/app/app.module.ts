@@ -18,8 +18,9 @@ import { RoomDetailsComponent } from './components/room-details/room-details.com
 import { ReservationPanelComponent } from './components/admin/reservation-panel/reservation-panel.component';
 import { HousingPanelComponent } from './components/admin/housing-panel/housing-panel.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 @NgModule({
@@ -44,10 +45,12 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

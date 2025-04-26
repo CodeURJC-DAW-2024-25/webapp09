@@ -4,8 +4,6 @@ import { RoomComponent } from './components/room/room.component';
 import { AboutComponent } from './components/about/about.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ErrorComponent } from './components/error/error.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { HeaderComponent } from './components/header/header.component';
 import { IndexComponent } from './components/index/index.component';
 import { LoginComponent } from './components/login/login.component';
 import { NewhotelComponent } from './components/newhotel/newhotel.component';
@@ -13,7 +11,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RoomDetailsComponent } from './components/room-details/room-details.component';
 import { authGuard } from './guards/auth.guard';
-import { adminGuard } from './guards/admin.guard';
+import { roleGuard } from './guards/role.guard';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -31,16 +29,20 @@ const routes: Routes = [
   { 
     path: 'profile', 
     component: ProfileComponent,
+    canActivate: [authGuard] 
   },
   
   // Admin routes
   { 
     path: 'admin', 
     component: AdminComponent,
+    canActivate: [roleGuard],
+    data: { roles: ['ROLE_ADMIN'] }
   },
   { 
     path: 'rooms/new', 
     component: NewhotelComponent,
+    canActivate: [authGuard] 
   },
   
   // Error route

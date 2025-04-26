@@ -11,6 +11,24 @@ export interface UserDTO {
 }
 export enum UserRole {
 
-ROLE_ADMIN, ROLE_USER
+    ROLE_ADMIN = "ROLE_ADMIN",
+    ROLE_USER = "ROLE_USER"
 
+}
+
+export interface LoggedUserDTO {
+    name: string;
+    roles: UserRole[];
+    token: string;
+
+}
+
+export interface AuthenticationRequest {
+    email: string;
+    password: string;
+}
+
+export interface AuthenticationResponse {
+    jwt: string;
+    roles: string[];
 }
