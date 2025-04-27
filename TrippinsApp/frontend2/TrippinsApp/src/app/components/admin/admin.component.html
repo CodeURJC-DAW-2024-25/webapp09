@@ -1,15 +1,36 @@
-<p>admin works!</p>
-<!--
-<div class="admin-container">
-    <h2>Admin Dashboard</h2>
-    
-    <app-reservation-panel 
-      [reservations]="reservations$ | async"
-      (approve)="onApproveReservation($event)">
-    </app-reservation-panel>
-  
-    <app-housing-panel 
-      [posts]="housingPosts$ | async"
-      (approve)="onApprovePost($event)">
-    </app-housing-panel>
-  </div>-->
+<!-- admin.component.html -->
+<div class="container-xxl bg-white p-0">
+  <app-header></app-header>
+
+  <!-- Tab Navigation -->
+  <div class="container-xxl py-3">
+    <div class="container">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <button class="nav-link" 
+                  [class.active]="activeTab === 'reservations'"
+                  (click)="switchTab('reservations')">
+            Reservation Requests
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link"
+                  [class.active]="activeTab === 'houses'"
+                  (click)="switchTab('houses')">
+            Housing Requests
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Tab Content -->
+  <div class="container-xxl py-3">
+    <div class="container">
+      <app-reservation-panel *ngIf="activeTab === 'reservations'"></app-reservation-panel>
+      <app-housing-panel *ngIf="activeTab === 'houses'"></app-housing-panel>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>

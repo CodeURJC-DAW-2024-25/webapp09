@@ -1,1 +1,44 @@
-<p>housing-panel works!</p>
+<!-- housing-panel.component.html -->
+<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+    <h6 class="section-title text-center text-primary text-uppercase">Creation Requests</h6>
+    <h1 class="mb-5">Manage <span class="text-primary text-uppercase">Housing Requests</span></h1>
+</div>
+
+<div class="row g-4" id="houses-container">
+    <div class="col-lg-4 col-md-6 wow fadeInUp" *ngFor="let house of houses" [attr.data-house-id]="house.code"
+        [attr.data-wow-delay]="'0.1s'">
+        <div class="room-item shadow rounded overflow-hidden">
+            <div class="position-relative">
+                <img style="width: 450px; height: 275px" class="img-fluid"
+                    [src]="'/v1/api/houses/' + house.code + '/image'" [alt]="house.name">
+                <small
+                    class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">
+                    ${{house.price}}/Night
+                </small>
+            </div>
+            <div class="p-4 mt-2">
+                <div class="d-flex justify-content-between mb-3">
+                    <h5 class="mb-0">{{house.name}}</h5>
+                    <div class="ps-2">
+                        {{house.stars}}<small class="fa fa-star text-primary"></small>
+                    </div>
+                </div>
+                <p class="text-body mb-3">{{house.description}}</p>
+            </div>
+            <div class="p-4 mt-2 align-items-center">
+                <button class="btn btn-success rounded-0 px-md-5" (click)="handleDecision(house.code, 'accept')">
+                    Accept
+                </button>
+                <button class="btn btn-danger rounded-0 px-md-5" (click)="handleDecision(house.code, 'reject')">
+                    Reject
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-4" *ngIf="houses.length > 0">
+    <button class="btn btn-primary" (click)="loadHouses()" [disabled]="isLoading">
+        {{ isLoading ? 'Loading...' : 'Load More' }}
+    </button>
+</div>

@@ -1,1 +1,44 @@
-<p>reservation-panel works!</p>
+<!-- reservation-panel.component.html -->
+<div class="row g-5 align-items-center">
+    <div class="col-lg-6">
+        <h6 class="section-title text-start text-primary text-uppercase">Pending Requests</h6>
+        <h1 class="mb-4">Manage <span class="text-primary text-uppercase">Reservations</span></h1>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead class="bg-primary text-white">
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let reservation of reservations" [attr.data-reservation-id]="reservation.id">
+                <td>
+                    Reservation at {{reservation.housingName}} (housing ID {{reservation.housingCode}})
+                    with reservation ID: {{reservation.id}}
+                    <br>
+                    Requested by client with DNI: {{reservation.clientDni}}
+                </td>
+                <td>Check-in: {{reservation.checkIn}} - Check-out: {{reservation.checkOut}}</td>
+                <td>
+                    <button class="btn btn-success" (click)="handleDecision(reservation.id, 'accept')">
+                        <i class="bi bi-check"></i>
+                    </button>
+                    <button class="btn btn-danger" (click)="handleDecision(reservation.id, 'reject')">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="text-center mt-4" *ngIf="reservations.length > 0">
+    <button class="btn btn-primary" (click)="loadReservations()" [disabled]="isLoading">
+        {{ isLoading ? 'Loading...' : 'Load More' }}
+    </button>
+</div>

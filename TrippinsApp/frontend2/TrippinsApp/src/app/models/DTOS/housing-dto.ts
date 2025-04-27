@@ -9,6 +9,7 @@ export interface HousingDTO {
     stars: number;
     acepted: boolean;
     tags: TagDTO[];
+    price: number;
 
 
 }

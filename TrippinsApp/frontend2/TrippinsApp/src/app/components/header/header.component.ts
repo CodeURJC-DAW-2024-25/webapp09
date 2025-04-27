@@ -9,33 +9,36 @@ import { UserRole } from '../../models/DTOS/user-dto';
   styleUrl: './header.component.css',
   standalone:false
 })
-export class HeaderComponent implements OnInit {
-  loading = true;
-  UserRole = UserRole; // Make enum available in template
-
+export class HeaderComponent {
   constructor(
     public authService: AuthService,
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-    this.loading = false;
+  get username(): string | null {
+    // Extract username from JWT if needed
+    // This is a simple implementation - you might need to adjust based on your JWT structure
+    const token = this.authService.getJwt();
+    if (!token) return null;
+    
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload.sub || payload.username || null;
+    } catch (e) {
+      return null;
+    }
   }
 
   logout(): void {
     this.authService.logout();
-  }
-
-  get username(): string {
-    return this.authService.currentUserValue?.name || '';
-  }
-
-  get isLoggedIn(): boolean {
-    return this.authService.isLoggedIn();
+    this.router.navigate(['/login']);
   }
 
   isAdmin(): boolean {
-    return this.authService.hasRole(UserRole.ROLE_ADMIN);
+    return this.authService.hasRole('ROLE_ADMIN');
   }
 
+  isUser(): boolean {
+    return this.authService.hasRole('ROLE_USER') || this.isAdmin();
+  }
 }

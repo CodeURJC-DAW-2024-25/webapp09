@@ -9,7 +9,9 @@ import { HousingDTO } from '../../models/DTOS/housing-dto';
   standalone:false
 })
 export class AdminComponent {
-  //reservations: ReservationDTO[];
-  //housingPosts: HousingDTO[];
+  activeTab: 'reservations' | 'houses' = 'reservations';
 
+  switchTab(tab: 'reservations' | 'houses') {
+    this.activeTab = tab;
+  }
 }
