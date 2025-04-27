@@ -12,6 +12,7 @@ import { environment } from '../../environments/environment';
 export class AuthService {
   private readonly JWT_KEY = 'auth_jwt';
   private readonly ROLES_KEY = 'user_roles';
+  private username: string | null = null;
 
   constructor(private http: HttpClient) {}
 
@@ -20,6 +21,7 @@ export class AuthService {
       tap(response => {
         this.storeJwt(response.jwt);
         this.storeRoles(response.roles);
+        this.username = credentials.username;
       })
     );
   }
@@ -56,5 +58,24 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem(this.JWT_KEY);
     localStorage.removeItem(this.ROLES_KEY);
+  }
+
+  getUsername(): string | null {
+    if (this.username) return this.username;
+    
+    // Fallback to JWT parsing if username not set
+    const token = this.getJwt();
+    if (!token) return null;
+    
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload.sub || payload.username || null;
+    } catch (e) {
+      return null;
+    }
+  }
+  
+  updateUsername(newUsername: string): void {
+    this.username = newUsername;
   }
 }

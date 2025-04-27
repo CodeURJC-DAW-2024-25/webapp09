@@ -9,6 +9,18 @@ export interface UserDTO {
 
 
 }
+export interface RegisteringUserDTO{
+    dni: string;
+    name: string;
+    number: number;
+    email: string;
+    password : string;
+
+
+
+}
+
+
 export enum UserRole {
 
     ROLE_ADMIN = "ROLE_ADMIN",
