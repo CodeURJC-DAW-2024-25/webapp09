@@ -60,7 +60,7 @@ public class SecurityConfiguration {
                 .requestMatchers("/", "/index", "/about", "/contact", "/register", "/error", "/v1/api/login/**", "/css/**", "/js/**", "/images/**").permitAll()
                 .requestMatchers("/room").permitAll() // ✅ Anyone can see the rooms page
                 .requestMatchers("/room/{code}", "/roomDetails").authenticated()
-
+                .requestMatchers("/spa/**").permitAll()
                 // Allow POST requests to /addUser for unauthenticated users
                 .requestMatchers(HttpMethod.POST, "/addUser").permitAll()
                 .requestMatchers(HttpMethod.POST, "/v1/api/login/forms").permitAll()
