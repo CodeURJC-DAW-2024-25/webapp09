@@ -1,5 +1,5 @@
 # Angular compilation
-FROM node:18.13 AS angular
+FROM node:19.0.1 AS angular
 WORKDIR /code
 COPY frontend2/package*.json frontend2/angular.json frontend2/tsconfig*.json /code/
 RUN npm install && npm install chart.js
