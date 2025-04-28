@@ -1,11 +1,6 @@
 <!-- header.component.html -->
 <!-- Spinner Start -->
-<div id="spinner"
-    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-        <span class="sr-only">Loading...</span>
-    </div>
-</div>
+
 <!-- Spinner End -->
 
 <!-- Header Start -->
@@ -25,7 +20,7 @@
                     <div class="navbar-nav mr-auto py-0">
                         <a routerLink="/" class="nav-item nav-link">Home</a>
                         <a routerLink="/about" class="nav-item nav-link">Nuestro Staff</a>
-                        <a routerLink="/room" class="nav-item nav-link">Alojamientos</a>
+                        <a routerLink="/rooms" class="nav-item nav-link">Alojamientos</a>
                         <a routerLink="/register" class="nav-item nav-link">Registrate</a>
                         <a *ngIf="isUser()" routerLink="/newHotel" class="nav-item nav-link">Nuevo Hotel</a>
                         <a *ngIf="isAdmin()" routerLink="/admin" class="nav-item nav-link">Admin</a>

@@ -16,12 +16,12 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(credentials: { username: string; password: string }): Observable<AuthenticationResponse> {
+  login(credentials: { email: string; password: string }): Observable<AuthenticationResponse> {
     return this.http.post<AuthenticationResponse>(`${environment.baseUrlApi}/login`, credentials).pipe(
       tap(response => {
         this.storeJwt(response.jwt);
         this.storeRoles(response.roles);
-        this.username = credentials.username;
+        this.username = credentials.email;
       })
     );
   }

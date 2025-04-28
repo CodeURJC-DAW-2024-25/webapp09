@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  standalone:false
 })
 export class LoginComponent {
   loginForm: FormGroup;
@@ -32,7 +33,7 @@ export class LoginComponent {
 
     const { email, password } = this.loginForm.value;
     
-    this.authService.login({ username: email, password }).subscribe({
+    this.authService.login({ email, password }).subscribe({
       next: () => {
         // Successful login - redirect to home or previous URL
         const returnUrl = this.router.parseUrl(this.router.url).queryParams['returnUrl'] || '/';

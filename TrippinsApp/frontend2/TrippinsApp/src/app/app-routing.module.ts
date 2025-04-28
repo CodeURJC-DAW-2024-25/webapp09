@@ -29,20 +29,19 @@ const routes: Routes = [
   { 
     path: 'profile', 
     component: ProfileComponent,
-    canActivate: [authGuard] 
+    canActivate: [authGuard]
   },
   
   // Admin routes
   { 
     path: 'admin', 
     component: AdminComponent,
-    canActivate: [authGuard,roleGuard],
-    data: { roles: ['ROLE_ADMIN'] }
+    canActivate: [authGuard, roleGuard]
   },
   { 
     path: 'rooms/new', 
     component: NewhotelComponent,
-    canActivate: [authGuard] 
+    canActivate: [authGuard]
   },
   
   // Error route
