@@ -1,6 +1,6 @@
 echo "🔨 Construyendo imagen Docker desde la raíz del proyecto..."
 
-docker build -t trippins:latest -f Dockerfile ..  # Contexto: ".." (la raíz)
+docker build -t trippins:latest -f ../docker/Dockerfile ../  # Contexto: ".." (la raíz)
 
 echo "🏷️ Etiquetando imagen..."
 docker tag trippins:latest jantoniio3/trippins:latest
