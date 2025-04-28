@@ -61,10 +61,10 @@ public class SecurityConfiguration {
                 .requestMatchers("/room").permitAll() // ✅ Anyone can see the rooms page
                 .requestMatchers("/room/{code}", "/roomDetails").authenticated()
                 .requestMatchers("/spa/**").permitAll()
+
                 // Allow POST requests to /addUser for unauthenticated users
                 .requestMatchers(HttpMethod.POST, "/addUser").permitAll()
                 .requestMatchers(HttpMethod.POST, "/v1/api/login/forms").permitAll()
-                .requestMatchers(HttpMethod.GET, "/v1/api/users").hasAnyRole("USER")
 
                 // Allow POST requests to /addHotel for authenticated users with USER or ADMIN role
                 .requestMatchers(HttpMethod.POST, "/addHotel").hasAnyRole("USER", "ADMIN")
@@ -81,6 +81,8 @@ public class SecurityConfiguration {
             .csrf(csrf -> csrf.disable()); // Disable CSRF (not needed for stateless APIs)
 
         return http.build();
+        
     }
+    
 
 }
