@@ -3,7 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, catchError, map, of, tap } from 'rxjs';
-import { AuthenticationRequest, AuthenticationResponse } from '../models/DTOS/user-dto';
+import { AuthenticationRequest, AuthenticationResponse, UserDTO } from '../models/DTOS/user-dto';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -84,5 +84,35 @@ export class AuthService {
   
   updateUsername(newUsername: string): void {
     this.username = newUsername;
+  }
+
+
+  getUserDni(): Observable<string | null>{
+    const usernameemail = this.getUsername();
+    return this.http.get<UserDTO[]>(`${environment.baseUrlApi}/users`).pipe(
+      map(users => {
+        const user = users.find(u => u.email === usernameemail);
+        return user ? user.dni : null;
+      }),
+      catchError(err => {
+        console.error('Error loading user data:', err);
+        return of(null);
+      })
+    );
+
+  }
+  getUserName(): Observable<string | null>{
+    const usernameemail = this.getUsername();
+    return this.http.get<UserDTO[]>(`${environment.baseUrlApi}/users`).pipe(
+      map(users => {
+        const user = users.find(u => u.email === usernameemail);
+        return user ? user.name : null;
+      }),
+      catchError(err => {
+        console.error('Error loading user data:', err);
+        return of(null);
+      })
+    );
+
   }
 }

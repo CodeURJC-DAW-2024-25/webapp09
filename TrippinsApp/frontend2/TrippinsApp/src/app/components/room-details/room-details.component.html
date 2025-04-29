@@ -1,0 +1,137 @@
+<!-- Page Header -->
+<div class="container-fluid page-header mb-5 p-0" [style.backgroundImage]="'url(assets/img/carousel-1.jpg)'">
+    <div class="container-fluid page-header-inner py-5">
+        <div class="container text-center pb-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">{{house?.name}}</h1>
+        </div>
+    </div>
+</div>
+
+<!-- Room Details -->
+<div class="container-xxl py-5" *ngIf="house">
+    <div class="container text-center">
+        <h6 class="section-title text-primary text-uppercase">Sobre {{house.name}}</h6>
+        <h1 class="mb-4">Bienvenido a <span class="text-primary text-uppercase">{{house.name}}</span></h1>
+
+        <img [src]="house.image" [alt]="house.name" class="img-fluid rounded mb-4" style="max-width: 80%;">
+
+        <div class="d-flex flex-wrap justify-content-center mb-4">
+            <div class="badge bg-primary me-2" *ngFor="let tag of house.tags">{{tag.id}}</div>
+        </div>
+
+        <p class="mb-4" style="font-size: 1.2rem;">{{house.description}}</p>
+
+        <div class="row justify-content-center g-3 pb-4">
+            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.3s">
+                <div class="border rounded p-1">
+                    <div class="border rounded text-center p-4">
+                        <i class="bi-star-fill fa-2x text-primary mb-2"></i>
+                        <h2 class="mb-1">{{house.stars}}</h2>
+                        <p class="mb-0">Estrellas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.5s">
+                <div class="border rounded p-1">
+                    <div class="border rounded text-center p-4">
+                        <i class="fa-solid fa-euro-sign fa-2x text-primary"></i>
+                        <h2 class="mb-1">{{house.price}}€/ la noche</h2>
+                        <p class="mb-0">Precio económico</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.7s">
+                <div class="border rounded p-1">
+                    <div class="border rounded text-center p-4">
+                        <i class="fas fa-globe fa-2x text-primary mb-2"></i>
+                        <h2 class="mb-1">{{house.location}}</h2>
+                        <p class="mb-0">Ubicación</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br><br><br><br>
+
+        <!-- Reservation Form -->
+        <div>
+            <h3 class="section-title">¡Reserva <strong class="text-primary">ya!</strong></h3>
+            <br><br><br>
+            <form [formGroup]="reservationForm" (ngSubmit)="onSubmitReservation()">
+                <div class="row g-3">
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <input type="date" formControlName="checkIn" class="form-control" required>
+                            <label>Fecha de entrada:</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <input type="date" formControlName="checkOut" class="form-control" required>
+                            <label>Fecha de salida:</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary"
+                        [disabled]="reservationForm.invalid || !authService.isLoggedIn()">
+                        {{  'Hacer reserva como ' + authService.getUsername()}}
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Comment Form -->
+        <div class="mt-5" *ngIf="authService.isLoggedIn()">
+            <h3>Deja un comentario</h3>
+            <form [formGroup]="commentForm" (ngSubmit)="onSubmitComment()">
+                <div class="mb-3">
+                    <label class="form-label">Comentario</label>
+                    <textarea class="form-control" formControlName="comment" rows="3" required></textarea>
+                    <div *ngIf="commentForm.get('comment')?.invalid && commentForm.get('comment')?.touched"
+                        class="text-danger">
+                        El comentario debe tener al menos 10 caracteres
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-floating">
+                        <label>Rating (0-100):</label>
+                        <input type="range" class="form-range" formControlName="rating" min="0" max="100" step="1">
+                        <br><br>
+                        <output class="fs-4">{{commentForm.get('rating')?.value}}</output>
+                    </div>
+                </div>
+
+                <br><br><br>
+                <button type="submit" class="btn btn-primary" [disabled]="commentForm.invalid">Enviar</button>
+            </form>
+        </div>
+
+        <!-- Comment Section -->
+        <h3 class="section-title">Comentarios</h3>
+        <div class="mt-5">
+            <div *ngFor="let comment of comments"
+                class="comment-box border rounded p-4 mb-3 shadow-sm position-relative"
+                style="background-color: rgba(39, 58, 77, 0.1);">
+                <div class="d-flex align-items-center mb-2">
+                    <i class="fa fa-quote-right fa-2x text-primary position-absolute top-0 end-0 me-3 mt-3"></i>
+                    <i class="bi bi-person-circle me-2" style="font-size: 2rem;"></i>
+                    <h5 class="m-0">{{comment.userName}}</h5>
+                </div>
+                <p class="mb-2 text-break">{{comment.comment}}</p>
+                <br><br>
+                <strong class="text-dark">Rating: {{comment.rating}}/100</strong>
+                <div class="rating-bar mt-2">
+                    <div class="rating-fill {{getRatingClass(comment.rating)}}" [style.width]="getRatingWidth(comment.rating)"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4" *ngIf="comments.length > 0">
+            <button class="btn btn-primary" (click)="loadMoreComments()" [disabled]="isLoading">
+                {{ isLoading ? 'Cargando...' : 'Cargar más' }}
+            </button>
+        </div>
+    </div>
+</div>
+
+<br><br><br>

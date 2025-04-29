@@ -58,7 +58,7 @@
 
         <div class="row g-4" id="houses-container">
             <div *ngFor="let house of houses" class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <a [routerLink]="['/room/', house.code]" class="room-link">
+                <a [routerLink]="['/rooms/'+ house.code]" class="room-link">
                     <div class="room-item shadow rounded overflow-hidden">
                         <div class="position-relative">
                             <img style="width: 450px; height: 275px" class="img-fluid"
