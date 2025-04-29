@@ -44,6 +44,7 @@ export class RoomDetailsComponent {
 
   ngOnInit(): void {
     const code = this.route.snapshot.paramMap.get('id');
+
     if (code) {
       const code2 = Number(code);
       this.loadHouseDetails(code2);
@@ -167,7 +168,6 @@ export class RoomDetailsComponent {
           confirmButtonText: 'Intentar de nuevo'
         });
         console.error('Error submitting comment:', err);
-        alert('Error al enviar el comentario');
       }
     });
   }

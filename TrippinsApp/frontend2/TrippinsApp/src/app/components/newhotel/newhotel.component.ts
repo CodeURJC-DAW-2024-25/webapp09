@@ -3,12 +3,13 @@ import { environment } from '../../../environments/environment.development';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-newhotel',
   templateUrl: './newhotel.component.html',
   styleUrl: './newhotel.component.css',
-  standalone:false
+  standalone: false
 })
 export class NewhotelComponent {
   houseForm: FormGroup;
@@ -53,7 +54,7 @@ export class NewhotelComponent {
     }
 
     this.isSubmitting = true;
-    
+
     const formData = new FormData();
     formData.append('name', this.houseForm.get('name')?.value);
     formData.append('location', this.houseForm.get('location')?.value);
@@ -66,9 +67,27 @@ export class NewhotelComponent {
     this.http.post(`${environment.baseUrlApi}/v1/api/houses`, formData)
       .subscribe({
         next: () => {
-          this.router.navigate(['/success']); // Redirect to success index
+          Swal.fire({
+            title: 'Creacion exitosa! 🎉',
+            text: 'Tu alojamiento fue creado correctamente.',
+            icon: 'success',
+            confirmButtonText: '¡Genial!',
+            backdrop: true,
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+            }
+          });
         },
         error: (err) => {
+          Swal.fire({
+            title: 'Oops 😬',
+            text: 'Hubo un error al crear el alojamiento.',
+            icon: 'error',
+            confirmButtonText: 'Intentar de nuevo'
+          });
           console.error('Error creating house:', err);
           this.isSubmitting = false;
         }

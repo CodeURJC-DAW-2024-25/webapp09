@@ -22,13 +22,13 @@
                         <a routerLink="/about" class="nav-item nav-link">Nuestro Staff</a>
                         <a routerLink="/rooms" class="nav-item nav-link">Alojamientos</a>
                         <a routerLink="/register" class="nav-item nav-link">Registrate</a>
-                        <a *ngIf="isUser()" routerLink="/newHotel" class="nav-item nav-link">Nuevo Hotel</a>
+                        <a *ngIf="isUser()" routerLink="/housing/new" class="nav-item nav-link">Nuevo Hotel</a>
                         <a *ngIf="isAdmin()" routerLink="/admin" class="nav-item nav-link">Admin</a>
                     </div>
                     <div *ngIf="authService.isLoggedIn(); else loginButton">
                         <div class="d-flex align-items-center">
                             <a routerLink="/profile" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">
-                                Bienvenido, {{ username }}
+                                Bienvenido, {{ username}}
                             </a>
                             <button (click)="logout()" class="btn btn-danger rounded-0 py-4 px-3 d-none d-lg-block ms-2">
                                 <i class="fas fa-sign-out-alt"></i>

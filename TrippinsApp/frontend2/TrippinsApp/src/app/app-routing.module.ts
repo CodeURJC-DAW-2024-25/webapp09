@@ -40,7 +40,7 @@ const routes: Routes = [
     data: {roles: ["ROLE_ADMIN"]}
   },
   { 
-    path: 'rooms/new', 
+    path: 'housing/new', 
     component: NewhotelComponent,
     canActivate: [authGuard]
   },
