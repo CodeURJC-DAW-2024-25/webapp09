@@ -2,6 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { HousingDTO } from '../../models/DTOS/housing-dto';
 import { HousingServiceService } from '../../services/housing-service.service';
 
+
+
+interface SearchParams {
+  tags?: string;
+  stars?: number;
+}
+
+
 @Component({
   selector: 'app-room',
   templateUrl: './room.component.html',
@@ -14,6 +22,11 @@ export class RoomComponent implements OnInit {
   pageSize = 6;
   isLoading = false;
   hasMore = true;
+
+  searchParams: SearchParams = {
+    tags: '',
+    stars: 1
+  };
 
   constructor(private houseService: HousingServiceService) {}
 
@@ -41,12 +54,21 @@ export class RoomComponent implements OnInit {
   }
 
 
-  searchHouses(searchParams: any): void {
+  onSearchSubmit(): void {
     this.currentPage = 1;
     this.houses = [];
-    this.houseService.searchHouses(searchParams).subscribe({
+    
+    // Call the search service with both parameters
+    this.houseService.searchHouses(
+      this.searchParams.tags || '', 
+      this.searchParams.stars || 1
+    ).subscribe({
       next: (houses) => {
         this.houses = houses;
+      },
+      error: (error) => {
+        console.error('Search error:', error);
+        // Handle errors as needed
       }
     });
   }

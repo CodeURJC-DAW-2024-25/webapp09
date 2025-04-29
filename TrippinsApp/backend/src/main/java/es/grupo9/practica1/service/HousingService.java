@@ -148,7 +148,9 @@ public class HousingService {
             List<Housing> houses = housingRepository.findByStarsGreaterThanEqual(stars);
             List<HousingDTO> housingDTOs = new ArrayList<>();
             for (Housing house : houses) {
-                housingDTOs.add(new HousingDTO(house));
+                if (house.getAcepted())
+               {
+                 housingDTOs.add(new HousingDTO(house));}
             }
             return housingDTOs;
         } else {
@@ -213,130 +215,125 @@ public class HousingService {
 
     }
 
-    public Set<TagDTO> getTagsById(int id){
+    public Set<TagDTO> getTagsById(int id) {
         Optional<Housing> house = housingRepository.findById(id);
         Set<Tag> tags = house.get().getTags();
         Set<TagDTO> tagDTOs = tags.stream()
-        .map(tag -> new TagDTO(tag.getId())) // Convert each Tag to TagDTO
-        .collect(Collectors.toSet()); // Collect into a Set
+                .map(tag -> new TagDTO(tag.getId())) // Convert each Tag to TagDTO
+                .collect(Collectors.toSet()); // Collect into a Set
 
         return tagDTOs;
     }
 
-    public Housing findByCode(int code){
+    public Housing findByCode(int code) {
         return housingRepository.findByCode(code).get();
     }
 
-    public void saveImage(Housing house){
-        
+    public void saveImage(Housing house) {
 
         housingRepository.save(house);
     }
 
-    public void deleteImage(int code){
+    public void deleteImage(int code) {
 
         Housing houseWithImage = housingRepository.findByCode(code).get();
         houseWithImage.setImage(null);
         housingRepository.save(houseWithImage);
     }
 
-    public Page<HousingDTO> findByAceptedTrue(Pageable pageable){
+    public Page<HousingDTO> findByAceptedTrue(Pageable pageable) {
         Page<Housing> houses = housingRepository.findByAceptedTrue(pageable);
-            
-    // Convert Page<Housing> to Page<HousingDTO>
-    return houses.map(housing -> {
-        HousingDTO dto = new HousingDTO();
-        // Map simple fields
-        dto.setCode(housing.getCode());
-        dto.setLocation(housing.getLocation());
-        dto.setName(housing.getName());
-        dto.setPrice(housing.getPrice());
-        dto.setDescription(housing.getDescription());
-        dto.setStars(housing.getStars());
-        dto.setAcepted(housing.getAcepted());
-        
-        // Handle image conversion
-        try {
-            if (housing.getImage() != null) {
-                dto.setImageBase64(housing.getImageBase64());
-            } else {
-                dto.setImageBase64(""); // or null if preferred
+
+        // Convert Page<Housing> to Page<HousingDTO>
+        return houses.map(housing -> {
+            HousingDTO dto = new HousingDTO();
+            // Map simple fields
+            dto.setCode(housing.getCode());
+            dto.setLocation(housing.getLocation());
+            dto.setName(housing.getName());
+            dto.setPrice(housing.getPrice());
+            dto.setDescription(housing.getDescription());
+            dto.setStars(housing.getStars());
+            dto.setAcepted(housing.getAcepted());
+
+            // Handle image conversion
+            try {
+                if (housing.getImage() != null) {
+                    dto.setImageBase64(housing.getImageBase64());
+                } else {
+                    dto.setImageBase64(""); // or null if preferred
+                }
+            } catch (Exception e) {
+                dto.setImageBase64(""); // fallback for error cases
             }
-        } catch (Exception e) {
-            dto.setImageBase64(""); // fallback for error cases
-        }
-        
-        // Map tags (direct entity reference - consider TagDTO if needed)
-        dto.setTags(housing.getTags());
-        
-        return dto;
-    });
+
+            // Map tags (direct entity reference - consider TagDTO if needed)
+            dto.setTags(housing.getTags());
+
+            return dto;
+        });
     }
 
-    public Page<HousingDTO> findByAceptedFalse(Pageable pageable){
+    public Page<HousingDTO> findByAceptedFalse(Pageable pageable) {
         Page<Housing> houses = housingRepository.findByAceptedFalse(pageable);
-            
-    // Convert Page<Housing> to Page<HousingDTO>
-    return houses.map(housing -> {
-        HousingDTO dto = new HousingDTO();
-        // Map simple fields
-        dto.setCode(housing.getCode());
-        dto.setLocation(housing.getLocation());
-        dto.setName(housing.getName());
-        dto.setPrice(housing.getPrice());
-        dto.setDescription(housing.getDescription());
-        dto.setStars(housing.getStars());
-        dto.setAcepted(housing.getAcepted());
-        
-        // Handle image conversion
-        try {
-            if (housing.getImage() != null) {
-                dto.setImageBase64(housing.getImageBase64());
-            } else {
-                dto.setImageBase64(""); // or null if preferred
+
+        // Convert Page<Housing> to Page<HousingDTO>
+        return houses.map(housing -> {
+            HousingDTO dto = new HousingDTO();
+            // Map simple fields
+            dto.setCode(housing.getCode());
+            dto.setLocation(housing.getLocation());
+            dto.setName(housing.getName());
+            dto.setPrice(housing.getPrice());
+            dto.setDescription(housing.getDescription());
+            dto.setStars(housing.getStars());
+            dto.setAcepted(housing.getAcepted());
+
+            // Handle image conversion
+            try {
+                if (housing.getImage() != null) {
+                    dto.setImageBase64(housing.getImageBase64());
+                } else {
+                    dto.setImageBase64(""); // or null if preferred
+                }
+            } catch (Exception e) {
+                dto.setImageBase64(""); // fallback for error cases
             }
-        } catch (Exception e) {
-            dto.setImageBase64(""); // fallback for error cases
-        }
-        
-        // Map tags (direct entity reference - consider TagDTO if needed)
-        dto.setTags(housing.getTags());
-        
-        return dto;
-    });
+
+            // Map tags (direct entity reference - consider TagDTO if needed)
+            dto.setTags(housing.getTags());
+
+            return dto;
+        });
     }
 
-    public void deleteById(int code){
+    public void deleteById(int code) {
         if (housingRepository.existsById(code)) {
             housingRepository.deleteById(code);
-            
-        } 
-        
+
+        }
 
     }
 
-    public void acceptHouse(int code){
+    public void acceptHouse(int code) {
         Housing house = housingRepository.findByCode(code).get();
         house.setAcepted(true);
         housingRepository.save(house);
 
-
     }
 
-    public HousingDTO findByCode(Integer code){
-        Optional<Housing> optionalHousing = housingRepository.findByCode(code); 
+    public HousingDTO findByCode(Integer code) {
+        Optional<Housing> optionalHousing = housingRepository.findByCode(code);
 
         if (optionalHousing.isPresent()) {
             Housing house = optionalHousing.get();
 
-
             return new HousingDTO(house);
-        }
-        else 
+        } else
             return null;
     }
 
-    public List<HousingDTO> getPaginatedHousing(Pageable pageable){
+    public List<HousingDTO> getPaginatedHousing(Pageable pageable) {
 
         Page<Housing> houses = housingRepository.findAll(pageable);
         return houses.map(housing -> {
@@ -349,7 +346,7 @@ public class HousingService {
             dto.setDescription(housing.getDescription());
             dto.setStars(housing.getStars());
             dto.setAcepted(housing.getAcepted());
-            
+
             // Handle image conversion
             try {
                 if (housing.getImage() != null) {
@@ -360,10 +357,10 @@ public class HousingService {
             } catch (Exception e) {
                 dto.setImageBase64(""); // fallback for error cases
             }
-            
+
             // Map tags (direct entity reference - consider TagDTO if needed)
             dto.setTags(housing.getTags());
-            
+
             return dto;
         }).getContent();
 

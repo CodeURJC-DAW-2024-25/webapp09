@@ -12,8 +12,7 @@
     </div>
 </div>
 
-<!-- Search Form -->
-<form (ngSubmit)="searchHouses(searchForm.value)" #searchForm="ngForm">
+<form (ngSubmit)="onSearchSubmit()" #searchForm="ngForm">
     <div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container">
             <div class="bg-white shadow" style="padding: 35px;">
@@ -21,12 +20,22 @@
                     <div class="col-md-10">
                         <div class="row g-2">
                             <div class="col-md-6">
-                                <input type="text" class="form-control text-black-50 ps-3"
-                                    placeholder="Que estas buscando?" name="tags" ngModel>
+                                <input 
+                                    type="text" 
+                                    class="form-control text-black-50 ps-3"
+                                    placeholder="Que estas buscando?" 
+                                    name="tags" 
+                                    [(ngModel)]="searchParams.tags">
                             </div>
                             <div class="col-md-6">
-                                <input type="number" value="1" min="1" max="5" class="form-control text-black-50 ps-3"
-                                    placeholder="Numero de Estrellas" name="stars" ngModel>
+                                <input 
+                                    type="number" 
+                                    class="form-control text-black-50 ps-3"
+                                    placeholder="Numero de Estrellas" 
+                                    name="stars" 
+                                    [(ngModel)]="searchParams.stars"
+                                    min="1" 
+                                    max="5">
                             </div>
                         </div>
                     </div>

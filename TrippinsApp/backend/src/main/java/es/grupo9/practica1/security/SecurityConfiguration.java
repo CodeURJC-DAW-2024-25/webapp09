@@ -58,7 +58,7 @@ public class SecurityConfiguration {
             .authorizeHttpRequests(auth -> auth
                 // Public endpoints (accessible to everyone, registered or not)
                 .requestMatchers("/", "/index", "/about", "/contact", "/register", "/error", "/v1/api/login/**", "/css/**", "/js/**", "/images/**").permitAll()
-                .requestMatchers("/room").permitAll() // ✅ Anyone can see the rooms page
+                .requestMatchers("/room", "/v1/api/query").permitAll() // ✅ Anyone can see the rooms page
                 .requestMatchers("/room/{code}", "/roomDetails").authenticated()
                 .requestMatchers("/spa/**").permitAll()
 
