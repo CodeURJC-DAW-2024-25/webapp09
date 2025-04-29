@@ -36,7 +36,8 @@ const routes: Routes = [
   { 
     path: 'admin', 
     component: AdminComponent,
-    canActivate: [authGuard, roleGuard]
+    canActivate: [authGuard, roleGuard],
+    data: {roles: ["ROLE_ADMIN"]}
   },
   { 
     path: 'rooms/new', 

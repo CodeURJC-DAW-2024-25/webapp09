@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HousingDTO } from '../../../models/DTOS/housing-dto';
+import { HousingDTO, PagedResponse } from '../../../models/DTOS/housing-dto';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment.development';
 
@@ -23,10 +23,10 @@ export class HousingPanelComponent {
     if (this.isLoading) return;
     
     this.isLoading = true;
-    this.http.get<HousingDTO[]>(`${environment.baseUrlApi}/admin/houses?page=${this.currentPage}&size=${this.size}`)
+    this.http.get<PagedResponse<HousingDTO>>(`${environment.baseUrlApi}/admin/houses?page=${this.currentPage}&size=${this.size}`)
       .subscribe({
         next: (data) => {
-          this.houses = [...this.houses, ...data];
+          this.houses = [...this.houses, ...data.content];
           this.currentPage++;
           this.isLoading = false;
         },

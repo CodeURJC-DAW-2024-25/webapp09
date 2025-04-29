@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ReservationDTO } from '../../../models/DTOS/reservation-dto';
 import { environment } from '../../../../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
+import { PagedResponse } from '../../../models/DTOS/housing-dto';
 
 @Component({
   selector: 'app-reservation-panel',
@@ -24,10 +25,10 @@ export class ReservationPanelComponent {
     if (this.isLoading) return;
 
     this.isLoading = true;
-    this.http.get<ReservationDTO[]>(`${environment.baseUrlApi}/admin/reservations?page=${this.currentPage}&size=${this.size}`)
+    this.http.get<PagedResponse<ReservationDTO>>(`${environment.baseUrlApi}/admin/reservations?page=${this.currentPage}&size=${this.size}`)
       .subscribe({
         next: (data) => {
-          this.reservations = [...this.reservations, ...data];
+          this.reservations = [...this.reservations, ...data.content];
           this.currentPage++;
           this.isLoading = false;
         },

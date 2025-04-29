@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.grupo9.practica1.DTOs.HousingDTO;
+import es.grupo9.practica1.DTOs.ReservationDTO;
 import es.grupo9.practica1.DTOs.ReviewDTO;
 import es.grupo9.practica1.entities.Housing;
 
@@ -215,6 +216,36 @@ public class CustomAjaxController {
             throw e; // Re-throw the exception to return a 500 error
         }
     }
+
+    @GetMapping("/v1/api/admin/reservations")
+    public Page<ReservationDTO> getAdminReservations(
+        @Parameter(description = "Page number (0-based)", example = "0")
+        @RequestParam(defaultValue = "0") int page,
+    
+        @Parameter(description = "Number of items per page", example = "6")
+        @RequestParam(defaultValue = "3") int size) {
+        try {
+
+            // Log the received parameters
+            System.out.println("Received request - page: " + page + ", size: " + size);
+
+            // Fetch the houses using pagination
+            Pageable pageable = PageRequest.of(page, size);
+
+            
+            Page<ReservationDTO> reservations = reservationService.findByValoratedFalse(pageable);
+
+            return reservations;
+        } catch (Exception e) {
+            // Log the error
+            System.err.println("Error fetching houses: " + e.getMessage());
+            throw e; // Re-throw the exception to return a 500 error
+        }
+    }
+
+
+
+
 
 
     // Accept House: Sets the "acepted" field to true

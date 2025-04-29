@@ -48,7 +48,14 @@ export class AuthService {
   }
 
   hasAnyRole(roles: string[]): boolean {
-    return this.getRoles().some(userRole => roles.includes(userRole));
+    var currentRoles: string [] = this.getRoles();
+    for (let index = 0; index < roles.length; index++) {
+      if (currentRoles.includes(roles[index])){
+        return true;
+      }
+      
+    }
+    return false;
   }
 
   isLoggedIn(): boolean {
