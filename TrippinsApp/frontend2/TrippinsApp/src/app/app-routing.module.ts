@@ -15,38 +15,38 @@ import { roleGuard } from './guards/role.guard';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
-  { path: 'home', redirectTo: '', pathMatch: 'full' },
-  { path: 'index', redirectTo: '', pathMatch: 'full' },
+  { path: 'new/home', redirectTo: '', pathMatch: 'full' },
+  { path: 'new/index', redirectTo: '', pathMatch: 'full' },
   
   // Public routes
-  { path: 'about', component: AboutComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'rooms', component: RoomComponent },
-  { path: 'rooms/:id', component: RoomDetailsComponent,canActivate: [authGuard] },
+  { path: 'new/about', component: AboutComponent },
+  { path: 'new/login', component: LoginComponent },
+  { path: 'new/register', component: RegisterComponent },
+  { path: 'new/rooms', component: RoomComponent },
+  { path: 'new/rooms/:id', component: RoomDetailsComponent,canActivate: [authGuard] },
   
   // Protected user routes
   { 
-    path: 'profile', 
+    path: 'new/profile', 
     component: ProfileComponent,
     canActivate: [authGuard]
   },
   
   // Admin routes
   { 
-    path: 'admin', 
+    path: 'new/admin', 
     component: AdminComponent,
     canActivate: [authGuard, roleGuard],
     data: {roles: ["ROLE_ADMIN"]}
   },
   { 
-    path: 'housing/new', 
+    path: 'new/housing/creation', 
     component: NewhotelComponent,
     canActivate: [authGuard]
   },
   
   // Error route
-  { path: 'error', component: ErrorComponent },
+  { path: 'new/error', component: ErrorComponent },
   
   // Wildcard route (must be last)
   { path: '**', redirectTo: 'error' }

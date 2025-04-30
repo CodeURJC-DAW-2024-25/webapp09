@@ -63,7 +63,7 @@ public class SecurityConfiguration {
                 .requestMatchers("/spa/**").permitAll()
 
                 // Allow POST requests to /addUser for unauthenticated users
-                .requestMatchers(HttpMethod.POST, "/addUser").permitAll()
+                .requestMatchers(HttpMethod.POST, "/addUser","/v1/api/users").permitAll()
                 .requestMatchers(HttpMethod.POST, "/v1/api/login/forms").permitAll()
 
                 // Allow POST requests to /addHotel for authenticated users with USER or ADMIN role

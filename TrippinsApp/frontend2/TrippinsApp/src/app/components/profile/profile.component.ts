@@ -36,28 +36,11 @@ export class ProfileComponent {
   }
 
   ngOnInit(): void {
-    this.loadUserData();
+
     this.loadReservations();
   }
 
-  loadUserData(): void {
-    const usernameemail = this.authService.getUsername(); // Get username from JWT
-    
-    this.http.get<UserDTO[]>(`${environment.baseUrlApi}/users`).subscribe({
-      next: (users) => {
-        this.user = users.find(u => u.email === usernameemail) || null;
-        if (this.user) {
-          this.profileForm.patchValue(this.user);
-          this.profileForm.disable(); // Start with form disabled
-        }
-        this.isLoading = false;
-      },
-      error: (err) => {
-        console.error('Error loading user data:', err);
-        this.isLoading = false;
-      }
-    });
-  }
+
 
   loadReservations(): void {
     this.http.get<ReservationDTO[]>(`${environment.baseUrlApi}/reservations`).subscribe({
@@ -113,7 +96,7 @@ export class ProfileComponent {
 
   logout(): void {
     this.authService.logout();
-    this.router.navigate(['/login']);
+    this.router.navigate(['new/login']);
   }
 
   getReservationStatus(valorated: boolean): string {

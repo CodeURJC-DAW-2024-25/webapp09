@@ -4,7 +4,7 @@
             <h1 class="display-3 text-white mb-3 animated slideInDown">Alojamientos</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center text-uppercase">
-                    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+                    <li class="breadcrumb-item"><a routerLink="new/home">Home</a></li>
                     <li class="breadcrumb-item text-white active" aria-current="page">Alojamientos</li>
                 </ol>
             </nav>
@@ -58,7 +58,7 @@
 
         <div class="row g-4" id="houses-container">
             <div *ngFor="let house of houses" class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <a [routerLink]="['/rooms/'+ house.code]" class="room-link">
+                <a [routerLink]="['/new/rooms/'+ house.code]" class="room-link">
                     <div class="room-item shadow rounded overflow-hidden">
                         <div class="position-relative">
                             <img style="width: 450px; height: 275px" class="img-fluid"

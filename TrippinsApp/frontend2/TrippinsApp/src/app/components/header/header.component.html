@@ -7,7 +7,7 @@
 <div class="container-fluid bg-dark px-0">
     <div class="row gx-0">
         <div class="col-lg-3 bg-dark d-none d-lg-block">
-            <a routerLink="/" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+            <a routerLink="new/home" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
                 <h1 class="m-0 text-primary text-uppercase">TriPPins</h1>
             </a>
         </div>
@@ -18,16 +18,16 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a routerLink="/" class="nav-item nav-link">Home</a>
-                        <a routerLink="/about" class="nav-item nav-link">Nuestro Staff</a>
-                        <a routerLink="/rooms" class="nav-item nav-link">Alojamientos</a>
-                        <a routerLink="/register" class="nav-item nav-link">Registrate</a>
-                        <a *ngIf="isUser()" routerLink="/housing/new" class="nav-item nav-link">Nuevo Hotel</a>
-                        <a *ngIf="isAdmin()" routerLink="/admin" class="nav-item nav-link">Admin</a>
+                        <a routerLink="new/index" class="nav-item nav-link">Home</a>
+                        <a routerLink="new/about" class="nav-item nav-link">Nuestro Staff</a>
+                        <a routerLink="new/rooms" class="nav-item nav-link">Alojamientos</a>
+                        <a routerLink="new/register" class="nav-item nav-link">Registrate</a>
+                        <a *ngIf="isUser()" routerLink="new/housing/creation" class="nav-item nav-link">Nuevo Hotel</a>
+                        <a *ngIf="isAdmin()" routerLink="new/admin" class="nav-item nav-link">Admin</a>
                     </div>
                     <div *ngIf="authService.isLoggedIn(); else loginButton">
                         <div class="d-flex align-items-center">
-                            <a routerLink="/profile" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">
+                            <a routerLink="new/profile" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">
                                 Bienvenido, {{ username}}
                             </a>
                             <button (click)="logout()" class="btn btn-danger rounded-0 py-4 px-3 d-none d-lg-block ms-2">
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <ng-template #loginButton>
-                        <a routerLink="/login" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">
+                        <a routerLink="new/login" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">
                             Iniciar Sesion <i class="fas fa-lock"></i>
                         </a>
                     </ng-template>

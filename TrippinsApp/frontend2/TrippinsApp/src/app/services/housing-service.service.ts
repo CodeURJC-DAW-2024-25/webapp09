@@ -19,4 +19,6 @@ export class HousingServiceService {
     return this.http.get<any[]>(`${environment.baseUrlApi}/query?tags=${tags}&stars=${stars}`);
   }
 
+  
+
 }
