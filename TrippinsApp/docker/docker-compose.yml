@@ -6,33 +6,38 @@ services:
     container_name: trippins-db
     restart: always
     environment:
-      - MYSQL_DATABASE=Trippins  # Name of the database to be created
-      - MYSQL_ROOT_PASSWORD=password  # Root password for MySQL
+      - MYSQL_DATABASE=Trippins
+      - MYSQL_ROOT_PASSWORD=password
     ports:
-      - "3307:3306"  # Map port 3307 on the host to port 3306 in the container
+      - "3307:3306"
     volumes:
-      - db_data:/var/lib/mysql  # Persist database data in a Docker volume
+      - db_data:/var/lib/mysql
     networks:
-      - trippins-network  # Connect to the custom network
+      - trippins-network
 
   web:
-    image: jantoniio3/trippins:latest 
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: jantoniio3/trippins:latest
     container_name: trippins-app
     ports:
-      - "443:8443"  # Map port 443 on the host to port 8443 in the container
+      - "443:8443"  # Mapeo del puerto 443 (HTTPS) al 8443 interno
     depends_on:
-      - db  # Ensure the database service is started before the web service
+      - db
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/Trippins  # Database connection URL
-      - SPRING_DATASOURCE_USERNAME=root  # Database username
-      - SPRING_DATASOURCE_PASSWORD=password  # Database password
-      - JWT_SECRET=password  # Secret key for JWT
-    restart: on-failure  # Restart the container on failure
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/Trippins
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=password
+      - JWT_SECRET=password
+      - SERVER_SSL_ENABLED=true  # Habilita SSL
+      - SERVER_PORT=8443  # Puerto interno del backend
+    restart: on-failure
     networks:
-      - trippins-network  # Connect to the custom network
+      - trippins-network
 
 volumes:
-  db_data:  # Define the volume for database data
+  db_data:
 
 networks:
-  trippins-network:  # Define the custom network
+  trippins-network:
