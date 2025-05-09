@@ -96,8 +96,7 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 
 
 
-# Modelo ER
-![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Modelo_ER_terminado.png?raw=true)
+
 
 
 # Algoritmo
@@ -273,4 +272,5 @@ Los gráficos son una herramienta visual clave para mejorar la experiencia del u
 ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Diagrama%20de%20flujo%20arreglado.png?raw=true)
 
 # Diagrama de clases
-![](%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22About.Component%22%20style%3D%22rounded%3D0%3BwhiteSpace%3Dwrap%3Bhtml%3D1%3BfillColor%3D%23e1d5e7%3BstrokeColor%3D%239673a6%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%22160%22%20y%3D%22-110%22%20width%3D%22160%22%20height%3D%2260%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E)
+!![Diagrama de clases drawio](https://github.com/user-attachments/assets/23465228-f649-4252-acab-15a15f4d690a)
+
