@@ -1,6 +1,6 @@
 # Angular compilation
 FROM node:19.0.1 AS angular
-WORKDIR /code
+WORKDIR /daw
 
 # Copia los archivos necesarios del frontend
 COPY ./frontend/package*.json ./frontend/angular.json ./frontend/tsconfig*.json /code/
@@ -34,7 +34,7 @@ RUN mvn clean package -DskipTests
 
 # Runtime
 FROM openjdk:17-jdk-slim
-WORKDIR /usr/src/app
+WORKDIR /daw
 
 # Copia el archivo JAR generado desde la etapa de compilación
 COPY --from=builder /daw/target/*.jar app.jar
