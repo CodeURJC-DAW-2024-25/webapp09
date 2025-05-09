@@ -1,11 +1,9 @@
 # TriPPins
 
 # Miembros del grupo
-- Sergio Villagarcía Sánchez |  mailto:s.villagarcia.2019@alumnos.urjc.es | Sergio-1502
-- Guillermo Blázquez Barbacid |  mailto:g.blazquez.2019@alumnos.urjc.es  | Blazk0o
 - Juan Antonio Alcalde Yuste |  mailto:ja.alcalde.2021@alumnos.urjc.es | Jantoniio3
 - Steven Adrados Khunliang |  mailto:s.adrados.2020@alumnos.urjc.es  | Jadrados
-- Rubén Alcojor Patilla |  mailto:r.alcojor.2022@alumnos.urjc.es  | rualpa2004
+
 
 # Instrucciones de ejecución:
 
@@ -26,50 +24,33 @@
     - cd webapp09/practica1/docker
     - docker-compose up
     - https://10.100.139.215/
+ 
+      
+**Fase 3**
 
+- cd webapp09/TrippinsApp/docker
+- en la terminal: ./image.sh
+- En la terminal escribir Docker-compose up
+- Ir a localhost:443 para ver nuestra pagina web
+- En caso de estar en la maquina virtual:
+    - Ir a la carpeta donde esta el proyecto
+    - ssh -i ssh-keys/appWeb09.key vmuser@10.100.139.215
+    - git clone https://github.com/CodeURJC-DAW-2024-25/webapp09.git
+    - cd webapp09/practica1/docker
+    - docker-compose up
+    - https://10.100.139.215/
 # Participación de los miembros
+
+## **--Video de la demo ---**
+
+
+
 
 A continuación, se detalla la participación de cada miembro del equipo, incluyendo sus commits más importantes y las clases en las que han trabajado.
 
-## **--Fase 2---**
-
-## **Sergio Villagarcía Sánchez**
-- **Correo**: [s.villagarcia.2019@alumnos.urjc.es](mailto:s.villagarcia.2019@alumnos.urjc.es)
-- **Usuario GitHub**: [Sergio-1502](https://github.com/Sergio-1502)
-
-### **Commits más importantes**
-1. Commit:[260263f1e662ee3844be5fbfff51e5c4b23f8df1](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/260263f1e662ee3844be5fbfff51e5c4b23f8df1)  
-   Descripcion: Modificada para prueba personal la clase ReviewDTO.  
-2. Commit:[406013e1caa2d36bb10958437d014215af525a54](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/406013e1caa2d36bb10958437d014215af525a54)  
-   Descripcion: Modificada la clase UserDTO para probar nueva sintaxis.  
-3. Commit:[2b31e9dc8bcc41b28c2c7f57a94c7153775753e8](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/2b31e9dc8bcc41b28c2c7f57a94c7153775753e8)  
-   Descripcion: ReviewApiController para manejar las reviews y ver los diferentes "ApiResponse".  
-4. Commit:[1e257e8527f8b6fa8c486a3d03e1ccb24f7338a0](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/1e257e8527f8b6fa8c486a3d03e1ccb24f7338a0)  
-   Descripcion: UserApiController para manejar usuarios y ver como funcionan los apiResponse.  
-5. Commit:[a1e2240e1192a105a2c3d204aef2a147f0e41f2c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/a1e2240e1192a105a2c3d204aef2a147f0e41f2c)  
-   Descripcion: Borrados de los controladores que ya no se utilizan.  
+## **--Fase 3---**
 
 
----
-
-## **Guillermo Blázquez Barbacid**
-- **Correo**: [g.blazquez.2019@alumnos.urjc.es](mailto:g.blazquez.2019@alumnos.urjc.es)
-- **Usuario GitHub**: [Blazk0o](https://github.com/Blazk0o)
-
-### **Commits más importantes** 
-1. Commit:[b4327b96f41b12f83811de6102d11d0d6d111f4c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/b4327b96f41b12f83811de6102d11d0d6d111f4c)  
-   Descripcion: Creada reviewDTO.  
-2.Commit:[e2a77cfac7a0780f48f4279651bb8c30553c0c76](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/e2a77cfac7a0780f48f4279651bb8c30553c0c76)  
-   Descripcion: Reviewrestcontroller y service cambiados para poder editar los comentarios.  
-3. Commit:[f2802061cf1143c861a72ab371a5cd77d83e94d5](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/f2802061cf1143c861a72ab371a5cd77d83e94d5)  
-   Descripcion: Boton de editar comentarios si eres admin o usuario que ha comentado.  
-4. Commit:[de6f484c53633b685ba7beaa8a64fa278013d405](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/de6f484c53633b685ba7beaa8a64fa278013d405)  
-   Descripcion: Creado ReservationDTO.  
-5.Commit:[3989225de995928adfb6a6c501846e355a25006d](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/3989225de995928adfb6a6c501846e355a25006d)  
-   Descripcion: Reserva controller, algun error.  
-
-
----
 
 ## **Juan Antonio Alcalde Yuste**
 - **Correo**: [ja.alcalde.2021@alumnos.urjc.es](mailto:ja.alcalde.2021@alumnos.urjc.es)
@@ -81,16 +62,17 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 - **Usuario GitHub**: [Jantoniio3](https://github.com/Jantoniio3)
 
 ### **Commits más importantes**
-1. Commit:[e5364c425dd7537b46d3ff910e15d75606df598b](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/e5364c425dd7537b46d3ff910e15d75606df598b)    
-   Descripcion:Crear imagenes docker, contenedor de la aplicacion y la imagen de la aplicacion.  
-2. Commit:[884441ca6070a55c26618bd9f8354aa594de5999](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/884441ca6070a55c26618bd9f8354aa594de5999)    
-   Descripcion:crear reviewDTO.  
-3. Commit:[340d2d90cddfcddd5df6771ed9901bf6b008044c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/340d2d90cddfcddd5df6771ed9901bf6b008044c)    
-   Descripcion:creando api-docs. Crea el yaml pero no crea la documentacion.  
-4. Commit [852f1ac1c8518a626589c28550681607233a6eee](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/852f1ac1c8518a626589c28550681607233a6eee)  
-   Descripcion: crear fichero postman.
-5. Commit: [48596e4212609a4052356c47de55bcc33e928c06](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/48596e4212609a4052356c47de55bcc33e928c06)  
-   Descripcion: crear la entidad TagDTO.
+1. Commit: [bd4538911bc3028cbbe1abd58ac65c4684cbc748](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/bd4538911bc3028cbbe1abd58ac65c4684cbc748)
+   Descripcion: Subir el frontend y componentes
+2. Commit: [5019adce0ed7a962e1b280891cd49939fda1a7e2](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/5019adce0ed7a962e1b280891cd49939fda1a7e2)
+   Descripcion: Subir los html de componentes
+3. Commit: [cc45de7bad0d753ae1dee0090d7ce94ec19b4202](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/cc45de7bad0d753ae1dee0090d7ce94ec19b4202)
+   Descripcion: empezar con publicacion de angular y arreglar fallo de ngform
+4. Commit: [378c8d9e88c77341e9adeebe12dab65e44d1d8bd](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/378c8d9e88c77341e9adeebe12dab65e44d1d8bd)
+   Descripcion: arreglar spacontroller y security
+5. Commit:[73dd5452a369932d4da7eaa9d22cd4f5fc9d0138](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/73dd5452a369932d4da7eaa9d22cd4f5fc9d0138)
+   Descripcion: cambios en el docker para que funcione
+
 
 
 ---
@@ -100,30 +82,18 @@ A continuación, se detalla la participación de cada miembro del equipo, incluy
 - **Usuario GitHub**: [Jadrados](https://github.com/Jadrados)
 
 ### **Commits más importantes**
-1. Commit:[0878b1f8107e3e773bf912c616ad496bdea6fa8c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/0878b1f8107e3e773bf912c616ad496bdea6fa8c)  
-   Descripcion:Incluida toda la seguridad de jwt por tokens, te devuelve el token y el rol o roles del user.  
-2. Commit:[db8105be0556165c2bb5783eb43b6d8bde72c36c](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/db8105be0556165c2bb5783eb43b6d8bde72c36c)  
-   Descripcion:ya estala api rest de review.  
-3. Commit:[653c5a6739c872b97935cf27ef176ec534feefe1](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/653c5a6739c872b97935cf27ef176ec534feefe1)  
-   Descripcion:ya funciona la api rest de las casas.  
-4. Commit:[97fa6c5de631a6fbb5589070c170371aa67d3574](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/97fa6c5de631a6fbb5589070c170371aa67d3574)  
-   Descripcion:API de users ya funciona.  
-5. Commit:[1e20834394eb8cf5e7f6972bc364628c65760543](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/1e20834394eb8cf5e7f6972bc364628c65760543)  
-   Descripcion:tags introducidas en housing api rest.  
+1. Commit:[90d1cfd266668a7d398d14560cb57b39c432457e](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/90d1cfd266668a7d398d14560cb57b39c432457e)  
+   Descripcion:Ya funciona la barra de búsqueda.  
+2. Commit:[20cfba1fa673d3e2880493b948e1b2049df13eca](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/20cfba1fa673d3e2880493b948e1b2049df13eca)  
+   Descripcion:Ya está el panel del admin funcionando.  
+3. Commit:[4338181aef17110311fffb4e8d6c98fc01177e71](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/4338181aef17110311fffb4e8d6c98fc01177e71)  
+   Descripcion:Más o menos la parte del perfil, faltaría comprobar compatibilidades y posibles problemas con JWT.  
+4. Commit:[a4bc51f8a2a8d95b24a55f02adec35aaec642b2e](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/a4bc51f8a2a8d95b24a55f02adec35aaec642b2e)  
+   Descripcion:Ahora debería de funcionar la parte de la seguridad.  
+5. Commit:[ac14de139cd9681b78856069e13d6d7681ed86bc](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/ac14de139cd9681b78856069e13d6d7681ed86bc)  
+   Descripcion:Ya funciona el index perfectamente.  
 
 
-## **Rubén Alcojor Patilla**
-- **Correo**: [r.alcojor.2022@alumnos.urjc.es](mailto:r.alcojor.2022@alumnos.urjc.es)
-- **Usuario GitHub**: [rualpa2004](https://github.com/rualpa2004)
-
-### **Commits más importantes**
-1. Creación de los archivos docker-compose.yml y Dockerfile dentro de la máquina virtual.
-2. Realización de los archivos docker-compose.yml y Dockerfile dentro de la máquina virtual.
-3. He instalado Docker y Docker compose dentro de la máquina virtual.
-4. Commit:[060e74d548df500ee92d3bd581bd82b06d86b964](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/060e74d548df500ee92d3bd581bd82b06d86b964)  
-   Descripción: Eliminación de imports no utilizados dentro del código.
-5. Commit:[ac54e20ffce5be01e14c24f004461011d3f2cf8b](https://github.com/CodeURJC-DAW-2024-25/webapp09/commit/ac54e20ffce5be01e14c24f004461011d3f2cf8b)  
-   Descripción: Haciendo más entendible el código.
 
 
 # Modelo ER
@@ -303,4 +273,4 @@ Los gráficos son una herramienta visual clave para mejorar la experiencia del u
 ![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Diagrama%20de%20flujo%20arreglado.png?raw=true)
 
 # Diagrama de clases
-![](https://github.com/CodeURJC-DAW-2024-25/webapp09/blob/main/practica1/src/main/resources/static/img/Diagrama%20de%20clases%20(Practica%202).png?raw=true)
+![](%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22About.Component%22%20style%3D%22rounded%3D0%3BwhiteSpace%3Dwrap%3Bhtml%3D1%3BfillColor%3D%23e1d5e7%3BstrokeColor%3D%239673a6%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%22160%22%20y%3D%22-110%22%20width%3D%22160%22%20height%3D%2260%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E)
