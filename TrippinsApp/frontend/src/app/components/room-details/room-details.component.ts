@@ -7,6 +7,9 @@ import { AuthService } from '../../services/auth.service';
 import { ReviewDTO } from '../../models/DTOS/review-dto';
 import { HousingDTO, PagedResponse } from '../../models/DTOS/housing-dto';
 import Swal from 'sweetalert2';
+import { ReservationServiceService } from '../../services/reservation-service.service';
+import { ReviewServiceService } from '../../services/review-service.service';
+import { HousingServiceService } from '../../services/housing-service.service';
 
 @Component({
   selector: 'app-room-details',
@@ -29,7 +32,10 @@ export class RoomDetailsComponent {
     private route: ActivatedRoute,
     private http: HttpClient,
     private fb: FormBuilder,
-    public authService: AuthService
+    public authService: AuthService,
+    private reservationService: ReservationServiceService,
+    private reviewService: ReviewServiceService,
+    private housingService: HousingServiceService
   ) {
     this.reservationForm = this.fb.group({
       checkIn: ['', Validators.required],
@@ -59,7 +65,7 @@ export class RoomDetailsComponent {
   }
 
   loadHouseDetails(code: number): void {
-    this.http.get<HousingDTO>(`${environment.baseUrlApi}/houses/${code}`).subscribe({
+    this.housingService.getSpecificRoom(code).subscribe({
       next: (house: any) => {
         this.house = {
           ...house,
@@ -74,7 +80,7 @@ export class RoomDetailsComponent {
 
   loadComments(code: number, page : number): void {
     this.isLoading = true;
-    this.http.get<PagedResponse<ReviewDTO>>(`${environment.baseUrlApi}/rooms/${code}/comments/extra?page=${page}&size=6`).subscribe({
+    this.reviewService.getPaginatedComments(code,page).subscribe({
       next: (comments: any) => {
         this.comments = [...this.comments, ...comments.content];
         this.currentPage = page;
@@ -99,7 +105,7 @@ export class RoomDetailsComponent {
       valorated:false
     };
 
-    this.http.post(`${environment.baseUrlApi}/reservations`, reservationData).subscribe({
+    this.reservationService.createReservation(reservationData).subscribe({
       next: () => {
         Swal.fire({
           title: '¡Reserva exitosa! 🎉',
@@ -141,7 +147,7 @@ export class RoomDetailsComponent {
       userName: this.clientName
     };
 
-    this.http.post(`${environment.baseUrlApi}/reviews`, commentData).subscribe({
+    this.reviewService.createReview(commentData).subscribe({
       next: () => {
         Swal.fire({
           title: 'Comentario creado de manera exitosa! 🎉',

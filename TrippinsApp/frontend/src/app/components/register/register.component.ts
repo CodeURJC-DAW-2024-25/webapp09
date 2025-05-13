@@ -4,6 +4,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import Swal from 'sweetalert2';
+import { UserServiceService } from '../../services/user-service.service';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,8 @@ export class RegisterComponent {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private userService: UserServiceService
   ) {
     this.registerForm = this.fb.group({
       name: ['', [Validators.required]],
@@ -52,7 +54,7 @@ export class RegisterComponent {
     this.isSubmitting = true;
     const formData = this.registerForm.value;
 
-    this.http.post(`${environment.baseUrlApi}/users`, {
+    this.userService.createAccount({
       name: formData.name,
       email: formData.email,
       dni: formData.dni,

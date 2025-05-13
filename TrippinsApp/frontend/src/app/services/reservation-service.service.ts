@@ -16,6 +16,11 @@ export class ReservationServiceService {
 
     return this.http.post<ReservationDTO>(`${environment.baseUrlApi}/reservations`, data)
   }
+  getAllReservations():Observable<ReservationDTO[]>{
 
+    return this.http.get<ReservationDTO[]>(`${environment.baseUrlApi}/reservations`)
+  }
+
+  
   
 }

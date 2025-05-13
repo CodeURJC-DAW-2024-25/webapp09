@@ -6,6 +6,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { ReservationDTO } from '../../models/DTOS/reservation-dto';
+import { UserServiceService } from '../../services/user-service.service';
+import { ReservationServiceService } from '../../services/reservation-service.service';
 
 @Component({
   selector: 'app-profile',
@@ -24,7 +26,9 @@ export class ProfileComponent {
     private authService: AuthService,
     private http: HttpClient,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private userService: UserServiceService,
+    private reservationService: ReservationServiceService
   ) {
     this.profileForm = this.fb.group({
       name: ['', Validators.required],
@@ -43,7 +47,7 @@ export class ProfileComponent {
 
 
   loadReservations(): void {
-    this.http.get<ReservationDTO[]>(`${environment.baseUrlApi}/reservations`).subscribe({
+    this.reservationService.getAllReservations().subscribe({
       next: (reservations) => {
         if (this.user) {
           this.reservations = reservations.filter(r => 
@@ -76,7 +80,7 @@ export class ProfileComponent {
       roles: this.user.roles
     };
 
-    this.http.put(`${environment.baseUrlApi}/users/${this.user.dni}`, updatedUser)
+    this.userService.updateAccount(updatedUser,this.user.dni)
       .subscribe({
         next: () => {
           this.isEditing = false;

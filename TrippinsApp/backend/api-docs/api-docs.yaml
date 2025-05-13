@@ -1,0 +1,1863 @@
+openapi: 3.1.0
+info:
+  title: Trippins's springboot API rest
+  description: This is the API respnsible for managing the data from our webapp be
+    it from an entity or a customer.
+  contact:
+    name: Trippins admin
+    url: https://localhost:8443
+    email: trippins.urjc@gmail.com
+  version: "1.0"
+servers:
+- url: https://localhost:8443
+  description: Generated server url
+tags:
+- name: User Management
+  description: APIs for managing users
+- name: Review Management
+  description: APIs for managing reviews
+- name: Authentication Management
+  description: This APIs is the one in charge of loggin in/loggin off and authenticating
+    users and their data
+- name: Advanced Housing Search
+  description: API for advanced housing search operations
+- name: Housing Management
+  description: APIs for managing houses and their tags
+- name: Housing Images Managing
+  description: Endpoints for managing housing images
+- name: Reservation Management
+  description: APIs for managing reservations
+- name: Custom AJAX Endpoints
+  description: "APIs for pagination, loading elements, and managing reservations and\
+    \ houses via AJAX"
+paths:
+  /v1/api/users/{id}:
+    get:
+      tags:
+      - User Management
+      summary: Get user by ID
+      description: Returns a user by their ID
+      operationId: getUserById
+      parameters:
+      - name: id
+        in: path
+        description: Dni of the user
+        required: true
+        schema:
+          type: string
+        example: 11223344C
+      responses:
+        "200":
+          description: Successfully retrieved user
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/UserDTO"
+        "404":
+          description: User not found
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/UserDTO"
+        "403":
+          description: Forbidden - Access denied
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/UserDTO"
+      security:
+      - JWT: []
+    put:
+      tags:
+      - User Management
+      summary: Update a user
+      description: Updates an existing user with the provided details
+      operationId: updateUser
+      parameters:
+      - name: id
+        in: path
+        description: Dni of the user to update
+        required: true
+        schema:
+          type: string
+        example: 11223344C
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisteredUserDTO"
+        required: true
+      responses:
+        "200":
+          description: User updated successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/UserDTO"
+        "404":
+          description: User not found
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/UserDTO"
+        "400":
+          description: Invalid input
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/UserDTO"
+        "403":
+          description: Forbidden - Access denied
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/UserDTO"
+      security:
+      - JWT: []
+    delete:
+      tags:
+      - User Management
+      summary: Delete a user
+      description: Deletes a user by their ID
+      operationId: deleteUser
+      parameters:
+      - name: id
+        in: path
+        description: Dni of the user to delete
+        required: true
+        schema:
+          type: string
+        example: 11223344C
+      responses:
+        "204":
+          description: User deleted successfully
+        "404":
+          description: User not found
+        "403":
+          description: Forbidden - Access denied
+      security:
+      - JWT: []
+  /v1/api/reviews/{id}:
+    get:
+      tags:
+      - Review Management
+      summary: Get a specific review by ID
+      description: Returns a review by its ID
+      operationId: getReviewById
+      parameters:
+      - name: id
+        in: path
+        description: ID of the review
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      responses:
+        "200":
+          description: Successfully retrieved review
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ReviewDTO"
+        "404":
+          description: Review not found
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ReviewDTO"
+        "403":
+          description: Forbidden - Access denied
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ReviewDTO"
+      security:
+      - JWT: []
+    put:
+      tags:
+      - Review Management
+      summary: Update a review
+      description: Updates an existing review with the provided details
+      operationId: updateReview
+      parameters:
+      - name: id
+        in: path
+        description: ID of the review to update
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReviewDTO"
+        required: true
+      responses:
+        "200":
+          description: Review updated successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ReviewDTO"
+        "404":
+          description: Review not found
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ReviewDTO"
+        "400":
+          description: Invalid input
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ReviewDTO"
+        "403":
+          description: Forbidden - Access denied
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ReviewDTO"
+      security:
+      - JWT: []
+    delete:
+      tags:
+      - Review Management
+      summary: Delete a review
+      description: Deletes a review by its ID
+      operationId: deleteReview
+      parameters:
+      - name: id
+        in: path
+        description: ID of the review to delete
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      responses:
+        "204":
+          description: Review deleted successfully
+        "404":
+          description: Review not found
+        "403":
+          description: Forbidden - Access denied
+      security:
+      - JWT: []
+  /v1/api/reservations/{id}:
+    get:
+      tags:
+      - Reservation Management
+      summary: Get reservation by ID
+      description: Returns a reservation by its ID
+      operationId: getReservationById
+      parameters:
+      - name: id
+        in: path
+        description: ID of the reservation
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      responses:
+        "200":
+          description: Successfully retrieved reservation
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ReservationDTO"
+        "404":
+          description: Reservation not found
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ReservationDTO"
+        "403":
+          description: Forbidden - Access denied
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ReservationDTO"
+      security:
+      - JWT: []
+    put:
+      tags:
+      - Reservation Management
+      summary: Update a reservation
+      description: Updates an existing reservation with the provided details
+      operationId: updateReservation
+      parameters:
+      - name: id
+        in: path
+        description: ID of the reservation to update
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReservationDTO"
+        required: true
+      responses:
+        "200":
+          description: Reservation updated successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ReservationDTO"
+        "404":
+          description: Reservation not found
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ReservationDTO"
+        "400":
+          description: Invalid input
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ReservationDTO"
+        "403":
+          description: Forbidden - Access denied
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ReservationDTO"
+      security:
+      - JWT: []
+    delete:
+      tags:
+      - Reservation Management
+      summary: Delete a reservation
+      description: Deletes a reservation by its ID
+      operationId: deleteUser_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "204":
+          description: Reservation deleted successfully
+        "404":
+          description: Reservation not found
+        "403":
+          description: Forbidden - Access denied
+      security:
+      - JWT: []
+  /v1/api/houses/{id}:
+    get:
+      tags:
+      - Housing Management
+      summary: Get house by ID(Code)
+      description: Returns a house by its ID in our api the ID of the houses is referred
+        to as code
+      operationId: getHouseById
+      parameters:
+      - name: id
+        in: path
+        description: ID(Code) of the house
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      responses:
+        "200":
+          description: Successfully retrieved house
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/HousingDTO"
+        "404":
+          description: House not found
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/HousingDTO"
+        "403":
+          description: Forbidden - Access denied
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/HousingDTO"
+      security:
+      - JWT: []
+    put:
+      tags:
+      - Housing Management
+      summary: Update a house
+      description: Updates an existing house with the provided details
+      operationId: updateHouse
+      parameters:
+      - name: id
+        in: path
+        description: ID(code) of the house to update
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/HousingDTO"
+        required: true
+      responses:
+        "200":
+          description: House updated successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/HousingDTO"
+        "404":
+          description: House not found
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/HousingDTO"
+        "400":
+          description: Invalid input
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/HousingDTO"
+        "403":
+          description: Forbidden - Access denied
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/HousingDTO"
+      security:
+      - JWT: []
+    delete:
+      tags:
+      - Housing Management
+      summary: Delete a house
+      description: Deletes a house by its ID
+      operationId: deleteHouse
+      parameters:
+      - name: id
+        in: path
+        description: ID of the house to delete
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      responses:
+        "204":
+          description: House deleted successfully
+        "404":
+          description: House not found
+        "403":
+          description: Forbidden - Access denied
+      security:
+      - JWT: []
+  /v1/api/houses/{id}/image:
+    get:
+      tags:
+      - Housing Images Managing
+      summary: Get housing image
+      description: Retrieves the image associated with a housing listing
+      operationId: getImage
+      parameters:
+      - name: id
+        in: path
+        description: ID(code) of the house which you desire to edit
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      responses:
+        "200":
+          description: Image retrieved successfully
+          content:
+            image/jpeg: {}
+        "404":
+          description: Housing not found or has no image
+          content:
+            '*/*':
+              schema:
+                type: string
+                format: binary
+      security:
+      - JWT: []
+    put:
+      tags:
+      - Housing Images Managing
+      summary: Upload housing image
+      description: Uploads or updates the image for a housing listing
+      operationId: uploadImage
+      parameters:
+      - name: id
+        in: path
+        description: ID(code) of the house which you desire to edit
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: "Image file to upload (JPEG, PNG)"
+              required:
+              - file
+      responses:
+        "200":
+          description: Image uploaded successfully
+        "400":
+          description: Invalid file format or empty file
+        "404":
+          description: Housing not found
+      security:
+      - JWT: []
+    delete:
+      tags:
+      - Housing Images Managing
+      summary: Delete housing image
+      description: Removes the image associated with a housing listing
+      operationId: deleteImage
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "204":
+          description: Image deleted successfully
+        "404":
+          description: Housing not found
+      security:
+      - JWT: []
+  /v1/api/admin/reservations/decision/{reservationId}:
+    put:
+      tags:
+      - Custom AJAX Endpoints
+      summary: Accept a reservation
+      description: 'Accepts a reservation by setting its ''valorated'' field to true. '
+      operationId: acceptReservation
+      parameters:
+      - name: reservationId
+        in: path
+        description: ID of the reservation
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      responses:
+        "200":
+          description: Reservation accepted successfully
+        "404":
+          description: Reservation not found
+        "403":
+          description: Forbidden - Access denied (requires ADMIN role)
+        "401":
+          description: Unauthorized - JWT token missing or invalid
+      security:
+      - JWT: []
+    delete:
+      tags:
+      - Custom AJAX Endpoints
+      summary: Deny a reservation
+      description: Denies a reservation by deleting it from the database. **Requires
+        ADMIN role.**
+      operationId: denyReservation
+      parameters:
+      - name: reservationId
+        in: path
+        description: ID of the reservation
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      responses:
+        "204":
+          description: Reservation denied and removed successfully
+        "404":
+          description: Reservation not found
+        "403":
+          description: Forbidden - Access denied (requires ADMIN role)
+        "401":
+          description: Unauthorized - JWT token missing or invalid
+      security:
+      - JWT: []
+  /v1/api/admin/houses/decision/{houseId}:
+    put:
+      tags:
+      - Custom AJAX Endpoints
+      summary: Accept a house
+      description: 'Accepts a house by setting its ''acepted'' field to true. '
+      operationId: acceptHouse
+      parameters:
+      - name: houseId
+        in: path
+        description: ID(code) of the house
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      responses:
+        "200":
+          description: House accepted successfully
+        "404":
+          description: House not found
+        "403":
+          description: Forbidden - Access denied (requires ADMIN role)
+        "401":
+          description: Unauthorized - JWT token missing or invalid
+      security:
+      - JWT: []
+    delete:
+      tags:
+      - Custom AJAX Endpoints
+      summary: Deny a house
+      description: Denies a house by deleting it from the database.
+      operationId: denyHouse
+      parameters:
+      - name: houseId
+        in: path
+        description: ID(code) of the house
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      responses:
+        "204":
+          description: House denied and removed successfully
+        "404":
+          description: House not found
+        "403":
+          description: Forbidden - Access denied (requires ADMIN role)
+        "401":
+          description: Unauthorized - JWT token missing or invalid
+      security:
+      - JWT: []
+  /v1/api/users:
+    get:
+      tags:
+      - User Management
+      summary: Get all users
+      description: Returns a list of all users
+      operationId: getAllUsers
+      responses:
+        "200":
+          description: Successfully retrieved list of users
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/UserDTO"
+        "403":
+          description: Forbidden - Access denied
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/UserDTO"
+      security:
+      - JWT: []
+    post:
+      tags:
+      - User Management
+      summary: Create a new user
+      description: Creates a new user with the provided details
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisteredUserDTO"
+        required: true
+      responses:
+        "201":
+          description: User created successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/UserDTO"
+        "400":
+          description: Invalid input
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/UserDTO"
+        "403":
+          description: Forbidden - Access denied
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/UserDTO"
+      security:
+      - JWT: []
+  /v1/api/reviews:
+    get:
+      tags:
+      - Review Management
+      summary: Get all reviews
+      description: Returns a list of all reviews
+      operationId: getAllReviews
+      responses:
+        "200":
+          description: Successfully retrieved list of reviews
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ReviewDTO"
+        "403":
+          description: Forbidden - Access denied
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ReviewDTO"
+      security:
+      - JWT: []
+    post:
+      tags:
+      - Review Management
+      summary: Create a new review
+      description: Creates a new review with the provided details
+      operationId: createReview
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReviewDTO"
+        required: true
+      responses:
+        "201":
+          description: Review created successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ReviewDTO"
+        "400":
+          description: Invalid input
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ReviewDTO"
+        "403":
+          description: Forbidden - Access denied
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ReviewDTO"
+      security:
+      - JWT: []
+  /v1/api/reservations:
+    get:
+      tags:
+      - Reservation Management
+      summary: Get all reservations
+      description: Returns a list of all reservations
+      operationId: getAllReservations
+      responses:
+        "200":
+          description: Successfully retrieved list of reservations
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ReservationDTO"
+        "403":
+          description: Forbidden - Access denied
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ReservationDTO"
+      security:
+      - JWT: []
+    post:
+      tags:
+      - Reservation Management
+      summary: Create a new reservation
+      description: Creates a new reservation with the provided details
+      operationId: createReservation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReservationDTO"
+        required: true
+      responses:
+        "201":
+          description: Reservation created successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ReservationDTO"
+        "400":
+          description: Invalid input
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ReservationDTO"
+        "403":
+          description: Forbidden - Access denied
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ReservationDTO"
+      security:
+      - JWT: []
+  /v1/api/login:
+    post:
+      tags:
+      - Authentication Management
+      summary: Log in user
+      description: "Authenticates a user with their email and password, and returns\
+        \ a JWT token and their roles."
+      operationId: createAuthenticationToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthenticationRequest"
+        required: true
+      responses:
+        "200":
+          description: Successfully authenticated
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/AuthenticationResponse"
+              example:
+                jwt: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+                roles:
+                - ROLE_USER
+        "401":
+          description: Unauthorized - Invalid credentials
+          content:
+            '*/*':
+              example:
+                error: Unauthorized
+                message: Bad credentials
+        "400":
+          description: Bad Request - Invalid input
+          content:
+            '*/*':
+              example:
+                error: Bad Request
+                message: Invalid input
+  /v1/api/houses:
+    get:
+      tags:
+      - Housing Management
+      summary: Get all houses
+      description: Returns a list of all houses
+      operationId: getAllhouses
+      responses:
+        "200":
+          description: Successfully retrieved list of houses
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/HousingDTO"
+        "403":
+          description: Forbidden - Access denied
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/HousingDTO"
+      security:
+      - JWT: []
+    post:
+      tags:
+      - Housing Management
+      summary: Create a new house
+      description: Creates a new house with the provided details
+      operationId: createHouse
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/HousingDTO"
+        required: true
+      responses:
+        "201":
+          description: House created successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/HousingDTO"
+        "400":
+          description: Invalid input
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/HousingDTO"
+        "403":
+          description: Forbidden - Access denied
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/HousingDTO"
+      security:
+      - JWT: []
+  /v1/api/rooms/{id}/comments/extra:
+    get:
+      tags:
+      - Custom AJAX Endpoints
+      summary: Get paginated comments for a house
+      description: Returns a paginated list of comments for a specific house.
+      operationId: getComments
+      parameters:
+      - name: id
+        in: path
+        description: ID of the house
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: page
+        in: query
+        description: Page number (0-based)
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+        example: 0
+      - name: size
+        in: query
+        description: Number of items per page
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 3
+        example: 6
+      responses:
+        "200":
+          description: Successfully retrieved paginated comments
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Review"
+        "500":
+          description: Internal server error
+          content:
+            '*/*':
+              example:
+                error: Internal Server Error
+                message: Error fetching comments
+  /v1/api/rooms/extra:
+    get:
+      tags:
+      - Custom AJAX Endpoints
+      summary: Get paginated houses
+      description: Returns a paginated list of accepted houses.
+      operationId: getHouses
+      parameters:
+      - name: page
+        in: query
+        description: Page number (0-based)
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+        example: 0
+      - name: size
+        in: query
+        description: Number of items per page
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 6
+        example: 6
+      responses:
+        "200":
+          description: Successfully retrieved paginated houses
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Housing"
+        "500":
+          description: Internal server error
+          content:
+            '*/*':
+              example:
+                error: Internal Server Error
+                message: Error fetching houses
+  /v1/api/query:
+    get:
+      tags:
+      - Advanced Housing Search
+      summary: Search houses by tags and stars
+      description: Returns a list of houses filtered by optional tags and minimum
+        star rating
+      operationId: searchHouses
+      parameters:
+      - name: tags
+        in: query
+        description: "Comma-separated list of tags to filter by (e.g. 'beach,pool,wifi')"
+        required: false
+        schema:
+          type: string
+        example: "beach,pool"
+      - name: stars
+        in: query
+        description: Minimum star rating to filter by (1-5)
+        required: false
+        schema:
+          type: integer
+          maximum: 5
+          minimum: 1
+        example: 4
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/HousingDTO"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /v1/api/houses/{id}/tags:
+    get:
+      tags:
+      - Housing Management
+      summary: Get tags by house ID(code)
+      description: Returns a set of tags associated with a house by its ID(code)
+      operationId: getTagsById
+      parameters:
+      - name: id
+        in: path
+        description: ID of the house
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      responses:
+        "200":
+          description: Successfully retrieved tags
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TagDTO"
+                uniqueItems: true
+        "404":
+          description: House not found
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TagDTO"
+                uniqueItems: true
+        "403":
+          description: Forbidden - Access denied
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TagDTO"
+                uniqueItems: true
+      security:
+      - JWT: []
+  /v1/api/admin/houses:
+    get:
+      tags:
+      - Custom AJAX Endpoints
+      summary: Get paginated unaccepted houses for admin
+      description: Returns a paginated list of unaccepted houses for admin review.
+      operationId: getAdminHouses
+      parameters:
+      - name: page
+        in: query
+        description: Page number (0-based)
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+        example: 0
+      - name: size
+        in: query
+        description: Number of items per page
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 3
+        example: 6
+      responses:
+        "200":
+          description: Successfully retrieved paginated unaccepted houses
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Page"
+        "500":
+          description: Internal server error
+          content:
+            '*/*':
+              example:
+                error: Internal Server Error
+                message: Error fetching houses
+      security:
+      - JWT: []
+components:
+  schemas:
+    RegisteredUserDTO:
+      type: object
+      description: User details for creation
+      properties:
+        dni:
+          type: string
+        name:
+          type: string
+        number:
+          type: integer
+          format: int32
+        password:
+          type: string
+        email:
+          type: string
+        admin:
+          type: boolean
+        roles:
+          type: array
+          items:
+            type: string
+    UserDTO:
+      type: object
+      properties:
+        dni:
+          type: string
+        name:
+          type: string
+        number:
+          type: integer
+          format: int32
+          description: User's phone number
+          example: 111322999
+          pattern: "^\\d{9}$"
+        email:
+          type: string
+        admin:
+          type: boolean
+        roles:
+          type: array
+          items:
+            type: string
+    ReviewDTO:
+      type: object
+      description: Review details needed for the creation
+      properties:
+        reviewId:
+          type: integer
+          format: int32
+          description: Auto-generated ID (not required in request)
+          readOnly: true
+        rating:
+          type: integer
+          format: int32
+        comment:
+          type: string
+        hotelCode:
+          type: integer
+          format: int32
+        userName:
+          type: string
+        userDni:
+          type: string
+    ReservationDTO:
+      type: object
+      description: Reservation details needed to create the reservation
+      properties:
+        id:
+          type: integer
+          format: int32
+          description: Auto-generated ID (not required in request)
+          readOnly: true
+        checkIn:
+          type: string
+          format: date-time
+        checkOut:
+          type: string
+          format: date-time
+        valorated:
+          type: boolean
+        clientDni:
+          type: string
+        housingCode:
+          type: integer
+          format: int32
+        housingName:
+          type: string
+    HousingDTO:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          description: Auto-generated ID (not required in request)
+          readOnly: true
+        location:
+          type: string
+        name:
+          type: string
+        price:
+          type: integer
+          format: int32
+        description:
+          type: string
+        stars:
+          type: integer
+          format: int32
+        acepted:
+          type: boolean
+        tags:
+          type: array
+          items:
+            $ref: "#/components/schemas/Tag"
+          uniqueItems: true
+    Tag:
+      type: object
+      properties:
+        id:
+          type: string
+    AuthenticationRequest:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+    AuthenticationResponse:
+      type: object
+      properties:
+        jwt:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+    Housing:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        location:
+          type: string
+        name:
+          type: string
+        price:
+          type: integer
+          format: int32
+        description:
+          type: string
+        stars:
+          type: integer
+          format: int32
+        acepted:
+          type: boolean
+        tags:
+          type: array
+          items:
+            $ref: "#/components/schemas/Tag"
+          uniqueItems: true
+        imageBase64:
+          type: string
+    Review:
+      type: object
+      properties:
+        reviewId:
+          type: integer
+          format: int32
+        rating:
+          type: integer
+          format: int32
+        comment:
+          type: string
+        hotel:
+          $ref: "#/components/schemas/Housing"
+        user:
+          $ref: "#/components/schemas/User"
+    User:
+      type: object
+      properties:
+        dni:
+          type: string
+        name:
+          type: string
+        number:
+          type: integer
+          format: int32
+        password:
+          type: string
+        email:
+          type: string
+        admin:
+          type: boolean
+        roles:
+          type: array
+          items:
+            type: string
+        encodedPassword:
+          type: string
+    ContentDisposition:
+      type: object
+      properties:
+        type:
+          type: string
+        name:
+          type: string
+        filename:
+          type: string
+        charset:
+          type: string
+        size:
+          type: integer
+          format: int64
+          deprecated: true
+        creationDate:
+          type: string
+          format: date-time
+          deprecated: true
+        modificationDate:
+          type: string
+          format: date-time
+          deprecated: true
+        readDate:
+          type: string
+          format: date-time
+          deprecated: true
+        inline:
+          type: boolean
+        attachment:
+          type: boolean
+        formData:
+          type: boolean
+    DefaultHttpStatusCode:
+      allOf:
+      - $ref: "#/components/schemas/HttpStatusCode"
+    ErrorResponse:
+      type: object
+      properties:
+        headers:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+          properties:
+            empty:
+              type: boolean
+            location:
+              type: string
+              format: uri
+            host:
+              type: object
+              properties:
+                address:
+                  type: object
+                  properties:
+                    hostAddress:
+                      type: string
+                    address:
+                      type: string
+                      format: byte
+                    hostName:
+                      type: string
+                    linkLocalAddress:
+                      type: boolean
+                    multicastAddress:
+                      type: boolean
+                    anyLocalAddress:
+                      type: boolean
+                    loopbackAddress:
+                      type: boolean
+                    siteLocalAddress:
+                      type: boolean
+                    mcglobal:
+                      type: boolean
+                    mcnodeLocal:
+                      type: boolean
+                    mclinkLocal:
+                      type: boolean
+                    mcsiteLocal:
+                      type: boolean
+                    mcorgLocal:
+                      type: boolean
+                    canonicalHostName:
+                      type: string
+                port:
+                  type: integer
+                  format: int32
+                unresolved:
+                  type: boolean
+                hostName:
+                  type: string
+                hostString:
+                  type: string
+            all:
+              type: object
+              additionalProperties:
+                type: string
+              writeOnly: true
+            lastModified:
+              type: integer
+              format: int64
+            contentLength:
+              type: integer
+              format: int64
+            date:
+              type: integer
+              format: int64
+            origin:
+              type: string
+            contentType:
+              $ref: "#/components/schemas/MediaType"
+            connection:
+              type: array
+              items:
+                type: string
+            ifModifiedSince:
+              type: integer
+              format: int64
+            range:
+              type: array
+              items:
+                $ref: "#/components/schemas/HttpRange"
+            contentDisposition:
+              $ref: "#/components/schemas/ContentDisposition"
+            allow:
+              type: array
+              items:
+                $ref: "#/components/schemas/HttpMethod"
+              uniqueItems: true
+            acceptCharset:
+              type: array
+              items:
+                type: string
+            accessControlExposeHeaders:
+              type: array
+              items:
+                type: string
+            accessControlAllowOrigin:
+              type: string
+            accessControlAllowMethods:
+              type: array
+              items:
+                $ref: "#/components/schemas/HttpMethod"
+            accessControlAllowHeaders:
+              type: array
+              items:
+                type: string
+            accessControlMaxAge:
+              type: integer
+              format: int64
+            accessControlAllowCredentials:
+              type: boolean
+            accessControlRequestMethod:
+              $ref: "#/components/schemas/HttpMethod"
+            accessControlRequestHeaders:
+              type: array
+              items:
+                type: string
+            ifUnmodifiedSince:
+              type: integer
+              format: int64
+            acceptLanguageAsLocales:
+              type: array
+              items:
+                type: object
+                properties:
+                  language:
+                    type: string
+                  script:
+                    type: string
+                  country:
+                    type: string
+                  variant:
+                    type: string
+                  unicodeLocaleAttributes:
+                    type: array
+                    items:
+                      type: string
+                    uniqueItems: true
+                  unicodeLocaleKeys:
+                    type: array
+                    items:
+                      type: string
+                    uniqueItems: true
+                  displayLanguage:
+                    type: string
+                  displayScript:
+                    type: string
+                  displayCountry:
+                    type: string
+                  displayVariant:
+                    type: string
+                  displayName:
+                    type: string
+                  extensionKeys:
+                    type: array
+                    items:
+                      type: string
+                    uniqueItems: true
+                  iso3Language:
+                    type: string
+                  iso3Country:
+                    type: string
+            contentLanguage:
+              type: object
+              properties:
+                language:
+                  type: string
+                script:
+                  type: string
+                country:
+                  type: string
+                variant:
+                  type: string
+                unicodeLocaleAttributes:
+                  type: array
+                  items:
+                    type: string
+                  uniqueItems: true
+                unicodeLocaleKeys:
+                  type: array
+                  items:
+                    type: string
+                  uniqueItems: true
+                displayLanguage:
+                  type: string
+                displayScript:
+                  type: string
+                displayCountry:
+                  type: string
+                displayVariant:
+                  type: string
+                displayName:
+                  type: string
+                extensionKeys:
+                  type: array
+                  items:
+                    type: string
+                  uniqueItems: true
+                iso3Language:
+                  type: string
+                iso3Country:
+                  type: string
+            acceptPatch:
+              type: array
+              items:
+                $ref: "#/components/schemas/MediaType"
+            acceptLanguage:
+              type: array
+              items:
+                type: object
+                properties:
+                  range:
+                    type: string
+                  weight:
+                    type: number
+                    format: double
+            basicAuth:
+              type: string
+              writeOnly: true
+            accept:
+              type: array
+              items:
+                $ref: "#/components/schemas/MediaType"
+            ifMatch:
+              type: array
+              items:
+                type: string
+            bearerAuth:
+              type: string
+              writeOnly: true
+            expires:
+              type: integer
+              format: int64
+            ifNoneMatch:
+              type: array
+              items:
+                type: string
+            etag:
+              type: string
+            pragma:
+              type: string
+            upgrade:
+              type: string
+            vary:
+              type: array
+              items:
+                type: string
+            cacheControl:
+              type: string
+        body:
+          $ref: "#/components/schemas/ProblemDetail"
+        statusCode:
+          oneOf:
+          - $ref: "#/components/schemas/DefaultHttpStatusCode"
+          - $ref: "#/components/schemas/HttpStatus"
+        typeMessageCode:
+          type: string
+        detailMessageArguments:
+          type: array
+          items:
+            type: object
+        titleMessageCode:
+          type: string
+        detailMessageCode:
+          type: string
+    HttpMethod:
+      type: object
+    HttpRange:
+      type: object
+    HttpStatus:
+      allOf:
+      - $ref: "#/components/schemas/HttpStatusCode"
+      enum:
+      - 100 CONTINUE
+      - 101 SWITCHING_PROTOCOLS
+      - 102 PROCESSING
+      - 103 EARLY_HINTS
+      - 103 CHECKPOINT
+      - 200 OK
+      - 201 CREATED
+      - 202 ACCEPTED
+      - 203 NON_AUTHORITATIVE_INFORMATION
+      - 204 NO_CONTENT
+      - 205 RESET_CONTENT
+      - 206 PARTIAL_CONTENT
+      - 207 MULTI_STATUS
+      - 208 ALREADY_REPORTED
+      - 226 IM_USED
+      - 300 MULTIPLE_CHOICES
+      - 301 MOVED_PERMANENTLY
+      - 302 FOUND
+      - 302 MOVED_TEMPORARILY
+      - 303 SEE_OTHER
+      - 304 NOT_MODIFIED
+      - 305 USE_PROXY
+      - 307 TEMPORARY_REDIRECT
+      - 308 PERMANENT_REDIRECT
+      - 400 BAD_REQUEST
+      - 401 UNAUTHORIZED
+      - 402 PAYMENT_REQUIRED
+      - 403 FORBIDDEN
+      - 404 NOT_FOUND
+      - 405 METHOD_NOT_ALLOWED
+      - 406 NOT_ACCEPTABLE
+      - 407 PROXY_AUTHENTICATION_REQUIRED
+      - 408 REQUEST_TIMEOUT
+      - 409 CONFLICT
+      - 410 GONE
+      - 411 LENGTH_REQUIRED
+      - 412 PRECONDITION_FAILED
+      - 413 PAYLOAD_TOO_LARGE
+      - 413 REQUEST_ENTITY_TOO_LARGE
+      - 414 URI_TOO_LONG
+      - 414 REQUEST_URI_TOO_LONG
+      - 415 UNSUPPORTED_MEDIA_TYPE
+      - 416 REQUESTED_RANGE_NOT_SATISFIABLE
+      - 417 EXPECTATION_FAILED
+      - 418 I_AM_A_TEAPOT
+      - 419 INSUFFICIENT_SPACE_ON_RESOURCE
+      - 420 METHOD_FAILURE
+      - 421 DESTINATION_LOCKED
+      - 422 UNPROCESSABLE_ENTITY
+      - 423 LOCKED
+      - 424 FAILED_DEPENDENCY
+      - 425 TOO_EARLY
+      - 426 UPGRADE_REQUIRED
+      - 428 PRECONDITION_REQUIRED
+      - 429 TOO_MANY_REQUESTS
+      - 431 REQUEST_HEADER_FIELDS_TOO_LARGE
+      - 451 UNAVAILABLE_FOR_LEGAL_REASONS
+      - 500 INTERNAL_SERVER_ERROR
+      - 501 NOT_IMPLEMENTED
+      - 502 BAD_GATEWAY
+      - 503 SERVICE_UNAVAILABLE
+      - 504 GATEWAY_TIMEOUT
+      - 505 HTTP_VERSION_NOT_SUPPORTED
+      - 506 VARIANT_ALSO_NEGOTIATES
+      - 507 INSUFFICIENT_STORAGE
+      - 508 LOOP_DETECTED
+      - 509 BANDWIDTH_LIMIT_EXCEEDED
+      - 510 NOT_EXTENDED
+      - 511 NETWORK_AUTHENTICATION_REQUIRED
+    HttpStatusCode:
+      type: object
+      properties:
+        error:
+          type: boolean
+        is4xxClientError:
+          type: boolean
+        is5xxServerError:
+          type: boolean
+        is3xxRedirection:
+          type: boolean
+        is2xxSuccessful:
+          type: boolean
+        is1xxInformational:
+          type: boolean
+    MediaType:
+      type: object
+      properties:
+        type:
+          type: string
+        subtype:
+          type: string
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+        qualityValue:
+          type: number
+          format: double
+        charset:
+          type: string
+        subtypeSuffix:
+          type: string
+        concrete:
+          type: boolean
+        wildcardSubtype:
+          type: boolean
+        wildcardType:
+          type: boolean
+    ProblemDetail:
+      type: object
+      properties:
+        type:
+          type: string
+          format: uri
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string
+        instance:
+          type: string
+          format: uri
+        properties:
+          type: object
+          additionalProperties:
+            type: object
+    TagDTO:
+      type: object
+      properties:
+        id:
+          type: string
+    Page:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int64
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            type: object
+        number:
+          type: integer
+          format: int32
+        sort:
+          $ref: "#/components/schemas/SortObject"
+        first:
+          type: boolean
+        last:
+          type: boolean
+        numberOfElements:
+          type: integer
+          format: int32
+        pageable:
+          $ref: "#/components/schemas/PageableObject"
+        empty:
+          type: boolean
+    PageableObject:
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int64
+        sort:
+          $ref: "#/components/schemas/SortObject"
+        pageNumber:
+          type: integer
+          format: int32
+        paged:
+          type: boolean
+        pageSize:
+          type: integer
+          format: int32
+        unpaged:
+          type: boolean
+    SortObject:
+      type: object
+      properties:
+        empty:
+          type: boolean
+        sorted:
+          type: boolean
+        unsorted:
+          type: boolean
+  securitySchemes:
+    JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

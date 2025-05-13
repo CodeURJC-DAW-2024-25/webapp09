@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { HousingServiceService } from '../../services/housing-service.service';
 
 @Component({
   selector: 'app-newhotel',
@@ -19,7 +20,8 @@ export class NewhotelComponent {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private housingService: HousingServiceService
   ) {
     this.houseForm = this.fb.group({
       name: ['', Validators.required],
@@ -55,31 +57,32 @@ export class NewhotelComponent {
 
     this.isSubmitting = true;
 
-    const formData = new FormData();
-    formData.append('name', this.houseForm.get('name')?.value);
-    formData.append('location', this.houseForm.get('location')?.value);
-    formData.append('price', this.houseForm.get('price')?.value);
-    formData.append('description', this.houseForm.get('description')?.value);
-    formData.append('image', this.houseForm.get('image')?.value);
-    formData.append('tags', this.houseForm.get('tags')?.value);
-    formData.append('stars', this.houseForm.get('stars')?.value);
+    const rawTags = this.houseForm.get('tags')?.value;
+    const tagList = rawTags
+      .split(',')
+      .map((tag: string) => tag.trim())
+      .filter((tag: string) => tag.length > 0)
+      .map((tag: string) => ({ id: tag }));
 
-    this.http.post(`${environment.baseUrlApi}/v1/api/houses`, formData)
+    const houseData = {
+      name: this.houseForm.get('name')?.value,
+      location: this.houseForm.get('location')?.value,
+      price: this.houseForm.get('price')?.value,
+      description: this.houseForm.get('description')?.value,
+      tags: tagList,
+      stars: this.houseForm.get('stars')?.value,
+      acepted:false
+    };
+
+    this.housingService.createRoom(houseData)
       .subscribe({
-        next: () => {
-          Swal.fire({
-            title: 'Creacion exitosa! 🎉',
-            text: 'Tu alojamiento fue creado correctamente.',
-            icon: 'success',
-            confirmButtonText: '¡Genial!',
-            backdrop: true,
-            showClass: {
-              popup: 'animate__animated animate__fadeInDown'
-            },
-            hideClass: {
-              popup: 'animate__animated animate__fadeOutUp'
-            }
-          });
+        next: (createdHouse) => {
+          if (this.houseForm.get('image')?.value) {
+            this.uploadImage(createdHouse.code);
+          } else {
+            this.finishSuccess();
+          }
+
         },
         error: (err) => {
           Swal.fire({
@@ -92,5 +95,24 @@ export class NewhotelComponent {
           this.isSubmitting = false;
         }
       });
+  }
+  uploadImage(houseId: number): void {
+    
+    this.housingService.uploadHousingImage(houseId, this.houseForm.get('image')?.value).subscribe({
+      next: () => this.finishSuccess(),
+      error: (err: any) => this.handleError(err)
+    });
+  }
+
+
+  finishSuccess() {
+    this.isSubmitting = false;
+    Swal.fire('¡Éxito!', 'Hotel creado correctamente.', 'success');
+  }
+  
+  handleError(err: any) {
+    this.isSubmitting = false;
+    console.error('Error:', err);
+    Swal.fire('Error', 'Algo salió mal.', 'error');
   }
 }

@@ -16,4 +16,8 @@ export class UserServiceService {
 
     return this.http.post<UserDTO>(`${environment.baseUrlApi}/users`,data)
   }
+
+  updateAccount(data: any, dni: string): Observable<UserDTO>{
+    return this.http.put<UserDTO>(`${environment.baseUrlApi}/users/${dni}`, data)
+  }
 }

@@ -27,10 +27,11 @@ public class HousingDTO {
     private String name;
     @JsonIgnore
     private String imageBase64; // Store the image as a Base64 string
-    private transient MultipartFile imageFile;
+    private transient MultipartFile image;
     private Integer price;
     private String description;
     private Integer stars;
+
     private Boolean acepted;
     private Set<Tag> tags;
 
@@ -38,12 +39,12 @@ public class HousingDTO {
 
 
     // Constructors
-    public HousingDTO(String location, String name, MultipartFile imageFile, Integer price, String description,
+    public HousingDTO(String location, String name, MultipartFile image, Integer price, String description,
         Integer stars, Boolean acepted, Set<Tag> tags) throws IOException {        
         this.location = location;
         this.name = name;
-        this.imageBase64 = convertToBase64(imageFile);
-        this.imageFile = imageFile;
+        this.imageBase64 = convertToBase64(image);
+        this.image = image;
         this.price = price;
         this.description = description;
         this.stars = stars;
@@ -159,6 +160,6 @@ public class HousingDTO {
     public Blob obtainImage(String image) {
         return convertBase64ToBlob(image);
     }
-
+    
     
 }

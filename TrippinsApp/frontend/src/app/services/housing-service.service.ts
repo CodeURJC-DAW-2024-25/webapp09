@@ -19,6 +19,19 @@ export class HousingServiceService {
     return this.http.get<any[]>(`${environment.baseUrlApi}/query?tags=${tags}&stars=${stars}`);
   }
 
-  
+  getSpecificRoom(code: number): Observable<HousingDTO>{
+    
+    return this.http.get<HousingDTO>(`${environment.baseUrlApi}/houses/${code}`)
+  }
+  createRoom(data: any):Observable<HousingDTO>{
 
+    return this.http.post<HousingDTO>(`${environment.baseUrlApi}/houses`, data)
+  }
+
+
+  uploadHousingImage(code: number, image: File){
+    const formData = new FormData();
+    formData.append('file', image);
+    return this.http.put<HousingDTO>(`${environment.baseUrlApi}/houses/${code}/image`, formData)
+  }
 }

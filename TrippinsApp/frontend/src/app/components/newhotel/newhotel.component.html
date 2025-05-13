@@ -76,7 +76,7 @@
                                 <!-- Image Field -->
                                 <div class="col-md-12">
                                     <div class="form-floating">
-                                        <input type="file" class="form-control" (change)="onFileChange($event)"
+                                        <input type="file" class="form-control" formControlName="image" (change)="onFileChange($event)"
                                             [ngClass]="{ 'is-invalid': houseForm.get('image')?.invalid && houseForm.get('image')?.touched }">
                                         <label>Imagen del Hotel</label>
                                         <div *ngIf="houseForm.get('image')?.invalid && houseForm.get('image')?.touched"
