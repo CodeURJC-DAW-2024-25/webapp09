@@ -23,7 +23,7 @@
     - git clone https://github.com/CodeURJC-DAW-2024-25/webapp09.git
     - cd webapp09/practica1/docker
     - docker-compose up
-    - https://10.100.139.215/
+    - https://10.100.139.215/new
  
       
 **Fase 3**
